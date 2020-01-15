@@ -55,6 +55,10 @@ html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
 
 
-source_suffix = '.rst'
+source_suffix = {
+    '.rst': 'restructuredtext',
+    '.txt': 'markdown',
+    '.md': 'markdown',
+}
 master_doc = 'index'
 pygments_style = 'sphinx'
