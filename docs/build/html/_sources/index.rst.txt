@@ -2,7 +2,7 @@ BE Python Tutorials Repository
 ============================================
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: Topics:
    
    General tutorials <01_General.rst>
