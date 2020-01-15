@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Tutorial 1" href="02_02_Tutorial2.html" />
+    <link rel="next" title="Tutorial 2" href="02_02_Tutorial2.html" />
     <link rel="prev" title="GIS Tutorials" href="02_GIS.html" /> 
 </head>
 
@@ -84,8 +84,21 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="01_General.html">General tutorials</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="02_GIS.html">GIS tutorials</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Tutorial 1</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Tutorial 1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#opening-up-the-python-console">1. Opening up the Python Console</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#loading-a-vector-layer">2. Loading a Vector Layer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#viewing-vector-layer-attributes">3. Viewing vector layer attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#filtering-features">4. Filtering features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#finding-and-using-processing-tools">5. Finding and Using Processing Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-a-processing-tool-buffer">6. Running a Processing tool: Buffer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-a-processing-tool-extract-by-attribute">7. Running a Processing tool: Extract by Attribute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#chaining-processing-tools">8. Chaining Processing Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#advanced-exercise">9. Advanced Exercise</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#advanced-exercise-final-code">Advanced Exercise: Final Code</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="02_02_Tutorial2.html">Tutorial 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_03_Tutorial3.html">Tutorial 3</a></li>
 </ul>
 </li>
 </ul>
@@ -156,7 +169,263 @@
             
   <div class="section" id="tutorial-1">
 <h1>Tutorial 1<a class="headerlink" href="#tutorial-1" title="Permalink to this headline">¶</a></h1>
-<p>This is GIS tutorial 1.</p>
+<div class="section" id="opening-up-the-python-console">
+<h2>1. Opening up the Python Console<a class="headerlink" href="#opening-up-the-python-console" title="Permalink to this headline">¶</a></h2>
+<p>This guide will demonstrate how you can use Python in QGIS to load, filter and manipulate spatial data. You will learn where to find the Python console and how to write scripts in the editor. Also, you will use the console to filter data layers for specific field values or using expressions. Further, you will find out how to access QGIS’s library of geoprocessing tools from the Python console and how to chain these tools using scripting.</p>
+<p>You can open up the Python Console from the top menu of QGIS (Plugins &gt; Python Console) or by pressing Ctrl + Alt + P.</p>
+<img alt="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/02_01/1.png?raw=true" src="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/02_01/1.png?raw=true" />
+<p>This console is a so called “interactive command line interface”, which means we can use it to access the toolbox of QGIS through lines of codes.</p>
+<p>When you type a line of code and press Enter, the code will be immediately executed.</p>
+<p>You can try this with a very simple and common example in programming tutorials: HELLO WORLD.
+Try the code below to print “hello world” in the console.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;Hello world!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You just called the print function, and provided “Hello world!” (a string of text) as a parameter, providing you with an output that should like like the image below.</p>
+<img alt="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/02_01/2.png?raw=true" src="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/02_01/2.png?raw=true" />
+<p>If you want to run a set of code lines (e.g. a small script), it may be easier to use the editor. To access the editor you can click the small notepad icon in the console window (highlighted in the picture below).</p>
+<p>When you create a script in the editor, you can conveniently save it for later use. You can run the coding in the editor window by pressing the small green play icon.</p>
+</div>
+<div class="section" id="loading-a-vector-layer">
+<h2>2. Loading a Vector Layer<a class="headerlink" href="#loading-a-vector-layer" title="Permalink to this headline">¶</a></h2>
+<p>Now that we know where to find the Python Console, we can start using it to load data into our project. That is, we will load a vector layer using the <code class="docutils literal notranslate"><span class="pre">iface.addVectorLayer</span></code> function.</p>
+<p>You will need four layers for this exercise:</p>
+<ul class="simple">
+<li><p>A point layer containing the location of the train station of Eindhoven.</p></li>
+<li><p>A polyline layer with all roads in Eindhoven.</p></li>
+<li><p>A polygon layer with containing buildings.</p></li>
+<li><p>A polygon layer with the outline of Eindhoven.</p></li>
+</ul>
+<p>Please locate the geopackage (.gpkg) files on your hard drive. You can view the location by right clicking the file as shown below.</p>
+<img alt="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/02_01/4.png?raw=true" src="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/02_01/4.png?raw=true" />
+<p>We can create variables to store the references to these locations. For example, if your roads.gpkg file is stored at “C:UsersusernameDesktopExampleRoads.gpkg”, we can use the following code to store this location to the variable “RoadsPath” (but you can choose any variable name!). Please note that since we are working in Python, you have to use forward slashes!</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">RoadsPath</span> <span class="o">=</span> <span class="s2">&quot;C:/Users/username/Desktop/Example/Roads.gpkg&quot;</span>
+</pre></div>
+</div>
+<p>Next we can do the same for the other files that we will be using.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">TrainstationPath</span> <span class="o">=</span> <span class="s2">&quot;C:/Users/username/Desktop/Example/Trainstation.gpkg&quot;</span>
+<span class="n">BuildingsPath</span> <span class="o">=</span> <span class="s2">&quot;C:/Users/username/Desktop/Example/Buildings.gpkg&quot;</span>
+<span class="n">EindhovenPath</span> <span class="o">=</span> <span class="s2">&quot;C:/Users/username/Desktop/Example/Eindhoven.gpkg&quot;</span>
+</pre></div>
+</div>
+<p>We can now use the <code class="docutils literal notranslate"><span class="pre">iface.addVectorLayer</span></code> function to add these layers to our project as follows.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">iface</span><span class="o">.</span><span class="n">addVectorLayer</span><span class="p">(</span><span class="n">RoadsPath</span><span class="p">,</span> <span class="s2">&quot;Roads&quot;</span><span class="p">,</span> <span class="s2">&quot;ogr&quot;</span><span class="p">)</span>
+<span class="n">iface</span><span class="o">.</span><span class="n">addVectorLayer</span><span class="p">(</span><span class="n">TrainstationPath</span><span class="p">,</span> <span class="s2">&quot;Trainstation&quot;</span><span class="p">,</span> <span class="s2">&quot;ogr&quot;</span><span class="p">)</span>
+<span class="n">iface</span><span class="o">.</span><span class="n">addVectorLayer</span><span class="p">(</span><span class="n">BuildingsPath</span><span class="p">,</span> <span class="s2">&quot;Buildings&quot;</span><span class="p">,</span> <span class="s2">&quot;ogr&quot;</span><span class="p">)</span>
+<span class="n">iface</span><span class="o">.</span><span class="n">addVectorLayer</span><span class="p">(</span><span class="n">EindhovenPath</span><span class="p">,</span> <span class="s2">&quot;Eindhoven&quot;</span><span class="p">,</span> <span class="s2">&quot;ogr&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You can find more details on how this function works and what parameters it takes from the documentation of QGIS (see <a class="reference external" href="https://qgis.org/pyqgis/master/gui/QgisInterface.html#qgis.gui.QgisInterface.addVectorLayer">here</a>
+) or in <a class="reference external" href="https://anitagraser.com/pyqgis-101-introduction-to-qgis-python-programming-for-non-programmers/pyqgis-101-loading-a-vector-layer/">this</a>
+tutorial.</p>
+</div>
+<div class="section" id="viewing-vector-layer-attributes">
+<h2>3. Viewing vector layer attributes<a class="headerlink" href="#viewing-vector-layer-attributes" title="Permalink to this headline">¶</a></h2>
+<p>We can use the iface.showAttributeTable() function to access the information that is stored for each feature in our layers. For example, we can find out what type a particular road is (e.g. a highway).</p>
+<p>To do so, we need to create a reference to the layer, as is done below.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">Roads</span> <span class="o">=</span> <span class="n">iface</span><span class="o">.</span><span class="n">addVectorLayer</span><span class="p">(</span><span class="n">RoadsPath</span><span class="p">,</span> <span class="s2">&quot;Roads&quot;</span><span class="p">,</span> <span class="s2">&quot;ogr&quot;</span><span class="p">)</span>
+<span class="n">Trainstation</span> <span class="o">=</span> <span class="n">iface</span><span class="o">.</span><span class="n">addVectorLayer</span><span class="p">(</span><span class="n">TrainstationPath</span><span class="p">,</span> <span class="s2">&quot;Trainstation&quot;</span><span class="p">,</span> <span class="s2">&quot;ogr&quot;</span><span class="p">)</span>
+<span class="n">Buildings</span> <span class="o">=</span> <span class="n">iface</span><span class="o">.</span><span class="n">addVectorLayer</span><span class="p">(</span><span class="n">BuildingsPath</span><span class="p">,</span> <span class="s2">&quot;Buildings&quot;</span><span class="p">,</span> <span class="s2">&quot;ogr&quot;</span><span class="p">)</span>
+<span class="n">Eindhoven</span> <span class="o">=</span> <span class="n">iface</span><span class="o">.</span><span class="n">addVectorLayer</span><span class="p">(</span><span class="n">EindhovenPath</span><span class="p">,</span> <span class="s2">&quot;Eindhoven&quot;</span><span class="p">,</span> <span class="s2">&quot;ogr&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>(As you may recognize, this piece of coding is very similar to when we were loading the layers.)</p>
+<p>We can now open the attribute table of the Roads layer using the <code class="docutils literal notranslate"><span class="pre">iface.showAttributeTable()</span></code> function using the following code. Note that we provide “Roads” (the name of the variable we created) as parameter to this function.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">iface</span><span class="o">.</span><span class="n">showAttributeTable</span><span class="p">(</span><span class="n">Roads</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>However, instead of opening the attribute table (which we could have easily done through the user interface), we can also access specific information. For example, the Buildings layer contains information on the total footprint of each building in the “area” field. We can use the <code class="docutils literal notranslate"><span class="pre">print()</span></code> and <code class="docutils literal notranslate"><span class="pre">field()</span></code> functions to print these surface areas to the console.</p>
+<p>However, we do need to write a small <strong>for loop</strong> for this. This means that we will “loop” through each feature (building) in our layer, look up the value in the “area” field and print this to the console.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">Buildings</span><span class="o">.</span><span class="n">getFeatures</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="s2">&quot;Area&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>The output in your console should look something like this.</p>
+<img alt="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/02_01/5.png?raw=true" src="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/02_01/5.png?raw=true" />
+</div>
+<div class="section" id="filtering-features">
+<h2>4. Filtering features<a class="headerlink" href="#filtering-features" title="Permalink to this headline">¶</a></h2>
+<p>We can use <code class="docutils literal notranslate"><span class="pre">.setSubsetString()</span></code> to filter the features in one of our layers. For example, we can use this function to find all road that are reported to be of the “primary” type in the dataset.</p>
+<p>To filter, we first need to define an expression to provide as a parameter to <code class="docutils literal notranslate"><span class="pre">.setSubsetString()</span></code> . In the case of identifying the primary roads, we simply use the expression: “RoadType IS ‘primary’”. If we want to print the IDs of all roads that satisfy this expression, we can use the following code.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">Roads</span><span class="o">.</span><span class="n">setSubsetString</span><span class="p">(</span><span class="s2">&quot;RoadType IS &#39;primary&#39;&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">Roads</span><span class="o">.</span><span class="n">getFeatures</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="s2">&quot;fid&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>You will see that only those roads that are reported as primary will now be visible on the map. Furthermore, you will find a list of ID numbers in your console window that correspond to the set of primary roads.</p>
+<img alt="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/02_01/6.png?raw=true" src="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/02_01/6.png?raw=true" />
+<p>You can also use the <code class="docutils literal notranslate"><span class="pre">.setSubsetString()</span></code> function to filter for more than just a particular field value. For example, we can use it to identify those buildings that have a specific minimum footprint area, say 900 square meters. To do so, we use the expression: “area &gt; 900”. If we again want to print the IDs of the features that satisfy this expression, we can use the following code.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">Buildings</span><span class="o">.</span><span class="n">setSubsetString</span><span class="p">(</span><span class="s2">&quot;area &gt; 900&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">Buildings</span><span class="o">.</span><span class="n">getFeatures</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="s2">&quot;fid&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>If done correctly, you will find that two buildings have a larger footprint (IDs 1 &amp; 3).</p>
+<p>Alternatively, you can use the “native:extractbyexpression” algorithm. How to find and use this algorithm is discussed in a later section. This approach is more suitable if you want to create a script that chains multiple processes in a sequence.</p>
+</div>
+<div class="section" id="finding-and-using-processing-tools">
+<h2>5. Finding and Using Processing Tools<a class="headerlink" href="#finding-and-using-processing-tools" title="Permalink to this headline">¶</a></h2>
+<p>We can use processing tools to analyse and manipulate our data, much like we would do if we were using the QGIS graphical interface. You can run a tool (or algorithm) using the following piece of code.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">name_of_the_algorithm</span><span class="p">,</span> <span class="n">parameters</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You can find a list of tools that you can use by executing the following piece of code.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">alg</span> <span class="ow">in</span> <span class="n">QgsApplication</span><span class="o">.</span><span class="n">processingRegistry</span><span class="p">()</span><span class="o">.</span><span class="n">algorithms</span><span class="p">():</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">alg</span><span class="o">.</span><span class="n">id</span><span class="p">(),</span> <span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="n">alg</span><span class="o">.</span><span class="n">displayName</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>In your output, you will see on the left the provider of the algorithm and after the ‘:’ its name. For example, “gdal:aspect” is provided by GDAL and concerns the Aspect algorithm.</p>
+<p>You can find out more information on each algorithm by using the processing.algorithmHelp() function. As parameter you should provide a reference to the algorithm you are interested from the list you generated earlier (e.g. “native:buffer”). If you do this, you will get a description of what the algorithm does, which input variables it takes and what output it provides. For example, you can check this information for the Clipping tool using the following code.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">processing</span><span class="o">.</span><span class="n">algorithmHelp</span><span class="p">(</span><span class="s2">&quot;native:clip&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You will be able to read the following from the output. “This algorithm clips a vector layer using the features of an additional polygon layer. Only the parts of the features in the Input layer that fall within the polygons of the Overlay layer will be added to the resulting layer.” Further, you will see that this algorithm takes three parameters: INPUT, OVERLAY and OUTPUT.</p>
+<p>In the next sections we will discuss two examples of algorithms and how to execute them from the Python console.</p>
+</div>
+<div class="section" id="running-a-processing-tool-buffer">
+<h2>6. Running a Processing tool: Buffer<a class="headerlink" href="#running-a-processing-tool-buffer" title="Permalink to this headline">¶</a></h2>
+<p>You may be familiar with using geoprocessing tools in the graphical interface of QGIS. If not, you could have a look at <a class="reference external" href="https://docs.qgis.org/3.4/en/docs/user_manual/processing/vector_menu.html">this</a> webpage for a brief overview of which tools QGIS has to offer.</p>
+<p>In this exercise, we will use the <strong>Buffer</strong> tool as an example. We can use the <code class="docutils literal notranslate"><span class="pre">processing.run()</span></code> function to use this tool. It creates an area (polygon) around a feature so that the outline is at a fixed distance. If the feature is a point, this will mean that a circle will be created around the point with a specified radius.</p>
+<p>We will use the <strong>Buffer</strong> tool to identify the area within which the train station of Eindhoven is always at a maximum of one kilometer. That is, we will create a buffer around the point that represents the station and the buffer will have a fixed distance of 1000 meters.</p>
+<p>As you may know from creating buffers in QGIS, you are able to specify a variety of things when using this tool. That is, in addition to the distance of the buffer, we can specify things like the amount of segments it will consists of or whether the result will be dissolved into a single feature. (If you do not know exactly what this means, do not worry, it is not important to this exercise!)</p>
+<p>When we use the buffer tool in our console, we have to provide two parameters. The first one specifies which processing tool we want to use (the buffer tool). The second parameter actually takes a dictionary as input.</p>
+<p>As described <a class="reference external" href="https://anitagraser.com/pyqgis-101-introduction-to-qgis-python-programming-for-non-programmers/pyqgis-101-running-processing-tools/">here</a>
+: “The dictionary has multiple items and each item consists of a key (e.g. ‘INPUT’) and a value (e.g. the uri variable). Therefore, items are often referred to as key-value pairs.”</p>
+<p>Basically, the dictionary contains all setting that we would want to specify for the execution of the tool. We will not go into detail about every setting, but only focus on the “INPUT” and “DISTANCE” keys. The value of the “INPUT” key should be the layer that the buffers should be based on. In our case, this concerns the Trainstation layer. Recall that we stored this layer in the variable “Trainstation”. Further, the “DISTANCE” key should have be paired to the value representing the fixed distance, 1000 meters.</p>
+<p>The dictionary that we can use to specify these settings could look like this.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;INPUT&#39;</span><span class="p">:</span><span class="n">Trainstation</span><span class="p">,</span>
+ <span class="s1">&#39;DISTANCE&#39;</span><span class="p">:</span><span class="mi">1000</span><span class="p">,</span>
+ <span class="s1">&#39;SEGMENTS&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span>
+ <span class="s1">&#39;END_CAP_STYLE&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+ <span class="s1">&#39;JOIN_STYLE&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+ <span class="s1">&#39;MITER_LIMIT&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+ <span class="s1">&#39;DISSOLVE&#39;</span><span class="p">:</span><span class="bp">False</span><span class="p">,</span>
+ <span class="s1">&#39;OUTPUT&#39;</span><span class="p">:</span><span class="s1">&#39;memory:&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>If we then provide this as a parameter to the <code class="docutils literal notranslate"><span class="pre">processing.run()</span></code> function, the code becomes as follows.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">Buffer</span> <span class="o">=</span> <span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;native:buffer&quot;</span><span class="p">,</span>
+        <span class="p">{</span><span class="s1">&#39;INPUT&#39;</span><span class="p">:</span><span class="n">Trainstation</span><span class="p">,</span><span class="s1">&#39;DISTANCE&#39;</span><span class="p">:</span><span class="mi">1000</span><span class="p">,</span><span class="s1">&#39;SEGMENTS&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="s1">&#39;END_CAP_STYLE&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;JOIN_STYLE&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;MITER_LIMIT&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+        <span class="s1">&#39;DISSOLVE&#39;</span><span class="p">:</span><span class="bp">False</span><span class="p">,</span><span class="s1">&#39;OUTPUT&#39;</span><span class="p">:</span><span class="s1">&#39;memory:&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>As you may notice, this piece of coding does not provide you with any output that is visible on the map. The reason for this is that the created buffer layer has not been loaded into our project. However, if we use <code class="docutils literal notranslate"><span class="pre">processing.runAndLoadResults()</span></code> instead, you should see the buffer layer appear on the canvas.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">Buffer</span> <span class="o">=</span> <span class="n">processing</span><span class="o">.</span><span class="n">runAndLoadResults</span><span class="p">(</span><span class="s2">&quot;native:buffer&quot;</span><span class="p">,</span>
+    <span class="p">{</span><span class="s1">&#39;INPUT&#39;</span><span class="p">:</span><span class="n">Trainstation</span><span class="p">,</span><span class="s1">&#39;DISTANCE&#39;</span><span class="p">:</span><span class="mi">1000</span><span class="p">,</span><span class="s1">&#39;SEGMENTS&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="s1">&#39;END_CAP_STYLE&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;JOIN_STYLE&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;MITER_LIMIT&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+    <span class="s1">&#39;DISSOLVE&#39;</span><span class="p">:</span><span class="bp">False</span><span class="p">,</span><span class="s1">&#39;OUTPUT&#39;</span><span class="p">:</span><span class="s1">&#39;memory:&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+<img alt="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/02_01/7.png?raw=true" src="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/02_01/7.png?raw=true" />
+<p>Because we defined the variable “Buffer” to contain the output of the buffer algorithm, we can now refer to the outputted layer using this variable. This will be used in a later section when we will discuss how different processes can be chained.</p>
+</div>
+<div class="section" id="running-a-processing-tool-extract-by-attribute">
+<h2>7. Running a Processing tool: Extract by Attribute<a class="headerlink" href="#running-a-processing-tool-extract-by-attribute" title="Permalink to this headline">¶</a></h2>
+<p>As mentioned before, when you are chaining different processing tools, it is recommended to use the “Extract by Expression” algorithm for filtering your data.</p>
+<p>Before, we filtered the Buildings layer to find out which buildings were larger than 900 square meters. We can use the “Extract by Expression” algorithm for the same purpose as shown below.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">FilterBuildings</span> <span class="o">=</span> <span class="n">processing</span><span class="o">.</span><span class="n">runAndLoadResults</span><span class="p">(</span><span class="s2">&quot;native:extractbyexpression&quot;</span><span class="p">,</span>
+    <span class="p">{</span><span class="s1">&#39;INPUT&#39;</span><span class="p">:</span><span class="n">Buildings</span><span class="p">,</span> <span class="s1">&#39;EXPRESSION&#39;</span><span class="p">:</span><span class="s1">&#39;area&gt;900&#39;</span><span class="p">,</span> <span class="s1">&#39;OUTPUT&#39;</span><span class="p">:</span><span class="s1">&#39;memory:&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>The output will concern a layer containing only those buildings that satisfy the minimum size.</p>
+</div>
+<div class="section" id="chaining-processing-tools">
+<h2>8. Chaining Processing Tools<a class="headerlink" href="#chaining-processing-tools" title="Permalink to this headline">¶</a></h2>
+<p>We can chain processing tools so that the output of one becomes the input for the next. To do so, we need to reference the output of the first algorithm in a parameter of the second. You can reference the output of the earlier discussed buffer algorithm as follows.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">Buffer</span> <span class="o">=</span> <span class="n">processing</span><span class="o">.</span><span class="n">runAndLoadResults</span><span class="p">(</span><span class="s2">&quot;native:buffer&quot;</span><span class="p">,</span>
+    <span class="p">{</span><span class="s1">&#39;INPUT&#39;</span><span class="p">:</span><span class="n">Trainstation</span><span class="p">,</span><span class="s1">&#39;DISTANCE&#39;</span><span class="p">:</span><span class="mi">1500</span><span class="p">,</span><span class="s1">&#39;SEGMENTS&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="s1">&#39;END_CAP_STYLE&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;JOIN_STYLE&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;MITER_LIMIT&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+    <span class="s1">&#39;DISSOLVE&#39;</span><span class="p">:</span><span class="bp">False</span><span class="p">,</span><span class="s1">&#39;OUTPUT&#39;</span><span class="p">:</span><span class="s1">&#39;memory:&#39;</span><span class="p">})</span>
+
+<span class="n">BufferLayer</span> <span class="o">=</span> <span class="n">Buffer</span><span class="p">[</span><span class="s1">&#39;OUTPUT&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>We can then use the variable “BufferLayer” as a reference to the output layer of the buffer algorithm in a subsequent function.</p>
+<p>Please check out the coding answer for the advanced exercise to see how this can be implemented in practise.</p>
+</div>
+<div class="section" id="advanced-exercise">
+<h2>9. Advanced Exercise<a class="headerlink" href="#advanced-exercise" title="Permalink to this headline">¶</a></h2>
+<p>Now that you have had some practice with the Python console commands, you can try the exercise below which combines the functions that we have dealt with so far. The correct results for each step are provided and the used code is listed in the next section.</p>
+<p>Please use a WGS 84 / Pseudo-Mercator projection (EPSG: 3857). You can set this at the bottom right of your QGIS window. For more information see <a class="reference external" href="https://docs.qgis.org/3.4/en/docs/user_manual/working_with_projections/working_with_projections.html">here</a> and <a class="reference external" href="https://docs.qgis.org/3.4/en/docs/gentle_gis_introduction/coordinate_reference_systems.html">here</a>
+.</p>
+<p><strong>Goal of exercise:</strong> Identify which building lies within 1.5 kilometers of the train station and has a footprint of least 1000 square meters.</p>
+<p><strong>1. First create a buffer around the transit station at a distance of 1.5 kilometers.</strong></p>
+<p>Hint: Use the <code class="docutils literal notranslate"><span class="pre">processing.run()</span></code> function.</p>
+<p>The resulting buffer should look like the one shown below.</p>
+<img alt="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/02_01/8.png?raw=true" src="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/02_01/8.png?raw=true" />
+<p><strong>2. Clip the Buildings layer using the created buffer.</strong></p>
+<p>Hint: You will need the “native:clip” algorithm. You can find out more about this tool using the <code class="docutils literal notranslate"><span class="pre">processing.algorithmHelp()</span></code> function. Just like we did with the buffer tool, we can execute this algorithm by using the <code class="docutils literal notranslate"><span class="pre">processing.runAndLoadResults()</span></code> function and providing it with its required parameters. Note that if you defined a variable in the previous step to contain the resulting buffer layer, you can use this variable to reference that layer.</p>
+<p>The remaining buildings are shown here in blue. Those are the two buildings that are within 1.5 kilometers of the train station.</p>
+<img alt="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/02_01/9.png?raw=true" src="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/02_01/9.png?raw=true" />
+<p><strong>3. Filter the remaining buildings for their footprint size to be at least 1000 square meters.</strong></p>
+<p>Hint: Use the Extract by Attribute algorithm to find the building that satisfies the minimum size demand.</p>
+<p>The remaining buildings looks like this. If you open the attribute table, you will be able to find the ID number of this building to be “3”.</p>
+<img alt="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/02_01/10.png?raw=true" src="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/02_01/10.png?raw=true" />
+</div>
+<div class="section" id="advanced-exercise-final-code">
+<h2>Advanced Exercise: Final Code<a class="headerlink" href="#advanced-exercise-final-code" title="Permalink to this headline">¶</a></h2>
+<p><strong>1. First create a buffer around the transit station at a distance of 1.5 kilometers.</strong></p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">TrainstationPath</span> <span class="o">=</span> <span class="s2">&quot;C:/Users/username/Desktop/Example/Trainstation.gpkg&quot;</span>
+<span class="n">BuildingsPath</span> <span class="o">=</span> <span class="s2">&quot;C:/Users/username/Desktop/Example/Buildings.gpkg&quot;</span>
+<span class="n">EindhovenPath</span> <span class="o">=</span> <span class="s2">&quot;C:/Users/username/Desktop/Example/Eindhoven.gpkg&quot;</span>
+<span class="n">RoadsPath</span> <span class="o">=</span> <span class="s2">&quot;C:/Users/username/Desktop/Example/Roads.gpkg&quot;</span>
+
+<span class="n">Trainstation</span> <span class="o">=</span> <span class="n">iface</span><span class="o">.</span><span class="n">addVectorLayer</span><span class="p">(</span><span class="n">TrainstationPath</span><span class="p">,</span> <span class="s2">&quot;Trainstation&quot;</span><span class="p">,</span> <span class="s2">&quot;ogr&quot;</span><span class="p">)</span>
+<span class="n">Buildings</span> <span class="o">=</span> <span class="n">iface</span><span class="o">.</span><span class="n">addVectorLayer</span><span class="p">(</span><span class="n">BuildingsPath</span><span class="p">,</span> <span class="s2">&quot;Buildings&quot;</span><span class="p">,</span> <span class="s2">&quot;ogr&quot;</span><span class="p">)</span>
+<span class="n">Eindhoven</span> <span class="o">=</span> <span class="n">iface</span><span class="o">.</span><span class="n">addVectorLayer</span><span class="p">(</span><span class="n">EindhovenPath</span><span class="p">,</span> <span class="s2">&quot;Eindhoven&quot;</span><span class="p">,</span> <span class="s2">&quot;ogr&quot;</span><span class="p">)</span>
+<span class="n">Roads</span> <span class="o">=</span> <span class="n">iface</span><span class="o">.</span><span class="n">addVectorLayer</span><span class="p">(</span><span class="n">RoadsPath</span><span class="p">,</span> <span class="s2">&quot;Roads&quot;</span><span class="p">,</span> <span class="s2">&quot;ogr&quot;</span><span class="p">)</span>
+
+<span class="n">BufferStation</span> <span class="o">=</span> <span class="n">processing</span><span class="o">.</span><span class="n">runAndLoadResults</span><span class="p">(</span><span class="s2">&quot;native:buffer&quot;</span><span class="p">,</span>
+    <span class="p">{</span><span class="s1">&#39;INPUT&#39;</span><span class="p">:</span><span class="n">Trainstation</span><span class="p">,</span><span class="s1">&#39;DISTANCE&#39;</span><span class="p">:</span><span class="mi">1500</span><span class="p">,</span><span class="s1">&#39;SEGMENTS&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="s1">&#39;END_CAP_STYLE&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;JOIN_STYLE&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;MITER_LIMIT&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+    <span class="s1">&#39;DISSOLVE&#39;</span><span class="p">:</span><span class="bp">False</span><span class="p">,</span><span class="s1">&#39;OUTPUT&#39;</span><span class="p">:</span><span class="s1">&#39;memory:&#39;</span><span class="p">})</span>
+<span class="n">BufferLayer</span> <span class="o">=</span> <span class="n">BufferStation</span><span class="p">[</span><span class="s1">&#39;OUTPUT&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><strong>2. Clip the Buildings layer using the created buffer.</strong></p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">TrainstationPath</span> <span class="o">=</span> <span class="s2">&quot;C:/Users/username/Desktop/Example/Trainstation.gpkg&quot;</span>
+<span class="n">BuildingsPath</span> <span class="o">=</span> <span class="s2">&quot;C:/Users/username/Desktop/Example/Buildings.gpkg&quot;</span>
+<span class="n">EindhovenPath</span> <span class="o">=</span> <span class="s2">&quot;C:/Users/username/Desktop/Example/Eindhoven.gpkg&quot;</span>
+<span class="n">RoadsPath</span> <span class="o">=</span> <span class="s2">&quot;C:/Users/username/Desktop/Example/Roads.gpkg&quot;</span>
+
+<span class="n">Trainstation</span> <span class="o">=</span> <span class="n">iface</span><span class="o">.</span><span class="n">addVectorLayer</span><span class="p">(</span><span class="n">TrainstationPath</span><span class="p">,</span> <span class="s2">&quot;Trainstation&quot;</span><span class="p">,</span> <span class="s2">&quot;ogr&quot;</span><span class="p">)</span>
+<span class="n">Buildings</span> <span class="o">=</span> <span class="n">iface</span><span class="o">.</span><span class="n">addVectorLayer</span><span class="p">(</span><span class="n">BuildingsPath</span><span class="p">,</span> <span class="s2">&quot;Buildings&quot;</span><span class="p">,</span> <span class="s2">&quot;ogr&quot;</span><span class="p">)</span>
+<span class="n">Eindhoven</span> <span class="o">=</span> <span class="n">iface</span><span class="o">.</span><span class="n">addVectorLayer</span><span class="p">(</span><span class="n">EindhovenPath</span><span class="p">,</span> <span class="s2">&quot;Eindhoven&quot;</span><span class="p">,</span> <span class="s2">&quot;ogr&quot;</span><span class="p">)</span>
+<span class="n">Roads</span> <span class="o">=</span> <span class="n">iface</span><span class="o">.</span><span class="n">addVectorLayer</span><span class="p">(</span><span class="n">RoadsPath</span><span class="p">,</span> <span class="s2">&quot;Roads&quot;</span><span class="p">,</span> <span class="s2">&quot;ogr&quot;</span><span class="p">)</span>
+
+<span class="n">BufferStation</span> <span class="o">=</span> <span class="n">processing</span><span class="o">.</span><span class="n">runAndLoadResults</span><span class="p">(</span><span class="s2">&quot;native:buffer&quot;</span><span class="p">,</span>
+    <span class="p">{</span><span class="s1">&#39;INPUT&#39;</span><span class="p">:</span><span class="n">Trainstation</span><span class="p">,</span><span class="s1">&#39;DISTANCE&#39;</span><span class="p">:</span><span class="mi">1500</span><span class="p">,</span><span class="s1">&#39;SEGMENTS&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="s1">&#39;END_CAP_STYLE&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;JOIN_STYLE&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;MITER_LIMIT&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+    <span class="s1">&#39;DISSOLVE&#39;</span><span class="p">:</span><span class="bp">False</span><span class="p">,</span><span class="s1">&#39;OUTPUT&#39;</span><span class="p">:</span><span class="s1">&#39;memory:&#39;</span><span class="p">})</span>
+<span class="n">BufferLayer</span> <span class="o">=</span> <span class="n">BufferStation</span><span class="p">[</span><span class="s1">&#39;OUTPUT&#39;</span><span class="p">]</span>
+
+<span class="n">ClipBuildings</span> <span class="o">=</span> <span class="n">processing</span><span class="o">.</span><span class="n">runAndLoadResults</span><span class="p">(</span><span class="s2">&quot;native:clip&quot;</span><span class="p">,</span>
+    <span class="p">{</span><span class="s1">&#39;INPUT&#39;</span><span class="p">:</span><span class="n">Buildings</span><span class="p">,</span><span class="s1">&#39;OVERLAY&#39;</span><span class="p">:</span><span class="n">BufferLayer</span><span class="p">,</span><span class="s1">&#39;OUTPUT&#39;</span><span class="p">:</span><span class="s1">&#39;memory:&#39;</span><span class="p">})</span>
+<span class="n">ClippedLayer</span> <span class="o">=</span> <span class="n">ClipBuildings</span><span class="p">[</span><span class="s1">&#39;OUTPUT&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><strong>3. Filter the remaining buildings for their footprint size to be at least 1000 square meters.</strong></p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">TrainstationPath</span> <span class="o">=</span> <span class="s2">&quot;C:/Users/username/Desktop/Example/Trainstation.gpkg&quot;</span>
+<span class="n">BuildingsPath</span> <span class="o">=</span> <span class="s2">&quot;C:/Users/username/Desktop/Example/Buildings.gpkg&quot;</span>
+<span class="n">EindhovenPath</span> <span class="o">=</span> <span class="s2">&quot;C:/Users/username/Desktop/Example/Eindhoven.gpkg&quot;</span>
+<span class="n">RoadsPath</span> <span class="o">=</span> <span class="s2">&quot;C:/Users/username/Desktop/Example/Roads.gpkg&quot;</span>
+
+<span class="n">Trainstation</span> <span class="o">=</span> <span class="n">iface</span><span class="o">.</span><span class="n">addVectorLayer</span><span class="p">(</span><span class="n">TrainstationPath</span><span class="p">,</span> <span class="s2">&quot;Trainstation&quot;</span><span class="p">,</span> <span class="s2">&quot;ogr&quot;</span><span class="p">)</span>
+<span class="n">Buildings</span> <span class="o">=</span> <span class="n">iface</span><span class="o">.</span><span class="n">addVectorLayer</span><span class="p">(</span><span class="n">BuildingsPath</span><span class="p">,</span> <span class="s2">&quot;Buildings&quot;</span><span class="p">,</span> <span class="s2">&quot;ogr&quot;</span><span class="p">)</span>
+<span class="n">Eindhoven</span> <span class="o">=</span> <span class="n">iface</span><span class="o">.</span><span class="n">addVectorLayer</span><span class="p">(</span><span class="n">EindhovenPath</span><span class="p">,</span> <span class="s2">&quot;Eindhoven&quot;</span><span class="p">,</span> <span class="s2">&quot;ogr&quot;</span><span class="p">)</span>
+<span class="n">Roads</span> <span class="o">=</span> <span class="n">iface</span><span class="o">.</span><span class="n">addVectorLayer</span><span class="p">(</span><span class="n">RoadsPath</span><span class="p">,</span> <span class="s2">&quot;Roads&quot;</span><span class="p">,</span> <span class="s2">&quot;ogr&quot;</span><span class="p">)</span>
+
+<span class="n">BufferStation</span> <span class="o">=</span> <span class="n">processing</span><span class="o">.</span><span class="n">runAndLoadResults</span><span class="p">(</span><span class="s2">&quot;native:buffer&quot;</span><span class="p">,</span>
+    <span class="p">{</span><span class="s1">&#39;INPUT&#39;</span><span class="p">:</span><span class="n">Trainstation</span><span class="p">,</span><span class="s1">&#39;DISTANCE&#39;</span><span class="p">:</span><span class="mi">1500</span><span class="p">,</span><span class="s1">&#39;SEGMENTS&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="s1">&#39;END_CAP_STYLE&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;JOIN_STYLE&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;MITER_LIMIT&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+    <span class="s1">&#39;DISSOLVE&#39;</span><span class="p">:</span><span class="bp">False</span><span class="p">,</span><span class="s1">&#39;OUTPUT&#39;</span><span class="p">:</span><span class="s1">&#39;memory:&#39;</span><span class="p">})</span>
+<span class="n">BufferLayer</span> <span class="o">=</span> <span class="n">BufferStation</span><span class="p">[</span><span class="s1">&#39;OUTPUT&#39;</span><span class="p">]</span>
+
+<span class="n">ClipBuildings</span> <span class="o">=</span> <span class="n">processing</span><span class="o">.</span><span class="n">runAndLoadResults</span><span class="p">(</span><span class="s2">&quot;native:clip&quot;</span><span class="p">,</span>
+    <span class="p">{</span><span class="s1">&#39;INPUT&#39;</span><span class="p">:</span><span class="n">Buildings</span><span class="p">,</span><span class="s1">&#39;OVERLAY&#39;</span><span class="p">:</span><span class="n">BufferLayer</span><span class="p">,</span><span class="s1">&#39;OUTPUT&#39;</span><span class="p">:</span><span class="s1">&#39;memory:&#39;</span><span class="p">})</span>
+<span class="n">ClippedLayer</span> <span class="o">=</span> <span class="n">ClipBuildings</span><span class="p">[</span><span class="s1">&#39;OUTPUT&#39;</span><span class="p">]</span>
+
+<span class="n">FilterBuildings</span> <span class="o">=</span> <span class="n">processing</span><span class="o">.</span><span class="n">runAndLoadResults</span><span class="p">(</span><span class="s2">&quot;native:extractbyexpression&quot;</span><span class="p">,</span>
+    <span class="p">{</span><span class="s1">&#39;INPUT&#39;</span><span class="p">:</span><span class="n">ClippedLayer</span><span class="p">,</span> <span class="s1">&#39;EXPRESSION&#39;</span><span class="p">:</span><span class="s1">&#39;area&gt;1000&#39;</span><span class="p">,</span> <span class="s1">&#39;OUTPUT&#39;</span><span class="p">:</span><span class="s1">&#39;memory:&#39;</span><span class="p">})</span>
+<span class="n">Filtered</span> <span class="o">=</span> <span class="n">FilterBuildings</span><span class="p">[</span><span class="s1">&#39;OUTPUT&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -167,7 +436,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="02_02_Tutorial2.html" class="btn btn-neutral float-right" title="Tutorial 1" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="02_02_Tutorial2.html" class="btn btn-neutral float-right" title="Tutorial 2" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="02_GIS.html" class="btn btn-neutral float-left" title="GIS Tutorials" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
