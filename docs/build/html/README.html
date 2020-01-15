@@ -1,0 +1,283 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Markdown Test: Tutorial Title &mdash; Python Tutorials  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Tutorial 3" href="02_03_Tutorial3.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Python Tutorials
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Topics:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01_General.html">General tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_GIS.html">GIS tutorials</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Test</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#opening-up-the-python-console">Opening up the Python Console</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#loading-a-vector-layer">Loading a Vector Layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#viewing-vector-layer-attributes">Viewing vector layer attributes</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python Tutorials</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Markdown Test: Tutorial Title</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/README.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="markdown-test-tutorial-title">
+<h1>Markdown Test: Tutorial Title<a class="headerlink" href="#markdown-test-tutorial-title" title="Permalink to this headline">¶</a></h1>
+<p>This guide will demonstrate how you can use Python in QGIS to load, filter and manipulate spatial data. You will learn where to find the Python console and how to write scripts in the editor. Also, you will use the console to filter data layers for specific field values or using expressions. Further, you will find out how to access QGIS’s library of geoprocessing tools from the Python console and how to chain these tools using scripting.</p>
+<div class="section" id="opening-up-the-python-console">
+<h2>Opening up the Python Console<a class="headerlink" href="#opening-up-the-python-console" title="Permalink to this headline">¶</a></h2>
+<p>You can open up the Python Console from the top menu of QGIS (Plugins &gt; Python Console) or by pressing <code>Ctrl + Alt + P</code></strong>.</p>
+<p><img alt="Screenshot_2" src="uploads/cc96d1f2e4c89e498b692c33a2cbaa21/Screenshot_2.png" /></p>
+<p>This console is a so called “interactive command line interface”, which means we can use it to access the toolbox of QGIS through lines of codes.</p>
+<p>When you type a line of code and press <code>Enter</code></strong>, the code will be immediately executed.</p>
+<p>You can try this with a very simple and common example in programming tutorials.
+Try the code below to print “hello world” in the console.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello world!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You just called the print <strong>function</strong>, and provided “Hello world!” (a string of text) as a <strong>parameter</strong>, which should result in an output similar to that in the image below.</p>
+<p><img alt="Screenshot_3" src="uploads/ed478c683efa63c4a303df7ecc9ed9a7/Screenshot_3.png" /></p>
+<p>If you want to run a set of code lines (e.g. a small script), it may be easier to use the editor. To access the editor you can click the small notepad icon in the console window (highlighted in the picture below).</p>
+<p><img alt="Screenshot_5" src="uploads/8684fe6aa0a91b797580c9171338f63d/Screenshot_5.png" /></p>
+<p>When you create a script in the editor, you can conveniently save it for later use.
+You can run the coding in the editor window by pressing the small green play icon.</p>
+</div>
+<div class="section" id="loading-a-vector-layer">
+<h2>Loading a Vector Layer<a class="headerlink" href="#loading-a-vector-layer" title="Permalink to this headline">¶</a></h2>
+<p>Now that we know where to find the Python Console, we can start using it to load data into our project. That is, we will load a vector layer using the <strong>iface.addVectorLayer</strong> function.</p>
+<p>You will need four layers for this exercise:</p>
+<ul class="simple">
+<li><p>A point layer containing the location of the train station of Eindhoven.</p></li>
+<li><p>A polyline layer with all roads in Eindhoven.</p></li>
+<li><p>A polygon layer with containing buildings.</p></li>
+<li><p>A polygon layer with the outline of Eindhoven.</p></li>
+</ul>
+<p>Please locate the geopackage (.gpkg) files on your hard drive. You can view the location by right clicking the file as shown below.</p>
+<p><img alt="Screenshot_4" src="uploads/261e14995d44bb1a588dc15226fe95d5/Screenshot_4.png" /></p>
+<p>We can create variables to store the references to these locations. For example, if your roads.gpkg file is stored at “C:\Users\username\Desktop\Example\Roads.gpkg”, we can use the following code to store this location to the <strong>variable</strong> “RoadsPath” (but you can choose any variable name!). Please note that since we are working in Python, you <span style="text-decoration:underline;">have to use forward slashes!</span></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">RoadsPath</span> <span class="o">=</span> <span class="s2">&quot;C:/Users/username/Desktop/Example/Roads.gpkg&quot;</span>
+</pre></div>
+</div>
+<p>Next we can do the same for the other files that we will be using.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TrainstationPath</span> <span class="o">=</span> <span class="s2">&quot;C:/Users/username/Desktop/Example/Trainstation.gpkg&quot;</span>
+<span class="n">BuildingsPath</span> <span class="o">=</span> <span class="s2">&quot;C:/Users/username/Desktop/Example/Buildings.gpkg&quot;</span>
+<span class="n">EindhovenPath</span> <span class="o">=</span> <span class="s2">&quot;C:/Users/username/Desktop/Example/Eindhoven.gpkg&quot;</span>
+</pre></div>
+</div>
+<p>We can now use the <strong>iface.addVectorLayer</strong> function to add these layers to our project as follows.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">iface</span><span class="o">.</span><span class="n">addVectorLayer</span><span class="p">(</span><span class="n">RoadsPath</span><span class="p">,</span> <span class="s2">&quot;Roads&quot;</span><span class="p">,</span> <span class="s2">&quot;ogr&quot;</span><span class="p">)</span>
+<span class="n">iface</span><span class="o">.</span><span class="n">addVectorLayer</span><span class="p">(</span><span class="n">TrainstationPath</span><span class="p">,</span> <span class="s2">&quot;Trainstation&quot;</span><span class="p">,</span> <span class="s2">&quot;ogr&quot;</span><span class="p">)</span>
+<span class="n">iface</span><span class="o">.</span><span class="n">addVectorLayer</span><span class="p">(</span><span class="n">BuildingsPath</span><span class="p">,</span> <span class="s2">&quot;Buildings&quot;</span><span class="p">,</span> <span class="s2">&quot;ogr&quot;</span><span class="p">)</span>
+<span class="n">iface</span><span class="o">.</span><span class="n">addVectorLayer</span><span class="p">(</span><span class="n">EindhovenPath</span><span class="p">,</span> <span class="s2">&quot;Eindhoven&quot;</span><span class="p">,</span> <span class="s2">&quot;ogr&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>After this, the four layers should be included in your QGIS project.
+That is, you should be able to see them in the map canvas.</p>
+<p>You can find more details on how this function works and what parameters it takes from the documentation of QGIS (see <a class="reference external" href="https://qgis.org/pyqgis/master/gui/QgisInterface.html#qgis.gui.QgisInterface.addVectorLayer">here</a>) or in <a class="reference external" href="https://anitagraser.com/pyqgis-101-introduction-to-qgis-python-programming-for-non-programmers/pyqgis-101-loading-a-vector-layer/">this</a> tutorial.</p>
+</div>
+<div class="section" id="viewing-vector-layer-attributes">
+<h2>Viewing vector layer attributes<a class="headerlink" href="#viewing-vector-layer-attributes" title="Permalink to this headline">¶</a></h2>
+<p>We can use the <strong>iface.showAttributeTable()</strong> function to access the information that is stored for each feature in our layers. For example, we can find out what type a particular road is (e.g. a highway).</p>
+<p>To do so, we need to create variables which store a reference to each layer, as is done below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Roads</span> <span class="o">=</span> <span class="n">iface</span><span class="o">.</span><span class="n">addVectorLayer</span><span class="p">(</span><span class="n">RoadsPath</span><span class="p">,</span> <span class="s2">&quot;Roads&quot;</span><span class="p">,</span> <span class="s2">&quot;ogr&quot;</span><span class="p">)</span>
+<span class="n">Trainstation</span> <span class="o">=</span> <span class="n">iface</span><span class="o">.</span><span class="n">addVectorLayer</span><span class="p">(</span><span class="n">TrainstationPath</span><span class="p">,</span> <span class="s2">&quot;Trainstation&quot;</span><span class="p">,</span> <span class="s2">&quot;ogr&quot;</span><span class="p">)</span>
+<span class="n">Buildings</span> <span class="o">=</span> <span class="n">iface</span><span class="o">.</span><span class="n">addVectorLayer</span><span class="p">(</span><span class="n">BuildingsPath</span><span class="p">,</span> <span class="s2">&quot;Buildings&quot;</span><span class="p">,</span> <span class="s2">&quot;ogr&quot;</span><span class="p">)</span>
+<span class="n">Eindhoven</span> <span class="o">=</span> <span class="n">iface</span><span class="o">.</span><span class="n">addVectorLayer</span><span class="p">(</span><span class="n">EindhovenPath</span><span class="p">,</span> <span class="s2">&quot;Eindhoven&quot;</span><span class="p">,</span> <span class="s2">&quot;ogr&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>(As you may recognize, this piece of coding is very similar to when we were loading the layers.)</p>
+<p>We can now open the attribute table of the Roads layer using the <strong>iface.showAttributeTable()</strong> function using the following code. Note that we provide “Roads” (the name of the variable we created) as <strong>parameter</strong> to this function.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">iface</span><span class="o">.</span><span class="n">showAttributeTable</span><span class="p">(</span><span class="n">Roads</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>However, instead of opening the attribute table (which we could have easily done through the user interface), we can also access specific information. For example, the Buildings layer contains information on the total footprint of each building in the “area” field. We can use the <strong>print()</strong> and <strong>field()</strong> functions to print these surface areas to the console.</p>
+<p>However, we do need to write a small <strong>for loop</strong> for this. This means that we will “loop” through each feature (building) in our layer, look up the value in the “area” field and print this to the console.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">Buildings</span><span class="o">.</span><span class="n">getFeatures</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="s2">&quot;Area&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>The output in your console should look something like this.</p>
+<p><img alt="Screenshot_6" src="uploads/dcaba15a71e66c782562f7929ea5b9e8/Screenshot_6.png" /></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="02_03_Tutorial3.html" class="btn btn-neutral float-left" title="Tutorial 3" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Marjolein Hordijk
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
