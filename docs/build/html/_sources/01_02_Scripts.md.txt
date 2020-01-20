@@ -51,7 +51,7 @@ myFunction("Marjolein")
 
 Output: My name is Marjolein.
 
-![ownprintfunction](https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/2.png?raw=true)
+![](https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/2.png?raw=true)
 
 #### A Function with Mutiple Arguments
 
@@ -77,7 +77,7 @@ myFunction("Marjolein", 25)
 
 Output: My name is Marjolein and I am 25 years old.
 
-![ownfunctiontwoarguments](https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/3.png?raw=true)
+![](https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/3.png?raw=true)
 
 #### Asking for Input
 
@@ -96,7 +96,7 @@ print("Welcome to the course, " + name)
 
 - You should see the sentence appear with your name filled in.
 
-![ownfunctioninput](https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/4.png?raw=true)
+![](https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/4.png?raw=true)
 
 ### Functions from Packages / Modules
 
