@@ -1,6 +1,6 @@
 # Scripting
 
-## What is a Script?
+## 1. What is a Script?
 
 If you quit Spyder (or another editor/IDE) and enter it again, the variables or functions that you defined in the console will be lost. However, you may want to store a particular sequence of commands for several reasons.
 

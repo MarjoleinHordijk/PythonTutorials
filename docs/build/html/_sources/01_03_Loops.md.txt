@@ -2,7 +2,7 @@
 
 There are different types of loops:
 
-## If-loop 
+## 1. If-loop 
 If-loops allow to check whether a particular statement is true or not. Depending on the boolean evaluation (true versus false), one or the other script is executed (```if```, ```elif```, ```else```).
 
 *If this is true, do that*
@@ -29,7 +29,7 @@ else:
 	print("b is greater than a")
 ```
 
-## While-loop
+## 2. While-loop
 In a While-loop, a certain script is performed as long as a particular boolean statement evaluates to True.
 
 *While this is true, do*
@@ -59,7 +59,7 @@ while i < 10:
 	i += 1
 ```
 
-## For-loop
+## 3. For-loop
 *For every element in this entire sequence, do*
 
 ```python
