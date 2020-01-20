@@ -86,7 +86,12 @@
 <li class="toctree-l2"><a class="reference internal" href="01_01_Intro.html">Introduction to Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="01_02_Functions.html">Functions</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Loops</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#if-loop">1. If-loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#if-loop">1. If-loop</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#one-condition">One condition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#one-condition-pass">One condition, pass</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#multiple-conditions">Multiple conditions</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#while-loop">2. While-loop</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#for-loop">3. For-loop</a></li>
 </ul>
@@ -166,8 +171,21 @@
 <p>There are different types of loops:</p>
 <div class="section" id="if-loop">
 <h2>1. If-loop<a class="headerlink" href="#if-loop" title="Permalink to this headline">¶</a></h2>
-<p>If-loops allow to check whether a particular statement is true or not. Depending on the boolean evaluation (true versus false), one or the other script is executed (<code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">elif</span></code>, <code class="docutils literal notranslate"><span class="pre">else</span></code>).</p>
-<p><em>If this is true, do that</em></p>
+<p>If-loops allow to check whether a particular statement is true or not. Depending on the boolean evaluation (true versus false), a particular piece of code (or nothing) is executed.</p>
+<p>Python supports many of the usual logical conditions from mathematics:</p>
+<ul class="simple">
+<li><p>Equals: a == b</p></li>
+<li><p>Not Equals: a != b</p></li>
+<li><p>ess than: a &lt; b</p></li>
+<li><p>Less than or equal to: a &lt;= b</p></li>
+<li><p>Greater than: a &gt; b</p></li>
+<li><p>Greater than or equal to: a &gt;= b</p></li>
+</ul>
+<p>Several forms of If statements are possible, as shown below. They differ in the amount of conditions that are checked.</p>
+<p>Be aware of the indentation. That is, the code that must be executed is indented by one level.</p>
+<div class="section" id="one-condition">
+<h3>One condition<a class="headerlink" href="#one-condition" title="Permalink to this headline">¶</a></h3>
+<p><em>If this is true, do that. Otherwise, do this.</em></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">12</span>
 <span class="n">b</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="k">if</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">:</span>
@@ -176,7 +194,22 @@
 	<span class="k">print</span><span class="p">(</span><span class="s2">&quot;a is not greater than b&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><em>If this is true, do this. Else check if this is true, and do that. Else do this.</em></p>
+</div>
+<div class="section" id="one-condition-pass">
+<h3>One condition, pass<a class="headerlink" href="#one-condition-pass" title="Permalink to this headline">¶</a></h3>
+<p><em>If this is true, do that. Otherwise, do nothing.</em></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="k">if</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">:</span>
+	<span class="k">print</span><span class="p">(</span><span class="s2">&quot;a is greater than b&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+	<span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="multiple-conditions">
+<h3>Multiple conditions<a class="headerlink" href="#multiple-conditions" title="Permalink to this headline">¶</a></h3>
+<p><em>If this is true, do that. Else check if this is true, and do that. Else do this.</em></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="n">b</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="k">if</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">:</span>
@@ -186,6 +219,7 @@
 <span class="k">else</span><span class="p">:</span>
 	<span class="k">print</span><span class="p">(</span><span class="s2">&quot;b is greater than a&quot;</span><span class="p">)</span>
 </pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="while-loop">
