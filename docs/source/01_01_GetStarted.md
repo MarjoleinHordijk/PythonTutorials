@@ -151,25 +151,29 @@ Examples:
 ```python
 # integers
 myInt = 1
-myInt = -2018
+anotherInt = -2018
 
 # float
 myFloat = 3.1415
-myFloat = 2e3
+anotherFloat = 2e3
 
 # string
 myStr = "Eindhoven University of Technology ... !?"
-myStr = "what a #great university"
+anotherStr = "what a #great university"
 
 # list
 myList = [2, 4, 42, 3.1415, 5000]
-myList = ["Alpha", "Bravo", "Charlie"]
+anotherList = ["Alpha", "Bravo", "Charlie"]
 
 # boolean
 myBool = True
-myBool = False
-myBool = 10 < 20
+anotherBool = 10 < 20
 ```
+
+Try it for yourself! If you add the piece of code above to a .py file in the Spyder editor and run it, you will be able to see the variables, their types and value appear in the Variable Explorer tab.
+You can now use these variables later in your script. For example, you can run ```print(myStr)```.
+
+![variableexplorer](https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_01/9.png?raw=true)
 
 There are some rules to defining variable names. Variable names may not contain spaces. Python will then not be able to recognize multiple words as one name. Further, variable names can not start with a number.
 
