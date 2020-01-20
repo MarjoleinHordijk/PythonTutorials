@@ -3,9 +3,23 @@
 There are different types of loops:
 
 ## 1. If-loop 
-If-loops allow to check whether a particular statement is true or not. Depending on the boolean evaluation (true versus false), one or the other script is executed (```if```, ```elif```, ```else```).
+If-loops allow to check whether a particular statement is true or not. Depending on the boolean evaluation (true versus false), a particular piece of code (or nothing) is executed.
 
-*If this is true, do that*
+Python supports many of the usual logical conditions from mathematics:
+
+- Equals: a == b
+- Not Equals: a != b
+- ess than: a < b
+- Less than or equal to: a <= b
+- Greater than: a > b
+- Greater than or equal to: a >= b
+
+Several forms of If statements are possible, as shown below. They differ in the amount of conditions that are checked. 
+
+Be aware of the indentation. That is, the code that must be executed is indented by one level.
+
+### One condition
+*If this is true, do that. Otherwise, do this.*
 
 ```python
 a = 12
@@ -16,7 +30,21 @@ else:
 	print("a is not greater than b")
 ```
 
-*If this is true, do this. Else check if this is true, and do that. Else do this.*
+### One condition, pass
+
+*If this is true, do that. Otherwise, do nothing.*
+
+```python
+a = 12
+b = 5
+if a > b:
+	print("a is greater than b")
+else:
+	pass
+```
+
+### Multiple conditions
+*If this is true, do that. Else check if this is true, and do that. Else do this.*
 
 ```python
 a = 3
