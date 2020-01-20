@@ -1,6 +1,8 @@
-﻿# 1. Installation
+﻿# 1. Getting Started
 
-## Check for an Existing Installation
+## 1. Installation
+
+### Check for an Existing Installation
 You may already have Python installed, so check this first. Finding out whether Python is installed, can be done by:
 
 - opening a Command Prompt on your Machine (Command Prompt in Windows; Terminal in Mac/OSX; bash shell or similar in other machines)-
@@ -14,7 +16,7 @@ Note that it is possible to have a version 2 and 3 installed side by side.
 If you have only a version 2 installed, or you want to upgrade your version 3 installation,
 please check "Fresh Install" below.
 
-## Fresh Install
+### Fresh Install
 You can install the newest version of Python from <https://www.python.org/downloads/>.
 Please follow the provided instructions.
 
@@ -22,7 +24,7 @@ If you already have a version 3 installation, this one will be overwritten by th
 
 ![Installation](https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_01/2.png?raw=true)
 
-## Useful Commands in the Command Prompt
+### Useful Commands in the Command Prompt
 To install new modules, packages or Python versions, you will need to use the Command Prompt / Terminal / Bash Shell.
 Although the name of this interface differes for each operating system (Windows/Linux/etc.), 
 the functionality is very similar.
@@ -39,9 +41,9 @@ On most operating systems, you can use the following commands to change director
 - ```cd ..```: moves to upper directory (the folder that contains the folder you are currently at)
 - ```mkdir```: creates a new folder
 
-# 2. Executing Python from the Command Prompt
+## 2. Executing Python from the Command Prompt
 
-## Starting the Python Shell
+### Starting the Python Shell
 
 You can use the Python Shell to directly execute Python code.
 Although this is not the most convenient way to develop and run scripts,
@@ -55,7 +57,7 @@ To start the Python shell, you can do the following:
 
 ![pythonshell](https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_01/3.png?raw=true)
 
-## Using the Python shell
+### Using the Python shell
 In the Python shell, you can execute Python code directly. For example, you can execute the following commands:
 
 ```python
@@ -70,7 +72,7 @@ The result of the command is displayed immediately in the shell.
 
 ![pythonshelloutput](https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_01/4.png?raw=true)
 
-## Executing python scripts from a command line interface
+### Executing python scripts from a command line interface
 You can also include the above Python commands in a file to execute them.
 For example, you can use Notepad++ or even a simple text editor, add the command and save the file in a .py format.
 
@@ -80,30 +82,58 @@ For example, you can use Notepad++ or even a simple text editor, add the command
 python path/to/hello.py
 ```
 
-## Closing the Python shell
+### Closing the Python shell
 To stop using the ```>>>``` Python command prompt, exit python as follows:
 
 - Windows: press Ctrl-Z and Enter
 - OS X and Linux: press Ctrl-D
 - Run the python command ```exit()```
 
-# 2. Spyder
+## 2. Spyder
 
-## What is Spyder?
+### What is Spyder?
 Spyder is a so called Integrated Development Environment (IDE). In contrast to basic code editors, it provides autocompletion, debugging and testing functionality. You can use this environment to develop, improve and run your code.
 
 You can download Spyder using Anaconda [Here](https://www.spyder-ide.org/ "Download page").
 
-## How to use Spyder?
+### How to use Spyder?
 After the installation has finished, you can run Spyder. You will see an interface with different panels, each of which is discussed briefly below.
 
-### The Editor
+#### The IPython Console
 
+![spyderconsole](https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_01/6.png?raw=true)
 
+In the console, you will be able to run commands like you would in the Python Shell when we used the command prompt / terminal.
+For example, we can type ```print("Hello world")``` and hit enter to run this command.
 
-# 3. Features of the Language
+![spyderconsole](https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_01/6.2.png?raw=true)
 
-## Variables and datatypes
+#### The Editor
+
+![spydereditor](https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_01/5.png?raw=true)
+
+In the editor, you are able to write a sequence of commands and save them.
+Basically, you will do the same here as we did earlier when we used a text editor to create a .py file.
+
+When you press the small play button in the top menu, your script will be executed.
+You will see the output in the console.
+
+![spydereditor](https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_01/7.2.png?raw=true)
+
+#### The Variable Explorer
+
+You can use the Variable Explorer tab to get a quick overview of the variables that you have created.
+
+- Run ```variable = "this is a value"``` to create a variable.
+- You will see this variable and the value that you defined in the Variable Explorer tab.
+
+![variableexplorer](https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_01/8.png?raw=true)
+
+In the next section variables are discussed in greater detail.
+
+## 3. Features of the Language
+
+### Variables and datatypes
 A python script works with data. This data can be stored in variables with certain datatypes.
 
 A number of datatypes are available in python:
@@ -156,18 +186,18 @@ print(buildingName)
 print(type(buildingName))
 ```
 
-## Comments
+### Comments
 Comments are used to document your code inline.
 
 - ```”””``` comments multiple lines until ”””
 - ```#``` comments out a single line
 
-## Operators
+### Operators
 Operators allow to perform operations on variables of particular data types. A number of operators are available. There are plenty of cheat sheets online that list the different available operators. If you don't know what to use to do something, Google it first; or search for a solution in the cheat sheets.
 
 ![cheatsheet](https://gitlab.tue.nl/CME/python/raw/master/img/basic/cheatsheet.jpg)
 
-### Number and boolean operators
+#### Number and boolean operators
 - Arithmetic
 	- ```x + y```
 	- ```x - y```
@@ -187,7 +217,7 @@ Operators allow to perform operations on variables of particular data types. A n
 	- ```x and y``` (True if both are True)
 	- ```x or y``` (True if one is True)
 	
-### String operators
+#### String operators
 A number of operators allows to operate with strings. Note that Python starts counting from 0. The first character in a string is thus character number 0.
 
 - String concatenation:
@@ -200,7 +230,7 @@ A number of operators allows to operate with strings. Note that Python starts co
 	- ```CityName[3:]``` => 'dhoven' #Everything from 3 (inclusive)
 	- ```len(CityName)``` => '9'
 
-### List operators
+#### List operators
 Lists can contain everything:
 
 - ```list_of_numbers = [1, 2.5, 3, 52]```
