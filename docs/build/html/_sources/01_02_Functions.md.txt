@@ -1,6 +1,6 @@
 # Functions
 
-## What is a function?
+## 1. What is a function?
 
 Function can perform a particular operation, usually on one or several input variables. It is a block of code which is performed when the function is called. A function can return output data as a result, which you will then see appear in the console.
 
@@ -12,7 +12,7 @@ Information can be passed into functions as arguments. Arguments are specified a
 
 For example, you can pass a string (a piece of text) as argument to the ```print()``` function as such: ```print("some text")```.
 
-## Standard Python Functions
+## 2. Standard Python Functions
 
 If you followed the "Introduction to Python" tutorial (see [Here](https://pythontutorials.readthedocs.io/en/latest/01_01_GetStarted.html)), you have already encountered several standard functions. 
 
@@ -68,7 +68,7 @@ converted = int(myFloat)
 
 ![](https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/7.png?raw=true)
 
-## Writing your Own Functions
+## 3. Writing your Own Functions
 
 You can define your own function aswell. In this case the function will be a piece of code that you write yourself. 
 
@@ -144,7 +144,7 @@ print("Welcome to the course, " + name)
 
 ![](https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/4.png?raw=true)
 
-## Functions from Packages / Modules
+## 4. Functions from Packages / Modules
 
 As said before, you can also access functions developed by others from packages or modules. These can be downloaded and usually contain a large set of functions related to a particular goal. For example, NumPy is a package that containts function to perform scientific computations. You can install this package to use the functions that it offers. 
 
