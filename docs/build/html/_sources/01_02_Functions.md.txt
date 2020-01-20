@@ -121,8 +121,6 @@ myFunction("Marjolein", 25)
 ```
 - You will see the output in the console window.
 
-Output: My name is Marjolein and I am 25 years old.
-
 ![](https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/3.png?raw=true)
 
 ### Asking for Input
