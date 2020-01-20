@@ -6,5 +6,6 @@ General Tutorials
    :caption: Getting Started:
    
    Introduction to Python <01_01_Intro.md>
-   Scripts and Functions <01_02_Scripts.md>
+   Functions <01_02_Functions.md>
+   Scripting <01_03_Scripting.md>
 
