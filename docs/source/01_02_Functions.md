@@ -30,11 +30,43 @@ Python supports various datatypes, such as text (string) or numbers (integers, f
 - ```int()```: Converts the data provided as argumenten into an integer (whole number).
 - ```float()```: Converts the data provided as argumenten into a real number (decimal number).
 
-You can try out these functions with the code below.
+Try it out for yourself following the steps below!
+
+- Add the following piece of code to a .py file in the editor panel.
 
 ```python
-print("Hello world")
+myString="25"
+myInteger=25
+myFloat=25.2
 ```
+- Run the code by pressing the small play button.
+
+- Try running the following commands. You will see that not all of them work. This happens because the ```print()``` function can only take strings as an argument when you provide them in this manner.
+
+```python
+print ("I am " + myString + " years old.")
+print ("I am " + myInteger + " years old.")
+print ("I am " + myFloat + " years old.")
+```
+
+![](https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/5.png?raw=true)
+
+- To solve this, we can conver the integer and float data to string data as follows.
+
+```python
+print ("I am " + str(myInteger) + " years old.")
+print ("I am " + str(myFloat) + " years old.")
+```
+
+![](https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/6.png?raw=true)
+
+- Alternatively, you might want to convert the decimal numbers in your dataset to whole numbers (integers). You can do this by converting the float data to integer data as shown below. When you run this, you will see that the variable "converted" of datatype "int" is added to your Variable Explorer panel in Spyder.
+
+```python
+converted = int(myFloat)
+```
+
+![](https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/7.png?raw=true)
 
 ## Writing your Own Functions
 
