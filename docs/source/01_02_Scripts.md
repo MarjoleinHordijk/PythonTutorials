@@ -31,8 +31,23 @@ Next will need to indent one level to start writing your function. You can inden
 
 To illustrate, you can define a function that will print a piece of text. In the example below the function will print "My name is " followed by the name that is provided when the function is called. The provided name is in this case an argument.
 
+- Add the following piece of code to a .py file in the editor panel.
 
+```python
+def myFunction(name):
+    print("My name is " + name + ".")
+```
 
+- Run the code by pressing the small play button.
+
+- Call the function from the console panel and provide your name as argument to the function.
+
+```python
+myFunction("Marjolein")
+```
+- You will see the output in the console window.
+
+![ownprintfunction](https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/2.png?raw=true)
 
 ## What is a Script?
 
