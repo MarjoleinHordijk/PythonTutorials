@@ -1,4 +1,4 @@
-GIS Tutorials
+General Tutorials
 ============================================
 
 .. toctree::

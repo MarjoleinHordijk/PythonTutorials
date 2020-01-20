@@ -192,6 +192,8 @@ print(type(buildingName))
 
 ### Comments
 Comments are used to document your code inline.
+This can be very helpful for others (or yourself) to understand your script and keep overview.
+As you might have noticed, we actually already used comments in our previous example codes.
 
 - ```”””``` comments multiple lines until ”””
 - ```#``` comments out a single line
@@ -202,6 +204,9 @@ Operators allow to perform operations on variables of particular data types. A n
 ![cheatsheet](https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_01/10.jpg?raw=true)
 
 #### Number and boolean operators
+
+(X and y are examples of variables on which the operators are performed.)
+
 - Arithmetic
 	- ```x + y```
 	- ```x - y```
