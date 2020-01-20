@@ -89,7 +89,7 @@ To stop using the ```>>>``` Python command prompt, exit python as follows:
 - OS X and Linux: press Ctrl-D
 - Run the python command ```exit()```
 
-## 2. Spyder
+## 3. Spyder
 
 ### What is Spyder?
 Spyder is a so called Integrated Development Environment (IDE). In contrast to basic code editors, it provides autocompletion, debugging and testing functionality. You can use this environment to develop, improve and run your code.
@@ -131,7 +131,7 @@ You can use the Variable Explorer tab to get a quick overview of the variables t
 
 In the next section variables are discussed in greater detail.
 
-## 3. Features of the Language
+## 4. Features of the Language
 
 ### Variables and datatypes
 A python script works with data. This data can be stored in variables with certain datatypes.
