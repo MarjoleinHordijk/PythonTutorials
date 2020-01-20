@@ -29,6 +29,8 @@ You can define your own function aswell. In this case the function will be a pie
 To define a function, you will need to use the ```def``` keyword, followed by the name of the function, parenthesis and a colon.
 Next will need to indent one level to start writing your function. You can indent using several spaces or tab. However, make sure that you always use the same indentation method throughout your script. If you this up, Python will not be able to recognize when you indent.
 
+#### A Simple Function
+
 To illustrate, you can define a function that will print a piece of text. In the example below the function will print "My name is " followed by the name that is provided when the function is called. The provided name is in this case an argument.
 
 - Add the following piece of code to a .py file in the editor panel.
@@ -50,6 +52,8 @@ myFunction("Marjolein")
 Output: My name is Marjolein.
 
 ![ownprintfunction](https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/2.png?raw=true)
+
+#### A Function with Mutiple Arguments
 
 You can also create a function that takes multiple arguments by seperating them with a comma when you define the function.
 
@@ -74,6 +78,25 @@ myFunction("Marjolein", 25)
 Output: My name is Marjolein and I am 25 years old.
 
 ![ownfunctiontwoarguments](https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/3.png?raw=true)
+
+#### Asking for Input
+
+You can use the ```input()``` function to ask the user of your code for input. For example you can ask for someone's name and use this input to print a sentence.
+
+- Add the following piece of code to a .py file in the editor panel.
+
+```python
+print("What is your name?")
+name = input()
+print("Welcome to the course, " + name)
+```
+- Run the code by pressing the small play button.
+
+- You will see the question for you name appear. Provide your name as input.
+
+- You should see the sentence appear with your name filled in.
+
+![ownfunctioninput](https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/4.png?raw=true)
 
 ### Functions from Packages / Modules
 
