@@ -199,7 +199,7 @@ Comments are used to document your code inline.
 ### Operators
 Operators allow to perform operations on variables of particular data types. A number of operators are available. There are plenty of cheat sheets online that list the different available operators. If you don't know what to use to do something, Google it first; or search for a solution in the cheat sheets.
 
-![cheatsheet](https://gitlab.tue.nl/CME/python/raw/master/img/basic/cheatsheet.jpg)
+![cheatsheet](https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_01/10.jpg?raw=true)
 
 #### Number and boolean operators
 - Arithmetic
