@@ -7,12 +7,12 @@ If-loops allow to check whether a particular statement is true or not. Depending
 
 Python supports many of the usual logical conditions from mathematics:
 
-- Equals: a == b
-- Not Equals: a != b
-- ess than: a < b
-- Less than or equal to: a <= b
-- Greater than: a > b
-- Greater than or equal to: a >= b
+- Equals: ```a == b```
+- Not Equals: ```a != b```
+- Less than: ```a < b```
+- Less than or equal to: ```a <= b```
+- Greater than: ```a > b```
+- Greater than or equal to: ```a >= b```
 
 Several forms of If statements are possible, as shown below. They differ in the amount of conditions that are checked. 
 
