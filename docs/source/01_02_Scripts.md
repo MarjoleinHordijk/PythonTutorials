@@ -8,11 +8,11 @@ We can write a function ourselfs or use a standard function from Python. We can 
 
 ### Standard Python Functions
 
-If you followed the "Introduction to Python" tutorial (see [Here](https://pythontutorials.readthedocs.io/en/latest/01_01_GetStarted.html "Introduction")), you have already encountered several standard functions. 
+If you followed the "Introduction to Python" tutorial (see [Here](https://pythontutorials.readthedocs.io/en/latest/01_01_GetStarted.html)), you have already encountered several standard functions. 
 
 For example, ```print()``` can be used to print anything to the console output.
 
-You can find an overview of other standard functions [Here](https://docs.python.org/3/library/functions.html#open "Standard functions").
+You can find an overview of other standard functions [Here](https://docs.python.org/3/library/functions.html#open).
 
 ![standardfunctions](https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/1.png?raw=true)
 
