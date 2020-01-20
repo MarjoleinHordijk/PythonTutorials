@@ -1,4 +1,4 @@
-﻿# 1 - Getting Started
+﻿# Introduction to Python
 
 ## 1. Installation
 
