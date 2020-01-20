@@ -2,8 +2,8 @@
 
 There are different types of loops:
 
-## 1. If-loop 
-If-loops allow to check whether a particular statement is true or not. Depending on the boolean evaluation (true versus false), a particular piece of code (or nothing) is executed.
+## 1. If statement
+If statement allow to check whether a particular statement is true or not. Depending on the boolean evaluation (true versus false), a particular piece of code (or nothing) is executed.
 
 Python supports many of the usual logical conditions from mathematics:
 
