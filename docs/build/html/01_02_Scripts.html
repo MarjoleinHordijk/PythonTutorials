@@ -1,0 +1,324 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Scripts and Functions &mdash; Python Tutorials  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="GIS Tutorials" href="02_GIS.html" />
+    <link rel="prev" title="Introduction to Python" href="01_01_Intro.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Python Tutorials
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Topics:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="01_General.html">General tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01_01_Intro.html">Introduction to Python</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Scripts and Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-a-function">What is a function?</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#standard-python-functions">Standard Python Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#arguments">Arguments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#writing-your-own-functions">Writing your Own Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#functions-from-packages-modules">Functions from Packages / Modules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-a-script">What is a Script?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="02_GIS.html">GIS tutorials</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python Tutorials</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="01_General.html">General Tutorials</a> &raquo;</li>
+        
+      <li>Scripts and Functions</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/01_02_Scripts.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="scripts-and-functions">
+<h1>Scripts and Functions<a class="headerlink" href="#scripts-and-functions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-is-a-function">
+<h2>What is a function?<a class="headerlink" href="#what-is-a-function" title="Permalink to this headline">¶</a></h2>
+<p>Function can perform a particular operation, usually on one or several input variables. It is a block of code which is performed when the function is called. A function can return output data as a result, which you will then see appear in the console.</p>
+<p>We can write a function ourselfs or use a standard function from Python. We can also call functions from packages / modules from third parties if we have those installed.</p>
+<div class="section" id="standard-python-functions">
+<h3>Standard Python Functions<a class="headerlink" href="#standard-python-functions" title="Permalink to this headline">¶</a></h3>
+<p>If you followed the “Introduction to Python” tutorial (see <a class="reference external" href="https://pythontutorials.readthedocs.io/en/latest/01_01_GetStarted.html">Here</a>), you have already encountered several standard functions.</p>
+<p>For example, <code class="docutils literal notranslate"><span class="pre">print()</span></code> can be used to print anything to the console output.</p>
+<p>You can find an overview of other standard functions <a class="reference external" href="https://docs.python.org/3/library/functions.html#open">Here</a>.</p>
+<p><img alt="standardfunctions" src="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/1.png?raw=true" /></p>
+</div>
+<div class="section" id="arguments">
+<h3>Arguments<a class="headerlink" href="#arguments" title="Permalink to this headline">¶</a></h3>
+<p>Information can be passed into functions as arguments. Arguments are specified after the function name, inside the parentheses.</p>
+<p>For example, you can pass a string (a piece of text) as argument to the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function as such: <code class="docutils literal notranslate"><span class="pre">print(&quot;some</span> <span class="pre">text&quot;)</span></code>.</p>
+</div>
+<div class="section" id="writing-your-own-functions">
+<h3>Writing your Own Functions<a class="headerlink" href="#writing-your-own-functions" title="Permalink to this headline">¶</a></h3>
+<p>You can define your own function aswell. In this case the function will be a piece of code that you write yourself.</p>
+<p>To define a function, you will need to use the <code class="docutils literal notranslate"><span class="pre">def</span></code> keyword, followed by the name of the function, parenthesis and a colon.
+Next will need to indent one level to start writing your function. You can indent using several spaces or tab. However, make sure that you always use the same indentation method throughout your script. If you this up, Python will not be able to recognize when you indent.</p>
+<div class="section" id="a-simple-function">
+<h4>A Simple Function<a class="headerlink" href="#a-simple-function" title="Permalink to this headline">¶</a></h4>
+<p>To illustrate, you can define a function that will print a piece of text. In the example below the function will print “My name is “ followed by the name that is provided when the function is called. The provided name is in this case an argument.</p>
+<ul class="simple">
+<li><p>Add the following piece of code to a .py file in the editor panel.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">myFunction</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;My name is &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Run the code by pressing the small play button.</p></li>
+<li><p>Call the function from the console panel and provide your name as argument to the function.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">myFunction</span><span class="p">(</span><span class="s2">&quot;Marjolein&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>You will see the output in the console window.</p></li>
+</ul>
+<p>Output: My name is Marjolein.</p>
+<p><img alt="ownprintfunction" src="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/2.png?raw=true" /></p>
+</div>
+<div class="section" id="a-function-with-mutiple-arguments">
+<h4>A Function with Mutiple Arguments<a class="headerlink" href="#a-function-with-mutiple-arguments" title="Permalink to this headline">¶</a></h4>
+<p>You can also create a function that takes multiple arguments by seperating them with a comma when you define the function.</p>
+<ul class="simple">
+<li><p>Add the following piece of code to a .py file in the editor panel.</p></li>
+</ul>
+<p>We use <code class="docutils literal notranslate"><span class="pre">str()</span></code> here to change the integer argument (your age) to a string so it can be printed as text.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">myFunction</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;My name is &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot; and I am &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">age</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; years old.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Run the code by pressing the small play button.</p></li>
+<li><p>Call the function from the console panel and provide your name as the first argument, and you age as a second one.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">myFunction</span><span class="p">(</span><span class="s2">&quot;Marjolein&quot;</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>You will see the output in the console window.</p></li>
+</ul>
+<p>Output: My name is Marjolein and I am 25 years old.</p>
+<p><img alt="ownfunctiontwoarguments" src="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/3.png?raw=true" /></p>
+</div>
+<div class="section" id="asking-for-input">
+<h4>Asking for Input<a class="headerlink" href="#asking-for-input" title="Permalink to this headline">¶</a></h4>
+<p>You can use the <code class="docutils literal notranslate"><span class="pre">input()</span></code> function to ask the user of your code for input. For example you can ask for someone’s name and use this input to print a sentence.</p>
+<ul class="simple">
+<li><p>Add the following piece of code to a .py file in the editor panel.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;What is your name?&quot;</span><span class="p">)</span>
+<span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Welcome to the course, &quot;</span> <span class="o">+</span> <span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Run the code by pressing the small play button.</p></li>
+<li><p>You will see the question for you name appear. Provide your name as input.</p></li>
+<li><p>You should see the sentence appear with your name filled in.</p></li>
+</ul>
+<p><img alt="ownfunctioninput" src="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/4.png?raw=true" /></p>
+</div>
+</div>
+<div class="section" id="functions-from-packages-modules">
+<h3>Functions from Packages / Modules<a class="headerlink" href="#functions-from-packages-modules" title="Permalink to this headline">¶</a></h3>
+<p>As said before, you can also access functions developed by others from packages or modules. These can be downloaded and usually contain a large set of functions related to a particular goal. For example, NumPy is a package that containts function to perform scientific computations. You can install this package to use the functions that it offers.</p>
+<p>Installing and using packages or modules is out of the scope of this introductory tutorial.
+However you will find more information on this in other tutorials available on the repository!</p>
+</div>
+</div>
+<div class="section" id="what-is-a-script">
+<h2>What is a Script?<a class="headerlink" href="#what-is-a-script" title="Permalink to this headline">¶</a></h2>
+<p>If you quit Spyder (or another editor/IDE) and enter it again, the variables or functions that you defined in the console will be lost. However, you may want to store a particular sequence of commands for several reasons.</p>
+<ul class="simple">
+<li><p>You want to share the sequence with someone.</p></li>
+<li><p>You want to reuse the sequence later on.</p></li>
+<li><p>You want to continue working on the same process.</p></li>
+</ul>
+<p>Fortunately, we can use scripting to store the sequence of commands for later use. In this way we can easily run the code again in one go. To illustrate, imagine you used a set of commands to clean a dataset and you would like to do exactly the same of a different set of data. You can run the script again for the new dataset without having to perform all the commands seperately again. Or maybe you want to help a peer student out to clean his dataset. You could simply send the script with this person.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="02_GIS.html" class="btn btn-neutral float-right" title="GIS Tutorials" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="01_01_Intro.html" class="btn btn-neutral float-left" title="Introduction to Python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Marjolein Hordijk
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -17,7 +17,7 @@ This repository and tutorial is part of the CME Master Program in TU/e (Construc
 - Graduation projects
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Topics:
    
    General tutorials <01_General.rst>

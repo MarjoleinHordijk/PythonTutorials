@@ -1,0 +1,517 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Introduction to Python &mdash; Python Tutorials  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Scripts and Functions" href="01_02_Scripts.html" />
+    <link rel="prev" title="General Tutorials" href="01_General.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Python Tutorials
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Topics:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="01_General.html">General tutorials</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Introduction to Python</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installation">1. Installation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#check-for-an-existing-installation">Check for an Existing Installation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fresh-install">Fresh Install</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#useful-commands-in-the-command-prompt">Useful Commands in the Command Prompt</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#executing-python-from-the-command-prompt">2. Executing Python from the Command Prompt</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#starting-the-python-shell">Starting the Python Shell</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#using-the-python-shell">Using the Python shell</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#executing-python-scripts-from-a-command-line-interface">Executing python scripts from a command line interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#closing-the-python-shell">Closing the Python shell</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#spyder">3. Spyder</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#what-is-spyder">What is Spyder?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#how-to-use-spyder">How to use Spyder?</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#features-of-the-language">4. Features of the Language</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#variables-and-datatypes">Variables and datatypes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#comments">Comments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#operators">Operators</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="01_02_Scripts.html">Scripts and Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="02_GIS.html">GIS tutorials</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python Tutorials</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="01_General.html">General Tutorials</a> &raquo;</li>
+        
+      <li>Introduction to Python</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/01_01_Intro.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction-to-python">
+<h1>Introduction to Python<a class="headerlink" href="#introduction-to-python" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="installation">
+<h2>1. Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="check-for-an-existing-installation">
+<h3>Check for an Existing Installation<a class="headerlink" href="#check-for-an-existing-installation" title="Permalink to this headline">¶</a></h3>
+<p>You may already have Python installed, so check this first. Finding out whether Python is installed, can be done by:</p>
+<ul class="simple">
+<li><p>opening a Command Prompt on your Machine (Command Prompt in Windows; Terminal in Mac/OSX; bash shell or similar in other machines)-</p></li>
+<li><p>running the following command: <code class="docutils literal notranslate"><span class="pre">python</span></code></p></li>
+</ul>
+<p><img alt="pythoncmdlinecheckversion" src="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_01/1.png?raw=true" /></p>
+<p>Make sure that you have a version of Python 3 installed (e.g. 3.7).
+Note that it is possible to have a version 2 and 3 installed side by side.</p>
+<p>If you have only a version 2 installed, or you want to upgrade your version 3 installation,
+please check “Fresh Install” below.</p>
+</div>
+<div class="section" id="fresh-install">
+<h3>Fresh Install<a class="headerlink" href="#fresh-install" title="Permalink to this headline">¶</a></h3>
+<p>You can install the newest version of Python from <a class="reference external" href="https://www.python.org/downloads/">https://www.python.org/downloads/</a>.
+Please follow the provided instructions.</p>
+<p>If you already have a version 3 installation, this one will be overwritten by the new version.</p>
+<p><img alt="Installation" src="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_01/2.png?raw=true" /></p>
+</div>
+<div class="section" id="useful-commands-in-the-command-prompt">
+<h3>Useful Commands in the Command Prompt<a class="headerlink" href="#useful-commands-in-the-command-prompt" title="Permalink to this headline">¶</a></h3>
+<p>To install new modules, packages or Python versions, you will need to use the Command Prompt / Terminal / Bash Shell.
+Although the name of this interface differes for each operating system (Windows/Linux/etc.),
+the functionality is very similar.</p>
+<p>The <em>regular command prompt window</em> always lists the current Path in which you are. In the previous image, the path is “C:\Users\pipauwel\Python”. All commands are executed at that location.</p>
+<p>On Windows, <code class="docutils literal notranslate"><span class="pre">dir</span></code> provides a list of all files and folders at the current location.
+For Linux based systems (e.g. OSX from Apple), the <code class="docutils literal notranslate"><span class="pre">ls</span></code> command is used instead.</p>
+<p>On most operating systems, you can use the following commands to change directory:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">foldername</span></code>: moves to folder with particular foldername, located at the current location</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">path/to/dir</span></code>: moves to folder specified by a path</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">..</span></code>: moves to upper directory (the folder that contains the folder you are currently at)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mkdir</span></code>: creates a new folder</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="executing-python-from-the-command-prompt">
+<h2>2. Executing Python from the Command Prompt<a class="headerlink" href="#executing-python-from-the-command-prompt" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="starting-the-python-shell">
+<h3>Starting the Python Shell<a class="headerlink" href="#starting-the-python-shell" title="Permalink to this headline">¶</a></h3>
+<p>You can use the Python Shell to directly execute Python code.
+Although this is not the most convenient way to develop and run scripts,
+it is very accesible to try out your first commands.</p>
+<p>To start the Python shell, you can do the following:</p>
+<ul class="simple">
+<li><p>open a Command Prompt / Terminal / Bash Shell on your Machine</p></li>
+<li><p>run the command <code class="docutils literal notranslate"><span class="pre">python</span></code></p></li>
+<li><p>you will see that a <code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span></code> command line opens, which is a place where you can include and execute Python commands directly.</p></li>
+</ul>
+<p><img alt="pythonshell" src="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_01/3.png?raw=true" /></p>
+</div>
+<div class="section" id="using-the-python-shell">
+<h3>Using the Python shell<a class="headerlink" href="#using-the-python-shell" title="Permalink to this headline">¶</a></h3>
+<p>In the Python shell, you can execute Python code directly. For example, you can execute the following commands:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;Hello world&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">4</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span>
+</pre></div>
+</div>
+<p>The result of the command is displayed immediately in the shell.</p>
+<p><img alt="pythonshelloutput" src="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_01/4.png?raw=true" /></p>
+</div>
+<div class="section" id="executing-python-scripts-from-a-command-line-interface">
+<h3>Executing python scripts from a command line interface<a class="headerlink" href="#executing-python-scripts-from-a-command-line-interface" title="Permalink to this headline">¶</a></h3>
+<p>You can also include the above Python commands in a file to execute them.
+For example, you can use Notepad++ or even a simple text editor, add the command and save the file in a .py format.</p>
+<ul class="simple">
+<li><p>Create file hello.py with contents <code class="docutils literal notranslate"><span class="pre">print(&quot;Hello</span> <span class="pre">world&quot;)</span></code></p></li>
+<li><p>Execute the script from the Python command prompt:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">hello</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="closing-the-python-shell">
+<h3>Closing the Python shell<a class="headerlink" href="#closing-the-python-shell" title="Permalink to this headline">¶</a></h3>
+<p>To stop using the <code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span></code> Python command prompt, exit python as follows:</p>
+<ul class="simple">
+<li><p>Windows: press Ctrl-Z and Enter</p></li>
+<li><p>OS X and Linux: press Ctrl-D</p></li>
+<li><p>Run the python command <code class="docutils literal notranslate"><span class="pre">exit()</span></code></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="spyder">
+<h2>3. Spyder<a class="headerlink" href="#spyder" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="what-is-spyder">
+<h3>What is Spyder?<a class="headerlink" href="#what-is-spyder" title="Permalink to this headline">¶</a></h3>
+<p>Spyder is a so called Integrated Development Environment (IDE). In contrast to basic code editors, it provides autocompletion, debugging and testing functionality. You can use this environment to develop, improve and run your code.</p>
+<p>You can download Spyder using Anaconda <a class="reference external" href="https://www.spyder-ide.org/">Here</a>.</p>
+</div>
+<div class="section" id="how-to-use-spyder">
+<h3>How to use Spyder?<a class="headerlink" href="#how-to-use-spyder" title="Permalink to this headline">¶</a></h3>
+<p>After the installation has finished, you can run Spyder. You will see an interface with different panels, each of which is discussed briefly below.</p>
+<div class="section" id="the-ipython-console">
+<h4>The IPython Console<a class="headerlink" href="#the-ipython-console" title="Permalink to this headline">¶</a></h4>
+<p><img alt="spyderconsole" src="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_01/6.png?raw=true" /></p>
+<p>In the console, you will be able to run commands like you would in the Python Shell when we used the command prompt / terminal.
+For example, we can type <code class="docutils literal notranslate"><span class="pre">print(&quot;Hello</span> <span class="pre">world&quot;)</span></code> and hit enter to run this command.</p>
+<p><img alt="spyderconsole" src="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_01/6.2.png?raw=true" /></p>
+</div>
+<div class="section" id="the-editor">
+<h4>The Editor<a class="headerlink" href="#the-editor" title="Permalink to this headline">¶</a></h4>
+<p><img alt="spydereditor" src="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_01/5.png?raw=true" /></p>
+<p>In the editor, you are able to write a sequence of commands and save them.
+Basically, you will do the same here as we did earlier when we used a text editor to create a .py file.</p>
+<p>When you press the small play button in the top menu, your script will be executed.
+You will see the output in the console.</p>
+<p><img alt="spydereditor" src="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_01/7.2.png?raw=true" /></p>
+</div>
+<div class="section" id="the-variable-explorer">
+<h4>The Variable Explorer<a class="headerlink" href="#the-variable-explorer" title="Permalink to this headline">¶</a></h4>
+<p>You can use the Variable Explorer tab to get a quick overview of the variables that you have created.</p>
+<ul class="simple">
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">variable</span> <span class="pre">=</span> <span class="pre">&quot;this</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">value&quot;</span></code> to create a variable.</p></li>
+<li><p>You will see this variable and the value that you defined in the Variable Explorer tab.</p></li>
+</ul>
+<p><img alt="variableexplorer" src="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_01/8.png?raw=true" /></p>
+<p>In the next section variables are discussed in greater detail.</p>
+</div>
+</div>
+</div>
+<div class="section" id="features-of-the-language">
+<h2>4. Features of the Language<a class="headerlink" href="#features-of-the-language" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="variables-and-datatypes">
+<h3>Variables and datatypes<a class="headerlink" href="#variables-and-datatypes" title="Permalink to this headline">¶</a></h3>
+<p>A python script works with data. This data can be stored in variables with certain datatypes.</p>
+<p>A number of datatypes are available in python:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span></code> - integer: integer value (no floating point)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">float</span></code> - float: floating point number</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">str</span></code> - string: sequence of characters</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list</span></code> - list: list of datatypes</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bool</span></code> - boolean: binary value (<code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>)</p></li>
+</ul>
+<p>Values in any of these datatypes can be stored in variables.
+These variables ideally have well-defined, good, and meaningful names, so that you can understand them as a developer.</p>
+<p>Examples:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># integers</span>
+<span class="n">myInt</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">anotherInt</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2018</span>
+
+<span class="c1"># float</span>
+<span class="n">myFloat</span> <span class="o">=</span> <span class="mf">3.1415</span>
+<span class="n">anotherFloat</span> <span class="o">=</span> <span class="mf">2e3</span>
+
+<span class="c1"># string</span>
+<span class="n">myStr</span> <span class="o">=</span> <span class="s2">&quot;Eindhoven University of Technology ... !?&quot;</span>
+<span class="n">anotherStr</span> <span class="o">=</span> <span class="s2">&quot;what a #great university&quot;</span>
+
+<span class="c1"># list</span>
+<span class="n">myList</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mf">3.1415</span><span class="p">,</span> <span class="mi">5000</span><span class="p">]</span>
+<span class="n">anotherList</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Alpha&quot;</span><span class="p">,</span> <span class="s2">&quot;Bravo&quot;</span><span class="p">,</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">]</span>
+
+<span class="c1"># boolean</span>
+<span class="n">myBool</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="n">anotherBool</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">&lt;</span> <span class="mi">20</span>
+</pre></div>
+</div>
+<p>Try it for yourself! If you add the piece of code above to a .py file in the Spyder editor and run it, you will be able to see the variables, their types and value appear in the Variable Explorer tab.
+You can now use these variables later in your script. For example, you can run <code class="docutils literal notranslate"><span class="pre">print(myStr)</span></code>.</p>
+<p><img alt="variableexplorer" src="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_01/9.png?raw=true" /></p>
+<p>There are some rules to defining variable names. Variable names may not contain spaces. Python will then not be able to recognize multiple words as one name. Further, variable names can not start with a number.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># bad / not allowed</span>
+<span class="n">my</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;John Doe&quot;</span> <span class="c1">#variable names can not include spaces</span>
+<span class="mi">1</span><span class="n">like</span> <span class="o">=</span> <span class="mi">1</span><span class="n">prayer</span> <span class="c1">#variable names can not start with a number</span>
+</pre></div>
+</div>
+<p>To find out the datatype of a variable, run:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">buildingName</span> <span class="o">=</span> <span class="s2">&quot;VRT9&quot;</span>
+<span class="k">print</span><span class="p">(</span><span class="n">buildingName</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">buildingName</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="comments">
+<h3>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h3>
+<p>Comments are used to document your code inline.
+This can be very helpful for others (or yourself) to understand your script and keep overview.
+As you might have noticed, we actually already used comments in our previous example codes.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">”””</span></code> comments multiple lines until ”””</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#</span></code> comments out a single line</p></li>
+</ul>
+</div>
+<div class="section" id="operators">
+<h3>Operators<a class="headerlink" href="#operators" title="Permalink to this headline">¶</a></h3>
+<p>Operators allow to perform operations on variables of particular data types. A number of operators are available. There are plenty of cheat sheets online that list the different available operators. If you don’t know what to use to do something, Google it first; or search for a solution in the cheat sheets.</p>
+<p><img alt="cheatsheet" src="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_01/10.jpg?raw=true" /></p>
+<div class="section" id="number-and-boolean-operators">
+<h4>Number and boolean operators<a class="headerlink" href="#number-and-boolean-operators" title="Permalink to this headline">¶</a></h4>
+<p>(X and y are examples of variables on which the operators are performed.)</p>
+<ul class="simple">
+<li><p>Arithmetic</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+</span> <span class="pre">y</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">-</span> <span class="pre">y</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">*</span> <span class="pre">y</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">/</span> <span class="pre">y</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">**</span> <span class="pre">y</span></code> (notation for x^y)</p></li>
+</ul>
+</li>
+<li><p>Assignment</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">y</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+=</span> <span class="pre">y</span></code> (same as x = x + y)</p></li>
+</ul>
+</li>
+<li><p>Comparison:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">==</span> <span class="pre">y</span></code> (equal) =&gt; use <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">is</span> <span class="pre">y</span></code> when x or y is a <code class="docutils literal notranslate"><span class="pre">boolean</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">!=</span> <span class="pre">y</span></code> (not equal) =&gt; use <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">y</span></code> when x or y is a <code class="docutils literal notranslate"><span class="pre">boolean</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&gt;</span> <span class="pre">y</span></code> (greater than)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">y</span></code> (smaller than)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&gt;=</span> <span class="pre">y</span></code> (greater or equal than)</p></li>
+</ul>
+</li>
+<li><p>Logical</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">and</span> <span class="pre">y</span></code> (True if both are True)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">or</span> <span class="pre">y</span></code> (True if one is True)</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="string-operators">
+<h4>String operators<a class="headerlink" href="#string-operators" title="Permalink to this headline">¶</a></h4>
+<p>A number of operators allows to operate with strings. Note that Python starts counting from 0. The first character in a string is thus character number 0.</p>
+<ul class="simple">
+<li><p>String concatenation:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;CME&quot;</span> <span class="pre">+</span> <span class="pre">&quot;</span> <span class="pre">Master!&quot;</span></code> =&gt; “CME Master!”</p></li>
+</ul>
+</li>
+<li><p>Selecting parts of strings and handling string length</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">CityName</span> <span class="pre">=</span> <span class="pre">&quot;Eindhoven&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CityName[0]</span></code> =&gt; ‘E’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CityName[1:5]</span></code> =&gt; ‘indh’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CityName[:3]</span></code> =&gt; ‘Ein’ #Everything until 3 (exclusive)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CityName[3:]</span></code> =&gt; ‘dhoven’ #Everything from 3 (inclusive)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">len(CityName)</span></code> =&gt; ‘9’</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="list-operators">
+<h4>List operators<a class="headerlink" href="#list-operators" title="Permalink to this headline">¶</a></h4>
+<p>Lists can contain everything:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">list_of_numbers</span> <span class="pre">=</span> <span class="pre">[1,</span> <span class="pre">2.5,</span> <span class="pre">3,</span> <span class="pre">52]</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list_of_strings</span> <span class="pre">=</span> <span class="pre">[&quot;abc&quot;,</span> <span class="pre">&quot;xyz&quot;,</span> <span class="pre">&quot;12345&quot;]</span></code></p></li>
+</ul>
+<p>Indexing is the same as for single strings: Python starts to count from 0.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">list_of_numbers[1]</span></code> =&gt; 2.5</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list_of_numbers[-1]</span></code> =&gt; 52</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list_of_strings[1]</span></code> =&gt; “xyz”</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list_of_strings[1:]</span></code> =&gt; [“xyz”, “12345”]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list_of_strings[2][3:]</span></code> =&gt; “45”</p></li>
+</ul>
+<p>List of numbers can be generated in multiple ways:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">numList</span> <span class="pre">=</span> <span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3]</span></code> =&gt; [0, 1, 2, 3]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">numList</span> <span class="pre">=</span> <span class="pre">list(range(4))</span></code> =&gt; [0, 1, 2, 3]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">numList</span> <span class="pre">=</span> <span class="pre">list(range(3,10,2))</span></code> =&gt; [3, 5, 7, 9] #start,stop,step</p></li>
+</ul>
+<p>Indexing can happen in steps as well</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">myList</span> <span class="pre">(list(range(</span> <span class="pre">10))</span></code> =&gt; [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">myList</span> <span class="pre">[::2]</span></code> =&gt; [0, 2, 4, 6, 8] #[start:stop:step]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">myList</span> <span class="pre">[2:9:3]</span></code> =&gt; [2, 5, 8]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">myList</span> <span class="pre">[::-1]</span></code> =&gt; [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="01_02_Scripts.html" class="btn btn-neutral float-right" title="Scripts and Functions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="01_General.html" class="btn btn-neutral float-left" title="General Tutorials" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Marjolein Hordijk
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

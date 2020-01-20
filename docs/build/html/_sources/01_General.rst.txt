@@ -1,10 +1,10 @@
-GIS Tutorials
+General Tutorials
 ============================================
 
 .. toctree::
    :maxdepth: 2
-   :caption: Tutorials:
+   :caption: Getting Started:
    
-   Tutorial 1 <01_01_Tutorial1.rst>
-   Tutorial 2 <01_02_Tutorial2.rst>
+   Introduction to Python <01_01_Intro.md>
+   Scripts and Functions <01_02_Scripts.md>
 
