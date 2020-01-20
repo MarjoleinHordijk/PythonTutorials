@@ -2,7 +2,7 @@ General Tutorials
 ============================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Getting Started:
    
    Introduction to Python <01_01_Intro.md>
