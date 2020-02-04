@@ -56,7 +56,7 @@ You can also see the content of the df variable by running ```print(df)``` from 
 
 ![](../../images/01_06/4.png)
 
-## 3. Reading data from dataframes
+### 3. Reading data from dataframes
 
 > #### Dataframes
 > We are using df as a name for our variable, since the resulting datatype will be a "DataFrame". This datatype is specific to pandas. It is basically a two dimensional table as we are used to seeing in Excel. The first row of the .csv file is interpreted as titles of the colomns. Therefore, we call this datastructure "labeled". 
