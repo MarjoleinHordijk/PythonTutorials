@@ -175,8 +175,8 @@
 </div>
 <div class="section" id="what-is-a-csv-file">
 <h2>What is a CSV file<a class="headerlink" href="#what-is-a-csv-file" title="Permalink to this headline">¶</a></h2>
-<p>You might have worked with CSV files before, but it is important to realize how these files are build up. If you open a CSV file in Excel, you might not really notice a difference to .xls files. However, CSV files are unique in the sense that they are accesibile to almost any software package out there. The reason for this is that the file structure is very simple. If you open a CSV file in a simple text editor (e.g. notepad), you will notice that they consists of lines of information which is seperated by comma’s, hence the name “Comma Seperated Values”. Each line represents a data point and the values on that line is the information that we have on each case.</p>
-<p><img alt="_images/1.png" src="_images/1.png" /></p>
+<p>You might have worked with CSV files before, but it is important to realize how these files are build up. If you open a CSV file in Excel, you might not really notice a difference to .xls files. However, CSV files are unique in the sense that they are accesibile to almost any software package out there. The reason for this is that the file structure is very simple. If you open a CSV file in a simple text editor (e.g. notepad), you will notice that they consists of lines of information which is seperated by comma’s, hence the name “Comma Seperated Values”. Each line represents a data point and the values on that line is the information that we have on each case.
+<img alt="_images/1.png" src="_images/1.png" /></p>
 </div>
 <div class="section" id="reading-a-csv-file">
 <h2>Reading a CSV file<a class="headerlink" href="#reading-a-csv-file" title="Permalink to this headline">¶</a></h2>
@@ -202,6 +202,30 @@
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 </pre></div>
+</div>
+<ul class="simple">
+<li><p>Now we will create a variable called df to store the information we get from the csv file.</p></li>
+</ul>
+<p>Make sure you replace the path\to\file with your own file location.
+Be aware of two things:</p>
+<ol class="simple">
+<li><p>You will need to use backward instead of forward slashes. Depending on your operating system, the path that you found may use forward slashes. In that case, you will need to adapt this.</p></li>
+<li><p>You need to put the path between single quotes. Again, you might need to adap this if your operating system uses double quotes instead.</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;C:\Users\s134538\Documents\GitHub\PythonTutorials\files\TempSensor_1.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Run this code (in this example we use Spyder to do so).</p></li>
+</ul>
+<p>You will not see any output in the console. However, in the Variable Explorer tab in Spyder, you will see a new variable appear. If you double click this variable, you can see the data of the .csv file in a table format.</p>
+<p>You can also see the content of the df variable by running <code class="docutils literal notranslate"><span class="pre">print(df)</span></code> from the console.</p>
+<p><img alt="_images/4.png" src="_images/4.png" /></p>
+<div class="section" id="dataframes">
+<h4>Dataframes<a class="headerlink" href="#dataframes" title="Permalink to this headline">¶</a></h4>
+<p>We are using df as a name for our variable, since the resulting datatype will be a “DataFrame”. This datatype is specific to pandas. It is basically a two dimensional table as we are used to seeing in Excel. The first row of the .csv file is interpreted as titles of the colomns. Therefore, we call this datastructure “labeled”.</p>
 </div>
 </div>
 </div>
