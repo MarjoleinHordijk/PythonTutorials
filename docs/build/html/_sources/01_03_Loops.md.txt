@@ -1,4 +1,4 @@
-# Loops
+# Loops & Conditional Statements
 
 There are different types of loops:
 
