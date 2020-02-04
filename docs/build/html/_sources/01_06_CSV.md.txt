@@ -10,7 +10,7 @@ In this tutorial we will discuss how you can use Python to work with CSV files. 
 
 ## Reading a CSV file
 
-First things first, you will need a csv file to read. You can download a practice file [here](../../files/TempSensor_1.csv). This file contains some hypothetical data from a temperature sensor.
+First things first, you will need a csv file to read. You can download a practice file [here](https://raw.githubusercontent.com/MarjoleinHordijk/PythonTutorials/master/files/TempSensor_1.csv). This file contains some hypothetical data from a temperature sensor.
 
 ### 1. Find the path
 
