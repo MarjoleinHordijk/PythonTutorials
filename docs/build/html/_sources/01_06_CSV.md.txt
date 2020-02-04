@@ -59,7 +59,7 @@ You can also see the content of the df variable by running ```print(df)``` from 
 > #### Dataframes
 > We are using df as a name for our variable, since the resulting datatype will be a "DataFrame". This datatype is specific to pandas. It is basically a two dimensional table as we are used to seeing in Excel. The first row of the .csv file is interpreted as titles of the colomns. Therefore, we call this datastructure "labeled". 
 
-### 3. Reading the data
+## 3. Reading the data
 
 We now have a variable that stores the data of our .csv file. However, we still need to access this data to use it in our script. Below several ways of accessing particular sections of this data are discussed.
 
