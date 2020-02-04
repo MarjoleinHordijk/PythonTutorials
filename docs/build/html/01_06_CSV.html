@@ -96,9 +96,16 @@
 <li class="toctree-l4"><a class="reference internal" href="#import-the-csv-file">2. Import the csv file</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#reading-the-data">3. Reading the data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#reading-data-from-dataframes">3. Reading data from dataframes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#dataframes">Dataframes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#select-a-colomn">Select a colomn</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#select-rows">Select rows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#select-rows-partitioning">Select rows (partitioning)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#getting-a-value">Getting a value</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#search-colomn-values-filtering">Search colomn values / Filtering</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#identifying-missing-data">4. Identifying missing data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#determine-the-percentage-of-missing-data-in-a-colomn">Determine the percentage of missing data in a colomn</a></li>
 </ul>
 </li>
 </ul>
@@ -228,30 +235,133 @@ Be aware of two things:</p>
 <p>You will not see any output in the console. However, in the Variable Explorer tab in Spyder, you will see a new variable appear. If you double click this variable, you can see the data of the .csv file in a table format.</p>
 <p>You can also see the content of the df variable by running <code class="docutils literal notranslate"><span class="pre">print(df)</span></code> from the console.</p>
 <p><img alt="_images/4.png" src="_images/4.png" /></p>
+</div>
+</div>
+<div class="section" id="reading-data-from-dataframes">
+<h2>3. Reading data from dataframes<a class="headerlink" href="#reading-data-from-dataframes" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="dataframes">
-<h4>Dataframes<a class="headerlink" href="#dataframes" title="Permalink to this headline">¶</a></h4>
+<h3>Dataframes<a class="headerlink" href="#dataframes" title="Permalink to this headline">¶</a></h3>
 <p>We are using df as a name for our variable, since the resulting datatype will be a “DataFrame”. This datatype is specific to pandas. It is basically a two dimensional table as we are used to seeing in Excel. The first row of the .csv file is interpreted as titles of the colomns. Therefore, we call this datastructure “labeled”.</p>
 </div>
-</div>
-</div>
-<div class="section" id="reading-the-data">
-<h2>3. Reading the data<a class="headerlink" href="#reading-the-data" title="Permalink to this headline">¶</a></h2>
 <p>We now have a variable that stores the data of our .csv file. However, we still need to access this data to use it in our script. Below several ways of accessing particular sections of this data are discussed.</p>
 <div class="section" id="select-a-colomn">
 <h3>Select a colomn<a class="headerlink" href="#select-a-colomn" title="Permalink to this headline">¶</a></h3>
-<p>You can select a specific colomn using <code class="docutils literal notranslate"><span class="pre">df['colomnlabel']</span></code> or <code class="docutils literal notranslate"><span class="pre">df.colomnlabel</span></code> where “colomnlabel” refers to the title of the colomn. These titles are stored in the first row of the .csv file.</p>
+<p>You can select a specific colomn using <code class="docutils literal notranslate"><span class="pre">df['colomnlabel']</span></code> or <code class="docutils literal notranslate"><span class="pre">df.colomnlabel</span></code> where “colomnlabel” refers to the title of the colomn. These titles are stored in the first row of the .csv file. Please note that “df” refers to the name that we gave to our DataFrame variable. If you used a different name to store the data, you will need to replace this.</p>
 <p><img alt="_images/5.png" src="_images/5.png" /></p>
 </div>
-<div class="section" id="select-rows">
-<h3>Select rows<a class="headerlink" href="#select-rows" title="Permalink to this headline">¶</a></h3>
-<p>You can also slide your data. That is, select only particular rows. Partitioning your data like this is sometimes required when using particular algorithms. For example, if you want to build a neural network you will need a training and validation dataset.</p>
-<p>The code below partitions the dataset (which contains 28 cases) into two partitions. The first partition contains rows 1-20, the second one rows 21-28. Recall that Python starts counting at 0!</p>
+<div class="section" id="select-rows-partitioning">
+<h3>Select rows (partitioning)<a class="headerlink" href="#select-rows-partitioning" title="Permalink to this headline">¶</a></h3>
+<p>You can also slide your data. That is, select only particular rows. Partitioning your data like this is sometimes required when using particular algorithms. For example, if you want to build a neural network you will need a training and validation dataset. Furthermore, when you are dealing with a very large dataset, it might be usefull to quickly view a section of it to get an idea of its content. (Instead you can also use <code class="docutils literal notranslate"><span class="pre">df.head()</span></code> or <code class="docutils literal notranslate"><span class="pre">df.tail()</span></code> to get the top or bottom five rows of the dataset.)</p>
+<p>The code below partitions the dataset (which contains 28 cases) into two partitions. The first partition contains rows 1-20, the second one rows 21-28. Recall that Python indices start at 0!</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;path\to\file&#39;</span><span class="p">)</span>
 
 <span class="n">partition1</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">19</span><span class="p">]</span>
 <span class="n">partition2</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="mi">20</span><span class="p">:</span><span class="mi">27</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="getting-a-value">
+<h3>Getting a value<a class="headerlink" href="#getting-a-value" title="Permalink to this headline">¶</a></h3>
+<p>If you want to get a particlar value for a specific case you can do so in different ways. Depending on the structure of your script, one method might me more handy than the other.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;path\to\file&#39;</span><span class="p">)</span>
+
+<span class="c1"># Get value by location in table.</span>
+<span class="c1"># From the fifth record, store the value in the third colomn in val1.</span>
+<span class="c1"># row index = 4, colomn index = 2</span>
+
+<span class="n">val1</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+
+<span class="c1"># Get value by position of row and name of colomn.</span>
+<span class="c1"># From the fifth record, store the value in the colomn with label &quot;Temp&quot; in val2.</span>
+
+<span class="n">val2</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;Temp&#39;</span><span class="p">]</span>
+
+<span class="c1"># Print the values</span>
+<span class="k">print</span> <span class="p">(</span><span class="n">val1</span><span class="p">)</span>
+<span class="k">print</span> <span class="p">(</span><span class="n">val2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="search-colomn-values-filtering">
+<h3>Search colomn values / Filtering<a class="headerlink" href="#search-colomn-values-filtering" title="Permalink to this headline">¶</a></h3>
+<p>It might be that you are interested in the values of specific cases. For example, you want to search your dataset for all records of a particular time. You will need to search the colomn containing the times of the records, identify the matching cases and report them.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;path\to\file&#39;</span><span class="p">)</span>
+
+<span class="c1"># Get value of one colomn by searching another.</span>
+<span class="c1"># Of record(s) from 10:34 (time) store the value in the colomn with label &quot;Temp&quot; in val3.</span>
+
+<span class="n">records</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s1">&#39;10:56&#39;</span><span class="p">]),</span> <span class="s1">&#39;Temp&#39;</span><span class="p">]</span>
+
+<span class="c1"># Print the cases</span>
+<span class="k">print</span> <span class="p">(</span><span class="n">records</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>As you will see when you run the code, only one record was taken at 10:34. The index of this record is 26 and the temperature at this time was 19.0 degrees.</p>
+<p>If multiple records would have the value value in the “Time” colomn, a list of these records would have been reported. This is the case in the example below.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;path\to\file&#39;</span><span class="p">)</span>
+
+<span class="c1"># Get value of one colomn by searching another.</span>
+<span class="c1"># Of record(s) from 10:34 (time) store the value in the colomn with label &quot;Temp&quot; in val3.</span>
+
+<span class="n">records</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s1">&#39;10:35&#39;</span><span class="p">]),</span> <span class="s1">&#39;Temp&#39;</span><span class="p">]</span>
+
+<span class="c1"># Print the cases</span>
+<span class="k">print</span> <span class="p">(</span><span class="n">records</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In this case, two records are returned.</p>
+<ul class="simple">
+<li><p>Index: 5, Temperature: 12.2</p></li>
+<li><p>Index: 30, Temperature: 18.5</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="identifying-missing-data">
+<h2>4. Identifying missing data<a class="headerlink" href="#identifying-missing-data" title="Permalink to this headline">¶</a></h2>
+<p>It is not uncommon for datasets to have missing data. In some cases, this is not an issue. However, some algorithms may have trouble dealing with this. In that case you will need to identify missing values and deal with the appropriately.</p>
+<p>Missing data is usually indicated by <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p>
+<p>You can get an overview of missing data using pandas’ <code class="docutils literal notranslate"><span class="pre">isna()</span></code> function, which returns a table-like output showing true if the value at that position is missing and false if it is not.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;path\to\file&#39;</span><span class="p">)</span>
+
+<span class="n">missing</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">missing</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>As you will see, for one record the temperature is missing. The index of this case is 29.</p>
+<p><img alt="_images/6.png" src="_images/6.png" /></p>
+<div class="section" id="determine-the-percentage-of-missing-data-in-a-colomn">
+<h3>Determine the percentage of missing data in a colomn<a class="headerlink" href="#determine-the-percentage-of-missing-data-in-a-colomn" title="Permalink to this headline">¶</a></h3>
+<p>Let’s say we would want to know now what percentage of data in the temperature colomn is missing. To do so, we can use the information that we stored in the “missing” variable. Why? Because the true/false values in this dataframe are boolean. This means that False evaluates to 0 and True evaluates as 1. Hence, we can simply <code class="docutils literal notranslate"><span class="pre">sum</span></code> all values in the “Temp” colomn of “missing” and find the total number of missing values.</p>
+<p>To calculate the percentage, we will also need to know the total number of records. This can be done using <code class="docutils literal notranslate"><span class="pre">len</span></code>, which determines the length of a dateframe (= the number of rows).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;path\to\file&#39;</span><span class="p">)</span>
+
+<span class="c1"># Dataframe with true/fales to indicate missing values.</span>
+<span class="n">missing</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+<span class="c1"># Determine total number of records with missing values in &quot;Temp&quot; colomn.</span>
+<span class="n">missing_records</span> <span class="o">=</span> <span class="n">missing</span><span class="p">[</span><span class="s1">&#39;Temp&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+<span class="c1"># Determine total number of records.</span>
+<span class="n">total_records</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+<span class="c1"># Determine percentage missing.</span>
+<span class="n">missing_percentage</span> <span class="o">=</span> <span class="n">missing_records</span> <span class="o">/</span> <span class="n">total_records</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Records with missing date for Temp: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">missing_records</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Total number of records: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">total_records</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Percentage of missing records: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">missing_percentage</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>

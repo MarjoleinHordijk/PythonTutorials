@@ -56,24 +56,24 @@ You can also see the content of the df variable by running ```print(df)``` from 
 
 ![](../../images/01_06/4.png)
 
+## 3. Reading data from dataframes
+
 > #### Dataframes
 > We are using df as a name for our variable, since the resulting datatype will be a "DataFrame". This datatype is specific to pandas. It is basically a two dimensional table as we are used to seeing in Excel. The first row of the .csv file is interpreted as titles of the colomns. Therefore, we call this datastructure "labeled". 
 
-## 3. Reading the data
-
 We now have a variable that stores the data of our .csv file. However, we still need to access this data to use it in our script. Below several ways of accessing particular sections of this data are discussed.
 
-#### Select a colomn
+### Select a colomn
 
-You can select a specific colomn using ```df['colomnlabel']``` or ```df.colomnlabel``` where "colomnlabel" refers to the title of the colomn. These titles are stored in the first row of the .csv file.
+You can select a specific colomn using ```df['colomnlabel']``` or ```df.colomnlabel``` where "colomnlabel" refers to the title of the colomn. These titles are stored in the first row of the .csv file. Please note that "df" refers to the name that we gave to our DataFrame variable. If you used a different name to store the data, you will need to replace this.
 
 ![](../../images/01_06/5.png)
 
-#### Select rows
+### Select rows (partitioning)
 
-You can also slide your data. That is, select only particular rows. Partitioning your data like this is sometimes required when using particular algorithms. For example, if you want to build a neural network you will need a training and validation dataset.
+You can also slide your data. That is, select only particular rows. Partitioning your data like this is sometimes required when using particular algorithms. For example, if you want to build a neural network you will need a training and validation dataset. Furthermore, when you are dealing with a very large dataset, it might be usefull to quickly view a section of it to get an idea of its content. (Instead you can also use ```df.head()``` or ```df.tail()``` to get the top or bottom five rows of the dataset.)
 
-The code below partitions the dataset (which contains 28 cases) into two partitions. The first partition contains rows 1-20, the second one rows 21-28. Recall that Python starts counting at 0!
+The code below partitions the dataset (which contains 28 cases) into two partitions. The first partition contains rows 1-20, the second one rows 21-28. Recall that Python indices start at 0!
 
 ```python
 import pandas as pd
@@ -82,4 +82,118 @@ df = pd.read_csv (r'path\to\file')
 
 partition1 = df[0:19]
 partition2 = df[20:27]
+```
+
+### Getting a value
+
+If you want to get a particlar value for a specific case you can do so in different ways. Depending on the structure of your script, one method might me more handy than the other.
+
+```python
+import pandas as pd
+
+df = pd.read_csv (r'path\to\file')
+
+# Get value by location in table.
+# From the fifth record, store the value in the third colomn in val1.
+# row index = 4, colomn index = 2
+
+val1 = df.iloc[4, 2]
+
+# Get value by position of row and name of colomn.
+# From the fifth record, store the value in the colomn with label "Temp" in val2.
+
+val2 = df.loc[4, 'Temp']
+
+# Print the values
+print (val1)
+print (val2)
+
+```
+
+### Search colomn values / Filtering
+
+It might be that you are interested in the values of specific cases. For example, you want to search your dataset for all records of a particular time. You will need to search the colomn containing the times of the records, identify the matching cases and report them.
+
+```python
+import pandas as pd
+
+df = pd.read_csv (r'path\to\file')
+
+# Get value of one colomn by searching another.
+# Of record(s) from 10:34 (time) store the value in the colomn with label "Temp" in val3.
+
+records = df.loc[df['Time'].isin(['10:56']), 'Temp']
+
+# Print the cases
+print (records)
+```
+
+As you will see when you run the code, only one record was taken at 10:34. The index of this record is 26 and the temperature at this time was 19.0 degrees.
+
+If multiple records would have the value value in the "Time" colomn, a list of these records would have been reported. This is the case in the example below.
+
+```python
+import pandas as pd
+
+df = pd.read_csv (r'path\to\file')
+
+# Get value of one colomn by searching another.
+# Of record(s) from 10:34 (time) store the value in the colomn with label "Temp" in val3.
+
+records = df.loc[df['Time'].isin(['10:35']), 'Temp']
+
+# Print the cases
+print (records)
+```
+
+In this case, two records are returned.
+- Index: 5, Temperature: 12.2
+- Index: 30, Temperature: 18.5
+
+## 4. Identifying missing data
+
+It is not uncommon for datasets to have missing data. In some cases, this is not an issue. However, some algorithms may have trouble dealing with this. In that case you will need to identify missing values and deal with the appropriately.
+
+Missing data is usually indicated by ```NaN```. 
+
+You can get an overview of missing data using pandas' ```isna()``` function, which returns a table-like output showing true if the value at that position is missing and false if it is not.
+
+```python
+import pandas as pd
+
+df = pd.read_csv (r'path\to\file')
+
+missing = pd.isna(df)
+print(missing)
+```
+As you will see, for one record the temperature is missing. The index of this case is 29.
+
+![](../../images/01_06/6.png)
+
+### Determine the percentage of missing data in a colomn
+
+Let's say we would want to know now what percentage of data in the temperature colomn is missing. To do so, we can use the information that we stored in the "missing" variable. Why? Because the true/false values in this dataframe are boolean. This means that False evaluates to 0 and True evaluates as 1. Hence, we can simply ```sum``` all values in the "Temp" colomn of "missing" and find the total number of missing values.
+
+To calculate the percentage, we will also need to know the total number of records. This can be done using ```len```, which determines the length of a dateframe (= the number of rows).
+
+```python
+import pandas as pd
+
+df = pd.read_csv (r'path\to\file')
+
+# Dataframe with true/fales to indicate missing values.
+missing = pd.isna(df)
+
+# Determine total number of records with missing values in "Temp" colomn.
+missing_records = missing['Temp'].sum()
+
+# Determine total number of records.
+total_records = len(df)
+
+# Determine percentage missing.
+missing_percentage = missing_records / total_records
+
+print("Records with missing date for Temp: " + str(missing_records))
+print("Total number of records: " + str(total_records))
+print("Percentage of missing records: " + str(missing_percentage))
 ```
