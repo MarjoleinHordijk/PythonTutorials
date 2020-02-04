@@ -9,6 +9,7 @@ General Tutorials
    Functions <01_02_Functions.md>
    Loops <01_03_Loops.md>
    Scripting <01_04_Scripting.md>
-   Working with CSV files <01_05_CSV.md>
+   Modules <01_05_Modules.md>
+   Working with CSV files <01_06_CSV.md>
 
 
