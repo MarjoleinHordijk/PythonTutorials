@@ -94,6 +94,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#reading-a-csv-file">Reading a CSV file</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#find-the-path">1. Find the path</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#import-the-csv-file">2. Import the csv file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reading-the-data">3. Reading the data</a></li>
 </ul>
 </li>
 </ul>
@@ -214,7 +215,7 @@ Be aware of two things:</p>
 </ol>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;C:\Users\s134538\Documents\GitHub\PythonTutorials\files\TempSensor_1.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;path\to\file&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -226,6 +227,28 @@ Be aware of two things:</p>
 <div class="section" id="dataframes">
 <h4>Dataframes<a class="headerlink" href="#dataframes" title="Permalink to this headline">¶</a></h4>
 <p>We are using df as a name for our variable, since the resulting datatype will be a “DataFrame”. This datatype is specific to pandas. It is basically a two dimensional table as we are used to seeing in Excel. The first row of the .csv file is interpreted as titles of the colomns. Therefore, we call this datastructure “labeled”.</p>
+</div>
+</div>
+<div class="section" id="reading-the-data">
+<h3>3. Reading the data<a class="headerlink" href="#reading-the-data" title="Permalink to this headline">¶</a></h3>
+<p>We now have a variable that stores the data of our .csv file. However, we still need to access this data to use it in our script. Below several ways of accessing particular sections of this data are discussed.</p>
+<div class="section" id="select-a-colomn">
+<h4>Select a colomn<a class="headerlink" href="#select-a-colomn" title="Permalink to this headline">¶</a></h4>
+<p>You can select a specific colomn using <code class="docutils literal notranslate"><span class="pre">df['colomnlabel']</span></code> or <code class="docutils literal notranslate"><span class="pre">df.colomnlabel</span></code> where “colomnlabel” refers to the title of the colomn. These titles are stored in the first row of the .csv file.</p>
+<p><img alt="_images/5.png" src="_images/5.png" /></p>
+</div>
+<div class="section" id="select-rows">
+<h4>Select rows<a class="headerlink" href="#select-rows" title="Permalink to this headline">¶</a></h4>
+<p>You can also slide your data. That is, select only particular rows. Partitioning your data like this is sometimes required when using particular algorithms. For example, if you want to build a neural network you will need a training and validation dataset.</p>
+<p>The code below partitions the dataset (which contains 28 cases) into two partitions. The first partition contains rows 1-20, the second one rows 21-28. Recall that Python starts counting at 0!</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;path\to\file&#39;</span><span class="p">)</span>
+
+<span class="n">partition1</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">19</span><span class="p">]</span>
+<span class="n">partition2</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="mi">20</span><span class="p">:</span><span class="mi">27</span><span class="p">]</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>

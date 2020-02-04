@@ -4,9 +4,9 @@
 
 In this tutorial we will discuss how you can use Python to work with CSV files. We we show how to read the data from these files, perform edits or store our results to them. To do so, we will use [Pandas](https://pandas.pydata.org/pandas-docs/version/0.15/tutorials.html). 
 
->## What is a CSV file
->You might have worked with CSV files before, but it is important to realize how these files are build up. If you open a CSV file in Excel, you might not really notice a difference to .xls files. However, CSV files are unique in the sense that they are accesibile to almost any software package out there. The reason for this is that the file structure is very simple. If you open a CSV file in a simple text editor (e.g. notepad), you will notice that they consists of lines of information which is seperated by comma's, hence the name "Comma Seperated Values". Each line represents a data point and the values on that line is the information that we have on each case.
->![](../../images/01_05/1.png)
+> ## What is a CSV file
+> You might have worked with CSV files before, but it is important to realize how these files are build up. If you open a CSV file in Excel, you might not really notice a difference to .xls files. However, CSV files are unique in the sense that they are accesibile to almost any software package out there. The reason for this is that the file structure is very simple. If you open a CSV file in a simple text editor (e.g. notepad), you will notice that they consists of lines of information which is seperated by comma's, hence the name "Comma Seperated Values". Each line represents a data point and the values on that line is the information that we have on each case.
+> ![](../../images/01_06/1.png)
 
 ## Reading a CSV file
 
@@ -19,11 +19,11 @@ Next, you will need to find out the path to the location where you stored the fi
 - Right click the .csv file while holding the shift key on your keyboard down.
 - Chose "Copy as path" from the menu that appears.
 
-![](../../images/01_05/2.png)
+![](../../images/01_06/2.png)
 
 - If you now paste the path you just copied into a text editor, you should see something as is shown below. This is the location that the .csv file is stored at on your harddrive.
 
-![](../../images/01_05/3.png)
+![](../../images/01_06/3.png)
 
 ### 2. Import the csv file
 
@@ -45,7 +45,7 @@ Be aware of two things:
 ```python
 import pandas as pd
 
-df = pd.read_csv (r'C:\Users\s134538\Documents\GitHub\PythonTutorials\files\TempSensor_1.csv')
+df = pd.read_csv (r'path\to\file')
 ```
 
 - Run this code (in this example we use Spyder to do so).
@@ -54,8 +54,32 @@ You will not see any output in the console. However, in the Variable Explorer ta
 
 You can also see the content of the df variable by running ```print(df)``` from the console.
 
-![](../../images/01_05/4.png)
+![](../../images/01_06/4.png)
 
 > #### Dataframes
 > We are using df as a name for our variable, since the resulting datatype will be a "DataFrame". This datatype is specific to pandas. It is basically a two dimensional table as we are used to seeing in Excel. The first row of the .csv file is interpreted as titles of the colomns. Therefore, we call this datastructure "labeled". 
 
+### 3. Reading the data
+
+We now have a variable that stores the data of our .csv file. However, we still need to access this data to use it in our script. Below several ways of accessing particular sections of this data are discussed.
+
+#### Select a colomn
+
+You can select a specific colomn using ```df['colomnlabel']``` or ```df.colomnlabel``` where "colomnlabel" refers to the title of the colomn. These titles are stored in the first row of the .csv file.
+
+![](../../images/01_06/5.png)
+
+#### Select rows
+
+You can also slide your data. That is, select only particular rows. Partitioning your data like this is sometimes required when using particular algorithms. For example, if you want to build a neural network you will need a training and validation dataset.
+
+The code below partitions the dataset (which contains 28 cases) into two partitions. The first partition contains rows 1-20, the second one rows 21-28. Recall that Python starts counting at 0!
+
+```python
+import pandas as pd
+
+df = pd.read_csv (r'path\to\file')
+
+partition1 = df[0:19]
+partition2 = df[20:27]
+```
