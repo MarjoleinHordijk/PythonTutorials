@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Scripting &mdash; Python Tutorials  documentation</title>
+  <title>Working with CSV files &mdash; Python Tutorials  documentation</title>
   
 
   
@@ -35,8 +35,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Working with CSV files" href="01_05_CSV.html" />
-    <link rel="prev" title="Loops &amp; Conditional Statements" href="01_03_Loops.html" /> 
+    <link rel="next" title="GIS Tutorials" href="02_GIS.html" />
+    <link rel="prev" title="Scripting" href="01_04_Scripting.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -86,13 +86,12 @@
 <li class="toctree-l2"><a class="reference internal" href="01_01_Intro.html">Introduction to Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="01_02_Functions.html">Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="01_03_Loops.html">Loops</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Scripting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="01_04_Scripting.html">Scripting</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Working with CSV files</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#in-this-tutorial">In this tutorial</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#what-is-a-script">What is a Script?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#defining-functions-in-scripts">Defining functions in scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-a-csv-file">What is a CSV file</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="01_05_CSV.html">Working with CSV files</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="02_GIS.html">GIS tutorials</a></li>
@@ -143,13 +142,13 @@
         
           <li><a href="01_General.html">General Tutorials</a> &raquo;</li>
         
-      <li>Scripting</li>
+      <li>Working with CSV files</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/01_04_Scripting.md.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/01_05_CSV.md.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -162,26 +161,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="scripting">
-<h1>Scripting<a class="headerlink" href="#scripting" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="working-with-csv-files">
+<h1>Working with CSV files<a class="headerlink" href="#working-with-csv-files" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="in-this-tutorial">
 <h2>In this tutorial<a class="headerlink" href="#in-this-tutorial" title="Permalink to this headline">¶</a></h2>
-<p>This tutorial introduces you to the concept of scripting. Although scripting can often be done within software packages such as Revit or QGIS, we will focus here on standalone scripts. However, these basic principles apply to scripting in any environment. We will use Spyder to write and run some simple examples.</p>
+<p>In this tutorial we will discuss how you can use Python to work with CSV files. We we show how to read the data from these files, perform edits or store our results to them.</p>
 </div>
-<div class="section" id="what-is-a-script">
-<h2>What is a Script?<a class="headerlink" href="#what-is-a-script" title="Permalink to this headline">¶</a></h2>
-<p>If you quit Spyder (or another editor/IDE) and enter it again, the variables or functions that you defined in the console will be lost. However, you may want to store a particular sequence of commands for several reasons.</p>
-<ul class="simple">
-<li><p>You want to share the sequence with someone.</p></li>
-<li><p>You want to reuse the sequence later on.</p></li>
-<li><p>You want to automate a process.</p></li>
-</ul>
-<p>Fortunately, we can use scripting to store the sequence of commands for later use. In this way we can easily run the code again in one go.</p>
-<p>To illustrate, imagine you used a set of commands to clean a dataset with sensor data. Now that you finished cleaning the data from one sensor, you need to move on to other sensors. Since the data will likely show similar errors, cleaning both datasets will require similar procedures. Therefore it is usefull to store the steps that you took for the first dataset, so you can apply them again. This can safe you a lot of time! Alternatively, you might want to help a peer student out to clean his dataset. You could simply send the script you developed to this person and he/she will also be able to repeat your procedures.</p>
-</div>
-<div class="section" id="defining-functions-in-scripts">
-<h2>Defining functions in scripts<a class="headerlink" href="#defining-functions-in-scripts" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference internal" href="01_02_Functions.html"><span class="doc">This</span></a> tutorial discusses the basics of using and defining functions.</p>
+<div class="section" id="what-is-a-csv-file">
+<h2>What is a CSV file<a class="headerlink" href="#what-is-a-csv-file" title="Permalink to this headline">¶</a></h2>
+<p>You might have worked with CSV files before, but it is important to realize how these files are build up. If you open a CSV file in Excel, you might not really notice a difference to .xls files. However, CSV files are unique in the sense that they are accesibile to almost any software package out there. The reason for this is that the file structure is very simple. If you open a CSV file in a simple text editor (e.g. notepad), you will notice that they consists of lines of information which is seperated by comma’s, hence the name “Comma Seperated Values”. Each line represents a data point and the values on that line is the information that we have on each case.</p>
+<p><img alt="_images/1.png" src="_images/1.png" /></p>
 </div>
 </div>
 
@@ -193,10 +182,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="01_05_CSV.html" class="btn btn-neutral float-right" title="Working with CSV files" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="02_GIS.html" class="btn btn-neutral float-right" title="GIS Tutorials" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="01_03_Loops.html" class="btn btn-neutral float-left" title="Loops &amp; Conditional Statements" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="01_04_Scripting.html" class="btn btn-neutral float-left" title="Scripting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
