@@ -94,14 +94,17 @@
 <li class="toctree-l3"><a class="reference internal" href="#reading-a-csv-file">Reading a CSV file</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#find-the-path">1. Find the path</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#import-the-csv-file">2. Import the csv file</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#reading-data-from-dataframes">3. Reading data from dataframes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#reading-data-from-dataframes">Reading data from dataframes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#dataframes">Dataframes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#select-a-colomn">Select a colomn</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#select-rows-partitioning">Select rows (partitioning)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#getting-a-value">Getting a value</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#search-colomn-values-filtering">Search colomn values / Filtering</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#identifying-missing-data">4. Identifying missing data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#identifying-missing-data">Identifying missing data</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#determine-the-percentage-of-missing-data-in-a-colomn">Determine the percentage of missing data in a colomn</a></li>
 </ul>
 </li>
@@ -233,14 +236,14 @@ Be aware of two things:</p>
 <p>You can also see the content of the df variable by running <code class="docutils literal notranslate"><span class="pre">print(df)</span></code> from the console.</p>
 <p><img alt="_images/4.png" src="_images/4.png" /></p>
 </div>
+</div>
 <div class="section" id="reading-data-from-dataframes">
-<h3>3. Reading data from dataframes<a class="headerlink" href="#reading-data-from-dataframes" title="Permalink to this headline">¶</a></h3>
+<h2>Reading data from dataframes<a class="headerlink" href="#reading-data-from-dataframes" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="dataframes">
-<h4>Dataframes<a class="headerlink" href="#dataframes" title="Permalink to this headline">¶</a></h4>
+<h3>Dataframes<a class="headerlink" href="#dataframes" title="Permalink to this headline">¶</a></h3>
 <p>We are using df as a name for our variable, since the resulting datatype will be a “DataFrame”. This datatype is specific to pandas. It is basically a two dimensional table as we are used to seeing in Excel. The first row of the .csv file is interpreted as titles of the colomns. Therefore, we call this datastructure “labeled”.</p>
 </div>
 <p>We now have a variable that stores the data of our .csv file. However, we still need to access this data to use it in our script. Below several ways of accessing particular sections of this data are discussed.</p>
-</div>
 <div class="section" id="select-a-colomn">
 <h3>Select a colomn<a class="headerlink" href="#select-a-colomn" title="Permalink to this headline">¶</a></h3>
 <p>You can select a specific colomn using <code class="docutils literal notranslate"><span class="pre">df['colomnlabel']</span></code> or <code class="docutils literal notranslate"><span class="pre">df.colomnlabel</span></code> where “colomnlabel” refers to the title of the colomn. These titles are stored in the first row of the .csv file. Please note that “df” refers to the name that we gave to our DataFrame variable. If you used a different name to store the data, you will need to replace this.</p>
@@ -322,7 +325,7 @@ Be aware of two things:</p>
 </div>
 </div>
 <div class="section" id="identifying-missing-data">
-<h2>4. Identifying missing data<a class="headerlink" href="#identifying-missing-data" title="Permalink to this headline">¶</a></h2>
+<h2>Identifying missing data<a class="headerlink" href="#identifying-missing-data" title="Permalink to this headline">¶</a></h2>
 <p>It is not uncommon for datasets to have missing data. In some cases, this is not an issue. However, some algorithms may have trouble dealing with this. In that case you will need to identify missing values and deal with the appropriately.</p>
 <p>Missing data is usually indicated by <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p>
 <p>You can get an overview of missing data using pandas’ <code class="docutils literal notranslate"><span class="pre">isna()</span></code> function, which returns a table-like output showing true if the value at that position is missing and false if it is not.</p>
