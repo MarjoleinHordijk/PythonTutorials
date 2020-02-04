@@ -21,6 +21,7 @@ For example, ```print()``` can be used to print anything to the console output.
 You can find an overview of other standard functions [Here](https://docs.python.org/3/library/functions.html#open).
 
 ![](https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/1.png?raw=true)
+![](../../images/01_02/1.png)
 
 ### Functions for dataype conversions
 
@@ -50,6 +51,7 @@ print ("I am " + myFloat + " years old.")
 ```
 
 ![](https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/5.png?raw=true)
+![](../../images/01_02/5.png)
 
 - To solve this, we can conver the integer and float data to string data as follows.
 
@@ -59,6 +61,7 @@ print ("I am " + str(myFloat) + " years old.")
 ```
 
 ![](https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/6.png?raw=true)
+![](../../images/01_02/6.png)
 
 - Alternatively, you might want to convert the decimal numbers in your dataset to whole numbers (integers). You can do this by converting the float data to integer data as shown below. When you run this, you will see that the variable "converted" of datatype "int" is added to your Variable Explorer panel in Spyder.
 
@@ -67,6 +70,7 @@ converted = int(myFloat)
 ```
 
 ![](https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/7.png?raw=true)
+![](../../images/01_02/7.png)
 
 ## 3. Writing your Own Functions
 
@@ -98,6 +102,7 @@ myFunction("Marjolein")
 Output: My name is Marjolein.
 
 ![](https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/2.png?raw=true)
+![](../../images/01_02/2.png)
 
 ### A Function with Mutiple Arguments
 
@@ -122,6 +127,7 @@ myFunction("Marjolein", 25)
 - You will see the output in the console window.
 
 ![](https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/3.png?raw=true)
+![](../../images/01_02/3.png)
 
 ### Asking for Input
 
@@ -141,6 +147,7 @@ print("Welcome to the course, " + name)
 - You should see the sentence appear with your name filled in.
 
 ![](https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/4.png?raw=true)
+![](../../images/01_02/4.png)
 
 ## 4. Functions from Packages / Modules
 

@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Scripting" href="01_03_Scripting.html" />
+    <link rel="next" title="Loops &amp; Conditional Statements" href="01_03_Loops.html" />
     <link rel="prev" title="Introduction to Python" href="01_01_Intro.html" /> 
 </head>
 
@@ -102,7 +102,10 @@
 <li class="toctree-l3"><a class="reference internal" href="#functions-from-packages-modules">4. Functions from Packages / Modules</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="01_03_Scripting.html">Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_03_Loops.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_04_Scripting.html">Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_05_Modules.html">Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_06_CSV.html">Working with CSV files</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="02_GIS.html">GIS tutorials</a></li>
@@ -189,7 +192,8 @@
 <p>If you followed the “Introduction to Python” tutorial (see <a class="reference external" href="https://pythontutorials.readthedocs.io/en/latest/01_01_GetStarted.html">Here</a>), you have already encountered several standard functions.</p>
 <p>For example, <code class="docutils literal notranslate"><span class="pre">print()</span></code> can be used to print anything to the console output.</p>
 <p>You can find an overview of other standard functions <a class="reference external" href="https://docs.python.org/3/library/functions.html#open">Here</a>.</p>
-<p><img alt="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/1.png?raw=true" src="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/1.png?raw=true" /></p>
+<p><img alt="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/1.png?raw=true" src="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/1.png?raw=true" />
+<img alt="_images/12.png" src="_images/12.png" /></p>
 <div class="section" id="functions-for-dataype-conversions">
 <h3>Functions for dataype conversions<a class="headerlink" href="#functions-for-dataype-conversions" title="Permalink to this headline">¶</a></h3>
 <p>Python supports various datatypes, such as text (string) or numbers (integers, floats). However, in some cases you are able to capture a particular piece of information with different datatypes. For example, you can store your age in full years as an integer or float, but also as a small piece of text (string). In some cases, a particular datatype migth be more readily application than another. If the input data is not of this particular type, you can use the functions below to convert the data into the most suitable one.</p>
@@ -216,7 +220,8 @@
 <span class="k">print</span> <span class="p">(</span><span class="s2">&quot;I am &quot;</span> <span class="o">+</span> <span class="n">myFloat</span> <span class="o">+</span> <span class="s2">&quot; years old.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><img alt="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/5.png?raw=true" src="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/5.png?raw=true" /></p>
+<p><img alt="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/5.png?raw=true" src="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/5.png?raw=true" />
+<img alt="_images/52.png" src="_images/52.png" /></p>
 <ul class="simple">
 <li><p>To solve this, we can conver the integer and float data to string data as follows.</p></li>
 </ul>
@@ -224,14 +229,16 @@
 <span class="k">print</span> <span class="p">(</span><span class="s2">&quot;I am &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">myFloat</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; years old.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><img alt="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/6.png?raw=true" src="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/6.png?raw=true" /></p>
+<p><img alt="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/6.png?raw=true" src="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/6.png?raw=true" />
+<img alt="_images/62.png" src="_images/62.png" /></p>
 <ul class="simple">
 <li><p>Alternatively, you might want to convert the decimal numbers in your dataset to whole numbers (integers). You can do this by converting the float data to integer data as shown below. When you run this, you will see that the variable “converted” of datatype “int” is added to your Variable Explorer panel in Spyder.</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">converted</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">myFloat</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><img alt="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/7.png?raw=true" src="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/7.png?raw=true" /></p>
+<p><img alt="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/7.png?raw=true" src="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/7.png?raw=true" />
+<img alt="_images/7.png" src="_images/7.png" /></p>
 </div>
 </div>
 <div class="section" id="writing-your-own-functions">
@@ -260,7 +267,8 @@ Next will need to indent one level to start writing your function. You can inden
 <li><p>You will see the output in the console window.</p></li>
 </ul>
 <p>Output: My name is Marjolein.</p>
-<p><img alt="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/2.png?raw=true" src="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/2.png?raw=true" /></p>
+<p><img alt="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/2.png?raw=true" src="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/2.png?raw=true" />
+<img alt="_images/22.png" src="_images/22.png" /></p>
 </div>
 <div class="section" id="a-function-with-mutiple-arguments">
 <h3>A Function with Mutiple Arguments<a class="headerlink" href="#a-function-with-mutiple-arguments" title="Permalink to this headline">¶</a></h3>
@@ -283,7 +291,8 @@ Next will need to indent one level to start writing your function. You can inden
 <ul class="simple">
 <li><p>You will see the output in the console window.</p></li>
 </ul>
-<p><img alt="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/3.png?raw=true" src="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/3.png?raw=true" /></p>
+<p><img alt="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/3.png?raw=true" src="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/3.png?raw=true" />
+<img alt="_images/32.png" src="_images/32.png" /></p>
 </div>
 <div class="section" id="asking-for-input">
 <h3>Asking for Input<a class="headerlink" href="#asking-for-input" title="Permalink to this headline">¶</a></h3>
@@ -301,7 +310,8 @@ Next will need to indent one level to start writing your function. You can inden
 <li><p>You will see the question for you name appear. Provide your name as input.</p></li>
 <li><p>You should see the sentence appear with your name filled in.</p></li>
 </ul>
-<p><img alt="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/4.png?raw=true" src="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/4.png?raw=true" /></p>
+<p><img alt="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/4.png?raw=true" src="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_02/4.png?raw=true" />
+<img alt="_images/42.png" src="_images/42.png" /></p>
 </div>
 </div>
 <div class="section" id="functions-from-packages-modules">
@@ -320,7 +330,7 @@ However you will find more information on this in other tutorials available on t
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="01_03_Scripting.html" class="btn btn-neutral float-right" title="Scripting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="01_03_Loops.html" class="btn btn-neutral float-right" title="Loops &amp; Conditional Statements" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="01_01_Intro.html" class="btn btn-neutral float-left" title="Introduction to Python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

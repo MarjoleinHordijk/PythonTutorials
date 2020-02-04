@@ -9,6 +9,7 @@ You may already have Python installed, so check this first. Finding out whether 
 - running the following command: ```python```
 
 ![](https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_01/1.png?raw=true)
+![](../../images/01_01/1.png)
 
 Make sure that you have a version of Python 3 installed (e.g. 3.7).
 Note that it is possible to have a version 2 and 3 installed side by side.
@@ -23,6 +24,7 @@ Please follow the provided instructions.
 If you already have a version 3 installation, this one will be overwritten by the new version.
 
 ![](https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_01/2.png?raw=true)
+![](../../images/01_01/2.png)
 
 ### Useful Commands in the Command Prompt
 To install new modules, packages or Python versions, you will need to use the Command Prompt / Terminal / Bash Shell.
@@ -56,6 +58,7 @@ To start the Python shell, you can do the following:
 - you will see that a ```>>>``` command line opens, which is a place where you can include and execute Python commands directly.
 
 ![](https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_01/3.png?raw=true)
+![](../../images/01_01/3.png)
 
 ### Using the Python shell
 In the Python shell, you can execute Python code directly. For example, you can execute the following commands:
@@ -71,6 +74,7 @@ print("Hello world")
 The result of the command is displayed immediately in the shell.
 
 ![](https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_01/4.png?raw=true)
+![](../../images/01_01/4.png)
 
 ### Executing python scripts from a command line interface
 You can also include the above Python commands in a file to execute them.
@@ -102,6 +106,7 @@ After the installation has finished, you can run Spyder. You will see an interfa
 #### The IPython Console
 
 ![](https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_01/6.png?raw=true)
+![](../../images/01_01/6.png)
 
 In the console, you will be able to run commands like you would in the Python Shell when we used the command prompt / terminal.
 For example, we can type ```print("Hello world")``` and hit enter to run this command.
@@ -111,6 +116,7 @@ For example, we can type ```print("Hello world")``` and hit enter to run this co
 #### The Editor
 
 ![](https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_01/5.png?raw=true)
+![](../../images/01_01/5.png)
 
 In the editor, you are able to write a sequence of commands and save them.
 Basically, you will do the same here as we did earlier when we used a text editor to create a .py file.
@@ -119,6 +125,7 @@ When you press the small play button in the top menu, your script will be execut
 You will see the output in the console.
 
 ![](https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_01/7.2.png?raw=true)
+![](../../images/01_01/7.2.png)
 
 #### The Variable Explorer
 
@@ -128,6 +135,7 @@ You can use the Variable Explorer tab to get a quick overview of the variables t
 - You will see this variable and the value that you defined in the Variable Explorer tab.
 
 ![](https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_01/8.png?raw=true)
+![](../../images/01_01/8.png)
 
 In the next section variables are discussed in greater detail.
 
@@ -174,6 +182,7 @@ Try it for yourself! If you add the piece of code above to a .py file in the Spy
 You can now use these variables later in your script. For example, you can run ```print(myStr)```.
 
 ![](https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_01/9.png?raw=true)
+![](../../images/01_01/9.png)
 
 There are some rules to defining variable names. Variable names may not contain spaces. Python will then not be able to recognize multiple words as one name. Further, variable names can not start with a number.
 
@@ -202,6 +211,7 @@ As you might have noticed, we actually already used comments in our previous exa
 Operators allow to perform operations on variables of particular data types. A number of operators are available. There are plenty of cheat sheets online that list the different available operators. If you don't know what to use to do something, Google it first; or search for a solution in the cheat sheets.
 
 ![](https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/01_01/10.jpg?raw=true)
+![](../../images/01_01/10.jpg)
 
 #### Number and boolean operators
 
