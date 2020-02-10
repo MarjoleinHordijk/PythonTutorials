@@ -1,8 +1,6 @@
 BE Python Tutorials Repository
 ============================================
 
-Home
-^^^^^
 This repository is your starting point for all the information you need as a CME student to learn Python (basic and advanced). The Python course material is oriented as good as possible towards students in Architectural Design, Construction, Engineering, Urban Planning, and Construction Management.
 
 Introduction
