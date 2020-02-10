@@ -87,15 +87,17 @@
 <li class="toctree-l1"><a class="reference internal" href="03_DataAnalysis.html">Data Analysis Using Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04_GIS.html">GIS</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="05_BIM.html">Building Data</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Using Python to Develop Custom Nodes in Dynamo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#visual-programming-in-dynamo">1. Visual Programming in Dynamo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#what-are-nodes">2. What are Nodes?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#custom-nodes-summarized-from-here">3. Custom Nodes (summarized from here)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#why-build-custom-nodes-using-python">4. Why Build Custom Nodes Using Python?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#creating-a-new-python-node">5. Creating a New Python Node</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#exercise-custom-python-node-in-dynamo-studio">6. Exercise: Custom Python Node in Dynamo Studio</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#starting-the-project">1. Starting the project</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#creating-the-rectangular-geometry">2. Creating the rectangular geometry</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Custom Dynamo Nodes Using Python</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#visual-programming-in-dynamo">1. Visual Programming in Dynamo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-are-nodes">2. What are Nodes?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#custom-nodes-summarized-from-here">3. Custom Nodes (summarized from here)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#why-build-custom-nodes-using-python">4. Why Build Custom Nodes Using Python?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-a-new-python-node">5. Creating a New Python Node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exercise-custom-python-node-in-dynamo-studio">6. Exercise: Custom Python Node in Dynamo Studio</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#starting-the-project">6.1 Starting the project</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#creating-the-rectangular-geometry">6.2 Creating the rectangular geometry</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#manipulating-the-surface">3. Manipulating the Surface</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#adding-a-python-node">4. Adding a Python Node</a></li>
 </ul>
@@ -177,9 +179,8 @@
             
   <div class="section" id="using-python-to-develop-custom-nodes-in-dynamo">
 <h1>Using Python to Develop Custom Nodes in Dynamo<a class="headerlink" href="#using-python-to-develop-custom-nodes-in-dynamo" title="Permalink to this headline">¶</a></h1>
-</div>
 <div class="section" id="visual-programming-in-dynamo">
-<h1>1. Visual Programming in Dynamo<a class="headerlink" href="#visual-programming-in-dynamo" title="Permalink to this headline">¶</a></h1>
+<h2>1. Visual Programming in Dynamo<a class="headerlink" href="#visual-programming-in-dynamo" title="Permalink to this headline">¶</a></h2>
 <p>Dynamo is an application that allows you to program in a highly visual and intuitive manner. It can either be used on its own (“Sandbox” mode) or in combination with other software (e.g. Revit). Using Dynamo, you can compose a visual programming process from a sequence of nodes. In this way, you can easily develop custom algorithms to process data.</p>
 <p>Would you like to learn more about working with Dynamo in various contexts, or you need help to get started? Please refer to <a class="reference external" href="https://primer.dynamobim.org/01_Introduction/1_introduction.html">this</a> primer, which provides you with a great overview of how you could use Dynamo.</p>
 <p><img alt="_images/18.png" src="_images/18.png" /></p>
@@ -190,7 +191,7 @@
 <p>We will use <strong><em>Dynamo Studio</em></strong> (2017) to develop the custom nodes. This programming environment is released by Autodesk. If you have a student Autodesk account, you can download the software for free <a class="reference external" href="http://autodesk.com/education/free-software/dynamo-studio">here</a>. You can create a student account using your TU/e mailadres to gain access to the software. Once you have downloaded the software from the Autodesk website, you should receive an email with a serial number and product key that are valid for 3 years. Unfortunately the software is only available for Windows.</p>
 </div>
 <div class="section" id="what-are-nodes">
-<h1>2. What are Nodes?<a class="headerlink" href="#what-are-nodes" title="Permalink to this headline">¶</a></h1>
+<h2>2. What are Nodes?<a class="headerlink" href="#what-are-nodes" title="Permalink to this headline">¶</a></h2>
 <p>Nodes in Dynamo are the key ingredients of your algorithm. They capture all actions that have to take place, which can range from reading and storing data to querying.</p>
 <p><strong>Anatomy of a Node</strong></p>
 <p>(Summarized from <a class="reference external" href="https://primer.dynamobim.org/03_Anatomy-of-a-Dynamo-Definition/3-1_dynamo_nodes.html">here</a>.)</p>
@@ -229,14 +230,14 @@
   </tr>
 </table></div>
 <div class="section" id="custom-nodes-summarized-from-here">
-<h1>3. Custom Nodes (summarized from <a class="reference external" href="https://primer.dynamobim.org/10_Custom-Nodes/10-1_Introduction.html">here</a>)<a class="headerlink" href="#custom-nodes-summarized-from-here" title="Permalink to this headline">¶</a></h1>
+<h2>3. Custom Nodes (summarized from <a class="reference external" href="https://primer.dynamobim.org/10_Custom-Nodes/10-1_Introduction.html">here</a>)<a class="headerlink" href="#custom-nodes-summarized-from-here" title="Permalink to this headline">¶</a></h2>
 <p>As said before, custom nodes are a great way to extent the possibilities of Dynamo. They allow us to create the exact nodes that we need to efficiently develop a custom algorithm when these are not available out of the box. Furthermore, by combining multiple actions, custom nodes can help you keep your graph clean and readable.</p>
 <p>Important to know is also that you can store the nodes you have created and reuse them in different projects. If you have different versions of the node you created, you can easily update them in one go by editing the base node. Moreover, you can share the nodes that you developed with fellow programmers.</p>
 <p>One way to develop custom nodes is through the <strong><em>Custom Node Environment</em></strong>. This environment is very similar to the one in which you build your Dynamo processes. In here, you can use the standard Dynamo syntax to create your own nodes. For more information and a simple example, see <a class="reference external" href="https://primer.dynamobim.org/10_Custom-Nodes/10-1_Introduction.html">here</a>. A more complex example can be found <a class="reference external" href="https://primer.dynamobim.org/10_Custom-Nodes/10-2_Creating.html">here</a>.</p>
 <p><img alt="_images/35.png" src="_images/35.png" /></p>
 </div>
 <div class="section" id="why-build-custom-nodes-using-python">
-<h1>4. Why Build Custom Nodes Using Python?<a class="headerlink" href="#why-build-custom-nodes-using-python" title="Permalink to this headline">¶</a></h1>
+<h2>4. Why Build Custom Nodes Using Python?<a class="headerlink" href="#why-build-custom-nodes-using-python" title="Permalink to this headline">¶</a></h2>
 <p>Although visual programming can be very intuitive, it also has the downside that a graph can become cluttered and chaotic. Furthermore, the out-of-the-box functionality offered by the nodes available in a graphical interface can limit the functionality and flexibility of you as a programmer. In some cases, it can therefore be useful to implement some textual programming. This can be done using Python.</p>
 <p>A good example of where Python can help you to keep your graph readable is in the case of looping. Capturing a loop in Dynamo can lead to a large web of nodes and wires. However, the same can often be achieved by a few lines of code when using Python. Take for example the process shown below (<a class="reference external" href="https://primer.dynamobim.org/10_Custom-Nodes/10-4_Python.html">source</a>). Modelling this process would require you to specify almost 30 nodes and connect them properly. Alternatively, you can use the relatively concise piece of code below to achieve the same result.</p>
 <p><img alt="_images/45.png" src="_images/45.png" /></p>
@@ -267,18 +268,18 @@
 </div>
 </div>
 <div class="section" id="creating-a-new-python-node">
-<h1>5. Creating a New Python Node<a class="headerlink" href="#creating-a-new-python-node" title="Permalink to this headline">¶</a></h1>
+<h2>5. Creating a New Python Node<a class="headerlink" href="#creating-a-new-python-node" title="Permalink to this headline">¶</a></h2>
 <p>You can create a add a Python Node to your graph under Core&gt;Scripting. If you double click a Python node, a <strong><em>scripting interface</em></strong> will open in which you can edit the code behind it.</p>
 <p><img alt="_images/55.png" src="_images/55.png" /></p>
 <p>To assess the functionality of Dynamo in your script, you can use the <strong><em>Autodesk.DesignScript module</em></strong>. This allows you to use some of the <strong><em>Dynamo syntax</em></strong> (see <a class="reference external" href="https://dynamobim.org/wp-content/links/DesignScriptGuide.pdf">here</a> for more information). This can be very useful if you are working with geometric objects. For example, if you import this module you can work with Point geometries. The interface also provides you with suggestions for methods that you can apply when you type in one a geometry type. To illustrate, if you type Point. you will be provided with a lists of methods that you can use to query or create points.</p>
 </div>
 <div class="section" id="exercise-custom-python-node-in-dynamo-studio">
-<h1>6. Exercise: Custom Python Node in Dynamo Studio<a class="headerlink" href="#exercise-custom-python-node-in-dynamo-studio" title="Permalink to this headline">¶</a></h1>
+<h2>6. Exercise: Custom Python Node in Dynamo Studio<a class="headerlink" href="#exercise-custom-python-node-in-dynamo-studio" title="Permalink to this headline">¶</a></h2>
 <p>The following exercise is based on <a class="reference external" href="https://primer.dynamobim.org/10_Custom-Nodes/10-4_Python.html">this</a>. However, we will discuss some basics of Dynamo in greater detail for those that have no or minor experience working with Dynamo. Also, the steps that you will need to take are discussed more elaborately here, with extra illustrations.</p>
 <p>In this exercise we will develop a pattern from a solid rectangular element. We will do this using both regular and custom nodes in Dynamo.</p>
 <p><img alt="_images/65.png" src="_images/65.png" /></p>
 <div class="section" id="starting-the-project">
-<h2>1. Starting the project<a class="headerlink" href="#starting-the-project" title="Permalink to this headline">¶</a></h2>
+<h3>6.1 Starting the project<a class="headerlink" href="#starting-the-project" title="Permalink to this headline">¶</a></h3>
 <p>Start Autodesk Dynamo Studio (2017) and create a new workspace.</p>
 <p><img alt="_images/74.png" src="_images/74.png" /></p>
 <p>You can find all the regular Dynamo nodes that you will need by searching the library in the left hand panel.</p>
@@ -286,7 +287,7 @@
 <p>After you found the node that you need, you can click it once to add it to your graph. If you want to delete a node, simply right click it.</p>
 </div>
 <div class="section" id="creating-the-rectangular-geometry">
-<h2>2. Creating the rectangular geometry<a class="headerlink" href="#creating-the-rectangular-geometry" title="Permalink to this headline">¶</a></h2>
+<h3>6.2 Creating the rectangular geometry<a class="headerlink" href="#creating-the-rectangular-geometry" title="Permalink to this headline">¶</a></h3>
 <p>We will start by creating the rectangular object, for which we will use three nodes.</p>
 <p>A <strong>code block</strong> node is used for the input. The input concerns the length and width (same size) of the rectangular object. To add a code block node, look it up in the library and click it once.</p>
 <p>You can now add a value for the width and height of the object to the content of the code block, as show below.</p>
@@ -299,6 +300,7 @@
 <p><img alt="_images/122.png" src="_images/122.png" /></p>
 <p>Tip: If you want to pan and zoom in the 3D preview (instead of your model), you can do so by selecting the background navigation in the top right of your screen.</p>
 <p><img alt="_images/132.png" src="_images/132.png" /></p>
+</div>
 </div>
 <div class="section" id="manipulating-the-surface">
 <h2>3. Manipulating the Surface<a class="headerlink" href="#manipulating-the-surface" title="Permalink to this headline">¶</a></h2>

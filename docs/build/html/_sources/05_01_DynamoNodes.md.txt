@@ -1,6 +1,6 @@
-## Using Python to Develop Custom Nodes in Dynamo
+# Using Python to Develop Custom Nodes in Dynamo
 
-# 1. Visual Programming in Dynamo
+## 1. Visual Programming in Dynamo
 
 Dynamo is an application that allows you to program in a highly visual and intuitive manner. It can either be used on its own (“Sandbox” mode) or in combination with other software (e.g. Revit). Using Dynamo, you can compose a visual programming process from a sequence of nodes. In this way, you can easily develop custom algorithms to process data.
 
@@ -21,7 +21,7 @@ We will use **_Dynamo Studio_** (2017) to develop the custom nodes. This program
 
 
 
-# 2. What are Nodes?
+## 2. What are Nodes?
 
 Nodes in Dynamo are the key ingredients of your algorithm. They capture all actions that have to take place, which can range from reading and storing data to querying. 
 
@@ -69,7 +69,7 @@ Most Nodes in Dynamo are composed of five parts. While there are exceptions, suc
 
 
 
-# 3. Custom Nodes (summarized from [here](https://primer.dynamobim.org/10_Custom-Nodes/10-1_Introduction.html))
+## 3. Custom Nodes (summarized from [here](https://primer.dynamobim.org/10_Custom-Nodes/10-1_Introduction.html))
 
 As said before, custom nodes are a great way to extent the possibilities of Dynamo. They allow us to create the exact nodes that we need to efficiently develop a custom algorithm when these are not available out of the box. Furthermore, by combining multiple actions, custom nodes can help you keep your graph clean and readable. 
 
@@ -80,7 +80,7 @@ One way to develop custom nodes is through the **_Custom Node Environment_**. Th
 ![](../../images/05_01/3.png)
 
 
-# 4. Why Build Custom Nodes Using Python?
+## 4. Why Build Custom Nodes Using Python?
 
 Although visual programming can be very intuitive, it also has the downside that a graph can become cluttered and chaotic. Furthermore, the out-of-the-box functionality offered by the nodes available in a graphical interface can limit the functionality and flexibility of you as a programmer. In some cases, it can therefore be useful to implement some textual programming. This can be done using Python.
 
@@ -119,7 +119,7 @@ OUT = solids
 
 
 
-# 5. Creating a New Python Node
+## 5. Creating a New Python Node
 
 You can create a add a Python Node to your graph under Core>Scripting. If you double click a Python node, a **_scripting interface_** will open in which you can edit the code behind it.
 
@@ -129,7 +129,7 @@ You can create a add a Python Node to your graph under Core>Scripting. If you do
 To assess the functionality of Dynamo in your script, you can use the **_Autodesk.DesignScript module_**. This allows you to use some of the **_Dynamo syntax_** (see [here](https://dynamobim.org/wp-content/links/DesignScriptGuide.pdf) for more information). This can be very useful if you are working with geometric objects. For example, if you import this module you can work with Point geometries. The interface also provides you with suggestions for methods that you can apply when you type in one a geometry type. To illustrate, if you type Point. you will be provided with a lists of methods that you can use to query or create points.
 
 
-# 6. Exercise: Custom Python Node in Dynamo Studio
+## 6. Exercise: Custom Python Node in Dynamo Studio
 
 The following exercise is based on [this](https://primer.dynamobim.org/10_Custom-Nodes/10-4_Python.html). However, we will discuss some basics of Dynamo in greater detail for those that have no or minor experience working with Dynamo. Also, the steps that you will need to take are discussed more elaborately here, with extra illustrations. 
 
@@ -137,7 +137,7 @@ In this exercise we will develop a pattern from a solid rectangular element. We 
 
 ![](../../images/05_01/6.png)
 
-## 1. Starting the project
+### 6.1 Starting the project
 
 Start Autodesk Dynamo Studio (2017) and create a new workspace.
 
@@ -152,7 +152,7 @@ You can find all the regular Dynamo nodes that you will need by searching the li
 After you found the node that you need, you can click it once to add it to your graph. If you want to delete a node, simply right click it.
 
 
-## 2. Creating the rectangular geometry
+### 6.2 Creating the rectangular geometry
 
 We will start by creating the rectangular object, for which we will use three nodes. 
 
