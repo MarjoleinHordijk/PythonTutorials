@@ -20,7 +20,10 @@ This repository and tutorial is part of the CME Master Program in TU/e (Construc
    :maxdepth: 1
    :caption: Topics:
    
-   General tutorials <01_General.rst>
-   GIS tutorials <02_GIS.rst>
+   Getting Started <01_GettingStarted.rst>
+   Beyond the Basics <02_BeyondBasics.rst>
+   Data Analysis Using Python <03_DataAnalysis.rst>
+   GIS <04_GIS.rst>
+   Building Data <05_BIM.rst>
 
    

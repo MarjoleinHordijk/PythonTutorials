@@ -1,0 +1,243 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Building Data Specific Tutorials &mdash; Python Tutorials  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Using Python to Develop Custom Nodes in Dynamo" href="05_01_DynamoNodes.html" />
+    <link rel="prev" title="The Shapely Module" href="04_02_Shapely.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Python Tutorials
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Topics:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01_GettingStarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_BeyondBasics.html">Beyond the Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_DataAnalysis.html">Data Analysis Using Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_GIS.html">GIS</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Building Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="05_01_DynamoNodes.html">Using Python to Develop Custom Nodes in Dynamo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_01_DynamoNodes.html#visual-programming-in-dynamo">1. Visual Programming in Dynamo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_01_DynamoNodes.html#what-are-nodes">2. What are Nodes?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_01_DynamoNodes.html#custom-nodes-summarized-from-here">3. Custom Nodes (summarized from here)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_01_DynamoNodes.html#why-build-custom-nodes-using-python">4. Why Build Custom Nodes Using Python?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_01_DynamoNodes.html#creating-a-new-python-node">5. Creating a New Python Node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_01_DynamoNodes.html#exercise-custom-python-node-in-dynamo-studio">6. Exercise: Custom Python Node in Dynamo Studio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_02_RevitPythonShell.html"><strong>1. What is RevitPythonShell?</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_02_RevitPythonShell.html#using-the-revitpythonshell"><strong>2. Using the RevitPythonShell</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_02_RevitPythonShell.html#querying-model-elements"><strong>3. Querying Model Elements</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_02_RevitPythonShell.html#reading-instance-properties"><strong>4. Reading instance properties</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_02_RevitPythonShell.html#reading-instance-parameters"><strong>5. Reading instance parameters</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_02_RevitPythonShell.html#reading-type-parameters">6. Reading type parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_02_RevitPythonShell.html#exercise-set-parameter-values-using-a-script">7. Exercise: Set Parameter Values Using a Script</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python Tutorials</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Building Data Specific Tutorials</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/05_BIM.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="building-data-specific-tutorials">
+<h1>Building Data Specific Tutorials<a class="headerlink" href="#building-data-specific-tutorials" title="Permalink to this headline">¶</a></h1>
+<p>The tutorials below are specifically developed or collected for dealing with building data. For example, how you you use Python within Revit or how can we develop parametric design in Dynamo?</p>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Getting Started with Python:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="05_01_DynamoNodes.html">Using Python to Develop Custom Nodes in Dynamo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_01_DynamoNodes.html#visual-programming-in-dynamo">1. Visual Programming in Dynamo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_01_DynamoNodes.html#what-are-nodes">2. What are Nodes?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_01_DynamoNodes.html#custom-nodes-summarized-from-here">3. Custom Nodes (summarized from here)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_01_DynamoNodes.html#why-build-custom-nodes-using-python">4. Why Build Custom Nodes Using Python?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_01_DynamoNodes.html#creating-a-new-python-node">5. Creating a New Python Node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_01_DynamoNodes.html#exercise-custom-python-node-in-dynamo-studio">6. Exercise: Custom Python Node in Dynamo Studio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_02_RevitPythonShell.html"><strong>1. What is RevitPythonShell?</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_02_RevitPythonShell.html#using-the-revitpythonshell"><strong>2. Using the RevitPythonShell</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_02_RevitPythonShell.html#querying-model-elements"><strong>3. Querying Model Elements</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_02_RevitPythonShell.html#reading-instance-properties"><strong>4. Reading instance properties</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_02_RevitPythonShell.html#reading-instance-parameters"><strong>5. Reading instance parameters</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_02_RevitPythonShell.html#reading-type-parameters">6. Reading type parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_02_RevitPythonShell.html#exercise-set-parameter-values-using-a-script">7. Exercise: Set Parameter Values Using a Script</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="05_01_DynamoNodes.html" class="btn btn-neutral float-right" title="Using Python to Develop Custom Nodes in Dynamo" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="04_02_Shapely.html" class="btn btn-neutral float-left" title="The Shapely Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Marjolein Hordijk
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

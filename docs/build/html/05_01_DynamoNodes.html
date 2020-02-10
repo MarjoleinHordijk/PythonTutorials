@@ -1,0 +1,509 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Using Python to Develop Custom Nodes in Dynamo &mdash; Python Tutorials  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="1. What is RevitPythonShell?" href="05_02_RevitPythonShell.html" />
+    <link rel="prev" title="Building Data Specific Tutorials" href="05_BIM.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Python Tutorials
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Topics:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01_GettingStarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_BeyondBasics.html">Beyond the Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_DataAnalysis.html">Data Analysis Using Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_GIS.html">GIS</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="05_BIM.html">Building Data</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Using Python to Develop Custom Nodes in Dynamo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#visual-programming-in-dynamo">1. Visual Programming in Dynamo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-are-nodes">2. What are Nodes?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#custom-nodes-summarized-from-here">3. Custom Nodes (summarized from here)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-build-custom-nodes-using-python">4. Why Build Custom Nodes Using Python?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-a-new-python-node">5. Creating a New Python Node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exercise-custom-python-node-in-dynamo-studio">6. Exercise: Custom Python Node in Dynamo Studio</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#starting-the-project">1. Starting the project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-the-rectangular-geometry">2. Creating the rectangular geometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#manipulating-the-surface">3. Manipulating the Surface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adding-a-python-node">4. Adding a Python Node</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="05_02_RevitPythonShell.html"><strong>1. What is RevitPythonShell?</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_02_RevitPythonShell.html#using-the-revitpythonshell"><strong>2. Using the RevitPythonShell</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_02_RevitPythonShell.html#querying-model-elements"><strong>3. Querying Model Elements</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_02_RevitPythonShell.html#reading-instance-properties"><strong>4. Reading instance properties</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_02_RevitPythonShell.html#reading-instance-parameters"><strong>5. Reading instance parameters</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_02_RevitPythonShell.html#reading-type-parameters">6. Reading type parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_02_RevitPythonShell.html#exercise-set-parameter-values-using-a-script">7. Exercise: Set Parameter Values Using a Script</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python Tutorials</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="05_BIM.html">Building Data Specific Tutorials</a> &raquo;</li>
+        
+      <li>Using Python to Develop Custom Nodes in Dynamo</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/05_01_DynamoNodes.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="using-python-to-develop-custom-nodes-in-dynamo">
+<h1>Using Python to Develop Custom Nodes in Dynamo<a class="headerlink" href="#using-python-to-develop-custom-nodes-in-dynamo" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="visual-programming-in-dynamo">
+<h1>1. Visual Programming in Dynamo<a class="headerlink" href="#visual-programming-in-dynamo" title="Permalink to this headline">¶</a></h1>
+<p>Dynamo is an application that allows you to program in a highly visual and intuitive manner. It can either be used on its own (“Sandbox” mode) or in combination with other software (e.g. Revit). Using Dynamo, you can compose a visual programming process from a sequence of nodes. In this way, you can easily develop custom algorithms to process data.</p>
+<p>Would you like to learn more about working with Dynamo in various contexts, or you need help to get started? Please refer to <a class="reference external" href="https://primer.dynamobim.org/01_Introduction/1_introduction.html">this</a> primer, which provides you with a great overview of how you could use Dynamo.</p>
+<p><img alt="_images/18.png" src="_images/18.png" /></p>
+<p><span style="text-decoration:underline;">What we will discuss in this tutorial:</span></p>
+<p>In this tutorial we will focus on developing <strong><em>custom nodes</em></strong> in Dynamo using Python. This increases our flexibility and efficiency to create a custom algorithm that does exactly what we would like it to do.</p>
+<p>The current tutorial is based on section 10 of the aforementioned primer and summarizes other relevant parts where applicable. Hence, it is developed to be a concise stand-alone tutorial that focuses on the usage of Python in Dynamo. However, we will also cover some basic concepts of Dynamo for novices.</p>
+<p><span style="text-decoration:underline;">What you will need:</span></p>
+<p>We will use <strong><em>Dynamo Studio</em></strong> (2017) to develop the custom nodes. This programming environment is released by Autodesk. If you have a student Autodesk account, you can download the software for free <a class="reference external" href="http://autodesk.com/education/free-software/dynamo-studio">here</a>. You can create a student account using your TU/e mailadres to gain access to the software. Once you have downloaded the software from the Autodesk website, you should receive an email with a serial number and product key that are valid for 3 years. Unfortunately the software is only available for Windows.</p>
+</div>
+<div class="section" id="what-are-nodes">
+<h1>2. What are Nodes?<a class="headerlink" href="#what-are-nodes" title="Permalink to this headline">¶</a></h1>
+<p>Nodes in Dynamo are the key ingredients of your algorithm. They capture all actions that have to take place, which can range from reading and storing data to querying.</p>
+<p><strong>Anatomy of a Node</strong></p>
+<p>(Summarized from <a class="reference external" href="https://primer.dynamobim.org/03_Anatomy-of-a-Dynamo-Definition/3-1_dynamo_nodes.html">here</a>.)</p>
+<p>Most Nodes in Dynamo are composed of five parts. While there are exceptions, such as Input Nodes, the anatomy of each Node can be described as follows:</p>
+<p><img alt="_images/25.png" src="_images/25.png" /></p>
+<table>
+  <tr>
+   <td><strong><em>1. Name </em></strong>
+   </td>
+   <td>The Name of the Node. This follows a Category.Name structure where in the example about “Point” is considered a category to which this node can be applied.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><em>2. Main</em></strong>
+   </td>
+   <td>The main body of the Node.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><em>3. Ports</em></strong> (in/out)
+   </td>
+   <td>The <strong><em>wires</em></strong> that connect nodes are attached here. These wires can be the suppliers of input data (in) or the results of the node (out).
+   </td>
+  </tr>
+  <tr>
+   <td><strong><em>4. Lacing Icon</em></strong>
+   </td>
+   <td>Indicates the Lacing option specified for matching list inputs. For more information see <a href="https://primer.dynamobim.org/06_Designing-with-Lists/6-1_whats-a-list.html">here</a> or <a href="https://medium.com/bravovictornovember/lacing-in-dynamo-24552818d95">here</a>.
+   </td>
+  </tr>
+  <tr>
+   <td><strong><em>5. Default Value</em></strong>
+   </td>
+   <td>Some nodes have default values for their inputs. These can be accessed by right-clicking an input Port. 
+   </td>
+  </tr>
+</table></div>
+<div class="section" id="custom-nodes-summarized-from-here">
+<h1>3. Custom Nodes (summarized from <a class="reference external" href="https://primer.dynamobim.org/10_Custom-Nodes/10-1_Introduction.html">here</a>)<a class="headerlink" href="#custom-nodes-summarized-from-here" title="Permalink to this headline">¶</a></h1>
+<p>As said before, custom nodes are a great way to extent the possibilities of Dynamo. They allow us to create the exact nodes that we need to efficiently develop a custom algorithm when these are not available out of the box. Furthermore, by combining multiple actions, custom nodes can help you keep your graph clean and readable.</p>
+<p>Important to know is also that you can store the nodes you have created and reuse them in different projects. If you have different versions of the node you created, you can easily update them in one go by editing the base node. Moreover, you can share the nodes that you developed with fellow programmers.</p>
+<p>One way to develop custom nodes is through the <strong><em>Custom Node Environment</em></strong>. This environment is very similar to the one in which you build your Dynamo processes. In here, you can use the standard Dynamo syntax to create your own nodes. For more information and a simple example, see <a class="reference external" href="https://primer.dynamobim.org/10_Custom-Nodes/10-1_Introduction.html">here</a>. A more complex example can be found <a class="reference external" href="https://primer.dynamobim.org/10_Custom-Nodes/10-2_Creating.html">here</a>.</p>
+<p><img alt="_images/35.png" src="_images/35.png" /></p>
+</div>
+<div class="section" id="why-build-custom-nodes-using-python">
+<h1>4. Why Build Custom Nodes Using Python?<a class="headerlink" href="#why-build-custom-nodes-using-python" title="Permalink to this headline">¶</a></h1>
+<p>Although visual programming can be very intuitive, it also has the downside that a graph can become cluttered and chaotic. Furthermore, the out-of-the-box functionality offered by the nodes available in a graphical interface can limit the functionality and flexibility of you as a programmer. In some cases, it can therefore be useful to implement some textual programming. This can be done using Python.</p>
+<p>A good example of where Python can help you to keep your graph readable is in the case of looping. Capturing a loop in Dynamo can lead to a large web of nodes and wires. However, the same can often be achieved by a few lines of code when using Python. Take for example the process shown below (<a class="reference external" href="https://primer.dynamobim.org/10_Custom-Nodes/10-4_Python.html">source</a>). Modelling this process would require you to specify almost 30 nodes and connect them properly. Alternatively, you can use the relatively concise piece of code below to achieve the same result.</p>
+<p><img alt="_images/45.png" src="_images/45.png" /></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">clr</span>
+<span class="n">clr</span><span class="o">.</span><span class="n">AddReference</span><span class="p">(</span><span class="s1">&#39;ProtoGeometry&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">Autodesk.DesignScript.Geometry</span> <span class="k">import</span> <span class="o">*</span>
+
+<span class="n">solid</span> <span class="o">=</span> <span class="n">IN</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">seed</span> <span class="o">=</span> <span class="n">IN</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">xCount</span> <span class="o">=</span> <span class="n">IN</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">yCount</span> <span class="o">=</span> <span class="n">IN</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+
+<span class="n">solids</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="n">yDist</span> <span class="o">=</span> <span class="n">solid</span><span class="o">.</span><span class="n">BoundingBox</span><span class="o">.</span><span class="n">MaxPoint</span><span class="o">.</span><span class="n">Y</span><span class="o">-</span><span class="n">solid</span><span class="o">.</span><span class="n">BoundingBox</span><span class="o">.</span><span class="n">MinPoint</span><span class="o">.</span><span class="n">Y</span>
+<span class="n">xDist</span> <span class="o">=</span> <span class="n">solid</span><span class="o">.</span><span class="n">BoundingBox</span><span class="o">.</span><span class="n">MaxPoint</span><span class="o">.</span><span class="n">X</span><span class="o">-</span><span class="n">solid</span><span class="o">.</span><span class="n">BoundingBox</span><span class="o">.</span><span class="n">MinPoint</span><span class="o">.</span><span class="n">X</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">xRange</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">yRange</span><span class="p">:</span>
+        <span class="n">fromCoord</span> <span class="o">=</span> <span class="n">solid</span><span class="o">.</span><span class="n">ContextCoordinateSystem</span>
+        <span class="n">toCoord</span> <span class="o">=</span> <span class="n">fromCoord</span><span class="o">.</span><span class="n">Rotate</span><span class="p">(</span><span class="n">solid</span><span class="o">.</span><span class="n">ContextCoordinateSystem</span><span class="o">.</span><span class="n">Origin</span><span class="p">,</span><span class="n">Vector</span><span class="o">.</span><span class="n">ByCoordinates</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),(</span><span class="mi">90</span><span class="o">*</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="o">%</span><span class="n">val</span><span class="p">)))</span>
+        <span class="n">vec</span> <span class="o">=</span> <span class="n">Vector</span><span class="o">.</span><span class="n">ByCoordinates</span><span class="p">((</span><span class="n">xDist</span><span class="o">*</span><span class="n">i</span><span class="p">),(</span><span class="n">yDist</span><span class="o">*</span><span class="n">j</span><span class="p">),</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">toCoord</span> <span class="o">=</span> <span class="n">toCoord</span><span class="o">.</span><span class="n">Translate</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span>
+        <span class="n">solids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">solid</span><span class="o">.</span><span class="n">Transform</span><span class="p">(</span><span class="n">fromCoord</span><span class="p">,</span><span class="n">toCoord</span><span class="p">))</span>
+
+<span class="n">OUT</span> <span class="o">=</span> <span class="n">solids</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="creating-a-new-python-node">
+<h1>5. Creating a New Python Node<a class="headerlink" href="#creating-a-new-python-node" title="Permalink to this headline">¶</a></h1>
+<p>You can create a add a Python Node to your graph under Core&gt;Scripting. If you double click a Python node, a <strong><em>scripting interface</em></strong> will open in which you can edit the code behind it.</p>
+<p><img alt="_images/55.png" src="_images/55.png" /></p>
+<p>To assess the functionality of Dynamo in your script, you can use the <strong><em>Autodesk.DesignScript module</em></strong>. This allows you to use some of the <strong><em>Dynamo syntax</em></strong> (see <a class="reference external" href="https://dynamobim.org/wp-content/links/DesignScriptGuide.pdf">here</a> for more information). This can be very useful if you are working with geometric objects. For example, if you import this module you can work with Point geometries. The interface also provides you with suggestions for methods that you can apply when you type in one a geometry type. To illustrate, if you type Point. you will be provided with a lists of methods that you can use to query or create points.</p>
+</div>
+<div class="section" id="exercise-custom-python-node-in-dynamo-studio">
+<h1>6. Exercise: Custom Python Node in Dynamo Studio<a class="headerlink" href="#exercise-custom-python-node-in-dynamo-studio" title="Permalink to this headline">¶</a></h1>
+<p>The following exercise is based on <a class="reference external" href="https://primer.dynamobim.org/10_Custom-Nodes/10-4_Python.html">this</a>. However, we will discuss some basics of Dynamo in greater detail for those that have no or minor experience working with Dynamo. Also, the steps that you will need to take are discussed more elaborately here, with extra illustrations.</p>
+<p>In this exercise we will develop a pattern from a solid rectangular element. We will do this using both regular and custom nodes in Dynamo.</p>
+<p><img alt="_images/65.png" src="_images/65.png" /></p>
+<div class="section" id="starting-the-project">
+<h2>1. Starting the project<a class="headerlink" href="#starting-the-project" title="Permalink to this headline">¶</a></h2>
+<p>Start Autodesk Dynamo Studio (2017) and create a new workspace.</p>
+<p><img alt="_images/74.png" src="_images/74.png" /></p>
+<p>You can find all the regular Dynamo nodes that you will need by searching the library in the left hand panel.</p>
+<p><img alt="_images/83.png" src="_images/83.png" /></p>
+<p>After you found the node that you need, you can click it once to add it to your graph. If you want to delete a node, simply right click it.</p>
+</div>
+<div class="section" id="creating-the-rectangular-geometry">
+<h2>2. Creating the rectangular geometry<a class="headerlink" href="#creating-the-rectangular-geometry" title="Permalink to this headline">¶</a></h2>
+<p>We will start by creating the rectangular object, for which we will use three nodes.</p>
+<p>A <strong>code block</strong> node is used for the input. The input concerns the length and width (same size) of the rectangular object. To add a code block node, look it up in the library and click it once.</p>
+<p>You can now add a value for the width and height of the object to the content of the code block, as show below.</p>
+<p><img alt="_images/93.png" src="_images/93.png" /></p>
+<p>Next, look for a <strong>Rectangle.ByWidthLength</strong> node and add it to your graph. Connect the output of the codeblock to the width and length input of the newly added node.</p>
+<p><img alt="_images/102.png" src="_images/102.png" /></p>
+<p>Then add a <strong>Surface.ByPath</strong> node to create a surface. Connect the output of <strong>Rectangle.ByWidthLength</strong> to its input.</p>
+<p><img alt="_images/112.png" src="_images/112.png" /></p>
+<p>You should be able to see a preview of the created surface in the background of your workspace.</p>
+<p><img alt="_images/122.png" src="_images/122.png" /></p>
+<p>Tip: If you want to pan and zoom in the 3D preview (instead of your model), you can do so by selecting the background navigation in the top right of your screen.</p>
+<p><img alt="_images/132.png" src="_images/132.png" /></p>
+</div>
+<div class="section" id="manipulating-the-surface">
+<h2>3. Manipulating the Surface<a class="headerlink" href="#manipulating-the-surface" title="Permalink to this headline">¶</a></h2>
+<p>Now that we have created our geometric object, we will start manipulating it to create a curved surface.</p>
+<p>First, we start by adding a thickness to our surface. We do this by including another <strong>code block</strong>, which contains the value that captures the thickness of our rectangle. Then we connect this code block node to a <strong>Geometry.Translate</strong> node at the <strong>zTranslation</strong> receptor. This means that we will lift the geometry by the amount of units specified in the code block. Further, we connect the output of the <strong>Rectangle.byWidthLength</strong> node to the geometry input.</p>
+<p><img alt="_images/142.png" src="_images/142.png" /></p>
+<p>Next, we add a <strong>Polygon.Points node</strong>, which will query the translated rectangle to extract the points located at the corners. This will provide us with a set of points that we can use as input for our next step.</p>
+<p>We can then add another <strong>Geometry.Translate</strong> node to lift up these points. Again, we use a code block to define how much each of the corners will be lifted. In this case we will need a list of values, since not every point will be lifted to the same height. We do this by adding the four values to the code block between {} brackets.</p>
+<p>In the preview, you should be able to see that one of the points is lifted above the others.</p>
+<p><img alt="_images/152.png" src="_images/152.png" /></p>
+<p>Next we create a new polygon based on the four points using <strong>Polygon.ByPoints</strong>. We can then develop a surface from this polygon using <strong>Surface.ByPatch</strong>.</p>
+<p><img alt="_images/161.png" src="_images/161.png" /></p>
+<p>Next, we will need to connect the surfaces that we created by adding sides. To do so, we will first create a list of the bottom rectangle and the top polygon that we created. This can be done using <strong>List.Create</strong>. We can then use <strong>Surface.ByLoft</strong> to create the sides.</p>
+<p>However, to create one solid object, we will need to connect these four sides to the top and bottom of our geometry. This is done by first creating a list of the top and bottom surface using <strong>List.Create</strong> and then using <strong>Surface.ByLoft</strong>.</p>
+<p><img alt="_images/171.png" src="_images/171.png" /></p>
+<p>Next we will create a list of all surfaces (top, sides and bottom) using <strong>List.Create</strong> and create a solid object from them using <strong>Solid.ByJoinedSurfaces</strong>.</p>
+<p><img alt="_images/181.png" src="_images/181.png" /></p>
+<p>We will use this object to create our pattern. In the next steps, we will refer to this object by <strong>“solid”</strong>.</p>
+</div>
+<div class="section" id="adding-a-python-node">
+<h2>4. Adding a Python Node<a class="headerlink" href="#adding-a-python-node" title="Permalink to this headline">¶</a></h2>
+<p>Search for the <strong>Python.Script</strong> node in the library panel and add it to the graph.</p>
+<p>We will use Python to create a grid of this solid object that we created. Hence, the object will be our first input. The size of this grid, the amount of objects on the X and Y axis of the grid, will serve as two additional inputs. The final input will concern a number to determine the rotation pattern. As a final result, we will be able to create patterns as those shown below.</p>
+<p><img alt="_images/19.png" src="_images/19.png" /></p>
+<p>By default, only one in and output are included. However, we will need four inputs. You can add these by clicking the + button. Create three code blocks to define the size of each side of the grid you will create and the rotation pattern. Each of these values will be integers. Connect the Solid output to the first input receptor (IN[0]) and the seed for creating the rotation pattern to the second one (IN[1]). Last, connect the size of the x and y sides of the grind to the final two receptors.</p>
+<p><img alt="_images/20.png" src="_images/20.png" /></p>
+<p>Double click the <strong>Python.Script</strong> node to open the editor. We will start by <span style="text-decoration:underline;">defining the inputs and output</span> of the node. The inputs are stored in a list. Recall that in Python we define a list using brackets [ ]. Further, we can access items in a list using an index. For example, if IN is the list that stores our input variables, we can use IN[0] to refer to the first input variable. (Do not forget, Python starts counting at 0!)</p>
+<p>You can paste the code below in the editor to define the inputs and output.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Enable Python support and load DesignScript library</span>
+<span class="kn">import</span> <span class="nn">clr</span>
+<span class="n">clr</span><span class="o">.</span><span class="n">AddReference</span><span class="p">(</span><span class="s1">&#39;ProtoGeometry&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">Autodesk.DesignScript.Geometry</span> <span class="k">import</span> <span class="o">*</span>
+
+<span class="c1"># The inputs to this node will be stored as a list in the IN variables.</span>
+
+<span class="c1"># The solid module to be arrayed</span>
+<span class="n">solid</span> <span class="o">=</span> <span class="n">IN</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># A number that determines which rotation pattern to use</span>
+<span class="n">seed</span> <span class="o">=</span> <span class="n">IN</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># The number of solids to array in the X and Y axes</span>
+<span class="n">xCount</span> <span class="o">=</span> <span class="n">IN</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">yCount</span> <span class="o">=</span> <span class="n">IN</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+
+<span class="c1"># Create an empty list for the arrayed solids</span>
+<span class="n">solids</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># Place your code below this line</span>
+
+<span class="c1"># Assign your output to the OUT variable.</span>
+<span class="n">OUT</span> <span class="o">=</span> <span class="n">solids</span>
+</pre></div>
+</div>
+<p>To illustrate, <code class="docutils literal notranslate"><span class="pre">solid</span> <span class="pre">=</span> <span class="pre">IN[0]</span></code> assigns the first input of the node to the variable <code class="docutils literal notranslate"><span class="pre">solid.</span></code> We can now use this variable in our script to refer to the solid geometry that we created. Likewise, we can refer to <code class="docutils literal notranslate"><span class="pre">seed</span></code> if we want to use the number that determines the rotational pattern and <code class="docutils literal notranslate"><span class="pre">xCount</span></code> and <code class="docutils literal notranslate"><span class="pre">yCount</span></code> to refer to the size of the grid.</p>
+<p>We can now start creating our script under “<code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">Place</span> <span class="pre">your</span> <span class="pre">code</span> <span class="pre">below</span> <span class="pre">this</span> <span class="pre">line</span></code>”.</p>
+<p>First, we will <span style="text-decoration:underline;">determine the length and width of the solid geometry</span> we created. To do so, we will loop through the edges of the solid to create a list of them. Next, we can create a “bounding box” from these edges. This is a rectangle that neatly encompasses the solid. Finally, we determine the size of each size (<code class="docutils literal notranslate"><span class="pre">yDist</span></code> and <code class="docutils literal notranslate"><span class="pre">xDist</span></code>) by subtracting the minimum coordinate from the maximum coordinate for each axis.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Loop through edges and append corresponding curve geometry to the list</span>
+<span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="n">solid</span><span class="o">.</span><span class="n">Edges</span><span class="p">:</span>
+    <span class="n">crvs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">edge</span><span class="o">.</span><span class="n">CurveGeometry</span><span class="p">)</span>
+
+<span class="c1">#Get the bounding box of the curves</span>
+<span class="n">bbox</span> <span class="o">=</span> <span class="n">BoundingBox</span><span class="o">.</span><span class="n">ByGeometry</span><span class="p">(</span><span class="n">crvs</span><span class="p">)</span>
+
+<span class="c1">#Get the X and Y translation distance based on the bounding box</span>
+<span class="n">yDist</span> <span class="o">=</span> <span class="n">bbox</span><span class="o">.</span><span class="n">MaxPoint</span><span class="o">.</span><span class="n">Y</span><span class="o">-</span><span class="n">bbox</span><span class="o">.</span><span class="n">MinPoint</span><span class="o">.</span><span class="n">Y</span>
+<span class="n">xDist</span> <span class="o">=</span> <span class="n">bbox</span><span class="o">.</span><span class="n">MaxPoint</span><span class="o">.</span><span class="n">X</span><span class="o">-</span><span class="n">bbox</span><span class="o">.</span><span class="n">MinPoint</span><span class="o">.</span><span class="n">X</span>
+</pre></div>
+</div>
+<p>Further, we will need to define a reference to the coordinate system of the solid object. We will use this later to rotate the solid object throughout the grid to create a pattern.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#get the source coordinate system</span>
+<span class="n">fromCoord</span> <span class="o">=</span> <span class="n">solid</span><span class="o">.</span><span class="n">ContextCoordinateSystem</span>
+</pre></div>
+</div>
+<p>We will now create a list of solids that will form our grid. Recall that we defined how many solids should be on each side of our grid as two of our inputs (<code class="docutils literal notranslate"><span class="pre">xCount</span></code> and <code class="docutils literal notranslate"><span class="pre">yCount</span></code>). We will use two for-loops to create this list. Our first loop will iterate for each solid on the x-axis of our grid: <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">i</span> <span class="pre">in</span> <span class="pre">range(xCount):</span></code>. Another loop, which is nested in the first one, will do the same of each solid on the y axis: <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">j</span> <span class="pre">in</span> <span class="pre">range(yCount):</span></code>.</p>
+<p>Basically, we create our grid row by row. That is, we create an amount of rows that is equal to <code class="docutils literal notranslate"><span class="pre">xCount</span></code> and the length of each row will correspond to the value of <code class="docutils literal notranslate"><span class="pre">yCount</span></code>.</p>
+<p><img alt="_images/211.png" src="_images/211.png" /></p>
+<p>For every new solid we add (<code class="docutils literal notranslate"><span class="pre">.append</span></code>) to our list, we will have to <span style="text-decoration:underline;">define an adapted rotated coordinate system</span> and transform the solid object based on this. This will allow us to create an interesting pattern. We can use the <code class="docutils literal notranslate"><span class="pre">.Rotate</span></code> function to do this. This function takes two arguments: a vector and a degree of rotation.</p>
+<p>The vector needs to be defined so that it starts at the origin of the original coordinate system of the solid. This will ensure that the solid will be properly rotated around its z-axis. This is done using:</p>
+<p><code class="docutils literal notranslate"><span class="pre">solid.ContextCoordinateSystem.Origin,Vector.ByCoordinates(0,0,1)</span></code>.</p>
+<p>The degree of rotation is determined based on the amount of iterations that have been made in both loops (<code class="docutils literal notranslate"><span class="pre">i+j</span></code>) and the input value which we assigned to <code class="docutils literal notranslate"><span class="pre">seed</span></code>. These values are brought together in a small formula <code class="docutils literal notranslate"><span class="pre">i+j%seed</span></code>. By multiplying the resulting number with 90, the degree of rotation is always a quarter of a full circle (360 degrees). This is required to avoid the solids from overlapping and let them align neatly.</p>
+<p>So, we can add the following code to rotate the coordinate system.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">xCount</span><span class="p">):</span>
+
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">yCount</span><span class="p">):</span>
+
+        <span class="c1">#Rotate the coordinate system</span>
+        <span class="n">toCoord</span> <span class="o">=</span> 
+<span class="n">fromCoord</span><span class="o">.</span><span class="n">Rotate</span><span class="p">(</span><span class="n">solid</span><span class="o">.</span><span class="n">ContextCoordinateSystem</span><span class="o">.</span><span class="n">Origin</span><span class="p">,</span><span class="n">Vector</span><span class="o">.</span><span class="n">ByCoordinates</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),(</span><span class="mi">90</span><span class="o">*</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="o">%</span><span class="n">seed</span><span class="p">)))</span>
+</pre></div>
+</div>
+<p><img alt="_images/221.png" src="_images/221.png" /></p>
+<p>We then need to <span style="text-decoration:underline;">translate the adapted coordinate system</span> so that the new solid will be placed at the right relative location in the grid. We can do this based on the sizes of the sides of the solids (<code class="docutils literal notranslate"><span class="pre">yDist</span></code> and <code class="docutils literal notranslate"><span class="pre">xDist</span></code>) and the values of i (indicating the current row we are at) and j (indicating which solid in the current row we are at).</p>
+<p>To illustrate, in the example below the script is creating the third solid of the fifth row. Remember that Python starts counting at zero, so at our first iteration, both i and j are equal to zero. When we get to this solid, the values of i and j will then be 4 and 2 respectively. If we multiply these numbers by the sizes of the sides (<code class="docutils literal notranslate"><span class="pre">yDist</span></code> and <code class="docutils literal notranslate"><span class="pre">xDist</span></code>) we can find the correct location of the origin of the to be added solid.</p>
+<p><img alt="_images/231.png" src="_images/231.png" /></p>
+<p>We then define a vector from this location to the original origin and translate the adapted coordinate system using this vector. The code to do so is shown below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>        <span class="c1">#Translate the coordinate system</span>
+        <span class="n">vec</span> <span class="o">=</span> <span class="n">Vector</span><span class="o">.</span><span class="n">ByCoordinates</span><span class="p">((</span><span class="n">xDist</span><span class="o">*</span><span class="n">i</span><span class="p">),(</span><span class="n">yDist</span><span class="o">*</span><span class="n">j</span><span class="p">),</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">toCoord</span> <span class="o">=</span> <span class="n">toCoord</span><span class="o">.</span><span class="n">Translate</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Lastly, we transform the to be added solid to the new coordinate system (<code class="docutils literal notranslate"><span class="pre">toCoord</span></code>) and append it to the lists of solids in our grid. We now finished one iteration and the script will continue with the next solid that needs to be added until the grid is complete.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>        <span class="n">solids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">solid</span><span class="o">.</span><span class="n">Transform</span><span class="p">(</span><span class="n">fromCoord</span><span class="p">,</span><span class="n">toCoord</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>The above will result in the complete code as shown below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Enable Python support and load DesignScript library</span>
+<span class="kn">import</span> <span class="nn">clr</span>
+<span class="n">clr</span><span class="o">.</span><span class="n">AddReference</span><span class="p">(</span><span class="s1">&#39;ProtoGeometry&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">Autodesk.DesignScript.Geometry</span> <span class="k">import</span> <span class="o">*</span>
+
+<span class="c1"># The inputs to this node will be stored as a list in the IN variables.</span>
+<span class="c1">#The solid module to be arrayed</span>
+<span class="n">solid</span> <span class="o">=</span> <span class="n">IN</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="c1">#A number that determines which rotation pattern to use</span>
+<span class="n">seed</span> <span class="o">=</span> <span class="n">IN</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="c1">#The number of solids to array in the X and Y axes</span>
+<span class="n">xCount</span> <span class="o">=</span> <span class="n">IN</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">yCount</span> <span class="o">=</span> <span class="n">IN</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+
+<span class="c1">#Create an empty list for the arrayed solids</span>
+<span class="n">solids</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="c1"># Create an empty list for the edge curves</span>
+<span class="n">crvs</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># Place your code below this line</span>
+<span class="c1">#Loop through edges and append corresponding curve geometry to the list</span>
+<span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="n">solid</span><span class="o">.</span><span class="n">Edges</span><span class="p">:</span>
+    <span class="n">crvs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">edge</span><span class="o">.</span><span class="n">CurveGeometry</span><span class="p">)</span>
+<span class="c1">#Get the bounding box of the curves</span>
+<span class="n">bbox</span> <span class="o">=</span> <span class="n">BoundingBox</span><span class="o">.</span><span class="n">ByGeometry</span><span class="p">(</span><span class="n">crvs</span><span class="p">)</span>
+
+<span class="c1">#Get the X and Y translation distance based on the bounding box</span>
+<span class="n">yDist</span> <span class="o">=</span> <span class="n">bbox</span><span class="o">.</span><span class="n">MaxPoint</span><span class="o">.</span><span class="n">Y</span><span class="o">-</span><span class="n">bbox</span><span class="o">.</span><span class="n">MinPoint</span><span class="o">.</span><span class="n">Y</span>
+<span class="n">xDist</span> <span class="o">=</span> <span class="n">bbox</span><span class="o">.</span><span class="n">MaxPoint</span><span class="o">.</span><span class="n">X</span><span class="o">-</span><span class="n">bbox</span><span class="o">.</span><span class="n">MinPoint</span><span class="o">.</span><span class="n">X</span>
+<span class="c1">#get the source coordinate system</span>
+<span class="n">fromCoord</span> <span class="o">=</span> <span class="n">solid</span><span class="o">.</span><span class="n">ContextCoordinateSystem</span>
+
+<span class="c1">#Loop through X and Y</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">xCount</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">yCount</span><span class="p">):</span>
+        <span class="c1">#Rotate and translate the coordinate system</span>
+        <span class="n">toCoord</span> <span class="o">=</span> <span class="n">fromCoord</span><span class="o">.</span><span class="n">Rotate</span><span class="p">(</span><span class="n">solid</span><span class="o">.</span><span class="n">ContextCoordinateSystem</span><span class="o">.</span><span class="n">Origin</span><span class="p">,</span><span class="n">Vector</span><span class="o">.</span><span class="n">ByCoordinates</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),(</span><span class="mi">90</span><span class="o">*</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="o">%</span><span class="n">seed</span><span class="p">)))</span>
+        <span class="n">vec</span> <span class="o">=</span> <span class="n">Vector</span><span class="o">.</span><span class="n">ByCoordinates</span><span class="p">((</span><span class="n">xDist</span><span class="o">*</span><span class="n">i</span><span class="p">),(</span><span class="n">yDist</span><span class="o">*</span><span class="n">j</span><span class="p">),</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">toCoord</span> <span class="o">=</span> <span class="n">toCoord</span><span class="o">.</span><span class="n">Translate</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span>
+        <span class="c1">#Transform the solid from the source coord system to the target coord system and append to the list</span>
+        <span class="n">solids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">solid</span><span class="o">.</span><span class="n">Transform</span><span class="p">(</span><span class="n">fromCoord</span><span class="p">,</span><span class="n">toCoord</span><span class="p">))</span>
+
+<span class="c1"># Assign your output to the OUT variable.</span>
+<span class="n">OUT</span> <span class="o">=</span> <span class="n">solids</span>
+</pre></div>
+</div>
+<p>If you now press “Accept Changes”, you should be able to see a pattern appear in your geometric preview.</p>
+<p><img alt="_images/241.png" src="_images/241.png" /></p>
+<p>By changing the values in the code blocks that connect to the input of your Python.Script node, you will be able to change the size of the grid and the pattern.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="05_02_RevitPythonShell.html" class="btn btn-neutral float-right" title="1. What is RevitPythonShell?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="05_BIM.html" class="btn btn-neutral float-left" title="Building Data Specific Tutorials" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Marjolein Hordijk
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,354 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Language Features &mdash; Python Tutorials  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Python Tutorials
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Language Features</a><ul>
+<li><a class="reference internal" href="#variables-and-datatypes">1. Variables and datatypes</a></li>
+<li><a class="reference internal" href="#comments">2. Comments</a></li>
+<li><a class="reference internal" href="#operators">3. Operators</a><ul>
+<li><a class="reference internal" href="#number-and-boolean-operators">Number and boolean operators</a></li>
+<li><a class="reference internal" href="#string-operators">String operators</a></li>
+<li><a class="reference internal" href="#list-operators">List operators</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python Tutorials</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Language Features</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/01_02_LanguageFeatures.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="language-features">
+<h1>Language Features<a class="headerlink" href="#language-features" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="variables-and-datatypes">
+<h2>1. Variables and datatypes<a class="headerlink" href="#variables-and-datatypes" title="Permalink to this headline">¶</a></h2>
+<p>A python script works with data. This data can be stored in variables with certain datatypes.</p>
+<p>A number of datatypes are available in python:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span></code> - integer: integer value (no floating point)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">float</span></code> - float: floating point number</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">str</span></code> - string: sequence of characters</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list</span></code> - list: list of datatypes</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bool</span></code> - boolean: binary value (<code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>)</p></li>
+</ul>
+<p>Values in any of these datatypes can be stored in variables.
+These variables ideally have well-defined, good, and meaningful names, so that you can understand them as a developer.</p>
+<p>Examples:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># integers</span>
+<span class="n">myInt</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">anotherInt</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2018</span>
+
+<span class="c1"># float</span>
+<span class="n">myFloat</span> <span class="o">=</span> <span class="mf">3.1415</span>
+<span class="n">anotherFloat</span> <span class="o">=</span> <span class="mf">2e3</span>
+
+<span class="c1"># string</span>
+<span class="n">myStr</span> <span class="o">=</span> <span class="s2">&quot;Eindhoven University of Technology ... !?&quot;</span>
+<span class="n">anotherStr</span> <span class="o">=</span> <span class="s2">&quot;what a #great university&quot;</span>
+
+<span class="c1"># list</span>
+<span class="n">myList</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mf">3.1415</span><span class="p">,</span> <span class="mi">5000</span><span class="p">]</span>
+<span class="n">anotherList</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Alpha&quot;</span><span class="p">,</span> <span class="s2">&quot;Bravo&quot;</span><span class="p">,</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">]</span>
+
+<span class="c1"># boolean</span>
+<span class="n">myBool</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="n">anotherBool</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">&lt;</span> <span class="mi">20</span>
+</pre></div>
+</div>
+<p>Try it for yourself! If you add the piece of code above to a .py file in the Spyder editor and run it, you will be able to see the variables, their types and value appear in the Variable Explorer tab.
+You can now use these variables later in your script. For example, you can run <code class="docutils literal notranslate"><span class="pre">print(myStr)</span></code>.</p>
+<p><img alt="_images/11.png" src="_images/11.png" /></p>
+<p>There are some rules to defining variable names. Variable names may not contain spaces. Python will then not be able to recognize multiple words as one name. Further, variable names can not start with a number.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># bad / not allowed</span>
+<span class="n">my</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;John Doe&quot;</span> <span class="c1">#variable names can not include spaces</span>
+<span class="mi">1</span><span class="n">like</span> <span class="o">=</span> <span class="mi">1</span><span class="n">prayer</span> <span class="c1">#variable names can not start with a number</span>
+</pre></div>
+</div>
+<p>To find out the datatype of a variable, run:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">buildingName</span> <span class="o">=</span> <span class="s2">&quot;VRT9&quot;</span>
+<span class="k">print</span><span class="p">(</span><span class="n">buildingName</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">buildingName</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="comments">
+<h2>2. Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h2>
+<p>Comments are used to document your code inline.
+This can be very helpful for others (or yourself) to understand your script and keep overview.
+As you might have noticed, we actually already used comments in our previous example codes.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">”””</span></code> comments multiple lines until ”””</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#</span></code> comments out a single line</p></li>
+</ul>
+</div>
+<div class="section" id="operators">
+<h2>3. Operators<a class="headerlink" href="#operators" title="Permalink to this headline">¶</a></h2>
+<p>Operators allow to perform operations on variables of particular data types. A number of operators are available. There are plenty of cheat sheets online that list the different available operators. If you don’t know what to use to do something, Google it first; or search for a solution in the cheat sheets.</p>
+<p><img alt="_images/2.jpg" src="_images/2.jpg" /></p>
+<div class="section" id="number-and-boolean-operators">
+<h3>Number and boolean operators<a class="headerlink" href="#number-and-boolean-operators" title="Permalink to this headline">¶</a></h3>
+<p>(X and y are examples of variables on which the operators are performed.)</p>
+<ul class="simple">
+<li><p>Arithmetic</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+</span> <span class="pre">y</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">-</span> <span class="pre">y</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">*</span> <span class="pre">y</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">/</span> <span class="pre">y</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">**</span> <span class="pre">y</span></code> (notation for x^y)</p></li>
+</ul>
+</li>
+<li><p>Assignment</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">y</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+=</span> <span class="pre">y</span></code> (same as x = x + y)</p></li>
+</ul>
+</li>
+<li><p>Comparison:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">==</span> <span class="pre">y</span></code> (equal) =&gt; use <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">is</span> <span class="pre">y</span></code> when x or y is a <code class="docutils literal notranslate"><span class="pre">boolean</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">!=</span> <span class="pre">y</span></code> (not equal) =&gt; use <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">y</span></code> when x or y is a <code class="docutils literal notranslate"><span class="pre">boolean</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&gt;</span> <span class="pre">y</span></code> (greater than)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">y</span></code> (smaller than)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&gt;=</span> <span class="pre">y</span></code> (greater or equal than)</p></li>
+</ul>
+</li>
+<li><p>Logical</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">and</span> <span class="pre">y</span></code> (True if both are True)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">or</span> <span class="pre">y</span></code> (True if one is True)</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="string-operators">
+<h3>String operators<a class="headerlink" href="#string-operators" title="Permalink to this headline">¶</a></h3>
+<p>A number of operators allows to operate with strings. Note that Python starts counting from 0. The first character in a string is thus character number 0.</p>
+<ul class="simple">
+<li><p>String concatenation:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;CME&quot;</span> <span class="pre">+</span> <span class="pre">&quot;</span> <span class="pre">Master!&quot;</span></code> =&gt; “CME Master!”</p></li>
+</ul>
+</li>
+<li><p>Selecting parts of strings and handling string length</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">CityName</span> <span class="pre">=</span> <span class="pre">&quot;Eindhoven&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CityName[0]</span></code> =&gt; ‘E’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CityName[1:5]</span></code> =&gt; ‘indh’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CityName[:3]</span></code> =&gt; ‘Ein’ #Everything until 3 (exclusive)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CityName[3:]</span></code> =&gt; ‘dhoven’ #Everything from 3 (inclusive)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">len(CityName)</span></code> =&gt; ‘9’</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="list-operators">
+<h3>List operators<a class="headerlink" href="#list-operators" title="Permalink to this headline">¶</a></h3>
+<p>Lists can contain everything:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">list_of_numbers</span> <span class="pre">=</span> <span class="pre">[1,</span> <span class="pre">2.5,</span> <span class="pre">3,</span> <span class="pre">52]</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list_of_strings</span> <span class="pre">=</span> <span class="pre">[&quot;abc&quot;,</span> <span class="pre">&quot;xyz&quot;,</span> <span class="pre">&quot;12345&quot;]</span></code></p></li>
+</ul>
+<p>Indexing is the same as for single strings: Python starts to count from 0.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">list_of_numbers[1]</span></code> =&gt; 2.5</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list_of_numbers[-1]</span></code> =&gt; 52</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list_of_strings[1]</span></code> =&gt; “xyz”</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list_of_strings[1:]</span></code> =&gt; [“xyz”, “12345”]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list_of_strings[2][3:]</span></code> =&gt; “45”</p></li>
+</ul>
+<p>List of numbers can be generated in multiple ways:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">numList</span> <span class="pre">=</span> <span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3]</span></code> =&gt; [0, 1, 2, 3]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">numList</span> <span class="pre">=</span> <span class="pre">list(range(4))</span></code> =&gt; [0, 1, 2, 3]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">numList</span> <span class="pre">=</span> <span class="pre">list(range(3,10,2))</span></code> =&gt; [3, 5, 7, 9] #start,stop,step</p></li>
+</ul>
+<p>Indexing can happen in steps as well</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">myList</span> <span class="pre">(list(range(</span> <span class="pre">10))</span></code> =&gt; [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">myList</span> <span class="pre">[::2]</span></code> =&gt; [0, 2, 4, 6, 8] #[start:stop:step]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">myList</span> <span class="pre">[2:9:3]</span></code> =&gt; [2, 5, 8]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">myList</span> <span class="pre">[::-1]</span></code> =&gt; [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Marjolein Hordijk
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

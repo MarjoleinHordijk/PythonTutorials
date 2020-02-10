@@ -1,0 +1,603 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1. What is RevitPythonShell? &mdash; Python Tutorials  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Python Tutorials
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#"><strong>1. What is RevitPythonShell?</strong></a></li>
+<li><a class="reference internal" href="#using-the-revitpythonshell"><strong>2. Using the RevitPythonShell</strong></a></li>
+<li><a class="reference internal" href="#querying-model-elements"><strong>3. Querying Model Elements</strong></a></li>
+<li><a class="reference internal" href="#reading-instance-properties"><strong>4. Reading instance properties</strong></a></li>
+<li><a class="reference internal" href="#reading-instance-parameters"><strong>5. Reading instance parameters</strong></a></li>
+<li><a class="reference internal" href="#reading-type-parameters">6. Reading type parameters</a></li>
+<li><a class="reference internal" href="#exercise-set-parameter-values-using-a-script">7. Exercise: Set Parameter Values Using a Script</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python Tutorials</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li><strong>1. What is RevitPythonShell?</strong></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/05_02_RevitPythonShell.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="what-is-revitpythonshell">
+<h1><strong>1. What is RevitPythonShell?</strong><a class="headerlink" href="#what-is-revitpythonshell" title="Permalink to this headline">¶</a></h1>
+<p>Different from some of the other software packages addressed in this repository, Revit does not come with a Python console by default. However, the RevitPythonShell add-in can easily be installed to add this functionality. This allows you to develop custom Python script to analyse and alter your model. This tutorial is developed based on <a class="reference external" href="https://github.com/hdm-dt-fb/bilt_academy_2019">these</a> instructions.</p>
+<p><span style="text-decoration:underline;">What we will discuss in this tutorial:</span></p>
+<p>In this tutorial we will focus on the very basic applications of the RevitPythonShell. You will learn how to query your model for specific objects and retrieve information about them. At the end, a more advanced example is included to demonstrate how this knowledge could be applied in practice.</p>
+<p><span style="text-decoration:underline;">What you will need:</span></p>
+<p>You will need a recent version of Revit and the corresponding version of the RevitPythonShell add-in. This tutorial uses Revit 2018. You can download RevitPythonShell from <a class="reference external" href="https://github.com/architecture-building-systems/revitpythonshell">here</a>. You can use the basic architectural sample project in Revit to run the commands.</p>
+<p><img alt="_images/15.png" src="_images/15.png" /></p>
+</div>
+<div class="section" id="using-the-revitpythonshell">
+<h1><strong>2. Using the RevitPythonShell</strong><a class="headerlink" href="#using-the-revitpythonshell" title="Permalink to this headline">¶</a></h1>
+<p>Once you have installed the RevitPythonShell, you will be able to find it under the “Add-ins” tab in Revit.</p>
+<p><img alt="_images/24.png" src="_images/24.png" /></p>
+<p>The console that opens consists of two main parts. In the top part, you can type commands (e.g. <code class="docutils literal notranslate"><span class="pre">print(&quot;Hello</span> <span class="pre">world!)</span></code>). When you press enter, you will see the resulting output appear. However, we can also write snippets. That is, code blocks which we can store and share. This is done in the bottom part of the window. To run the code, simply press the play icon or hit F5 on your keyboard.</p>
+<p><img alt="_images/34.png" src="_images/34.png" /></p>
+<p>If you are familiar with Python already, you will be able to perform standard operations such as defining variables, writing loops, and using conditional statements. Some examples are provided below to illustrate that the same can be done within RevitPythonShell and to help you get familiar with the console.</p>
+<p><strong>Variables</strong></p>
+<p>We can create variables to store all kinds of data. For example, we can store text, numbers, lists, etc. This is no different from working with Python in any other console.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">empty_variable</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">some_text</span> <span class="o">=</span> <span class="s2">&quot;Python&quot;</span>
+<span class="n">single_full_number</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="n">single_fractional_number</span> <span class="o">=</span> <span class="mf">3.41</span>
+<span class="n">list_of_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="n">single_full_number</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>As we will see later, we can also use variables to store references to objects in our Revit model and information related to those objects. As you may have anticipated, you can simply print this information using the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">empty_variable</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="kc">None</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">list_of_numbers</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">42</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><img alt="_images/44.png" src="_images/44.png" /></p>
+<p><strong>Loops</strong></p>
+<p>We can also use a loop to iterate through a list and apply an operation to each element one by one. For example, we could increment each value in the <code class="docutils literal notranslate"><span class="pre">list_of_numbers</span></code> variable by one as shown below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">list_of_numbers</span><span class="p">:</span>
+    <span class="n">incremented_number</span> <span class="o">=</span> <span class="n">number</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">incremented_number</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;loop finished&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="_images/54.png" src="_images/54.png" /></p>
+<p><strong>Conditional Statements</strong></p>
+<p>We can also use conditional statements to process information retrieved from the model. For example, we can specify to perform a particular operation only if a certain condition is satisfied. To illustrate, we can print if a number in the <code class="docutils literal notranslate"><span class="pre">list_of_numbers</span></code> variable is below or above one using the following code.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">list_of_numbers</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">number</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="s2">&quot; greater than 1&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">number</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="s2">&quot; smaller than 1&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="s2">&quot; it is 1!!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="_images/64.png" src="_images/64.png" /></p>
+<p>The next section will show how we can use these operations to query the objects in a Revit model and analyse their information.</p>
+</div>
+<div class="section" id="querying-model-elements">
+<h1><strong>3. Querying Model Elements</strong><a class="headerlink" href="#querying-model-elements" title="Permalink to this headline">¶</a></h1>
+<p>There are several options to connect your script to the Revit model. We will discuss two options here. First, you are able to select model elements in the view and access them in your script. Alternatively, you can query elements in the model based on their category.</p>
+<p><strong>3.1 Accessing Selected Elements</strong></p>
+<p>If you select one or multiple objects in the model view, you will be able to access and use them in your script. The selected objects are available as a list of elements stored in the variable <code class="docutils literal notranslate"><span class="pre">selection</span></code>. The first element of this list can be called by “s0”, the second by “s1” and so on.</p>
+<p>Select several elements in your model. If you now type “s0.” in your console window, you will notice that a substantive list of suggestions appears. These all concern operations that we could perform with the selected elements. However, we can also access specific information about each element. As an example, we will print the element Ids of the objects you selected. You can do so using the piece of code below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">selection</span><span class="p">:</span>
+	<span class="nb">print</span> <span class="p">(</span><span class="n">element</span><span class="o">.</span><span class="n">Id</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="_images/73.png" src="_images/73.png" /></p>
+<p>You can check the Ids using the interface under Manage &gt; Inquiry &gt; IDs of Selection to compare.</p>
+<p>**3.1 Querying Elements on Category **</p>
+<p>We can use the <code class="docutils literal notranslate"><span class="pre">FilteredElementCollector</span></code> to access model elements based on their category or class. You can find a list of all build in categories <a class="reference external" href="https://www.revitapidocs.com/2019/ba1c5b30-242f-5fdc-8ea9-ec3b61e6e722.htm">here</a>. An example includes the doors (OST_Doors). These categories are also shown in your Project browser panel, as shown below.</p>
+<p><img alt="_images/82.png" src="_images/82.png" /></p>
+<p>We can store all door instances in the model to a variable (<code class="docutils literal notranslate"><span class="pre">doors</span></code>) as shown below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="k">import</span> <span class="n">FilteredElementCollector</span> <span class="k">as</span> <span class="n">Fec</span>
+<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="k">import</span> <span class="n">BuiltInCategory</span> <span class="k">as</span> <span class="n">Bic</span>
+
+<span class="n">doors</span> <span class="o">=</span> <span class="n">Fec</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span><span class="o">.</span>\
+        <span class="n">OfCategory</span><span class="p">(</span><span class="n">Bic</span><span class="o">.</span><span class="n">OST_Doors</span><span class="p">)</span><span class="o">.</span>\
+        <span class="n">WhereElementIsNotElementType</span><span class="p">()</span><span class="o">.</span><span class="n">ToElements</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Notice that we imported <code class="docutils literal notranslate"><span class="pre">FilteredElementCollector</span></code> and <code class="docutils literal notranslate"><span class="pre">BuiltInCategory</span></code> under the names Fec and Bic to keep our code more condensed.  This is called aliasing.</p>
+<p>We include <code class="docutils literal notranslate"><span class="pre">WhereElementIsNotElementType()</span></code>, since we are only interested in the door instances. If we would like to access the door types in the model we would use <code class="docutils literal notranslate"><span class="pre">WhereElementIsElementType()</span></code> instead, as shown below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="k">import</span> <span class="n">FilteredElementCollector</span> <span class="k">as</span> <span class="n">Fec</span>
+<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="k">import</span> <span class="n">BuiltInCategory</span> <span class="k">as</span> <span class="n">Bic</span>
+
+<span class="n">doorTypes</span> <span class="o">=</span> <span class="n">Fec</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span><span class="o">.</span>\
+        <span class="n">OfCategory</span><span class="p">(</span><span class="n">Bic</span><span class="o">.</span><span class="n">OST_Doors</span><span class="p">)</span><span class="o">.</span>\
+        <span class="n">WhereElementIsElementType</span><span class="p">()</span><span class="o">.</span><span class="n">ToElements</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>In the next section, we will discuss how you can read parameters and properties from these door instances that we have now identified.</p>
+</div>
+<div class="section" id="reading-instance-properties">
+<h1><strong>4. Reading instance properties</strong><a class="headerlink" href="#reading-instance-properties" title="Permalink to this headline">¶</a></h1>
+<p>Now that we have access to elements in our model, we can start reading the information about them. For example, we can print the object ids of the door instances in our model using a small for loop.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
+<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="k">import</span> <span class="n">FilteredElementCollector</span> <span class="k">as</span> <span class="n">Fec</span>
+<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="k">import</span> <span class="n">BuiltInCategory</span> <span class="k">as</span> <span class="n">Bic</span>
+
+<span class="c1"># Store door instances to variable</span>
+<span class="n">doors</span> <span class="o">=</span> <span class="n">Fec</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span><span class="o">.</span>\
+        <span class="n">OfCategory</span><span class="p">(</span><span class="n">Bic</span><span class="o">.</span><span class="n">OST_Doors</span><span class="p">)</span><span class="o">.</span>\
+        <span class="n">WhereElementIsNotElementType</span><span class="p">()</span><span class="o">.</span><span class="n">ToElements</span><span class="p">()</span>
+
+<span class="c1">#  Print object IDs</span>
+<span class="k">for</span> <span class="n">door</span> <span class="ow">in</span> <span class="n">doors</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">door</span><span class="o">.</span><span class="n">Id</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="_images/92.png" src="_images/92.png" /></p>
+<p>If you are curious which properties and parameters apply to an instance in your model, there are handy tools available to look this up. RevitLookup can help you generate a such a list. A installer for this add-in is available <a class="reference external" href="https://boostyourbim.wordpress.com/2017/04/28/revit-lookup-2018-install/">here</a>.</p>
+<p>After installing, you will be able to access all the information you need regarding a selected instance. For example, in the image below a double flush door has been selected. If we “Snoop” the current selection, we will be able to see that this door instance has a property called “mirrored”, which is currently set to “false”.</p>
+<p><img alt="_images/101.png" src="_images/101.png" /></p>
+<p><img alt="_images/111.png" src="_images/111.png" /></p>
+<p>We can also access this information for all doors in our model using the following piece of code.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
+<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="k">import</span> <span class="n">FilteredElementCollector</span> <span class="k">as</span> <span class="n">Fec</span>
+<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="k">import</span> <span class="n">BuiltInCategory</span> <span class="k">as</span> <span class="n">Bic</span>
+
+<span class="c1"># Store door instances to variable</span>
+<span class="n">doors</span> <span class="o">=</span> <span class="n">Fec</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span><span class="o">.</span>\
+        <span class="n">OfCategory</span><span class="p">(</span><span class="n">Bic</span><span class="o">.</span><span class="n">OST_Doors</span><span class="p">)</span><span class="o">.</span>\
+        <span class="n">WhereElementIsNotElementType</span><span class="p">()</span><span class="o">.</span><span class="n">ToElements</span><span class="p">()</span>
+
+<span class="c1">#  Print if doors are mirrored (True) or not (False)</span>
+<span class="k">for</span> <span class="n">door</span> <span class="ow">in</span> <span class="n">doors</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">door</span><span class="o">.</span><span class="n">Mirrored</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="_images/121.png" src="_images/121.png" /></p>
+<p>We can also print the object IDs of only those doors that are mirrored using a conditional if statement.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
+<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="k">import</span> <span class="n">FilteredElementCollector</span> <span class="k">as</span> <span class="n">Fec</span>
+<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="k">import</span> <span class="n">BuiltInCategory</span> <span class="k">as</span> <span class="n">Bic</span>
+
+<span class="c1"># Store door instances to variable</span>
+<span class="n">doors</span> <span class="o">=</span> <span class="n">Fec</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span><span class="o">.</span>\
+        <span class="n">OfCategory</span><span class="p">(</span><span class="n">Bic</span><span class="o">.</span><span class="n">OST_Doors</span><span class="p">)</span><span class="o">.</span>\
+        <span class="n">WhereElementIsNotElementType</span><span class="p">()</span><span class="o">.</span><span class="n">ToElements</span><span class="p">()</span>
+
+<span class="c1">#  Print object IDs of mirrored doors.</span>
+<span class="k">for</span> <span class="n">door</span> <span class="ow">in</span> <span class="n">doors</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">door</span><span class="o">.</span><span class="n">Mirrored</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">door</span><span class="o">.</span><span class="n">Id</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="_images/131.png" src="_images/131.png" /></p>
+<p>We can even adapt this loop to determine the total number of doors that are mirrored in our model.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
+<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="k">import</span> <span class="n">FilteredElementCollector</span> <span class="k">as</span> <span class="n">Fec</span>
+<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="k">import</span> <span class="n">BuiltInCategory</span> <span class="k">as</span> <span class="n">Bic</span>
+
+<span class="c1"># Store door instances to variable</span>
+<span class="n">doors</span> <span class="o">=</span> <span class="n">Fec</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span><span class="o">.</span>\
+        <span class="n">OfCategory</span><span class="p">(</span><span class="n">Bic</span><span class="o">.</span><span class="n">OST_Doors</span><span class="p">)</span><span class="o">.</span>\
+        <span class="n">WhereElementIsNotElementType</span><span class="p">()</span><span class="o">.</span><span class="n">ToElements</span><span class="p">()</span>
+
+<span class="c1">#  Print object IDs of mirrored doors and count them.</span>
+<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">door</span> <span class="ow">in</span> <span class="n">doors</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">door</span><span class="o">.</span><span class="n">Mirrored</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">door</span><span class="o">.</span><span class="n">Id</span><span class="p">)</span>
+        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="_images/141.png" src="_images/141.png" /></p>
+</div>
+<div class="section" id="reading-instance-parameters">
+<h1><strong>5. Reading instance parameters</strong><a class="headerlink" href="#reading-instance-parameters" title="Permalink to this headline">¶</a></h1>
+<p>We can use the “LookupParameter(“parameter_name”)” method to look up <strong>parameters</strong> of an <strong>instance</strong>. However, this will only return the parameter itself, but not the value that is stored for it. To retrieve the value, we need to know the datatype of the parameter (e.g. integer or string). Usually, this is quite straightforward. For example, the “Mark” parameter is a string value. We can access and print this value for the first door in the variable <code class="docutils literal notranslate"><span class="pre">doors</span></code> as shown below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
+<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="k">import</span> <span class="n">FilteredElementCollector</span> <span class="k">as</span> <span class="n">Fec</span>
+<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="k">import</span> <span class="n">BuiltInCategory</span> <span class="k">as</span> <span class="n">Bic</span>
+
+<span class="c1"># Store door instances to variable</span>
+<span class="n">doors</span> <span class="o">=</span> <span class="n">Fec</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span><span class="o">.</span>\
+        <span class="n">OfCategory</span><span class="p">(</span><span class="n">Bic</span><span class="o">.</span><span class="n">OST_Doors</span><span class="p">)</span><span class="o">.</span>\
+        <span class="n">WhereElementIsNotElementType</span><span class="p">()</span><span class="o">.</span><span class="n">ToElements</span><span class="p">()</span>
+
+<span class="c1"># Print the value for the &quot;Mark&quot; parameter for the first door in variable doors (list)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">doors</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">LookupParameter</span><span class="p">(</span><span class="s2">&quot;Mark&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">AsString</span><span class="p">())</span>
+</pre></div>
+</div>
+<p><img alt="_images/151.png" src="_images/151.png" /></p>
+</div>
+<div class="section" id="reading-type-parameters">
+<h1>6. Reading type parameters<a class="headerlink" href="#reading-type-parameters" title="Permalink to this headline">¶</a></h1>
+<p>If you are familiar with Revit, you will know that a model instance (e.g door) belongs to a particular type that defines certain attributes of the object. We can also access the information regarding the type a specific instance belongs to.</p>
+<p>However, to retrieve <strong>type parameters</strong>, such as the name of the type, we need to add something extra.  In the RevitAPI the type of a Family is accessed by the property “Symbol”. Hence, we can retrieve this information using <code>door.<span style="text-decoration:underline;">Symbol</span>.LookupParameter()</code>, as shown below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
+<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="k">import</span> <span class="n">FilteredElementCollector</span> <span class="k">as</span> <span class="n">Fec</span>
+<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="k">import</span> <span class="n">BuiltInCategory</span> <span class="k">as</span> <span class="n">Bic</span>
+
+<span class="c1"># Store door instances to variable</span>
+<span class="n">doors</span> <span class="o">=</span> <span class="n">Fec</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span><span class="o">.</span>\
+        <span class="n">OfCategory</span><span class="p">(</span><span class="n">Bic</span><span class="o">.</span><span class="n">OST_Doors</span><span class="p">)</span><span class="o">.</span>\
+        <span class="n">WhereElementIsNotElementType</span><span class="p">()</span><span class="o">.</span><span class="n">ToElements</span><span class="p">()</span>
+
+<span class="c1">#  Print type names of door instances in model.</span>
+<span class="k">for</span> <span class="n">door</span> <span class="ow">in</span> <span class="n">doors</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">door</span><span class="o">.</span><span class="n">Symbol</span><span class="o">.</span><span class="n">LookupParameter</span><span class="p">(</span><span class="s2">&quot;Type Name&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">AsString</span><span class="p">())</span>
+</pre></div>
+</div>
+<p><img alt="_images/16.png" src="_images/16.png" /></p>
+</div>
+<div class="section" id="exercise-set-parameter-values-using-a-script">
+<h1>7. Exercise: Set Parameter Values Using a Script<a class="headerlink" href="#exercise-set-parameter-values-using-a-script" title="Permalink to this headline">¶</a></h1>
+<p>In this exercise we will develop a small script to write parameter values. We will determine for each door the side of its hinges (left or right) based on the type of the door and whether it is mirrored or not. You can find the complete script at the end of this section. We will go through the build up of this script step by step below.</p>
+<p>Note that not all door objects have the right properties for this script to work. Please use <a class="reference external" href="https://github.com/hdm-dt-fb/bilt_academy_2019/blob/master/model/python_beginners_tower.rvt">this</a> model to test the code to make sure it will work properly.</p>
+<p>We will start with some required <strong>imports</strong> and some <strong>references</strong>. These are required to interact with the currently opened model and access or alter the information of its elements. For example, we need to start a so called “transaction” to be able to edit the door hinge side information of the instances in the model.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
+<span class="kn">import</span> <span class="nn">clr</span>
+<span class="n">clr</span><span class="o">.</span><span class="n">AddReference</span><span class="p">(</span><span class="s2">&quot;RevitAPI&quot;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="k">import</span> <span class="n">BuiltInCategory</span> <span class="k">as</span> <span class="n">Bic</span>
+<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="k">import</span> <span class="n">FilteredElementCollector</span> <span class="k">as</span> <span class="n">Fec</span>
+<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="k">import</span> <span class="n">Transaction</span>
+
+<span class="c1"># reference to the current open revit model to work with:</span>
+<span class="n">doc</span> <span class="o">=</span> <span class="n">__revit__</span><span class="o">.</span><span class="n">ActiveUIDocument</span><span class="o">.</span><span class="n">Document</span>
+
+<span class="c1"># parameter names to work with:</span>
+<span class="c1"># these are just the parameter names so we can reference them later</span>
+<span class="c1"># not the actual parameters or their values</span>
+<span class="n">family_hinges_side</span> <span class="o">=</span> <span class="s2">&quot;hinges_side_family&quot;</span>
+<span class="n">instance_hinges_side</span> <span class="o">=</span> <span class="s2">&quot;hinges_side_instance&quot;</span>
+
+<span class="c1"># entering a transaction to the modify revit model database</span>
+<span class="c1"># Start transaction</span>
+<span class="n">tx</span> <span class="o">=</span> <span class="n">Transaction</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="s1">&#39;set door hinges side&#39;</span><span class="p">)</span>
+<span class="n">tx</span><span class="o">.</span><span class="n">Start</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Next we create the variable <code class="docutils literal notranslate"><span class="pre">doors</span></code> to store the <strong>door instances</strong> in, as we did in earlier sections of this tutorial.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># connect to Revit model elements via FilteredElementCollector</span>
+<span class="c1"># collect all the doors</span>
+<span class="n">doors</span> <span class="o">=</span> <span class="n">Fec</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span><span class="o">.</span><span class="n">OfCategory</span><span class="p">(</span><span class="n">Bic</span><span class="o">.</span><span class="n">OST_Doors</span><span class="p">)</span><span class="o">.</span><span class="n">WhereElementIsNotElementType</span><span class="p">()</span><span class="o">.</span><span class="n">ToElements</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>In earlier sections, we looped through all door instances in the current model to retrieve particular information. In a similar manner, we can determine the <strong>default hinge side of the door type</strong> to which a door instance belongs using <code class="docutils literal notranslate"><span class="pre">door.Symbol.LookupParameter(family_hinges_side)</span></code>. Recall that <code class="docutils literal notranslate"><span class="pre">family_hinges_side</span></code> refers to the string <code class="docutils literal notranslate"><span class="pre">&quot;hinges_side_family&quot;</span></code> which is the name of the type parameter that stores the hinge side value which is default for that type of door.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">door</span> <span class="ow">in</span> <span class="n">doors</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="mi">35</span> <span class="o">*</span> <span class="s2">&quot;-&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">door</span><span class="o">.</span><span class="n">Id</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">door</span><span class="o">.</span><span class="n">Symbol</span><span class="o">.</span><span class="n">LookupParameter</span><span class="p">(</span><span class="n">family_hinges_side</span><span class="p">)</span><span class="o">.</span><span class="n">AsString</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>However, we did not consider a situation where this <span style="text-decoration:underline;">information might be missing</span>. If this is the case, the script that we are now developing will crash. To avoid this we can <strong>debug</strong> using a simple conditional if statement. This piece of code ensures that if relevant information is missing, we can trace back the particular instance and fix the issue. That is, the door id will be printed followed by the message: “parameter missing!”.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">door</span> <span class="ow">in</span> <span class="n">doors</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="mi">35</span> <span class="o">*</span> <span class="s2">&quot;-&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">door</span><span class="o">.</span><span class="n">Id</span><span class="p">)</span>
+
+    <span class="n">hinges_default_param</span> <span class="o">=</span> <span class="n">door</span><span class="o">.</span><span class="n">Symbol</span><span class="o">.</span><span class="n">LookupParameter</span><span class="p">(</span><span class="n">family_hinges_side</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">hinges_default_param</span><span class="p">:</span>
+        <span class="n">hinges_type_side</span> <span class="o">=</span> <span class="n">hinges_default_param</span><span class="o">.</span><span class="n">AsString</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;door default side: &quot;</span><span class="p">,</span> <span class="n">hinges_type_side</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;parameter missing!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>As you will notice when you run our code so far, one door has a missing value. Since we know the door id from the output we can identify this as the door with id number “347860”. After selecting the door based on its id (Revit &gt; Manage &gt; Inquiry &gt; Select by Id) we can see that the door is a double leaf door. It is therefore not strange that this door does not have a hinge side property. Since we specified an else statement, our code will not crash because of a lack of this parameter.</p>
+<p>We now know for each door if its type family has a default hinge side and what this side is (left or right). Next we need to know if the door instances that we have a family hinge side value for are <strong>mirrored or not</strong>. We can find this out from the <code class="docutils literal notranslate"><span class="pre">Mirrored</span></code> property, which either has <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code> as its value. In the code below, we store this value to the variable <code class="docutils literal notranslate"><span class="pre">is_mirrored</span></code>, which we then print for each door that has a family hinge side value.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">door</span> <span class="ow">in</span> <span class="n">doors</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="mi">15</span><span class="o">*</span><span class="s2">&quot;-&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">door</span><span class="o">.</span><span class="n">Id</span><span class="p">)</span>
+
+    <span class="n">hinges_default_param</span> <span class="o">=</span> <span class="n">door</span><span class="o">.</span><span class="n">Symbol</span><span class="o">.</span><span class="n">LookupParameter</span><span class="p">(</span><span class="n">family_hinges_side</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">hinges_default_param</span><span class="p">:</span>
+        <span class="n">hinges_type_side</span> <span class="o">=</span> <span class="n">hinges_default_param</span><span class="o">.</span><span class="n">AsString</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;door default side: &quot;</span><span class="p">,</span> <span class="n">hinges_type_side</span><span class="p">)</span>
+        <span class="n">is_mirrored</span> <span class="o">=</span> <span class="n">door</span><span class="o">.</span><span class="n">Mirrored</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;door is mirrored : &quot;</span><span class="p">,</span> <span class="n">is_mirrored</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;parameter missing!!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We now have all the information that we need to determine the hinge side of the door instance. That is, the default hinge side of the door type and whether a door is mirrored or not.</p>
+<p>If a door is not mirrored, the hinge side of the instance will simply correspond to that of the family. However, if the door is mirrored, we will need to reverse the side. To print the hinge side of the door instances in our model, we can therefore use the code below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">door</span> <span class="ow">in</span> <span class="n">doors</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="mi">15</span><span class="o">*</span><span class="s2">&quot;-&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">door</span><span class="o">.</span><span class="n">Id</span><span class="p">)</span>
+
+    <span class="n">hinges_default_param</span> <span class="o">=</span> <span class="n">door</span><span class="o">.</span><span class="n">Symbol</span><span class="o">.</span><span class="n">LookupParameter</span><span class="p">(</span><span class="n">family_hinges_side</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">hinges_default_param</span><span class="p">:</span>
+        <span class="n">hinges_type_side</span> <span class="o">=</span> <span class="n">hinges_default_param</span><span class="o">.</span><span class="n">AsString</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;door default side: &quot;</span><span class="p">,</span> <span class="n">hinges_type_side</span><span class="p">)</span>
+
+        <span class="n">is_mirrored</span> <span class="o">=</span> <span class="n">door</span><span class="o">.</span><span class="n">Mirrored</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">is_mirrored</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;door is not mirrored.&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;instance is:&quot;</span><span class="p">,</span> <span class="n">hinges_type_side</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">is_mirrored</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;door is mirrored.&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">hinges_type_side</span> <span class="o">==</span> <span class="s2">&quot;L&quot;</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;instance is: R&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">hinges_type_side</span> <span class="o">==</span> <span class="s2">&quot;R&quot;</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;instance is: L&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;parameter missing!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Like before, the first if statement checks if the door type has a hinge side property. If this is the case, it will determine if the door is mirrored or not. A nested if statement defines that if the door is not mirrored (<code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">not</span> <span class="pre">is_mirrored:)</span></code>, the default hinge side of the type is printed. On the other hand, if the door is mirrored (<code class="docutils literal notranslate"><span class="pre">elif</span> <span class="pre">is_mirrored:)</span></code>, another if statement is used to take the opposite of the family hinge side.</p>
+<p><img alt="_images/17.png" src="_images/17.png" /></p>
+<p>Finally, we can use <code class="docutils literal notranslate"><span class="pre">.Set()</span></code> to set the hinge side parameter of each door correctly according to the information that we have gathered.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">door</span> <span class="ow">in</span> <span class="n">doors</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="mi">15</span><span class="o">*</span><span class="s2">&quot;-&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">door</span><span class="o">.</span><span class="n">Id</span><span class="p">)</span>
+
+    <span class="c1"># get preset default_hinges_side door side</span>
+    <span class="n">hinges_default_param</span> <span class="o">=</span> <span class="n">door</span><span class="o">.</span><span class="n">Symbol</span><span class="o">.</span><span class="n">LookupParameter</span><span class="p">(</span><span class="n">family_hinges_side</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">hinges_default_param</span><span class="p">:</span>
+        <span class="n">hinges_type_side</span> <span class="o">=</span> <span class="n">hinges_default_param</span><span class="o">.</span><span class="n">AsString</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;door default side: &quot;</span><span class="p">,</span> <span class="n">hinges_type_side</span><span class="p">)</span>
+
+        <span class="c1"># ask if door is mirrored or not</span>
+        <span class="n">is_mirrored</span> <span class="o">=</span> <span class="n">door</span><span class="o">.</span><span class="n">Mirrored</span>
+
+        <span class="c1"># perform some logic to find the actual hinges side</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">is_mirrored</span><span class="p">:</span>
+            <span class="n">door</span><span class="o">.</span><span class="n">LookupParameter</span><span class="p">(</span><span class="n">instance_hinges_side</span><span class="p">)</span><span class="o">.</span><span class="n">Set</span><span class="p">(</span><span class="n">hinges_type_side</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;door is not mirrored.&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;instance is:&quot;</span><span class="p">,</span> <span class="n">hinges_type_side</span><span class="p">)</span> 
+
+        <span class="k">elif</span> <span class="n">is_mirrored</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;door is mirrored.&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">hinges_type_side</span> <span class="o">==</span> <span class="s2">&quot;L&quot;</span><span class="p">:</span>
+                <span class="n">door</span><span class="o">.</span><span class="n">LookupParameter</span><span class="p">(</span><span class="n">instance_hinges_side</span><span class="p">)</span><span class="o">.</span><span class="n">Set</span><span class="p">(</span><span class="s2">&quot;R&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;instance is: R&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">hinges_type_side</span> <span class="o">==</span> <span class="s2">&quot;R&quot;</span><span class="p">:</span>
+                <span class="n">door</span><span class="o">.</span><span class="n">LookupParameter</span><span class="p">(</span><span class="n">instance_hinges_side</span><span class="p">)</span><span class="o">.</span><span class="n">Set</span><span class="p">(</span><span class="s2">&quot;L&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;instance is: L&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;parameter missing!!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We can commit the changes using <code class="docutils literal notranslate"><span class="pre">tx.Commit()</span></code>. Adding this finishes our script. The complete code is found below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Imports</span>
+<span class="kn">import</span> <span class="nn">clr</span>
+
+<span class="n">clr</span><span class="o">.</span><span class="n">AddReference</span><span class="p">(</span><span class="s2">&quot;RevitAPI&quot;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="k">import</span> <span class="n">BuiltInCategory</span> <span class="k">as</span> <span class="n">Bic</span>
+<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="k">import</span> <span class="n">FilteredElementCollector</span> <span class="k">as</span> <span class="n">Fec</span>
+<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="k">import</span> <span class="n">Transaction</span>
+
+<span class="c1"># __window__.set_font_sizes(19)  # set bigger font in RPS</span>
+<span class="c1"># reference the current open revit model to work with:</span>
+<span class="n">doc</span> <span class="o">=</span> <span class="n">__revit__</span><span class="o">.</span><span class="n">ActiveUIDocument</span><span class="o">.</span><span class="n">Document</span>
+
+<span class="c1"># parameter names to work with:</span>
+<span class="c1"># these are just the names not the actual parameters or their values</span>
+<span class="n">family_hinges_side</span> <span class="o">=</span> <span class="s2">&quot;hinges_side_family&quot;</span>
+<span class="n">instance_hinges_side</span> <span class="o">=</span> <span class="s2">&quot;hinges_side_instance&quot;</span>
+
+<span class="c1"># connect to Revit model elements via FilteredElementCollector</span>
+<span class="c1"># collect all the doors</span>
+<span class="n">doors</span> <span class="o">=</span> <span class="n">Fec</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span><span class="o">.</span><span class="n">OfCategory</span><span class="p">(</span><span class="n">Bic</span><span class="o">.</span><span class="n">OST_Doors</span><span class="p">)</span><span class="o">.</span><span class="n">WhereElementIsNotElementType</span><span class="p">()</span><span class="o">.</span><span class="n">ToElements</span><span class="p">()</span>
+
+<span class="c1"># entering a transaction to the modify revit model database</span>
+<span class="c1"># Start transaction</span>
+<span class="n">tx</span> <span class="o">=</span> <span class="n">Transaction</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="s1">&#39;set door hinges side&#39;</span><span class="p">)</span>
+<span class="n">tx</span><span class="o">.</span><span class="n">Start</span><span class="p">()</span>
+
+<span class="c1"># main logic of script</span>
+<span class="k">for</span> <span class="n">door</span> <span class="ow">in</span> <span class="n">doors</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="mi">15</span><span class="o">*</span><span class="s2">&quot;-&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">door</span><span class="o">.</span><span class="n">Id</span><span class="p">)</span>
+
+    <span class="c1"># ask each door for its type</span>
+    <span class="c1"># get preset default_hinges_side door side</span>
+    <span class="n">hinges_default_param</span> <span class="o">=</span> <span class="n">door</span><span class="o">.</span><span class="n">Symbol</span><span class="o">.</span><span class="n">LookupParameter</span><span class="p">(</span><span class="n">family_hinges_side</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">hinges_default_param</span><span class="p">:</span>
+        <span class="n">hinges_type_side</span> <span class="o">=</span> <span class="n">hinges_default_param</span><span class="o">.</span><span class="n">AsString</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;door default side: &quot;</span><span class="p">,</span> <span class="n">hinges_type_side</span><span class="p">)</span>
+
+        <span class="c1"># ask if door is mirrored or not</span>
+        <span class="n">is_mirrored</span> <span class="o">=</span> <span class="n">door</span><span class="o">.</span><span class="n">Mirrored</span>
+
+        <span class="c1"># perform some logic to find the actual hinges side</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">is_mirrored</span><span class="p">:</span>
+            <span class="n">door</span><span class="o">.</span><span class="n">LookupParameter</span><span class="p">(</span><span class="n">instance_hinges_side</span><span class="p">)</span><span class="o">.</span><span class="n">Set</span><span class="p">(</span><span class="n">hinges_type_side</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;door is not mirrored.&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;instance is:&quot;</span><span class="p">,</span> <span class="n">hinges_type_side</span><span class="p">)</span> 
+
+        <span class="k">elif</span> <span class="n">is_mirrored</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;door is mirrored.&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">hinges_type_side</span> <span class="o">==</span> <span class="s2">&quot;L&quot;</span><span class="p">:</span>
+                <span class="n">door</span><span class="o">.</span><span class="n">LookupParameter</span><span class="p">(</span><span class="n">instance_hinges_side</span><span class="p">)</span><span class="o">.</span><span class="n">Set</span><span class="p">(</span><span class="s2">&quot;R&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;instance is: R&quot;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">hinges_type_side</span> <span class="o">==</span> <span class="s2">&quot;R&quot;</span><span class="p">:</span>
+                <span class="n">door</span><span class="o">.</span><span class="n">LookupParameter</span><span class="p">(</span><span class="n">instance_hinges_side</span><span class="p">)</span><span class="o">.</span><span class="n">Set</span><span class="p">(</span><span class="s2">&quot;L&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;instance is: L&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;parameter missing!!&quot;</span><span class="p">)</span>
+
+<span class="c1"># commit the changes to the model database</span>
+<span class="c1"># End transaction</span>
+<span class="n">tx</span><span class="o">.</span><span class="n">Commit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;successfully changed model&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Marjolein Hordijk
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
