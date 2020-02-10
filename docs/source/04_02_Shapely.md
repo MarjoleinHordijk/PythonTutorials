@@ -9,7 +9,7 @@ Operation that we can perform using this module can be classified as:
 1. **_Constructive operations_** (e.g. generating buffers or centroids)
 2. **_Set-theoretic operations_** (e.g. intersection, union, etc.)
 
-Note: If you use **Spyder** to run the code discussed in this tutorial, you will be able to see the resulting geometries by calling the instance. For example, if you created an instance called �Point1�, you can type �Point1� in the console and hit enter to get a visual of the point.
+Note: If you use **Spyder** to run the code discussed in this tutorial, you will be able to see the resulting geometries by calling the instance. For example, if you created an instance called "Point1", you can type "Point1" in the console and hit enter to get a visual of the point.
 
 <span style="text-decoration:underline;">What we will discuss in this tutorial:</span>
 
