@@ -23,5 +23,6 @@ This repository and tutorial is part of the CME Master Program in TU/e (Construc
    Data Analysis Using Python <03_DataAnalysis.rst>
    GIS <04_GIS.rst>
    Building Data <05_BIM.rst>
+   Help <06_Help.md>
 
    
