@@ -53,7 +53,7 @@ else:
 In the case that you do not want to execute any code in a particular situation, you can use ```pass```.
 
 **Important things to keep in mind when writing if statements:**
-* Be aware of the indentation. That is, the code that must be executed is indented by one level. Click [here](06_Help.md#Indentation) to learn more about identation.
+* Be aware of the indentation. That is, the code that must be executed is indented by one level. Click [here](06_Help.md) to learn more about identation.
 * Do not forget the colon (:), it seperates the header of the statement from its body.
 * Several forms of if statements are possible, as shown below. They differ in the amount of conditions that are checked. 
 
