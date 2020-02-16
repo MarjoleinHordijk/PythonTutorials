@@ -13,7 +13,7 @@ Python supports many of the usual logical conditions from mathematics:
 - Greater than: ```a > b```
 - Greater than or equal to: ```a >= b```
 
-In these examples, a and b can take different values and they can be of different datatypes. However, be aware that certain data types are not suitable for praticular logical contitions. For example, if we have a piece of text "Univeristy", which is a string, it will be impossible to evaluate if this is greater than another value. Although this may seem obvious in this example, it could be possible that you stored two numbers (e.g 2 & 4), but you stored one of them as a string instead of an integer. In this case, you will also receive an error. Please see [here](01_02_LanguageFeatures.md#1. Variables and datatypes) for more on datatypes such as strings and integers.
+In these examples, a and b can take different values and they can be of different datatypes. However, be aware that certain data types are not suitable for praticular logical contitions. For example, if we have a piece of text "Univeristy", which is a string, it will be impossible to evaluate if this is greater than another value. Although this may seem obvious in this example, it could be possible that you stored two numbers (e.g 2 & 4), but you stored one of them as a string instead of an integer. In this case, you will also receive an error. Please see [here](01_02_LanguageFeatures.md) for more on datatypes such as strings and integers.
 
 ## 2. If statement
 If statement allow you to check whether a particular statement is true or not. Depending on the boolean evaluation (true versus false), a particular piece of code (or nothing) is executed. 
@@ -53,7 +53,7 @@ else:
 In the case that you do not want to execute any code in a particular situation, you can use ```pass```.
 
 **Important things to keep in mind when writing if statements:**
-* Be aware of the indentation. That is, the code that must be executed is indented by one level. Click [here](06_Help.md#Indentation) to learn more about identation.
+* Be aware of the indentation. That is, the code that must be executed is indented by one level. Click [here](06_Help.md##Indentation) to learn more about identation.
 * Do not forget the colon (:), it seperates the header of the statement from its body.
 * Several forms of if statements are possible, as shown below. They differ in the amount of conditions that are checked. 
 
