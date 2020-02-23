@@ -1,5 +1,5 @@
 
-# **1. What is RevitPythonShell?**
+## **1. What is RevitPythonShell?**
 
 Different from some of the other software packages addressed in this repository, Revit does not come with a Python console by default. However, the RevitPythonShell add-in can easily be installed to add this functionality. This allows you to develop custom Python script to analyse and alter your model. This tutorial is developed based on [these](https://github.com/hdm-dt-fb/bilt_academy_2019) instructions.
 
@@ -13,7 +13,7 @@ You will need a recent version of Revit and the corresponding version of the Rev
 
 ![](../../images/05_02/1.png)
 
-# **2. Using the RevitPythonShell**
+## **2. Using the RevitPythonShell**
 
 Once you have installed the RevitPythonShell, you will be able to find it under the “Add-ins” tab in Revit. 
 
@@ -86,7 +86,7 @@ for number in list_of_numbers:
 The next section will show how we can use these operations to query the objects in a Revit model and analyse their information.
 
 
-# **3. Querying Model Elements**
+## **3. Querying Model Elements**
 
 There are several options to connect your script to the Revit model. We will discuss two options here. First, you are able to select model elements in the view and access them in your script. Alternatively, you can query elements in the model based on their category.
 
@@ -145,7 +145,7 @@ In the next section, we will discuss how you can read parameters and properties 
 
 
 
-# **4. Reading instance properties**
+## **4. Reading instance properties**
 
 Now that we have access to elements in our model, we can start reading the information about them. For example, we can print the object ids of the door instances in our model using a small for loop.
 
@@ -243,7 +243,7 @@ print(count)
 
 ![](../../images/05_02/14.png)
 
-# **5. Reading instance parameters**
+## **5. Reading instance parameters**
 
 We can use the “LookupParameter(“parameter_name”)” method to look up **parameters** of an **instance**. However, this will only return the parameter itself, but not the value that is stored for it. To retrieve the value, we need to know the datatype of the parameter (e.g. integer or string). Usually, this is quite straightforward. For example, the “Mark” parameter is a string value. We can access and print this value for the first door in the variable `doors` as shown below.
 
@@ -264,7 +264,7 @@ print(doors[1].LookupParameter("Mark").AsString())
 
 ![](../../images/05_02/15.png)
 
-# 6. Reading type parameters
+## 6. Reading type parameters
 
 If you are familiar with Revit, you will know that a model instance (e.g door) belongs to a particular type that defines certain attributes of the object. We can also access the information regarding the type a specific instance belongs to. 
 
@@ -288,7 +288,7 @@ for door in doors:
 
 ![](../../images/05_02/16.png)
 
-# 7. Exercise: Set Parameter Values Using a Script
+## 7. Exercise: Set Parameter Values Using a Script
 
 In this exercise we will develop a small script to write parameter values. We will determine for each door the side of its hinges (left or right) based on the type of the door and whether it is mirrored or not. You can find the complete script at the end of this section. We will go through the build up of this script step by step below.
 
