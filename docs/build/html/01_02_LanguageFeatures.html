@@ -34,7 +34,9 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Loops and Conditional Statements" href="01_03_Loops.html" />
+    <link rel="prev" title="Getting Ready (Installing Python &amp; Spyder)" href="01_01_GetReady.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -78,21 +80,47 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Language Features</a><ul>
-<li><a class="reference internal" href="#variables-and-datatypes">1. Variables and datatypes</a></li>
-<li><a class="reference internal" href="#comments">2. Comments</a></li>
-<li><a class="reference internal" href="#operators">3. Operators</a><ul>
-<li><a class="reference internal" href="#number-and-boolean-operators">Number and boolean operators</a></li>
-<li><a class="reference internal" href="#string-operators">String operators</a></li>
-<li><a class="reference internal" href="#list-operators">List operators</a></li>
+              <p class="caption"><span class="caption-text">Topics:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="01_GettingStarted.html">Getting Started</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01_01_GetReady.html">Getting Ready (Installing Python &amp; Spyder)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Basic Features of the Language</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#variables-and-datatypes">1. Variables and datatypes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#numbers-integers-floats">Numbers (Integers &amp; Floats)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#text-strings">Text (Strings)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#boolean">Boolean</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#practice-exercise-1">Practice Exercise 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#special-data-structures">2. Special Data Structures</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#lists">Lists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tuples">Tuples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sets">Sets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dictionaries">Dictionaries</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#literal-constants">3. Literal Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#comments">4. Comments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#operators">5. Operators</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#number-and-boolean-operators">Number and boolean operators</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#string-operators">String operators</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#list-operators">List operators</a></li>
 </ul>
-</div>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#indentation">6. Indentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="01_03_Loops.html">Loops &amp; Conditional Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_04_Functions.html">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="02_BeyondBasics.html">Beyond the Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_DataAnalysis.html">Data Analysis Using Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_GIS.html">GIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_BIM.html">Building Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_Help.html">Help</a></li>
+</ul>
+
             
           
         </div>
@@ -136,6 +164,8 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
+          <li><a href="01_GettingStarted.html">Getting Started with Python</a> &raquo;</li>
+        
       <li>Language Features</li>
     
     
@@ -157,41 +187,92 @@
             
   <div class="section" id="language-features">
 <h1>Language Features<a class="headerlink" href="#language-features" title="Permalink to this headline">¶</a></h1>
+<p>This section discusses some of the fundamental features of the Python language. Before we continue with actual programming, it is important that you are aware of the different terminology that is used. Therefore, this overview is very useful to review before starting to work with operators and functions.</p>
 <div class="section" id="variables-and-datatypes">
 <h2>1. Variables and datatypes<a class="headerlink" href="#variables-and-datatypes" title="Permalink to this headline">¶</a></h2>
-<p>A python script works with data. This data can be stored in variables with certain datatypes.</p>
-<p>A number of datatypes are available in python:</p>
+<p>As the name implies, the values of variables can vary. They store a piece of information and allow you to refer to this by its identifier. The identifiers is nothing more than a name that you define to identify the piece of information that is stored by the respective variable. Although you are quite flexible in choosing these names, there are some rules that you should stick to so Python can interpret your code properly.</p>
+<p><strong>Rules for nameing identifiers:</strong></p>
+<ul class="simple">
+<li><p>The first character of the variable name must always be a letter of the alphabet or an underscore (<code class="docutils literal notranslate"><span class="pre">_</span></code>).</p></li>
+<li><p>Python is case-sensitive. So keep that in mind when you are using lower (a) and upper (A) case letters.</p></li>
+<li><p>The remainder of the name can constist of letters, underscores (<code class="docutils literal notranslate"><span class="pre">_</span></code>) and digits (0-9).</p></li>
+</ul>
+<p>Other than these rules, variables ideally have well-defined, good, and meaningful names, so that you can understand them as a developer.</p>
+<p>The information that is stored to those variables that you define can be of different data types.</p>
+<p><strong>A number of important datatypes in Python include:</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">int</span></code> - integer: integer value (no floating point)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">float</span></code> - float: floating point number</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">str</span></code> - string: sequence of characters</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">list</span></code> - list: list of datatypes</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">bool</span></code> - boolean: binary value (<code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>)</p></li>
 </ul>
-<p>Values in any of these datatypes can be stored in variables.
-These variables ideally have well-defined, good, and meaningful names, so that you can understand them as a developer.</p>
-<p>Examples:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># integers</span>
+<p>These datatypes are discussed in more detail below.</p>
+<div class="section" id="numbers-integers-floats">
+<h3>Numbers (Integers &amp; Floats)<a class="headerlink" href="#numbers-integers-floats" title="Permalink to this headline">¶</a></h3>
+<p>Python makes a distinction between two types of numbers.</p>
+<ul class="simple">
+<li><p><em>Integers</em> are whole numbers such as <code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">23</span></code> and <code class="docutils literal notranslate"><span class="pre">2350525</span></code>.</p></li>
+<li><p><em>Floats</em> (floating point numbers) are so called “real” numbers. They are formulated with a decimal point and can capture fractions for integers. Examples include <code class="docutils literal notranslate"><span class="pre">1.25</span></code> and <code class="docutils literal notranslate"><span class="pre">2e3</span></code> (2 times 10 to the power of 3).</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Integers</span>
 <span class="n">myInt</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">anotherInt</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2018</span>
 
-<span class="c1"># float</span>
+<span class="c1"># Floats</span>
 <span class="n">myFloat</span> <span class="o">=</span> <span class="mf">3.1415</span>
 <span class="n">anotherFloat</span> <span class="o">=</span> <span class="mf">2e3</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="text-strings">
+<h3>Text (Strings)<a class="headerlink" href="#text-strings" title="Permalink to this headline">¶</a></h3>
+<p>A string is a sequence of characters. That is, they capture words, sentences, etc. However, they can also contain numbers. Keep in mind that if you define a number as a string, Pyton will interpret is as a piece of text (not a numerical value)!</p>
+<p>Strings are specified using single, double and triple quotes.</p>
+<ul class="simple">
+<li><p>Single and double quotes are interpreted exactly the same in Python. You can use them to specify one-line pieces of texts. Anything that is located between these quotes is treated as part of the string, including spaces, tabs, numbers, etc.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Strings</span>
+<span class="n">myStr</span> <span class="o">=</span> <span class="s2">&quot;This is a string...&quot;</span>
+<span class="n">anotherStr</span> <span class="o">=</span> <span class="s1">&#39;This is also a string!&quot;</span>
 
-<span class="c1"># string</span>
-<span class="n">myStr</span> <span class="o">=</span> <span class="s2">&quot;Eindhoven University of Technology ... !?&quot;</span>
-<span class="n">anotherStr</span> <span class="o">=</span> <span class="s2">&quot;what a #great university&quot;</span>
+<span class="c1"># This is also a string. It is intepreted as a piece of text, not as a number!</span>
+<span class="c1"># Hence, we cannot perform computational operations with this variable.</span>
+<span class="n">numberStr</span> <span class="o">=</span> <span class="s1">&#39;4&#39;</span> 
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Triple quotes can be used to specify multi-line strings</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Multi-line Strings</span>
+<span class="sd">&#39;&#39;&#39;This is a multi-line string. This is the first line.</span>
+<span class="sd">This is the second line.</span>
+<span class="sd">&#39;&#39;&#39;</span>
+</pre></div>
+</div>
+<p>Sometimes you might want to construct a text that containts values of other variables. For example, you might want to print a line of text that describes the output of your script. To do so, you can use the <code class="docutils literal notranslate"><span class="pre">format()</span></code> function. As you can see below, this allows us to insert the value of other variables in our piece of text. In this case, we have a sentence in which we insert a name and age. In later sections, you will learn in more detail how functions such as <code class="docutils literal notranslate"><span class="pre">format()</span></code> can be applied.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="n">name</span> <span class="o">=</span> <span class="n">Marjolein</span>
 
-<span class="c1"># list</span>
-<span class="n">myList</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mf">3.1415</span><span class="p">,</span> <span class="mi">5000</span><span class="p">]</span>
-<span class="n">anotherList</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Alpha&quot;</span><span class="p">,</span> <span class="s2">&quot;Bravo&quot;</span><span class="p">,</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">]</span>
-
-<span class="c1"># boolean</span>
+<span class="n">Str</span> <span class="o">=</span> <span class="s2">&quot;My name is {0} and I am {1} years old.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">age</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If you print this string to your console (using <code class="docutils literal notranslate"><span class="pre">print(Str)</span></code>), you will get the following output.</p>
+<ul class="simple">
+<li><p>My name is Marjolein and I am 25 years old.</p></li>
+</ul>
+</div>
+<div class="section" id="boolean">
+<h3>Boolean<a class="headerlink" href="#boolean" title="Permalink to this headline">¶</a></h3>
+<p>Booleans are special in the sense that they only take two values <em>True</em> and <em>False</em>. These are basically evaluations of some related statement. For example, if we provide 10&lt;20 as a statement, the booleans evaluation would be <em>True</em> (indeed, 10 is smaller than 20). We will use this datatype later when we write conditional statements.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># boolean</span>
 <span class="n">myBool</span> <span class="o">=</span> <span class="bp">True</span>
 <span class="n">anotherBool</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">&lt;</span> <span class="mi">20</span>
 </pre></div>
 </div>
+</div>
+</div>
+<div class="section" id="practice-exercise-1">
+<h2>Practice Exercise 1<a class="headerlink" href="#practice-exercise-1" title="Permalink to this headline">¶</a></h2>
 <p>Try it for yourself! If you add the piece of code above to a .py file in the Spyder editor and run it, you will be able to see the variables, their types and value appear in the Variable Explorer tab.
 You can now use these variables later in your script. For example, you can run <code class="docutils literal notranslate"><span class="pre">print(myStr)</span></code>.</p>
 <p><img alt="_images/11.png" src="_images/11.png" /></p>
@@ -201,15 +282,72 @@ You can now use these variables later in your script. For example, you can run <
 <span class="mi">1</span><span class="n">like</span> <span class="o">=</span> <span class="mi">1</span><span class="n">prayer</span> <span class="c1">#variable names can not start with a number</span>
 </pre></div>
 </div>
-<p>To find out the datatype of a variable, run:</p>
+<p>To find out the datatype of a variable, use the <code class="docutils literal notranslate"><span class="pre">type()</span></code> function.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">buildingName</span> <span class="o">=</span> <span class="s2">&quot;VRT9&quot;</span>
 <span class="k">print</span><span class="p">(</span><span class="n">buildingName</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">buildingName</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
+<div class="section" id="special-data-structures">
+<h2>2. Special Data Structures<a class="headerlink" href="#special-data-structures" title="Permalink to this headline">¶</a></h2>
+<p>In addition to the datatypes discussed above, Python uses several special data structures that can hold multiple pieces of information. That is, they store a collection of data.</p>
+<p><strong>There are four built-in data structures in Python:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">list</span></code> - List: A sequence of items. Ordered &amp; editable.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tuple</span></code> - Tuble: A sequence of items. Ordered &amp; not editable.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dict</span></code> - Dictionary: A collection of key-value pairs.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">set</span></code> - Set: A collection of items. <em>Not</em> ordered.</p></li>
+</ul>
+<div class="section" id="lists">
+<h3>Lists<a class="headerlink" href="#lists" title="Permalink to this headline">¶</a></h3>
+<p>A list refers to a sequence of multiple items, which can be of different datatypes. Important to remember is that the order of these items is fixed and the content of the list is editable. You define a list using square brackets (<code class="docutils literal notranslate"><span class="pre">[]</span></code>) and seperate items using commas (<code class="docutils literal notranslate"><span class="pre">[item1,</span> <span class="pre">item2,</span> <span class="pre">etc]</span></code>)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lists</span>
+<span class="n">myList</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mf">3.1415</span><span class="p">,</span> <span class="mi">5000</span><span class="p">]</span>
+<span class="n">anotherList</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Alpha&quot;</span><span class="p">,</span> <span class="s2">&quot;Bravo&quot;</span><span class="p">,</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">]</span>
+
+<span class="n">item1</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">item2</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="n">itemsList</span> <span class="o">=</span> <span class="p">[</span><span class="n">item1</span><span class="p">,</span> <span class="n">item2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="tuples">
+<h3>Tuples<a class="headerlink" href="#tuples" title="Permalink to this headline">¶</a></h3>
+<p>Tuples are very similar to lists. However, they allow for far less operations to be performed on them. They are not editable. Something which may seem impracticle at first, but this can sometimes actually be very useful. You can use them for sequences that should at all times remain intact. You define a tuple using round brackets (<code class="docutils literal notranslate"><span class="pre">()</span></code>).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tuples</span>
+<span class="n">myTuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mf">3.1415</span><span class="p">,</span> <span class="mi">5000</span><span class="p">)</span>
+<span class="n">anotherTuple</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Alpha&quot;</span><span class="p">,</span> <span class="s2">&quot;Bravo&quot;</span><span class="p">,</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sets">
+<h3>Sets<a class="headerlink" href="#sets" title="Permalink to this headline">¶</a></h3>
+<p>Sets differ from lists or tuples, because they are not ordered. That is, they do not contain a sequence of items, but simply an unordered collection of them. A set is defined using <code class="docutils literal notranslate"><span class="pre">set([item1,</span> <span class="pre">item2,</span> <span class="pre">etc])</span></code>. As you might notice, this is a function!</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set</span>
+<span class="n">mySet</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="n">item1</span><span class="p">,</span> <span class="n">item2</span><span class="p">,</span> <span class="n">item3</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="dictionaries">
+<h3>Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this headline">¶</a></h3>
+<p>Dictionaries in Python can be compared to physical dictionaries. If you want to know the meaning of a particular word, you start searching for the word (key) and at some point you will be able to find the corresponding meaning (value). The <em>values</em> in a dictionary variable are “bookmarked” using <em>keys</em>. Therefore we talk about key-value pairs. The combination of a word in the physical dictionary and its meaning would be a key-value pair. The values in a dicationary (as opposed to the keys!) can change over time.</p>
+<p>You define a dictionary <code class="docutils literal notranslate"><span class="pre">d</span></code> with two items as <code class="docutils literal notranslate"><span class="pre">d</span> <span class="pre">=</span> <span class="pre">{key1</span> <span class="pre">:</span> <span class="pre">value1,</span> <span class="pre">key2</span> <span class="pre">:</span> <span class="pre">value2</span> <span class="pre">}</span></code>. The key-value pairs are separated by commas, much like the items in a list. The key and values themselves are seperated by a colon. You could now use <code class="docutils literal notranslate"><span class="pre">key1</span></code> to look up <code class="docutils literal notranslate"><span class="pre">value1</span></code>.</p>
+<p>Take as an example this dictionary that stores the ages of a group of people.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dictionary</span>
+<span class="n">myDic</span> <span class="o">=</span> <span class="p">{</span><span class="n">Marjolein</span> <span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="n">Anne</span> <span class="p">:</span> <span class="mi">36</span><span class="p">,</span> <span class="n">Caroline</span><span class="p">:</span> <span class="mi">50</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>How to work with these special data structures is discussed in a later section. That is, how can we retrieve or edit the data from these structures?</p>
+</div>
+</div>
+<div class="section" id="literal-constants">
+<h2>3. Literal Constants<a class="headerlink" href="#literal-constants" title="Permalink to this headline">¶</a></h2>
+<p>In addition to variables, we can also use so called “Literal Constants”. Examples include numbers or pieces of text (strings). It is called a <strong>literal</strong> because it is literal - you use its value literally. That is, <code class="docutils literal notranslate"><span class="pre">4</span></code> is not a variable storing some value. It is the actual value four itself. Likewise, <code class="docutils literal notranslate"><span class="pre">&quot;This</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">string.&quot;</span></code> is a string, a piece of text, and not a variable that stores it. They are <strong>constant</strong> in the sense that the value does not change. For example, <code class="docutils literal notranslate"><span class="pre">4</span></code> will always have the value of four. It will never change its value to five, or a string for that matter.</p>
+</div>
 <div class="section" id="comments">
-<h2>2. Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h2>
+<h2>4. Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h2>
 <p>Comments are used to document your code inline.
 This can be very helpful for others (or yourself) to understand your script and keep overview.
 As you might have noticed, we actually already used comments in our previous example codes.</p>
@@ -219,7 +357,7 @@ As you might have noticed, we actually already used comments in our previous exa
 </ul>
 </div>
 <div class="section" id="operators">
-<h2>3. Operators<a class="headerlink" href="#operators" title="Permalink to this headline">¶</a></h2>
+<h2>5. Operators<a class="headerlink" href="#operators" title="Permalink to this headline">¶</a></h2>
 <p>Operators allow to perform operations on variables of particular data types. A number of operators are available. There are plenty of cheat sheets online that list the different available operators. If you don’t know what to use to do something, Google it first; or search for a solution in the cheat sheets.</p>
 <p><img alt="_images/2.jpg" src="_images/2.jpg" /></p>
 <div class="section" id="number-and-boolean-operators">
@@ -309,6 +447,40 @@ As you might have noticed, we actually already used comments in our previous exa
 </ul>
 </div>
 </div>
+<div class="section" id="indentation">
+<h2>6. Indentation<a class="headerlink" href="#indentation" title="Permalink to this headline">¶</a></h2>
+<p>Python uses identation to define blocks of code. An indent is nothing more than a piece of whitespace at the start of your line. This piece of whitespace can be a certain amount of spaces (e.g. 4) or tabs. However, you have to be consitent throughout your piece of code! Otherwise Python will not recognize the structure of your coding. Incorrect indentation will result in an <code class="docutils literal notranslate"><span class="pre">IndentationError</span></code>.</p>
+<p>The enforcement of indentation in Python makes the code look neat and clean.</p>
+<p>Consider the example of a simple if statement below.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="mi">2</span>
+<span class="n">b</span><span class="o">=</span><span class="mi">4</span>
+
+<span class="k">if</span> <span class="n">a</span><span class="o">&lt;</span><span class="n">b</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;The value of b is larger than a.&quot;</span><span class="p">)</span>
+    <span class="n">difference</span> <span class="o">=</span> <span class="n">b</span><span class="o">-</span><span class="n">a</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;The value of b is &quot;</span> <span class="o">+</span> <span class="n">difference</span> <span class="o">+</span> <span class="s2">&quot; units larger than a.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>As you can see, we indent by one level after the conditional statement (“if a&lt;b:”). In this example, tabs were used to indent.</p>
+<p>It is possible to write this same piece of code without indentation, however it will be far less readable.
+As you can see below, this is done by seperating the different actions to be executed by a semicolon (;).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="mi">2</span>
+<span class="n">b</span><span class="o">=</span><span class="mi">4</span>
+
+<span class="k">if</span> <span class="n">a</span><span class="o">&lt;</span><span class="n">b</span><span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="s2">&quot;The value of b is larger than a.&quot;</span><span class="p">);</span> <span class="n">difference</span> <span class="o">=</span> <span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="p">;</span> <span class="k">print</span><span class="p">(</span><span class="s2">&quot;The value of b is &quot;</span> <span class="o">+</span> <span class="n">difference</span> <span class="o">+</span> <span class="s2">&quot; units larger than a.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Using different indent types in one piece of code, as shown below, will lead to a <code class="docutils literal notranslate"><span class="pre">IndentationError</span></code>. Although the indents may seem to have the same lenght, the line that reads “<code class="docutils literal notranslate"><span class="pre">difference</span> <span class="pre">=</span> <span class="pre">b-a</span></code>” actually has four spaces as indent instead of a tab.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="mi">2</span>
+<span class="n">b</span><span class="o">=</span><span class="mi">4</span>
+
+<span class="k">if</span> <span class="n">a</span><span class="o">&lt;</span><span class="n">b</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;The value of b is larger than a.&quot;</span><span class="p">)</span>
+    <span class="n">difference</span> <span class="o">=</span> <span class="n">b</span><span class="o">-</span><span class="n">a</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;The value of b is &quot;</span> <span class="o">+</span> <span class="n">difference</span> <span class="o">+</span> <span class="s2">&quot; units larger than a.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -316,6 +488,15 @@ As you might have noticed, we actually already used comments in our previous exa
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="01_03_Loops.html" class="btn btn-neutral float-right" title="Loops and Conditional Statements" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="01_01_GetReady.html" class="btn btn-neutral float-left" title="Getting Ready (Installing Python &amp; Spyder)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
