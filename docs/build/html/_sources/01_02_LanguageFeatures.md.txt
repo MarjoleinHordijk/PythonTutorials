@@ -25,8 +25,8 @@ These datatypes are discussed in more detail below.
 
 ### Numbers (Integers & Floats)
 Python makes a distinction between two types of numbers. 
-- *Integers* are whole numbers such as ```1```, ```23``` and ```2350525```. 
-- *Floats* (floating point numbers) are so called "real" numbers. They are formulated with a decimal point and can capture fractions for integers. Examples include ```1.25``` and ```2e3``` (2 times 10 to the power of 3).
+- **Integers** are whole numbers such as ```1```, ```23``` and ```2350525```. 
+- **Floats** (floating point numbers) are so called "real" numbers. They are formulated with a decimal point and can capture fractions for integers. Examples include ```1.25``` and ```2e3``` (2 times 10 to the power of 3).
 
 ```python
 # Integers
@@ -48,7 +48,7 @@ Strings are specified using single, double and triple quotes.
 ```python
 # Strings
 myStr = "This is a string..."
-anotherStr = 'This is also a string!"
+anotherStr = 'This is also a string!'
 
 # This is also a string. It is intepreted as a piece of text, not as a number!
 # Hence, we cannot perform computational operations with this variable.
@@ -86,28 +86,52 @@ myBool = True
 anotherBool = 10 < 20
 ```
 
-## Practice Exercise 1
+### Find out the datatype of a variable
 
-Try it for yourself! If you add the piece of code above to a .py file in the Spyder editor and run it, you will be able to see the variables, their types and value appear in the Variable Explorer tab.
-You can now use these variables later in your script. For example, you can run ```print(myStr)```.
+To find out the datatype of a variable, use the ```type()``` function. When you put the variable name between the parentheses, this function will return the datatype of the variable. 
+
+```python
+buildingName = "Vertigo"
+type(buildingName)
+```
+
+### Exercise 1
+
+Try it for yourself! If you add the piece of code below to a .py file in the Spyder editor and run it, you will be able to see the variables, their types and value appear in the Variable Explorer tab.
+You can now use these variables later in your script. Are you having trouble using Spyder, refer back to section 3 of [this](01_01_GetReady.md) tutorial.
+
+- Try running ```print(myStr)``` from the console to print the value of the ```myStr``` variable to the console window.
+- Also, run ```type(numberStr)``` to confirm that the value ```'4'``` is indeed a string and not an integer or float.
+- Now create a variable called ```university``` with the value ```TU/e``` and one called ```myName``` with your name as its value. Finally, add another variable called ```sentence``` and use the ```format()``` function to construct the following sentence: "My name is <here your name> and I study at <here your university>.". Now print this sentence to the console window using ```print()```.
+
+```python
+# Integers
+myInt = 1
+anotherInt = -2018
+
+# Floats
+myFloat = 3.1415
+anotherFloat = 2e3
+
+# Strings
+myStr = "This is a string..."
+anotherStr = 'This is also a string!'
+
+# This is also a string. It is intepreted as a piece of text, not as a number!
+# Hence, we cannot perform computational operations with this variable.
+numberStr = '4' 
+
+# Multi-line Strings
+'''This is a multi-line string. This is the first line.
+This is the second line.
+'''
+
+# boolean
+myBool = True
+anotherBool = 10 < 20
+```
 
 ![](../../images/01_02/1.png)
-
-There are some rules to defining variable names. Variable names may not contain spaces. Python will then not be able to recognize multiple words as one name. Further, variable names can not start with a number.
-
-```python
-# bad / not allowed
-my name = "John Doe" #variable names can not include spaces
-1like = 1prayer #variable names can not start with a number
-```
-
-To find out the datatype of a variable, use the ```type()``` function.
-
-```python
-buildingName = "VRT9"
-print(buildingName)
-print(type(buildingName))
-```
 
 ## 2. Special Data Structures
 
@@ -210,32 +234,57 @@ Operators allow to perform operations on variables of particular data types. A n
 	- ```x and y``` (True if both are True)
 	- ```x or y``` (True if one is True)
 	
-### String operators
-A number of operators allows to operate with strings. Note that Python starts counting from 0. The first character in a string is thus character number 0.
+### Indexes
 
-- String concatenation:
-	- ```"CME" + " Master!"``` => "CME Master!"
-- Selecting parts of strings and handling string length
-	- ```CityName = "Eindhoven"```
-	- ```CityName[0]``` => 'E'
-	- ```CityName[1:5]``` => 'indh'
-	- ```CityName[:3]``` => 'Ein' #Everything until 3 (exclusive)
-	- ```CityName[3:]``` => 'dhoven' #Everything from 3 (inclusive)
-	- ```len(CityName)``` => '9'
+Indexes in Python refer to the order of elements. These elements can for example be characters within a string or items in a list.
+
+Two things are important to remember:
+- Python starts counting from 0. That is, the first character in a string has index value 0 and the second character value 1 and so on.
+- When you define a range, the first value that you provide is included, but the last one is not.
+
+So if we take for example the variable ```CityName = "Eindhoven"```, the index of the ```E``` in Eindhoven is 0 (because it is the first characters). The index of the final character ```n``` is 8 (not 9!). 
+
+We can define a range of indexes using square brackets ```[FirstIndex:LastIndex]```. When we put this behind the name of a string variable, Python will return the section of the string defined by this range. Likewise, if we put this behind a list variable, we will get the specific items that the range covers.
+
+To illustrate, this ```StringVariable[1:5]``` excludes the first character of ```StringVariable``` (because 0 is not included in the range), but also the sixth one (which has index value 5!).
+Likewise, ```ListVariable[0:3]``` returns the first, second and third item from ```ListVariable```, but not the fourth (although the index if the fourth item is 3!). 
+
+More examples will folow below.
+
+### String operators
+A number of operators allow us to operate with strings. 
+
+First of all, we can combine strings into one using ```+```. This is also called "string concatenation". 
+- ```"CME" + " Master!"``` => "CME Master!"
+
+Moreover, we can take out certain parts of a string. To do so, we have to provide a range of index values. These index values refer to the characters in the string. We can extract a part of a string by typing the string name, followed by the range of index values between square brackets.
+
+Some examples for the variable	```CityName = "Eindhoven"```:
+- ```CityName[0]``` => 'E'
+- ```CityName[1:5]``` => 'indh'
+- ```CityName[:3]``` => 'Ein' #Everything until 3 (exclusive)
+- ```CityName[3:]``` => 'dhoven' #Everything from 3 (inclusive)
+
+Finally, we can use the ```len()``` function to determine the length of a string, which corresponds to the number of characters. So for ```CityName = "Eindhoven"```:
+- ```len(CityName)``` => '9'
 
 ### List operators
-Lists can contain everything:
 
+Similar to strings, we can use the indexing to extract particular parts of a list. Note that is this case the indexes do not refer to characters, but to items in the list.
+
+Take for example these two lists:
 - ```list_of_numbers = [1, 2.5, 3, 52]```
 - ```list_of_strings = ["abc", "xyz", "12345"]```
 
-Indexing is the same as for single strings: Python starts to count from 0.
+We can extract particular items from these lists as shown below:
 - ```list_of_numbers[1]``` => 2.5
 - ```list_of_numbers[-1]``` => 52
 - ```list_of_strings[1]``` => "xyz"
 - ```list_of_strings[1:]``` => ["xyz", "12345"]
 - ```list_of_strings[2][3:]``` => "45"
-	
+
+We can also use operators to generate lists. We saw before that we can define a list by putting the values between square brackets and seperating them by commas. However we acn also use ```list()``` and ```range()``` to construct lists automatically. The function ```range()``` generates a range of values between a starting point and an end point. For example, if we type ```list(range(3,10,2))```, we create a list of the values 3 till 9 with a step of 2. That is, 3, 3+2=5, 5+2=7, 7+2=9. In this case, the endpoint 10 is not included, because the next value after 9 would be 11, given the time step of 2 (and 11 being out of range). 
+
 List of numbers can be generated in multiple ways:
 - ```numList = [0, 1, 2, 3]``` => [0, 1, 2, 3]
 - ```numList = list(range(4))``` => [0, 1, 2, 3]
@@ -247,7 +296,15 @@ Indexing can happen in steps as well
 - ```myList [2:9:3]``` => [2, 5, 8]
 - ```myList [::-1]``` => [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
 
-## 6. Indentation
+## 6. Functions
+
+Throughout the previous section, we have already encountered a couple of functions such as ```print()``` and ```format()```. A later section on [functions](01_04_Functions.md) goes into detail about how functions work, how we can find and call them and even how we can develop our own. For now, it is important to be aware of a couple of things.
+
+- You can call a function within a script or from a console (e.g. when we ran ```print(myStr)``` from the Spyder console).
+- When you call a function, you usually have to provide one or several arguments. Arguments are specified after the function name, inside the parentheses. For example, in ```print(myStr)```, ```myStr``` is the argument that we pass to the ```print()``` function. You could see it as input that we provide the function with. (We want to ```print()``` the value of ```myStr```.)
+- If a function takes multiple arguments, you can seperate them by a comma. The arguments should be provided in the order in which the function will use them. We will use this later [here](01_04_Functions.md). 
+
+## 7. Indentation
 
 Python uses identation to define blocks of code. An indent is nothing more than a piece of whitespace at the start of your line. This piece of whitespace can be a certain amount of spaces (e.g. 4) or tabs. However, you have to be consitent throughout your piece of code! Otherwise Python will not recognize the structure of your coding. Incorrect indentation will result in an ```IndentationError```.
 

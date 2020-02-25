@@ -89,9 +89,10 @@
 <li class="toctree-l4"><a class="reference internal" href="#numbers-integers-floats">Numbers (Integers &amp; Floats)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#text-strings">Text (Strings)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#boolean">Boolean</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#find-out-the-datatype-of-a-variable">Find out the datatype of a variable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exercise-1">Exercise 1</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#practice-exercise-1">Practice Exercise 1</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#special-data-structures">2. Special Data Structures</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#lists">Lists</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#tuples">Tuples</a></li>
@@ -103,11 +104,13 @@
 <li class="toctree-l3"><a class="reference internal" href="#comments">4. Comments</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#operators">5. Operators</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#number-and-boolean-operators">Number and boolean operators</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#indexes">Indexes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#string-operators">String operators</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#list-operators">List operators</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#indentation">6. Indentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#functions">6. Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#indentation">7. Indentation</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="01_03_Loops.html">Loops &amp; Conditional Statements</a></li>
@@ -211,8 +214,8 @@
 <h3>Numbers (Integers &amp; Floats)<a class="headerlink" href="#numbers-integers-floats" title="Permalink to this headline">¶</a></h3>
 <p>Python makes a distinction between two types of numbers.</p>
 <ul class="simple">
-<li><p><em>Integers</em> are whole numbers such as <code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">23</span></code> and <code class="docutils literal notranslate"><span class="pre">2350525</span></code>.</p></li>
-<li><p><em>Floats</em> (floating point numbers) are so called “real” numbers. They are formulated with a decimal point and can capture fractions for integers. Examples include <code class="docutils literal notranslate"><span class="pre">1.25</span></code> and <code class="docutils literal notranslate"><span class="pre">2e3</span></code> (2 times 10 to the power of 3).</p></li>
+<li><p><strong>Integers</strong> are whole numbers such as <code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">23</span></code> and <code class="docutils literal notranslate"><span class="pre">2350525</span></code>.</p></li>
+<li><p><strong>Floats</strong> (floating point numbers) are so called “real” numbers. They are formulated with a decimal point and can capture fractions for integers. Examples include <code class="docutils literal notranslate"><span class="pre">1.25</span></code> and <code class="docutils literal notranslate"><span class="pre">2e3</span></code> (2 times 10 to the power of 3).</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Integers</span>
 <span class="n">myInt</span> <span class="o">=</span> <span class="mi">1</span>
@@ -233,7 +236,7 @@
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Strings</span>
 <span class="n">myStr</span> <span class="o">=</span> <span class="s2">&quot;This is a string...&quot;</span>
-<span class="n">anotherStr</span> <span class="o">=</span> <span class="s1">&#39;This is also a string!&quot;</span>
+<span class="n">anotherStr</span> <span class="o">=</span> <span class="s1">&#39;This is also a string!&#39;</span>
 
 <span class="c1"># This is also a string. It is intepreted as a piece of text, not as a number!</span>
 <span class="c1"># Hence, we cannot perform computational operations with this variable.</span>
@@ -270,23 +273,50 @@
 </pre></div>
 </div>
 </div>
+<div class="section" id="find-out-the-datatype-of-a-variable">
+<h3>Find out the datatype of a variable<a class="headerlink" href="#find-out-the-datatype-of-a-variable" title="Permalink to this headline">¶</a></h3>
+<p>To find out the datatype of a variable, use the <code class="docutils literal notranslate"><span class="pre">type()</span></code> function. When you put the variable name between the parentheses, this function will return the datatype of the variable.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">buildingName</span> <span class="o">=</span> <span class="s2">&quot;Vertigo&quot;</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">buildingName</span><span class="p">)</span>
+</pre></div>
 </div>
-<div class="section" id="practice-exercise-1">
-<h2>Practice Exercise 1<a class="headerlink" href="#practice-exercise-1" title="Permalink to this headline">¶</a></h2>
-<p>Try it for yourself! If you add the piece of code above to a .py file in the Spyder editor and run it, you will be able to see the variables, their types and value appear in the Variable Explorer tab.
-You can now use these variables later in your script. For example, you can run <code class="docutils literal notranslate"><span class="pre">print(myStr)</span></code>.</p>
+</div>
+<div class="section" id="exercise-1">
+<h3>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this headline">¶</a></h3>
+<p>Try it for yourself! If you add the piece of code below to a .py file in the Spyder editor and run it, you will be able to see the variables, their types and value appear in the Variable Explorer tab.
+You can now use these variables later in your script. Are you having trouble using Spyder, refer back to section 3 of <a class="reference internal" href="01_01_GetReady.html"><span class="doc">this</span></a> tutorial.</p>
+<ul class="simple">
+<li><p>Try running <code class="docutils literal notranslate"><span class="pre">print(myStr)</span></code> from the console to print the value of the <code class="docutils literal notranslate"><span class="pre">myStr</span></code> variable to the console window.</p></li>
+<li><p>Also, run <code class="docutils literal notranslate"><span class="pre">type(numberStr)</span></code> to confirm that the value <code class="docutils literal notranslate"><span class="pre">'4'</span></code> is indeed a string and not an integer or float.</p></li>
+<li><p>Now create a variable called <code class="docutils literal notranslate"><span class="pre">university</span></code> with the value <code class="docutils literal notranslate"><span class="pre">TU/e</span></code> and one called <code class="docutils literal notranslate"><span class="pre">myName</span></code> with your name as its value. Finally, add another variable called <code class="docutils literal notranslate"><span class="pre">sentence</span></code> and use the <code class="docutils literal notranslate"><span class="pre">format()</span></code> function to construct the following sentence: “My name is <here your name> and I study at <here your university>.”. Now print this sentence to the console window using <code class="docutils literal notranslate"><span class="pre">print()</span></code>.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Integers</span>
+<span class="n">myInt</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">anotherInt</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2018</span>
+
+<span class="c1"># Floats</span>
+<span class="n">myFloat</span> <span class="o">=</span> <span class="mf">3.1415</span>
+<span class="n">anotherFloat</span> <span class="o">=</span> <span class="mf">2e3</span>
+
+<span class="c1"># Strings</span>
+<span class="n">myStr</span> <span class="o">=</span> <span class="s2">&quot;This is a string...&quot;</span>
+<span class="n">anotherStr</span> <span class="o">=</span> <span class="s1">&#39;This is also a string!&#39;</span>
+
+<span class="c1"># This is also a string. It is intepreted as a piece of text, not as a number!</span>
+<span class="c1"># Hence, we cannot perform computational operations with this variable.</span>
+<span class="n">numberStr</span> <span class="o">=</span> <span class="s1">&#39;4&#39;</span> 
+
+<span class="c1"># Multi-line Strings</span>
+<span class="sd">&#39;&#39;&#39;This is a multi-line string. This is the first line.</span>
+<span class="sd">This is the second line.</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="c1"># boolean</span>
+<span class="n">myBool</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="n">anotherBool</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">&lt;</span> <span class="mi">20</span>
+</pre></div>
+</div>
 <p><img alt="_images/11.png" src="_images/11.png" /></p>
-<p>There are some rules to defining variable names. Variable names may not contain spaces. Python will then not be able to recognize multiple words as one name. Further, variable names can not start with a number.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># bad / not allowed</span>
-<span class="n">my</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;John Doe&quot;</span> <span class="c1">#variable names can not include spaces</span>
-<span class="mi">1</span><span class="n">like</span> <span class="o">=</span> <span class="mi">1</span><span class="n">prayer</span> <span class="c1">#variable names can not start with a number</span>
-</pre></div>
-</div>
-<p>To find out the datatype of a variable, use the <code class="docutils literal notranslate"><span class="pre">type()</span></code> function.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">buildingName</span> <span class="o">=</span> <span class="s2">&quot;VRT9&quot;</span>
-<span class="k">print</span><span class="p">(</span><span class="n">buildingName</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">buildingName</span><span class="p">))</span>
-</pre></div>
 </div>
 </div>
 <div class="section" id="special-data-structures">
@@ -396,35 +426,49 @@ As you might have noticed, we actually already used comments in our previous exa
 </li>
 </ul>
 </div>
+<div class="section" id="indexes">
+<h3>Indexes<a class="headerlink" href="#indexes" title="Permalink to this headline">¶</a></h3>
+<p>Indexes in Python refer to the order of elements. These elements can for example be characters within a string or items in a list.</p>
+<p>Two things are important to remember:</p>
+<ul class="simple">
+<li><p>Python starts counting from 0. That is, the first character in a string has index value 0 and the second character value 1 and so on.</p></li>
+<li><p>When you define a range, the first value that you provide is included, but the last one is not.</p></li>
+</ul>
+<p>So if we take for example the variable <code class="docutils literal notranslate"><span class="pre">CityName</span> <span class="pre">=</span> <span class="pre">&quot;Eindhoven&quot;</span></code>, the index of the <code class="docutils literal notranslate"><span class="pre">E</span></code> in Eindhoven is 0 (because it is the first characters). The index of the final character <code class="docutils literal notranslate"><span class="pre">n</span></code> is 8 (not 9!).</p>
+<p>We can define a range of indexes using square brackets <code class="docutils literal notranslate"><span class="pre">[FirstIndex:LastIndex]</span></code>. When we put this behind the name of a string variable, Python will return the section of the string defined by this range. Likewise, if we put this behind a list variable, we will get the specific items that the range covers.</p>
+<p>To illustrate, this <code class="docutils literal notranslate"><span class="pre">StringVariable[1:5]</span></code> excludes the first character of <code class="docutils literal notranslate"><span class="pre">StringVariable</span></code> (because 0 is not included in the range), but also the sixth one (which has index value 5!).
+Likewise, <code class="docutils literal notranslate"><span class="pre">ListVariable[0:3]</span></code> returns the first, second and third item from <code class="docutils literal notranslate"><span class="pre">ListVariable</span></code>, but not the fourth (although the index if the fourth item is 3!).</p>
+<p>More examples will folow below.</p>
+</div>
 <div class="section" id="string-operators">
 <h3>String operators<a class="headerlink" href="#string-operators" title="Permalink to this headline">¶</a></h3>
-<p>A number of operators allows to operate with strings. Note that Python starts counting from 0. The first character in a string is thus character number 0.</p>
+<p>A number of operators allow us to operate with strings.</p>
+<p>First of all, we can combine strings into one using <code class="docutils literal notranslate"><span class="pre">+</span></code>. This is also called “string concatenation”.</p>
 <ul class="simple">
-<li><p>String concatenation:</p>
-<ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">&quot;CME&quot;</span> <span class="pre">+</span> <span class="pre">&quot;</span> <span class="pre">Master!&quot;</span></code> =&gt; “CME Master!”</p></li>
 </ul>
-</li>
-<li><p>Selecting parts of strings and handling string length</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">CityName</span> <span class="pre">=</span> <span class="pre">&quot;Eindhoven&quot;</span></code></p></li>
+<p>Moreover, we can take out certain parts of a string. To do so, we have to provide a range of index values. These index values refer to the characters in the string. We can extract a part of a string by typing the string name, followed by the range of index values between square brackets.</p>
+<p>Some examples for the variable	<code class="docutils literal notranslate"><span class="pre">CityName</span> <span class="pre">=</span> <span class="pre">&quot;Eindhoven&quot;</span></code>:</p>
+<ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">CityName[0]</span></code> =&gt; ‘E’</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">CityName[1:5]</span></code> =&gt; ‘indh’</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">CityName[:3]</span></code> =&gt; ‘Ein’ #Everything until 3 (exclusive)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">CityName[3:]</span></code> =&gt; ‘dhoven’ #Everything from 3 (inclusive)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">len(CityName)</span></code> =&gt; ‘9’</p></li>
 </ul>
-</li>
+<p>Finally, we can use the <code class="docutils literal notranslate"><span class="pre">len()</span></code> function to determine the length of a string, which corresponds to the number of characters. So for <code class="docutils literal notranslate"><span class="pre">CityName</span> <span class="pre">=</span> <span class="pre">&quot;Eindhoven&quot;</span></code>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">len(CityName)</span></code> =&gt; ‘9’</p></li>
 </ul>
 </div>
 <div class="section" id="list-operators">
 <h3>List operators<a class="headerlink" href="#list-operators" title="Permalink to this headline">¶</a></h3>
-<p>Lists can contain everything:</p>
+<p>Similar to strings, we can use the indexing to extract particular parts of a list. Note that is this case the indexes do not refer to characters, but to items in the list.</p>
+<p>Take for example these two lists:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">list_of_numbers</span> <span class="pre">=</span> <span class="pre">[1,</span> <span class="pre">2.5,</span> <span class="pre">3,</span> <span class="pre">52]</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">list_of_strings</span> <span class="pre">=</span> <span class="pre">[&quot;abc&quot;,</span> <span class="pre">&quot;xyz&quot;,</span> <span class="pre">&quot;12345&quot;]</span></code></p></li>
 </ul>
-<p>Indexing is the same as for single strings: Python starts to count from 0.</p>
+<p>We can extract particular items from these lists as shown below:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">list_of_numbers[1]</span></code> =&gt; 2.5</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">list_of_numbers[-1]</span></code> =&gt; 52</p></li>
@@ -432,6 +476,7 @@ As you might have noticed, we actually already used comments in our previous exa
 <li><p><code class="docutils literal notranslate"><span class="pre">list_of_strings[1:]</span></code> =&gt; [“xyz”, “12345”]</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">list_of_strings[2][3:]</span></code> =&gt; “45”</p></li>
 </ul>
+<p>We can also use operators to generate lists. We saw before that we can define a list by putting the values between square brackets and seperating them by commas. However we acn also use <code class="docutils literal notranslate"><span class="pre">list()</span></code> and <code class="docutils literal notranslate"><span class="pre">range()</span></code> to construct lists automatically. The function <code class="docutils literal notranslate"><span class="pre">range()</span></code> generates a range of values between a starting point and an end point. For example, if we type <code class="docutils literal notranslate"><span class="pre">list(range(3,10,2))</span></code>, we create a list of the values 3 till 9 with a step of 2. That is, 3, 3+2=5, 5+2=7, 7+2=9. In this case, the endpoint 10 is not included, because the next value after 9 would be 11, given the time step of 2 (and 11 being out of range).</p>
 <p>List of numbers can be generated in multiple ways:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">numList</span> <span class="pre">=</span> <span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3]</span></code> =&gt; [0, 1, 2, 3]</p></li>
@@ -447,8 +492,17 @@ As you might have noticed, we actually already used comments in our previous exa
 </ul>
 </div>
 </div>
+<div class="section" id="functions">
+<h2>6. Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<p>Throughout the previous section, we have already encountered a couple of functions such as <code class="docutils literal notranslate"><span class="pre">print()</span></code> and <code class="docutils literal notranslate"><span class="pre">format()</span></code>. A later section on <a class="reference internal" href="01_04_Functions.html"><span class="doc">functions</span></a> goes into detail about how functions work, how we can find and call them and even how we can develop our own. For now, it is important to be aware of a couple of things.</p>
+<ul class="simple">
+<li><p>You can call a function within a script or from a console (e.g. when we ran <code class="docutils literal notranslate"><span class="pre">print(myStr)</span></code> from the Spyder console).</p></li>
+<li><p>When you call a function, you usually have to provide one or several arguments. Arguments are specified after the function name, inside the parentheses. For example, in <code class="docutils literal notranslate"><span class="pre">print(myStr)</span></code>, <code class="docutils literal notranslate"><span class="pre">myStr</span></code> is the argument that we pass to the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function. You could see it as input that we provide the function with. (We want to <code class="docutils literal notranslate"><span class="pre">print()</span></code> the value of <code class="docutils literal notranslate"><span class="pre">myStr</span></code>.)</p></li>
+<li><p>If a function takes multiple arguments, you can seperate them by a comma. The arguments should be provided in the order in which the function will use them. We will use this later <a class="reference internal" href="01_04_Functions.html"><span class="doc">here</span></a>.</p></li>
+</ul>
+</div>
 <div class="section" id="indentation">
-<h2>6. Indentation<a class="headerlink" href="#indentation" title="Permalink to this headline">¶</a></h2>
+<h2>7. Indentation<a class="headerlink" href="#indentation" title="Permalink to this headline">¶</a></h2>
 <p>Python uses identation to define blocks of code. An indent is nothing more than a piece of whitespace at the start of your line. This piece of whitespace can be a certain amount of spaces (e.g. 4) or tabs. However, you have to be consitent throughout your piece of code! Otherwise Python will not recognize the structure of your coding. Incorrect indentation will result in an <code class="docutils literal notranslate"><span class="pre">IndentationError</span></code>.</p>
 <p>The enforcement of indentation in Python makes the code look neat and clean.</p>
 <p>Consider the example of a simple if statement below.</p>
