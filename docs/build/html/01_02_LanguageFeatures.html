@@ -21,10 +21,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -256,7 +256,7 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="mi">25</span>
 <span class="n">name</span> <span class="o">=</span> <span class="n">Marjolein</span>
 
-<span class="n">Str</span> <span class="o">=</span> <span class="s2">&quot;My name is {0} and I am {1} years old.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">age</span><span class="p">)</span>
+<span class="n">Str</span> <span class="o">=</span> <span class="s2">&quot;My name is </span><span class="si">{0}</span><span class="s2"> and I am </span><span class="si">{1}</span><span class="s2"> years old.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">age</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>If you print this string to your console (using <code class="docutils literal notranslate"><span class="pre">print(Str)</span></code>), you will get the following output.</p>
@@ -268,7 +268,7 @@
 <h3>Boolean<a class="headerlink" href="#boolean" title="Permalink to this headline">¶</a></h3>
 <p>Booleans are special in the sense that they only take two values <em>True</em> and <em>False</em>. These are basically evaluations of some related statement. For example, if we provide 10&lt;20 as a statement, the booleans evaluation would be <em>True</em> (indeed, 10 is smaller than 20). We will use this datatype later when we write conditional statements.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># boolean</span>
-<span class="n">myBool</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="n">myBool</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="n">anotherBool</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">&lt;</span> <span class="mi">20</span>
 </pre></div>
 </div>
@@ -312,7 +312,7 @@ You can now use these variables later in your script. Are you having trouble usi
 <span class="sd">&#39;&#39;&#39;</span>
 
 <span class="c1"># boolean</span>
-<span class="n">myBool</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="n">myBool</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="n">anotherBool</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">&lt;</span> <span class="mi">20</span>
 </pre></div>
 </div>
@@ -510,9 +510,9 @@ Likewise, <code class="docutils literal notranslate"><span class="pre">ListVaria
 <span class="n">b</span><span class="o">=</span><span class="mi">4</span>
 
 <span class="k">if</span> <span class="n">a</span><span class="o">&lt;</span><span class="n">b</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;The value of b is larger than a.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The value of b is larger than a.&quot;</span><span class="p">)</span>
     <span class="n">difference</span> <span class="o">=</span> <span class="n">b</span><span class="o">-</span><span class="n">a</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;The value of b is &quot;</span> <span class="o">+</span> <span class="n">difference</span> <span class="o">+</span> <span class="s2">&quot; units larger than a.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The value of b is &quot;</span> <span class="o">+</span> <span class="n">difference</span> <span class="o">+</span> <span class="s2">&quot; units larger than a.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>As you can see, we indent by one level after the conditional statement (“if a&lt;b:”). In this example, tabs were used to indent.</p>
@@ -521,7 +521,7 @@ As you can see below, this is done by seperating the different actions to be exe
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="mi">2</span>
 <span class="n">b</span><span class="o">=</span><span class="mi">4</span>
 
-<span class="k">if</span> <span class="n">a</span><span class="o">&lt;</span><span class="n">b</span><span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="s2">&quot;The value of b is larger than a.&quot;</span><span class="p">);</span> <span class="n">difference</span> <span class="o">=</span> <span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="p">;</span> <span class="k">print</span><span class="p">(</span><span class="s2">&quot;The value of b is &quot;</span> <span class="o">+</span> <span class="n">difference</span> <span class="o">+</span> <span class="s2">&quot; units larger than a.&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">a</span><span class="o">&lt;</span><span class="n">b</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The value of b is larger than a.&quot;</span><span class="p">);</span> <span class="n">difference</span> <span class="o">=</span> <span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="p">;</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The value of b is &quot;</span> <span class="o">+</span> <span class="n">difference</span> <span class="o">+</span> <span class="s2">&quot; units larger than a.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Using different indent types in one piece of code, as shown below, will lead to a <code class="docutils literal notranslate"><span class="pre">IndentationError</span></code>. Although the indents may seem to have the same lenght, the line that reads “<code class="docutils literal notranslate"><span class="pre">difference</span> <span class="pre">=</span> <span class="pre">b-a</span></code>” actually has four spaces as indent instead of a tab.</p>
@@ -529,9 +529,9 @@ As you can see below, this is done by seperating the different actions to be exe
 <span class="n">b</span><span class="o">=</span><span class="mi">4</span>
 
 <span class="k">if</span> <span class="n">a</span><span class="o">&lt;</span><span class="n">b</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;The value of b is larger than a.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The value of b is larger than a.&quot;</span><span class="p">)</span>
     <span class="n">difference</span> <span class="o">=</span> <span class="n">b</span><span class="o">-</span><span class="n">a</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;The value of b is &quot;</span> <span class="o">+</span> <span class="n">difference</span> <span class="o">+</span> <span class="s2">&quot; units larger than a.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The value of b is &quot;</span> <span class="o">+</span> <span class="n">difference</span> <span class="o">+</span> <span class="s2">&quot; units larger than a.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

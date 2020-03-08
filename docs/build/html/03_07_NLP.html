@@ -1,0 +1,376 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Natural Language Processing Using Python &mdash; Python Tutorials  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Python Tutorials
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="01_GettingStarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_BeyondBasics.html">Beyond the Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_DataAnalysis.html">Data Analysis Using Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_GIS.html">GIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_BIM.html">Building Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_Help.html">Help</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python Tutorials</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Natural Language Processing Using Python</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/03_07_NLP.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="natural-language-processing-using-python">
+<h1>Natural Language Processing Using Python<a class="headerlink" href="#natural-language-processing-using-python" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-is-natural-language-processing">
+<h2>1. What is natural language processing?<a class="headerlink" href="#what-is-natural-language-processing" title="Permalink to this headline">¶</a></h2>
+<p>Natural language processing refers to processing and analysing textual, qualitative data using computers. It relies on algorithms to derive meaning from human language in such a way that we can process it like we would with quantitative data.</p>
+<p>Examples include:</p>
+<ul class="simple">
+<li><p>Recognizing the role of a work within a sentence (e.g. subject, verb, etc.). This is called “Part-Of-Speech” tagging, or in short POS-tagging.</p></li>
+<li><p>Extracting important segments of sentences (noun-phrase extraction).</p></li>
+<li><p>Classification of texts according to their contents.</p></li>
+<li><p>Assessing if texts are positive or negativie in tone or whether they contain subjectivity. This is called sentiment analyses.</p></li>
+</ul>
+</div>
+<div class="section" id="available-packages">
+<h2>2. Available packages<a class="headerlink" href="#available-packages" title="Permalink to this headline">¶</a></h2>
+<p>There are many packages available for you to start with NLP. However, it is important to note that not all packages support languages other than English out of the box. It might be that you need to train your own model with trainingsdata in another language. Alternatively, you could consider if translating the text at hand is a suitable solution.</p>
+<p><strong>Some of the better known packages include:</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://textblob.readthedocs.io/en/dev/#">TextBlob</a>. Which we will use in this tutorial. This is actually based on <a class="reference external" href="https://www.nltk.org/">NLTK</a> and [pattern]https://www.clips.uantwerpen.be/pages/pattern-en).</p></li>
+<li><p><a class="reference external" href="https://languagemachines.github.io/frog/">Frog</a>. Which supports Dutch language, but requires some more steps for the installation. If you are interested, this package is included in <a class="reference external" href="https://proycon.github.io/LaMachine/">La Machine</a>, which provides you with a ready to go environment to get started with NLP. If you are planning to do a larger project where you apply NLP, this is definately something to consider using!</p></li>
+<li><p><a class="reference external" href="https://spacy.io/">SpaCy</a>. Which has a Dutch extension, but does not include sentiment analyses.</p></li>
+<li><p><a class="reference external" href="https://www.nltk.org/">NLTK</a></p></li>
+</ul>
+<p><a class="reference external" href="https://www.nltk.org/">NLTK</a> also provides a repository of corpora, which can be used to train NLP algoritms.</p>
+</div>
+<div class="section" id="installing-textblob">
+<h2>3. Installing TextBlob<a class="headerlink" href="#installing-textblob" title="Permalink to this headline">¶</a></h2>
+<p>In the sections below, we will provide you with a brief introduction into some methods for performing NLP. We will use <a class="reference external" href="https://textblob.readthedocs.io/en/dev/#">TextBlob</a>, a Python package for NLP, as an illustration.</p>
+<p>Please install TextBlob from your terminal / commandprompt using pip as shown below.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>$ pip install -U textblob
+$ python -m textblob.download_corpora
+</pre></div>
+</div>
+<p>For additional instructions (e.g. when using Conda) please check <a class="reference external" href="https://textblob.readthedocs.io/en/dev/install.html">here</a>.</p>
+<p>The examples in this tutorial are executed in Spyder.</p>
+</div>
+<div class="section" id="getting-started-with-textblob">
+<h2>4. Getting started with TextBlob<a class="headerlink" href="#getting-started-with-textblob" title="Permalink to this headline">¶</a></h2>
+<p>TextBlob works with its own objects called “TextBlobs”. These blobs are string-like objects that we can store to a variable. They contain a piece of text (string) which can be of any length.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import the TextBlob() fucntion.</span>
+<span class="kn">from</span> <span class="nn">textblob</span> <span class="kn">import</span> <span class="n">TextBlob</span>
+
+<span class="c1"># Store a piece of text to a string variable.</span>
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;This is a text. It is stored as a string.&quot;</span>
+
+<span class="c1"># Create a blob of the string stored to &quot;text&quot; using the TextBlob() function.</span>
+<span class="n">blob</span> <span class="o">=</span> <span class="n">TextBlob</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+
+<span class="c1"># We can also directly create a blob without storing a string to a variable first.</span>
+<span class="n">blob2</span> <span class="o">=</span> <span class="n">TextBlob</span><span class="p">(</span><span class="s2">&quot;This is also a string. In this case the blob is created directly.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We can pass several parameters to the <code class="docutils literal notranslate"><span class="pre">TextBlob()</span></code> function. However, we will not go into details about this. Please check <a class="reference external" href="https://textblob.readthedocs.io/en/dev/api_reference.html#textblob.blob.TextBlob">here</a> if you want to learn more.</p>
+<p>In some cases you might want to split up the text of your blob into seperate sentences or word before you start your analyses. This is also called <em>tokenization</em>.</p>
+<p>You can do so as follows.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">textblob</span> <span class="kn">import</span> <span class="n">TextBlob</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;This is a text. It is stored as a string.&quot;</span>
+<span class="n">blob</span> <span class="o">=</span> <span class="n">TextBlob</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+
+<span class="c1"># Split the text in the blob into seperate words and print the wordlist.</span>
+<span class="n">wordlist</span> <span class="o">=</span> <span class="n">blob</span><span class="o">.</span><span class="n">words</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">wordlist</span><span class="p">)</span>
+
+<span class="c1"># Split the text in the blob into seperate sentences and print them.</span>
+<span class="n">sentences</span> <span class="o">=</span> <span class="n">blob</span><span class="o">.</span><span class="n">sentences</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">sentences</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><em>Output:</em></p>
+<ul class="simple">
+<li><p>[‘This’, ‘is’, ‘a’, ‘text’, ‘It’, ‘is’, ‘stored’, ‘as’, ‘a’, ‘string’]</p></li>
+<li><p>[Sentence(“This is a text.”), Sentence(“It is stored as a string.”)]</p></li>
+</ul>
+</div>
+<div class="section" id="part-of-speech-pos-tagging">
+<h2>5. Part of Speech (POS) tagging<a class="headerlink" href="#part-of-speech-pos-tagging" title="Permalink to this headline">¶</a></h2>
+<p><em>Part of speech (POS) tagging</em> refers to the process of adding tags to the words in the blob. These tags indicate the role of the word within the sentence. This process is analogical to childern in primary school that have to identify the nouns, subject, verbs, adjectives, adverbs, etc. in sentences. It helps us better understand what the sentence is about. We could, for example, use this information to categorize a list of sentences based on their subject.</p>
+<p>The tagging is based on a corpus. A <em>corpus</em> referes to a training/reference set that contains a large number of words or phrases that have been tagged by someone. Based on this information, the POS tagger is able to classify words in new pieces of texts.</p>
+<p>You can simply access this information through the <code class="docutils literal notranslate"><span class="pre">tags</span></code> property of a blob.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">textblob</span> <span class="kn">import</span> <span class="n">TextBlob</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;This is a text. It is stored as a string.&quot;</span>
+<span class="n">blob</span> <span class="o">=</span> <span class="n">TextBlob</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+
+<span class="c1"># Print the POS tags of the words in the text.</span>
+<span class="n">POStags</span> <span class="o">=</span> <span class="n">blob</span><span class="o">.</span><span class="n">tags</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">POStags</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><em>Output:</em></p>
+<ul class="simple">
+<li><p>[(‘This’, ‘DT’), (‘is’, ‘VBZ’), (‘a’, ‘DT’), (‘text’, ‘NN’), (‘It’, ‘PRP’), (‘is’, ‘VBZ’), (‘stored’, ‘VBN’), (‘as’, ‘IN’), (‘a’, ‘DT’), (‘string’, ‘NN’)]</p></li>
+</ul>
+</div>
+<div class="section" id="noun-phrase-extraction">
+<h2>6. Noun Phrase Extraction<a class="headerlink" href="#noun-phrase-extraction" title="Permalink to this headline">¶</a></h2>
+<p>Noun phrases are POS patterns that include one or multiple nouns. They can also include other parts of a sentence that relate to the noun. For example, “interesting book” can be a noun phrase.</p>
+<p><strong>Some common POS patterns for noun phrases include:</strong></p>
+<ul class="simple">
+<li><p>Noun
+-Noun-Noun … -Noun</p></li>
+<li><p>Adjective(s)-Noun</p></li>
+<li><p>Verb-(Adjectives-)Noun</p></li>
+</ul>
+<p>Extracting the noun phrases from a text can help you capture the essence.</p>
+<p>You can access a list of noun phrases through the <code class="docutils literal notranslate"><span class="pre">noun_phrases</span></code> property of a blob.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">textblob</span> <span class="kn">import</span> <span class="n">TextBlob</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;This is a beautiful text.&quot;</span>
+<span class="n">blob</span> <span class="o">=</span> <span class="n">TextBlob</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+
+<span class="c1"># Print the noun phrases in the text.</span>
+<span class="n">nounPhrases</span> <span class="o">=</span> <span class="n">blob</span><span class="o">.</span><span class="n">noun_phrases</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">nounPhrases</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><em>Output:</em></p>
+<ul class="simple">
+<li><p>[‘beautiful text’]</p></li>
+</ul>
+</div>
+<div class="section" id="sentiment-analyses">
+<h2>7. Sentiment Analyses<a class="headerlink" href="#sentiment-analyses" title="Permalink to this headline">¶</a></h2>
+<p>Sentiment analyses refers to accessing the tone (positive / negative) and degree of subjectivity of a text. We can use this to evaluate if a text contains opinions about something and wheter those oppinions are positive or negative. Combined with POS tagging and noun phrase extraction, this can help us understand the meaning of oppinions.</p>
+<p>TextBlob evaluates the sentiment of texts according to two scores.</p>
+<ul class="simple">
+<li><p><em>Polarity:</em> The degree to which the piece of text (blob) is positive. Ranging from -1 (very negative) to +1 (very positive).</p></li>
+<li><p><em>Subjectivity:</em> The degree to which the piece of text (blob) is opinionated. Ranging from 0 (very objective) to 1 (very subjective).</p></li>
+</ul>
+<p>Note that since the output of the sentiment analyses is of type “Sentiment”, we need to convert it to a string using <code class="docutils literal notranslate"><span class="pre">str()</span></code> before we can print it.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">textblob</span> <span class="kn">import</span> <span class="n">TextBlob</span>
+
+<span class="n">blobNeg</span> <span class="o">=</span> <span class="n">TextBlob</span><span class="p">(</span><span class="s2">&quot;I absolutely hate this.&quot;</span><span class="p">)</span>
+<span class="n">blobPos</span> <span class="o">=</span> <span class="n">TextBlob</span><span class="p">(</span><span class="s2">&quot;I totally love this!&quot;</span><span class="p">)</span>
+
+<span class="c1"># Access the polarity and subjectivity of these two blobs and print scores.</span>
+<span class="n">sentiment1</span> <span class="o">=</span> <span class="n">blobNeg</span><span class="o">.</span><span class="n">sentiment</span>
+<span class="n">sentiment2</span> <span class="o">=</span> <span class="n">blobPos</span><span class="o">.</span><span class="n">sentiment</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The scores of the first blob: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">sentiment1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The scores of the second blob: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">sentiment2</span><span class="p">))</span>
+</pre></div>
+</div>
+<p><em>Output:</em></p>
+<ul class="simple">
+<li><p>The scores of the first blob: Sentiment(polarity=-0.8, subjectivity=0.9)</p></li>
+<li><p>The scores of the second blob: Sentiment(polarity=0.625, subjectivity=0.6)</p></li>
+</ul>
+</div>
+<div class="section" id="other-useful-tools-from-textblob">
+<h2>8. Other useful tools from TextBlob<a class="headerlink" href="#other-useful-tools-from-textblob" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="inflections-and-lemmatizations">
+<h3>Inflections and Lemmatizations<a class="headerlink" href="#inflections-and-lemmatizations" title="Permalink to this headline">¶</a></h3>
+<p>A <em>lemma</em> refers to the form of a word as it is included in a dictionary. For example, cycling, cycle, cycled, etc. all relate to the lemma (to) cycle. Likewise we also know <em>inflections</em>, such as pluralizations of words (e.g. dog, dogs).</p>
+<p>When we analyse text, it can be useful to identify the lemma’s and inflections of words to filter, categorize or develop frequency plots. For example, we can group all sentences that refer to cycling or dogs in one form or another.</p>
+<p>When we split up a blob into words (<code class="docutils literal notranslate"><span class="pre">blob.words</span></code>), each words is an object in itself on which we can use several useful methods as shown below. Alternatively, we can define a new <code class="docutils literal notranslate"><span class="pre">Word</span></code> object using the <code class="docutils literal notranslate"><span class="pre">Word()</span></code> function.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Note that we need to import &quot;Word&quot; now.</span>
+<span class="kn">from</span> <span class="nn">textblob</span> <span class="kn">import</span> <span class="n">Word</span>
+
+<span class="c1"># Create word objects.</span>
+<span class="n">word1</span> <span class="o">=</span> <span class="n">Word</span><span class="p">(</span><span class="s2">&quot;dog&quot;</span><span class="p">)</span>
+<span class="n">word2</span> <span class="o">=</span> <span class="n">Word</span><span class="p">(</span><span class="s2">&quot;went&quot;</span><span class="p">)</span>
+
+<span class="c1"># Pluralize word1 and print result.</span>
+<span class="n">plural</span> <span class="o">=</span> <span class="n">word1</span><span class="o">.</span><span class="n">pluralize</span><span class="p">()</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">word1</span> <span class="o">+</span> <span class="s2">&quot; , &quot;</span> <span class="o">+</span> <span class="n">plural</span><span class="p">)</span>
+
+<span class="c1"># Lemmatize word2 and print results.</span>
+<span class="c1"># Need to pass the POS tag as argument. In this case &quot;went&quot; is a verb, so the tag is &quot;v&quot;.</span>
+<span class="n">lemma</span> <span class="o">=</span> <span class="n">word2</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">(</span><span class="s2">&quot;v&quot;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">word2</span> <span class="o">+</span> <span class="s2">&quot; , &quot;</span> <span class="o">+</span> <span class="n">lemma</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><em>Output:</em></p>
+<ul class="simple">
+<li><p>dogs, dog</p></li>
+<li><p>went, go</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Marjolein Hordijk
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

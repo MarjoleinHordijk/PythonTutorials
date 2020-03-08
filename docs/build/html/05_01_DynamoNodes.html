@@ -21,10 +21,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -111,6 +111,7 @@
 <li class="toctree-l2"><a class="reference internal" href="05_02_RevitPythonShell.html#exercise-set-parameter-values-using-a-script">7. Exercise: Set Parameter Values Using a Script</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="06_Help.html">Help</a></li>
 </ul>
 
             
@@ -183,7 +184,7 @@
 <h2>1. Visual Programming in Dynamo<a class="headerlink" href="#visual-programming-in-dynamo" title="Permalink to this headline">¶</a></h2>
 <p>Dynamo is an application that allows you to program in a highly visual and intuitive manner. It can either be used on its own (“Sandbox” mode) or in combination with other software (e.g. Revit). Using Dynamo, you can compose a visual programming process from a sequence of nodes. In this way, you can easily develop custom algorithms to process data.</p>
 <p>Would you like to learn more about working with Dynamo in various contexts, or you need help to get started? Please refer to <a class="reference external" href="https://primer.dynamobim.org/01_Introduction/1_introduction.html">this</a> primer, which provides you with a great overview of how you could use Dynamo.</p>
-<p><img alt="_images/18.png" src="_images/18.png" /></p>
+<p><img alt="_images/16.png" src="_images/16.png" /></p>
 <p><span style="text-decoration:underline;">What we will discuss in this tutorial:</span></p>
 <p>In this tutorial we will focus on developing <strong><em>custom nodes</em></strong> in Dynamo using Python. This increases our flexibility and efficiency to create a custom algorithm that does exactly what we would like it to do.</p>
 <p>The current tutorial is based on section 10 of the aforementioned primer and summarizes other relevant parts where applicable. Hence, it is developed to be a concise stand-alone tutorial that focuses on the usage of Python in Dynamo. However, we will also cover some basic concepts of Dynamo for novices.</p>
@@ -240,10 +241,10 @@
 <h2>4. Why Build Custom Nodes Using Python?<a class="headerlink" href="#why-build-custom-nodes-using-python" title="Permalink to this headline">¶</a></h2>
 <p>Although visual programming can be very intuitive, it also has the downside that a graph can become cluttered and chaotic. Furthermore, the out-of-the-box functionality offered by the nodes available in a graphical interface can limit the functionality and flexibility of you as a programmer. In some cases, it can therefore be useful to implement some textual programming. This can be done using Python.</p>
 <p>A good example of where Python can help you to keep your graph readable is in the case of looping. Capturing a loop in Dynamo can lead to a large web of nodes and wires. However, the same can often be achieved by a few lines of code when using Python. Take for example the process shown below (<a class="reference external" href="https://primer.dynamobim.org/10_Custom-Nodes/10-4_Python.html">source</a>). Modelling this process would require you to specify almost 30 nodes and connect them properly. Alternatively, you can use the relatively concise piece of code below to achieve the same result.</p>
-<p><img alt="_images/45.png" src="_images/45.png" /></p>
+<p><img alt="_images/44.png" src="_images/44.png" /></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">clr</span>
 <span class="n">clr</span><span class="o">.</span><span class="n">AddReference</span><span class="p">(</span><span class="s1">&#39;ProtoGeometry&#39;</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">Autodesk.DesignScript.Geometry</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">Autodesk.DesignScript.Geometry</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="n">solid</span> <span class="o">=</span> <span class="n">IN</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">seed</span> <span class="o">=</span> <span class="n">IN</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -270,20 +271,20 @@
 <div class="section" id="creating-a-new-python-node">
 <h2>5. Creating a New Python Node<a class="headerlink" href="#creating-a-new-python-node" title="Permalink to this headline">¶</a></h2>
 <p>You can create a add a Python Node to your graph under Core&gt;Scripting. If you double click a Python node, a <strong><em>scripting interface</em></strong> will open in which you can edit the code behind it.</p>
-<p><img alt="_images/55.png" src="_images/55.png" /></p>
+<p><img alt="_images/54.png" src="_images/54.png" /></p>
 <p>To assess the functionality of Dynamo in your script, you can use the <strong><em>Autodesk.DesignScript module</em></strong>. This allows you to use some of the <strong><em>Dynamo syntax</em></strong> (see <a class="reference external" href="https://dynamobim.org/wp-content/links/DesignScriptGuide.pdf">here</a> for more information). This can be very useful if you are working with geometric objects. For example, if you import this module you can work with Point geometries. The interface also provides you with suggestions for methods that you can apply when you type in one a geometry type. To illustrate, if you type Point. you will be provided with a lists of methods that you can use to query or create points.</p>
 </div>
 <div class="section" id="exercise-custom-python-node-in-dynamo-studio">
 <h2>6. Exercise: Custom Python Node in Dynamo Studio<a class="headerlink" href="#exercise-custom-python-node-in-dynamo-studio" title="Permalink to this headline">¶</a></h2>
 <p>The following exercise is based on <a class="reference external" href="https://primer.dynamobim.org/10_Custom-Nodes/10-4_Python.html">this</a>. However, we will discuss some basics of Dynamo in greater detail for those that have no or minor experience working with Dynamo. Also, the steps that you will need to take are discussed more elaborately here, with extra illustrations.</p>
 <p>In this exercise we will develop a pattern from a solid rectangular element. We will do this using both regular and custom nodes in Dynamo.</p>
-<p><img alt="_images/65.png" src="_images/65.png" /></p>
+<p><img alt="_images/64.png" src="_images/64.png" /></p>
 <div class="section" id="starting-the-project">
 <h3>6.1 Starting the project<a class="headerlink" href="#starting-the-project" title="Permalink to this headline">¶</a></h3>
 <p>Start Autodesk Dynamo Studio (2017) and create a new workspace.</p>
-<p><img alt="_images/74.png" src="_images/74.png" /></p>
+<p><img alt="_images/73.png" src="_images/73.png" /></p>
 <p>You can find all the regular Dynamo nodes that you will need by searching the library in the left hand panel.</p>
-<p><img alt="_images/83.png" src="_images/83.png" /></p>
+<p><img alt="_images/82.png" src="_images/82.png" /></p>
 <p>After you found the node that you need, you can click it once to add it to your graph. If you want to delete a node, simply right click it.</p>
 </div>
 <div class="section" id="creating-the-rectangular-geometry">
@@ -291,33 +292,33 @@
 <p>We will start by creating the rectangular object, for which we will use three nodes.</p>
 <p>A <strong>code block</strong> node is used for the input. The input concerns the length and width (same size) of the rectangular object. To add a code block node, look it up in the library and click it once.</p>
 <p>You can now add a value for the width and height of the object to the content of the code block, as show below.</p>
-<p><img alt="_images/93.png" src="_images/93.png" /></p>
+<p><img alt="_images/92.png" src="_images/92.png" /></p>
 <p>Next, look for a <strong>Rectangle.ByWidthLength</strong> node and add it to your graph. Connect the output of the codeblock to the width and length input of the newly added node.</p>
-<p><img alt="_images/102.png" src="_images/102.png" /></p>
+<p><img alt="_images/101.png" src="_images/101.png" /></p>
 <p>Then add a <strong>Surface.ByPath</strong> node to create a surface. Connect the output of <strong>Rectangle.ByWidthLength</strong> to its input.</p>
-<p><img alt="_images/112.png" src="_images/112.png" /></p>
+<p><img alt="_images/111.png" src="_images/111.png" /></p>
 <p>You should be able to see a preview of the created surface in the background of your workspace.</p>
-<p><img alt="_images/122.png" src="_images/122.png" /></p>
+<p><img alt="_images/121.png" src="_images/121.png" /></p>
 <p>Tip: If you want to pan and zoom in the 3D preview (instead of your model), you can do so by selecting the background navigation in the top right of your screen.</p>
-<p><img alt="_images/132.png" src="_images/132.png" /></p>
+<p><img alt="_images/131.png" src="_images/131.png" /></p>
 </div>
 </div>
 <div class="section" id="manipulating-the-surface">
 <h2>3. Manipulating the Surface<a class="headerlink" href="#manipulating-the-surface" title="Permalink to this headline">¶</a></h2>
 <p>Now that we have created our geometric object, we will start manipulating it to create a curved surface.</p>
 <p>First, we start by adding a thickness to our surface. We do this by including another <strong>code block</strong>, which contains the value that captures the thickness of our rectangle. Then we connect this code block node to a <strong>Geometry.Translate</strong> node at the <strong>zTranslation</strong> receptor. This means that we will lift the geometry by the amount of units specified in the code block. Further, we connect the output of the <strong>Rectangle.byWidthLength</strong> node to the geometry input.</p>
-<p><img alt="_images/142.png" src="_images/142.png" /></p>
+<p><img alt="_images/141.png" src="_images/141.png" /></p>
 <p>Next, we add a <strong>Polygon.Points node</strong>, which will query the translated rectangle to extract the points located at the corners. This will provide us with a set of points that we can use as input for our next step.</p>
 <p>We can then add another <strong>Geometry.Translate</strong> node to lift up these points. Again, we use a code block to define how much each of the corners will be lifted. In this case we will need a list of values, since not every point will be lifted to the same height. We do this by adding the four values to the code block between {} brackets.</p>
 <p>In the preview, you should be able to see that one of the points is lifted above the others.</p>
-<p><img alt="_images/152.png" src="_images/152.png" /></p>
+<p><img alt="_images/151.png" src="_images/151.png" /></p>
 <p>Next we create a new polygon based on the four points using <strong>Polygon.ByPoints</strong>. We can then develop a surface from this polygon using <strong>Surface.ByPatch</strong>.</p>
 <p><img alt="_images/161.png" src="_images/161.png" /></p>
 <p>Next, we will need to connect the surfaces that we created by adding sides. To do so, we will first create a list of the bottom rectangle and the top polygon that we created. This can be done using <strong>List.Create</strong>. We can then use <strong>Surface.ByLoft</strong> to create the sides.</p>
 <p>However, to create one solid object, we will need to connect these four sides to the top and bottom of our geometry. This is done by first creating a list of the top and bottom surface using <strong>List.Create</strong> and then using <strong>Surface.ByLoft</strong>.</p>
-<p><img alt="_images/171.png" src="_images/171.png" /></p>
+<p><img alt="_images/17.png" src="_images/17.png" /></p>
 <p>Next we will create a list of all surfaces (top, sides and bottom) using <strong>List.Create</strong> and create a solid object from them using <strong>Solid.ByJoinedSurfaces</strong>.</p>
-<p><img alt="_images/181.png" src="_images/181.png" /></p>
+<p><img alt="_images/18.png" src="_images/18.png" /></p>
 <p>We will use this object to create our pattern. In the next steps, we will refer to this object by <strong>“solid”</strong>.</p>
 </div>
 <div class="section" id="adding-a-python-node">
@@ -332,7 +333,7 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Enable Python support and load DesignScript library</span>
 <span class="kn">import</span> <span class="nn">clr</span>
 <span class="n">clr</span><span class="o">.</span><span class="n">AddReference</span><span class="p">(</span><span class="s1">&#39;ProtoGeometry&#39;</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">Autodesk.DesignScript.Geometry</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">Autodesk.DesignScript.Geometry</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="c1"># The inputs to this node will be stored as a list in the IN variables.</span>
 
@@ -410,7 +411,7 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Enable Python support and load DesignScript library</span>
 <span class="kn">import</span> <span class="nn">clr</span>
 <span class="n">clr</span><span class="o">.</span><span class="n">AddReference</span><span class="p">(</span><span class="s1">&#39;ProtoGeometry&#39;</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">Autodesk.DesignScript.Geometry</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">Autodesk.DesignScript.Geometry</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="c1"># The inputs to this node will be stored as a list in the IN variables.</span>
 <span class="c1">#The solid module to be arrayed</span>

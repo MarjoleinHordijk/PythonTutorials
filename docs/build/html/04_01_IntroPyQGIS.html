@@ -21,10 +21,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -34,7 +34,9 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="The Shapely Module" href="04_02_Shapely.html" />
+    <link rel="prev" title="GIS Specific Tutorials" href="04_GIS.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -78,23 +80,32 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Tutorial 1</a><ul>
-<li><a class="reference internal" href="#opening-up-the-python-console">1. Opening up the Python Console</a></li>
-<li><a class="reference internal" href="#loading-a-vector-layer">2. Loading a Vector Layer</a></li>
-<li><a class="reference internal" href="#viewing-vector-layer-attributes">3. Viewing vector layer attributes</a></li>
-<li><a class="reference internal" href="#filtering-features">4. Filtering features</a></li>
-<li><a class="reference internal" href="#finding-and-using-processing-tools">5. Finding and Using Processing Tools</a></li>
-<li><a class="reference internal" href="#running-a-processing-tool-buffer">6. Running a Processing tool: Buffer</a></li>
-<li><a class="reference internal" href="#running-a-processing-tool-extract-by-attribute">7. Running a Processing tool: Extract by Attribute</a></li>
-<li><a class="reference internal" href="#chaining-processing-tools">8. Chaining Processing Tools</a></li>
-<li><a class="reference internal" href="#advanced-exercise">9. Advanced Exercise</a></li>
-<li><a class="reference internal" href="#advanced-exercise-final-code">Advanced Exercise: Final Code</a></li>
+              <p class="caption"><span class="caption-text">Topics:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01_GettingStarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_BeyondBasics.html">Beyond the Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_DataAnalysis.html">Data Analysis Using Python</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="04_GIS.html">GIS</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Intro into PyQGIS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#opening-up-the-python-console">1. Opening up the Python Console</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#loading-a-vector-layer">2. Loading a Vector Layer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#viewing-vector-layer-attributes">3. Viewing vector layer attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#filtering-features">4. Filtering features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#finding-and-using-processing-tools">5. Finding and Using Processing Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-a-processing-tool-buffer">6. Running a Processing tool: Buffer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-a-processing-tool-extract-by-attribute">7. Running a Processing tool: Extract by Attribute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#chaining-processing-tools">8. Chaining Processing Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#advanced-exercise">9. Advanced Exercise</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#advanced-exercise-final-code">Advanced Exercise: Final Code</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="04_02_Shapely.html">The Shapely Module</a></li>
 </ul>
-</div>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="05_BIM.html">Building Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_Help.html">Help</a></li>
+</ul>
+
             
           
         </div>
@@ -138,6 +149,8 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
+          <li><a href="04_GIS.html">GIS Specific Tutorials</a> &raquo;</li>
+        
       <li>Tutorial 1</li>
     
     
@@ -168,7 +181,7 @@
 <p>When you type a line of code and press Enter, the code will be immediately executed.</p>
 <p>You can try this with a very simple and common example in programming tutorials: HELLO WORLD.
 Try the code below to print “hello world” in the console.</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;Hello world!&quot;</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello world!&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>You just called the print function, and provided “Hello world!” (a string of text) as a parameter, providing you with an output that should like like the image below.</p>
@@ -227,7 +240,7 @@ tutorial.</p>
 <p>However, instead of opening the attribute table (which we could have easily done through the user interface), we can also access specific information. For example, the Buildings layer contains information on the total footprint of each building in the “area” field. We can use the <code class="docutils literal notranslate"><span class="pre">print()</span></code> and <code class="docutils literal notranslate"><span class="pre">field()</span></code> functions to print these surface areas to the console.</p>
 <p>However, we do need to write a small <strong>for loop</strong> for this. This means that we will “loop” through each feature (building) in our layer, look up the value in the “area” field and print this to the console.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">Buildings</span><span class="o">.</span><span class="n">getFeatures</span><span class="p">():</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="s2">&quot;Area&quot;</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="s2">&quot;Area&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>The output in your console should look something like this.</p>
@@ -239,7 +252,7 @@ tutorial.</p>
 <p>To filter, we first need to define an expression to provide as a parameter to <code class="docutils literal notranslate"><span class="pre">.setSubsetString()</span></code> . In the case of identifying the primary roads, we simply use the expression: “RoadType IS ‘primary’”. If we want to print the IDs of all roads that satisfy this expression, we can use the following code.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">Roads</span><span class="o">.</span><span class="n">setSubsetString</span><span class="p">(</span><span class="s2">&quot;RoadType IS &#39;primary&#39;&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">Roads</span><span class="o">.</span><span class="n">getFeatures</span><span class="p">():</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="s2">&quot;fid&quot;</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="s2">&quot;fid&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>You will see that only those roads that are reported as primary will now be visible on the map. Furthermore, you will find a list of ID numbers in your console window that correspond to the set of primary roads.</p>
@@ -247,7 +260,7 @@ tutorial.</p>
 <p>You can also use the <code class="docutils literal notranslate"><span class="pre">.setSubsetString()</span></code> function to filter for more than just a particular field value. For example, we can use it to identify those buildings that have a specific minimum footprint area, say 900 square meters. To do so, we use the expression: “area &gt; 900”. If we again want to print the IDs of the features that satisfy this expression, we can use the following code.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">Buildings</span><span class="o">.</span><span class="n">setSubsetString</span><span class="p">(</span><span class="s2">&quot;area &gt; 900&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">Buildings</span><span class="o">.</span><span class="n">getFeatures</span><span class="p">():</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="s2">&quot;fid&quot;</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="s2">&quot;fid&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>If done correctly, you will find that two buildings have a larger footprint (IDs 1 &amp; 3).</p>
@@ -261,7 +274,7 @@ tutorial.</p>
 </div>
 <p>You can find a list of tools that you can use by executing the following piece of code.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">alg</span> <span class="ow">in</span> <span class="n">QgsApplication</span><span class="o">.</span><span class="n">processingRegistry</span><span class="p">()</span><span class="o">.</span><span class="n">algorithms</span><span class="p">():</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">alg</span><span class="o">.</span><span class="n">id</span><span class="p">(),</span> <span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="n">alg</span><span class="o">.</span><span class="n">displayName</span><span class="p">())</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">alg</span><span class="o">.</span><span class="n">id</span><span class="p">(),</span> <span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="n">alg</span><span class="o">.</span><span class="n">displayName</span><span class="p">())</span>
 </pre></div>
 </div>
 <p>In your output, you will see on the left the provider of the algorithm and after the ‘:’ its name. For example, “gdal:aspect” is provided by GDAL and concerns the Aspect algorithm.</p>
@@ -289,20 +302,20 @@ tutorial.</p>
  <span class="s1">&#39;END_CAP_STYLE&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
  <span class="s1">&#39;JOIN_STYLE&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
  <span class="s1">&#39;MITER_LIMIT&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
- <span class="s1">&#39;DISSOLVE&#39;</span><span class="p">:</span><span class="bp">False</span><span class="p">,</span>
+ <span class="s1">&#39;DISSOLVE&#39;</span><span class="p">:</span><span class="kc">False</span><span class="p">,</span>
  <span class="s1">&#39;OUTPUT&#39;</span><span class="p">:</span><span class="s1">&#39;memory:&#39;</span><span class="p">}</span>
 </pre></div>
 </div>
 <p>If we then provide this as a parameter to the <code class="docutils literal notranslate"><span class="pre">processing.run()</span></code> function, the code becomes as follows.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">Buffer</span> <span class="o">=</span> <span class="n">processing</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;native:buffer&quot;</span><span class="p">,</span>
         <span class="p">{</span><span class="s1">&#39;INPUT&#39;</span><span class="p">:</span><span class="n">Trainstation</span><span class="p">,</span><span class="s1">&#39;DISTANCE&#39;</span><span class="p">:</span><span class="mi">1000</span><span class="p">,</span><span class="s1">&#39;SEGMENTS&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="s1">&#39;END_CAP_STYLE&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;JOIN_STYLE&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;MITER_LIMIT&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
-        <span class="s1">&#39;DISSOLVE&#39;</span><span class="p">:</span><span class="bp">False</span><span class="p">,</span><span class="s1">&#39;OUTPUT&#39;</span><span class="p">:</span><span class="s1">&#39;memory:&#39;</span><span class="p">})</span>
+        <span class="s1">&#39;DISSOLVE&#39;</span><span class="p">:</span><span class="kc">False</span><span class="p">,</span><span class="s1">&#39;OUTPUT&#39;</span><span class="p">:</span><span class="s1">&#39;memory:&#39;</span><span class="p">})</span>
 </pre></div>
 </div>
 <p>As you may notice, this piece of coding does not provide you with any output that is visible on the map. The reason for this is that the created buffer layer has not been loaded into our project. However, if we use <code class="docutils literal notranslate"><span class="pre">processing.runAndLoadResults()</span></code> instead, you should see the buffer layer appear on the canvas.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">Buffer</span> <span class="o">=</span> <span class="n">processing</span><span class="o">.</span><span class="n">runAndLoadResults</span><span class="p">(</span><span class="s2">&quot;native:buffer&quot;</span><span class="p">,</span>
     <span class="p">{</span><span class="s1">&#39;INPUT&#39;</span><span class="p">:</span><span class="n">Trainstation</span><span class="p">,</span><span class="s1">&#39;DISTANCE&#39;</span><span class="p">:</span><span class="mi">1000</span><span class="p">,</span><span class="s1">&#39;SEGMENTS&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="s1">&#39;END_CAP_STYLE&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;JOIN_STYLE&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;MITER_LIMIT&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
-    <span class="s1">&#39;DISSOLVE&#39;</span><span class="p">:</span><span class="bp">False</span><span class="p">,</span><span class="s1">&#39;OUTPUT&#39;</span><span class="p">:</span><span class="s1">&#39;memory:&#39;</span><span class="p">})</span>
+    <span class="s1">&#39;DISSOLVE&#39;</span><span class="p">:</span><span class="kc">False</span><span class="p">,</span><span class="s1">&#39;OUTPUT&#39;</span><span class="p">:</span><span class="s1">&#39;memory:&#39;</span><span class="p">})</span>
 </pre></div>
 </div>
 <img alt="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/02_01/7.png?raw=true" src="https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/02_01/7.png?raw=true" />
@@ -323,7 +336,7 @@ tutorial.</p>
 <p>We can chain processing tools so that the output of one becomes the input for the next. To do so, we need to reference the output of the first algorithm in a parameter of the second. You can reference the output of the earlier discussed buffer algorithm as follows.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">Buffer</span> <span class="o">=</span> <span class="n">processing</span><span class="o">.</span><span class="n">runAndLoadResults</span><span class="p">(</span><span class="s2">&quot;native:buffer&quot;</span><span class="p">,</span>
     <span class="p">{</span><span class="s1">&#39;INPUT&#39;</span><span class="p">:</span><span class="n">Trainstation</span><span class="p">,</span><span class="s1">&#39;DISTANCE&#39;</span><span class="p">:</span><span class="mi">1500</span><span class="p">,</span><span class="s1">&#39;SEGMENTS&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="s1">&#39;END_CAP_STYLE&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;JOIN_STYLE&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;MITER_LIMIT&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
-    <span class="s1">&#39;DISSOLVE&#39;</span><span class="p">:</span><span class="bp">False</span><span class="p">,</span><span class="s1">&#39;OUTPUT&#39;</span><span class="p">:</span><span class="s1">&#39;memory:&#39;</span><span class="p">})</span>
+    <span class="s1">&#39;DISSOLVE&#39;</span><span class="p">:</span><span class="kc">False</span><span class="p">,</span><span class="s1">&#39;OUTPUT&#39;</span><span class="p">:</span><span class="s1">&#39;memory:&#39;</span><span class="p">})</span>
 
 <span class="n">BufferLayer</span> <span class="o">=</span> <span class="n">Buffer</span><span class="p">[</span><span class="s1">&#39;OUTPUT&#39;</span><span class="p">]</span>
 </pre></div>
@@ -365,7 +378,7 @@ tutorial.</p>
 
 <span class="n">BufferStation</span> <span class="o">=</span> <span class="n">processing</span><span class="o">.</span><span class="n">runAndLoadResults</span><span class="p">(</span><span class="s2">&quot;native:buffer&quot;</span><span class="p">,</span>
     <span class="p">{</span><span class="s1">&#39;INPUT&#39;</span><span class="p">:</span><span class="n">Trainstation</span><span class="p">,</span><span class="s1">&#39;DISTANCE&#39;</span><span class="p">:</span><span class="mi">1500</span><span class="p">,</span><span class="s1">&#39;SEGMENTS&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="s1">&#39;END_CAP_STYLE&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;JOIN_STYLE&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;MITER_LIMIT&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
-    <span class="s1">&#39;DISSOLVE&#39;</span><span class="p">:</span><span class="bp">False</span><span class="p">,</span><span class="s1">&#39;OUTPUT&#39;</span><span class="p">:</span><span class="s1">&#39;memory:&#39;</span><span class="p">})</span>
+    <span class="s1">&#39;DISSOLVE&#39;</span><span class="p">:</span><span class="kc">False</span><span class="p">,</span><span class="s1">&#39;OUTPUT&#39;</span><span class="p">:</span><span class="s1">&#39;memory:&#39;</span><span class="p">})</span>
 <span class="n">BufferLayer</span> <span class="o">=</span> <span class="n">BufferStation</span><span class="p">[</span><span class="s1">&#39;OUTPUT&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -382,7 +395,7 @@ tutorial.</p>
 
 <span class="n">BufferStation</span> <span class="o">=</span> <span class="n">processing</span><span class="o">.</span><span class="n">runAndLoadResults</span><span class="p">(</span><span class="s2">&quot;native:buffer&quot;</span><span class="p">,</span>
     <span class="p">{</span><span class="s1">&#39;INPUT&#39;</span><span class="p">:</span><span class="n">Trainstation</span><span class="p">,</span><span class="s1">&#39;DISTANCE&#39;</span><span class="p">:</span><span class="mi">1500</span><span class="p">,</span><span class="s1">&#39;SEGMENTS&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="s1">&#39;END_CAP_STYLE&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;JOIN_STYLE&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;MITER_LIMIT&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
-    <span class="s1">&#39;DISSOLVE&#39;</span><span class="p">:</span><span class="bp">False</span><span class="p">,</span><span class="s1">&#39;OUTPUT&#39;</span><span class="p">:</span><span class="s1">&#39;memory:&#39;</span><span class="p">})</span>
+    <span class="s1">&#39;DISSOLVE&#39;</span><span class="p">:</span><span class="kc">False</span><span class="p">,</span><span class="s1">&#39;OUTPUT&#39;</span><span class="p">:</span><span class="s1">&#39;memory:&#39;</span><span class="p">})</span>
 <span class="n">BufferLayer</span> <span class="o">=</span> <span class="n">BufferStation</span><span class="p">[</span><span class="s1">&#39;OUTPUT&#39;</span><span class="p">]</span>
 
 <span class="n">ClipBuildings</span> <span class="o">=</span> <span class="n">processing</span><span class="o">.</span><span class="n">runAndLoadResults</span><span class="p">(</span><span class="s2">&quot;native:clip&quot;</span><span class="p">,</span>
@@ -403,7 +416,7 @@ tutorial.</p>
 
 <span class="n">BufferStation</span> <span class="o">=</span> <span class="n">processing</span><span class="o">.</span><span class="n">runAndLoadResults</span><span class="p">(</span><span class="s2">&quot;native:buffer&quot;</span><span class="p">,</span>
     <span class="p">{</span><span class="s1">&#39;INPUT&#39;</span><span class="p">:</span><span class="n">Trainstation</span><span class="p">,</span><span class="s1">&#39;DISTANCE&#39;</span><span class="p">:</span><span class="mi">1500</span><span class="p">,</span><span class="s1">&#39;SEGMENTS&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="s1">&#39;END_CAP_STYLE&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;JOIN_STYLE&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;MITER_LIMIT&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
-    <span class="s1">&#39;DISSOLVE&#39;</span><span class="p">:</span><span class="bp">False</span><span class="p">,</span><span class="s1">&#39;OUTPUT&#39;</span><span class="p">:</span><span class="s1">&#39;memory:&#39;</span><span class="p">})</span>
+    <span class="s1">&#39;DISSOLVE&#39;</span><span class="p">:</span><span class="kc">False</span><span class="p">,</span><span class="s1">&#39;OUTPUT&#39;</span><span class="p">:</span><span class="s1">&#39;memory:&#39;</span><span class="p">})</span>
 <span class="n">BufferLayer</span> <span class="o">=</span> <span class="n">BufferStation</span><span class="p">[</span><span class="s1">&#39;OUTPUT&#39;</span><span class="p">]</span>
 
 <span class="n">ClipBuildings</span> <span class="o">=</span> <span class="n">processing</span><span class="o">.</span><span class="n">runAndLoadResults</span><span class="p">(</span><span class="s2">&quot;native:clip&quot;</span><span class="p">,</span>
@@ -423,6 +436,15 @@ tutorial.</p>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="04_02_Shapely.html" class="btn btn-neutral float-right" title="The Shapely Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="04_GIS.html" class="btn btn-neutral float-left" title="GIS Specific Tutorials" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
