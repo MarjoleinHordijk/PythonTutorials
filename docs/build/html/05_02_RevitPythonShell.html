@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>1. What is RevitPythonShell? &mdash; Python Tutorials  documentation</title>
+  <title>Using the RevitPythonShell &mdash; Python Tutorials  documentation</title>
   
 
   
@@ -88,13 +88,20 @@
 <li class="toctree-l1"><a class="reference internal" href="04_GIS.html">GIS</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="05_BIM.html">Building Data</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="05_01_DynamoNodes.html">Custom Dynamo Nodes Using Python</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#"><strong>1. What is RevitPythonShell?</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#using-the-revitpythonshell"><strong>2. Using the RevitPythonShell</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#querying-model-elements"><strong>3. Querying Model Elements</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#reading-instance-properties"><strong>4. Reading instance properties</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#reading-instance-parameters"><strong>5. Reading instance parameters</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#reading-type-parameters">6. Reading type parameters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#exercise-set-parameter-values-using-a-script">7. Exercise: Set Parameter Values Using a Script</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Using the RevitPythonShell</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-revitpythonshell">1. What is RevitPythonShell?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">2. Using the RevitPythonShell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#querying-model-elements">3. Querying Model Elements</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#accessing-selected-elements">3.1 Accessing Selected Elements**</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#querying-elements-on-category">3.1 Querying Elements on Category</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reading-instance-properties">4. Reading instance properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reading-instance-parameters">5. Reading instance parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reading-type-parameters">6. Reading type parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exercise-set-parameter-values-using-a-script">7. Exercise: Set Parameter Values Using a Script</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="06_Help.html">Help</a></li>
@@ -145,7 +152,7 @@
         
           <li><a href="05_BIM.html">Building Data Specific Tutorials</a> &raquo;</li>
         
-      <li><strong>1. What is RevitPythonShell?</strong></li>
+      <li>Using the RevitPythonShell</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -164,8 +171,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="what-is-revitpythonshell">
-<h1><strong>1. What is RevitPythonShell?</strong><a class="headerlink" href="#what-is-revitpythonshell" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="using-the-revitpythonshell">
+<h1>Using the RevitPythonShell<a class="headerlink" href="#using-the-revitpythonshell" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-is-revitpythonshell">
+<h2>1. What is RevitPythonShell?<a class="headerlink" href="#what-is-revitpythonshell" title="Permalink to this headline">¶</a></h2>
 <p>Different from some of the other software packages addressed in this repository, Revit does not come with a Python console by default. However, the RevitPythonShell add-in can easily be installed to add this functionality. This allows you to develop custom Python script to analyse and alter your model. This tutorial is developed based on <a class="reference external" href="https://github.com/hdm-dt-fb/bilt_academy_2019">these</a> instructions.</p>
 <p><span style="text-decoration:underline;">What we will discuss in this tutorial:</span></p>
 <p>In this tutorial we will focus on the very basic applications of the RevitPythonShell. You will learn how to query your model for specific objects and retrieve information about them. At the end, a more advanced example is included to demonstrate how this knowledge could be applied in practice.</p>
@@ -173,8 +182,8 @@
 <p>You will need a recent version of Revit and the corresponding version of the RevitPythonShell add-in. This tutorial uses Revit 2018. You can download RevitPythonShell from <a class="reference external" href="https://github.com/architecture-building-systems/revitpythonshell">here</a>. You can use the basic architectural sample project in Revit to run the commands.</p>
 <p><img alt="_images/110.png" src="_images/110.png" /></p>
 </div>
-<div class="section" id="using-the-revitpythonshell">
-<h1><strong>2. Using the RevitPythonShell</strong><a class="headerlink" href="#using-the-revitpythonshell" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>2. Using the RevitPythonShell<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>Once you have installed the RevitPythonShell, you will be able to find it under the “Add-ins” tab in Revit.</p>
 <p><img alt="_images/26.png" src="_images/26.png" /></p>
 <p>The console that opens consists of two main parts. In the top part, you can type commands (e.g. <code class="docutils literal notranslate"><span class="pre">print(&quot;Hello</span> <span class="pre">world!)</span></code>). When you press enter, you will see the resulting output appear. However, we can also write snippets. That is, code blocks which we can store and share. This is done in the bottom part of the window. To run the code, simply press the play icon or hit F5 on your keyboard.</p>
@@ -222,9 +231,10 @@
 <p>The next section will show how we can use these operations to query the objects in a Revit model and analyse their information.</p>
 </div>
 <div class="section" id="querying-model-elements">
-<h1><strong>3. Querying Model Elements</strong><a class="headerlink" href="#querying-model-elements" title="Permalink to this headline">¶</a></h1>
+<h2>3. Querying Model Elements<a class="headerlink" href="#querying-model-elements" title="Permalink to this headline">¶</a></h2>
 <p>There are several options to connect your script to the Revit model. We will discuss two options here. First, you are able to select model elements in the view and access them in your script. Alternatively, you can query elements in the model based on their category.</p>
-<p><strong>3.1 Accessing Selected Elements</strong></p>
+<div class="section" id="accessing-selected-elements">
+<h3>3.1 Accessing Selected Elements**<a class="headerlink" href="#accessing-selected-elements" title="Permalink to this headline">¶</a></h3>
 <p>If you select one or multiple objects in the model view, you will be able to access and use them in your script. The selected objects are available as a list of elements stored in the variable <code class="docutils literal notranslate"><span class="pre">selection</span></code>. The first element of this list can be called by “s0”, the second by “s1” and so on.</p>
 <p>Select several elements in your model. If you now type “s0.” in your console window, you will notice that a substantive list of suggestions appears. These all concern operations that we could perform with the selected elements. However, we can also access specific information about each element. As an example, we will print the element Ids of the objects you selected. You can do so using the piece of code below.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">selection</span><span class="p">:</span>
@@ -233,7 +243,10 @@
 </div>
 <p><img alt="_images/74.png" src="_images/74.png" /></p>
 <p>You can check the Ids using the interface under Manage &gt; Inquiry &gt; IDs of Selection to compare.</p>
-<p>**3.1 Querying Elements on Category **</p>
+</div>
+</div>
+<div class="section" id="querying-elements-on-category">
+<h2>3.1 Querying Elements on Category<a class="headerlink" href="#querying-elements-on-category" title="Permalink to this headline">¶</a></h2>
 <p>We can use the <code class="docutils literal notranslate"><span class="pre">FilteredElementCollector</span></code> to access model elements based on their category or class. You can find a list of all build in categories <a class="reference external" href="https://www.revitapidocs.com/2019/ba1c5b30-242f-5fdc-8ea9-ec3b61e6e722.htm">here</a>. An example includes the doors (OST_Doors). These categories are also shown in your Project browser panel, as shown below.</p>
 <p><img alt="_images/83.png" src="_images/83.png" /></p>
 <p>We can store all door instances in the model to a variable (<code class="docutils literal notranslate"><span class="pre">doors</span></code>) as shown below.</p>
@@ -258,7 +271,7 @@
 <p>In the next section, we will discuss how you can read parameters and properties from these door instances that we have now identified.</p>
 </div>
 <div class="section" id="reading-instance-properties">
-<h1><strong>4. Reading instance properties</strong><a class="headerlink" href="#reading-instance-properties" title="Permalink to this headline">¶</a></h1>
+<h2>4. Reading instance properties<a class="headerlink" href="#reading-instance-properties" title="Permalink to this headline">¶</a></h2>
 <p>Now that we have access to elements in our model, we can start reading the information about them. For example, we can print the object ids of the door instances in our model using a small for loop.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
 <span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="kn">import</span> <span class="n">FilteredElementCollector</span> <span class="k">as</span> <span class="n">Fec</span>
@@ -334,7 +347,7 @@
 <p><img alt="_images/142.png" src="_images/142.png" /></p>
 </div>
 <div class="section" id="reading-instance-parameters">
-<h1><strong>5. Reading instance parameters</strong><a class="headerlink" href="#reading-instance-parameters" title="Permalink to this headline">¶</a></h1>
+<h2>5. Reading instance parameters<a class="headerlink" href="#reading-instance-parameters" title="Permalink to this headline">¶</a></h2>
 <p>We can use the “LookupParameter(“parameter_name”)” method to look up <strong>parameters</strong> of an <strong>instance</strong>. However, this will only return the parameter itself, but not the value that is stored for it. To retrieve the value, we need to know the datatype of the parameter (e.g. integer or string). Usually, this is quite straightforward. For example, the “Mark” parameter is a string value. We can access and print this value for the first door in the variable <code class="docutils literal notranslate"><span class="pre">doors</span></code> as shown below.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
 <span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="kn">import</span> <span class="n">FilteredElementCollector</span> <span class="k">as</span> <span class="n">Fec</span>
@@ -352,7 +365,7 @@
 <p><img alt="_images/152.png" src="_images/152.png" /></p>
 </div>
 <div class="section" id="reading-type-parameters">
-<h1>6. Reading type parameters<a class="headerlink" href="#reading-type-parameters" title="Permalink to this headline">¶</a></h1>
+<h2>6. Reading type parameters<a class="headerlink" href="#reading-type-parameters" title="Permalink to this headline">¶</a></h2>
 <p>If you are familiar with Revit, you will know that a model instance (e.g door) belongs to a particular type that defines certain attributes of the object. We can also access the information regarding the type a specific instance belongs to.</p>
 <p>However, to retrieve <strong>type parameters</strong>, such as the name of the type, we need to add something extra.  In the RevitAPI the type of a Family is accessed by the property “Symbol”. Hence, we can retrieve this information using <code>door.<span style="text-decoration:underline;">Symbol</span>.LookupParameter()</code>, as shown below.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
@@ -372,7 +385,7 @@
 <p><img alt="_images/162.png" src="_images/162.png" /></p>
 </div>
 <div class="section" id="exercise-set-parameter-values-using-a-script">
-<h1>7. Exercise: Set Parameter Values Using a Script<a class="headerlink" href="#exercise-set-parameter-values-using-a-script" title="Permalink to this headline">¶</a></h1>
+<h2>7. Exercise: Set Parameter Values Using a Script<a class="headerlink" href="#exercise-set-parameter-values-using-a-script" title="Permalink to this headline">¶</a></h2>
 <p>In this exercise we will develop a small script to write parameter values. We will determine for each door the side of its hinges (left or right) based on the type of the door and whether it is mirrored or not. You can find the complete script at the end of this section. We will go through the build up of this script step by step below.</p>
 <p>Note that not all door objects have the right properties for this script to work. Please use <a class="reference external" href="https://github.com/hdm-dt-fb/bilt_academy_2019/blob/master/model/python_beginners_tower.rvt">this</a> model to test the code to make sure it will work properly.</p>
 <p>We will start with some required <strong>imports</strong> and some <strong>references</strong>. These are required to interact with the currently opened model and access or alter the information of its elements. For example, we need to start a so called “transaction” to be able to edit the door hinge side information of the instances in the model.</p>
@@ -570,6 +583,7 @@
 <span class="n">tx</span><span class="o">.</span><span class="n">Commit</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;successfully changed model&quot;</span><span class="p">)</span>
 </pre></div>
+</div>
 </div>
 </div>
 
