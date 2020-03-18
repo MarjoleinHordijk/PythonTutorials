@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Modules &amp; Packages &mdash; Python Tutorials  documentation</title>
+  <title>Modules and Packages &mdash; Python Tutorials  documentation</title>
   
 
   
@@ -84,7 +84,19 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="01_GettingStarted.html">Getting Started</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="02_BeyondBasics.html">Beyond the Basics</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Modules &amp; Packages</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Modules &amp; Packages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#modules-packages">1. Modules &amp; Packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installing-packages-using-pip">2. Installing Packages Using Pip</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#exercise-1-installing-the-getoldtweets3-package-using-pip">Exercise 1: Installing the GetOldTweets3 Package Using Pip</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#using-packages">3. Using Packages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#exercise-2-collecting-a-tweet-using-getoldtweets3">Exercise 2: Collecting a Tweet using GetOldTweets3</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#finding-packages">4. Finding Packages</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="02_02_Scripting.html">Scripting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02_03_Objects.html">Objects</a></li>
 </ul>
@@ -140,7 +152,7 @@
         
           <li><a href="02_BeyondBasics.html">Beyond the Basics</a> &raquo;</li>
         
-      <li>Modules &amp; Packages</li>
+      <li>Modules and Packages</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -159,8 +171,109 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="modules-packages">
-<h1>Modules &amp; Packages<a class="headerlink" href="#modules-packages" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="modules-and-packages">
+<h1>Modules and Packages<a class="headerlink" href="#modules-and-packages" title="Permalink to this headline">¶</a></h1>
+<html>
+<head>
+<style>
+.info {
+  background-color: #e6e6e6;
+  border-left: 6px solid #666666;
+  padding: 10px;
+}
+.exercise {
+  background-color: #e7f3fe;
+  border-left: 6px solid #2196F3;
+  padding: 10px;
+}
+</style>
+</head>
+<body><div class="section" id="modules-packages">
+<h2>1. Modules &amp; Packages<a class="headerlink" href="#modules-packages" title="Permalink to this headline">¶</a></h2>
+<p>In <a class="reference internal" href="01_04_Functions.html"><span class="doc">this</span></a> tutorial we discussed the basics of using and defining functions. The functions that we used so far were build-in functions of Python. We combined these functions to create our own custom predefined sequences of coding that we can call whenever we need them.</p>
+<p>In some cases, individuals or groups of people develop functions that are very useful to others. By collecting the definitions of these functions in one <code class="docutils literal notranslate"><span class="pre">.py</span></code> file, they can easily be shared. This file is then called a <strong>module</strong>. A <strong>package</strong> is a way of structuring multiple multiple modules.</p>
+<p>To use the definitions of functions in a module or package, you will need to download or install it and <strong>import</strong> it in your own script. Below we will discuss how to do this and where to find useful modules / packages.</p>
+</div>
+<div class="section" id="installing-packages-using-pip">
+<h2>2. Installing Packages Using Pip<a class="headerlink" href="#installing-packages-using-pip" title="Permalink to this headline">¶</a></h2>
+<p>As an illustration, we will show you here how to install and import the package <code class="docutils literal notranslate"><span class="pre">GetOldTweets3</span></code>. This package allows you to download Twitter data easily so you can analyse it using Python.</p>
+<p>To make things a little easier for us, we will use <code class="docutils literal notranslate"><span class="pre">pip</span></code>, a package manager for Python. If you are running Python 3, <code class="docutils literal notranslate"><span class="pre">pip</span></code> should have come installed with it. You can check this by running <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">--version</span></code> in your console. If, for some reason, <code class="docutils literal notranslate"><span class="pre">pip</span></code> is not installed, you can find the instructions to do so <a class="reference external" href="https://pip.pypa.io/en/stable/installing/">here</a>.</p>
+<p>You can find all packages available for (automated) installation with <code class="docutils literal notranslate"><span class="pre">pip</span></code> on there website. As you can see <a class="reference external" href="https://pypi.org/project/GetOldTweets3/">here</a>, the page of each package also shows the code you can run to install the package. In the case of GetOldTweets3 this is <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">GetOldTweets3</span></code>. If you run this code from your console, pip will take care of the rest.</p>
+<p><img alt="_images/113.png" src="_images/113.png" /></p>
+<hr class="docutils" />
+<div class="section" id="exercise-1-installing-the-getoldtweets3-package-using-pip">
+<h3>Exercise 1: Installing the GetOldTweets3 Package Using Pip<a class="headerlink" href="#exercise-1-installing-the-getoldtweets3-package-using-pip" title="Permalink to this headline">¶</a></h3>
+<div class="exercise">Try to install GetOldTweets3 using pip as described above. We will use this package in further examples.
+</div>
+<br></div>
+</div>
+<hr class="docutils" />
+<div class="section" id="using-packages">
+<h2>3. Using Packages<a class="headerlink" href="#using-packages" title="Permalink to this headline">¶</a></h2>
+<p>Since Python runs the lines of code sequentially, the import must happen before the functions of the module can be called. Hence, it is common to place the lines of code for importing modules at the top of a script as shown below.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Import</span> <span class="n">GetOldTweets3</span>
+</pre></div>
+</div>
+<p>You will usually find instructions on how to access the functions of a package in the documentation. For example, if we look at <a class="reference external" href="https://github.com/Mottl/GetOldTweets3">the Github page of GetOldTweets3</a>, we can see com examples at the very end of the page.</p>
+<p>We will use two functions of this package in our example.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">TweetCriteria()</span></code> to define our search criteria.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">getTweets()</span></code> to collect the tweets according to our define search criteria.</p></li>
+</ul>
+<p>Since GetOldTweets3 is a package, consisting of multiple modules, we need to know where to find these functions in the structure. We move through the structure using points <code class="docutils literal notranslate"><span class="pre">.</span></code> to seperate the name of the package, the categories and the module names.</p>
+<ul class="simple">
+<li><p>Since the functions for defining the search criteria are found under <code class="docutils literal notranslate"><span class="pre">TweetCriteria()</span></code>, which is categorized under <code class="docutils literal notranslate"><span class="pre">manager</span></code>, we can access them as follows <code class="docutils literal notranslate"><span class="pre">GetOldTweets3.manager.manager.TweetCriteria()</span></code>.</p></li>
+<li><p>Since <code class="docutils literal notranslate"><span class="pre">TweetCriteria()</span></code> is categorized under <code class="docutils literal notranslate"><span class="pre">manager.TweetManager</span></code>, we will have to use <code class="docutils literal notranslate"><span class="pre">GetOldTweets3.manager.TweetManager.getTweets()</span></code>.</p></li>
+</ul>
+<p>To illustrate the above, an example is provided below.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importing the package.</span>
+<span class="n">Import</span> <span class="n">GetOldTweets3</span>
+
+<span class="c1"># Defining the search criteria.</span>
+<span class="n">tweetCriteria</span> <span class="o">=</span> <span class="n">got</span><span class="o">.</span><span class="n">manager</span><span class="o">.</span><span class="n">TweetCriteria</span><span class="p">()</span><span class="o">.</span><span class="n">setQuerySearch</span><span class="p">(</span><span class="s1">&#39;Eindhoven&#39;</span><span class="p">)</span>
+                                           <span class="o">.</span><span class="n">setSince</span><span class="p">(</span><span class="s2">&quot;2019-05-01&quot;</span><span class="p">)</span>
+                                           <span class="o">.</span><span class="n">setUntil</span><span class="p">(</span><span class="s2">&quot;2019-09-30&quot;</span><span class="p">)</span>
+                                           <span class="o">.</span><span class="n">setMaxTweets</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Collecting one tweet based on the search criteria and store it to the variable &quot;tweet&quot;.</span>
+<span class="n">tweet</span> <span class="o">=</span> <span class="n">got</span><span class="o">.</span><span class="n">manager</span><span class="o">.</span><span class="n">TweetManager</span><span class="o">.</span><span class="n">getTweets</span><span class="p">(</span><span class="n">tweetCriteria</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># Print the text of the collected tweet.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tweet</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>It might be that you need to access a function from one package mutiple times. If the package name is quite long, this means that you have to repeat that long name several times. This may make your code less readable and could even slow you down in writing your code. To overcome this issue, we can use <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">x</span> <span class="pre">as</span> <span class="pre">y</span></code>, where x is the actual name of the package and y is the abbreviation you would like to use.</p>
+<hr class="docutils" />
+<div class="section" id="exercise-2-collecting-a-tweet-using-getoldtweets3">
+<h3>Exercise 2: Collecting a Tweet using GetOldTweets3<a class="headerlink" href="#exercise-2-collecting-a-tweet-using-getoldtweets3" title="Permalink to this headline">¶</a></h3>
+<div class="exercise">
+    <ol>
+        <li>Do you know what datatype the variable "tweet" is in the example above?</li>
+        <li>Adapt the search criteria in the example above to collect one tweet on a topic of your choice, posted in the year 2017 </li>
+        <li>Print the text of the tweet you just collected. (See the example code.)</li>
+        <li>Use the "import x as y" structure to import GetOldTweets3 as GOT3. Test if the code of the previous two exercises still works properly.</li>
+        <li>Try to print the hashtags of the tweet that you just collected. If your tweet does not appear to have any hashtags, adapt your search criteria until you find one that does. (Hint, look under "Python classes" on <a href="https://www.anaconda.com/distribution/">this</a>) github page.</li>
+        <li><strong>Advanced:</strong> Write a loop to collect multiple tweets (e.g. 10). Add a counter to keep track of how many tweets you collected. For each tweet that you have collected, print one line with first the index of the tweet (based on the counter), then the content and finish the line with the hashtags.</li>
+    </ol> 
+</div>
+<br></div>
+</div>
+<hr class="docutils" />
+<div class="section" id="finding-packages">
+<h2>4. Finding Packages<a class="headerlink" href="#finding-packages" title="Permalink to this headline">¶</a></h2>
+<p>There is a huge supply of free modules and packages available for you to download. Almost anything you would want to do using Python can be done in multiple ways. Therefore it is recommended to simply start a Google search and try out some different options. Play around with what is available and see what fits your project best.</p>
+<p>To help you get started, you can find a list below of very common and useful packages. We discuss some of these packages in greater detail in other tutorials.</p>
+<ul class="simple">
+<li><p><strong><a class="reference external" href="https://numpy.org/">NumPy</a>:</strong>  NumPy is a fundamental library for working with numerical data. It can work with special array objects (called numpy array), which is a grid of indexed values (much like a dataset in SPSS). You can perform mathematical operations on these arrays, like summing over a particular colomn.</p></li>
+<li><p><strong><a class="reference external" href="https://pandas.pydata.org/">pandas</a>:</strong> Pandas provides a huge set of tools for data analysis and manipulation. You can use it to perform descriptive analyses (e.g. summary statistics), but also to develop plots (e.g. bar charts or boxplots). Some specific extensions are available such as <strong><a class="reference external" href="https://geopandas.org/">GeoPandas</a></strong>, which is specifically developed to work with GIS data.</p></li>
+<li><p><strong><a class="reference external" href="https://matplotlib.org/">Matplotlib</a>:</strong> If you are specifically interested in visualization, including animated and interactive images, the Matplotlib library might the interesting to have a look at.</p></li>
+<li><p><strong><a class="reference external" href="https://github.com/keras-team/keras">Keras</a>:</strong> Keras is a well known library for machine learning. You can use this package if you want to work with neural networks.</p></li>
+<li><p><strong><a class="reference external" href="https://scrapy.org/">Scrapy</a>:</strong> If you are looking to collect data from the internet, you could consider Scrapy. This package allows you to “scrape” data from websites.</p></li>
+</ul>
+<div class="info">
+  <strong>Note: </strong>If you are using the Anaconda Python distribution (<a href="https://www.anaconda.com/distribution/">see here</a>), you will find some of these packages installed already.
+</div>
+<br></div>
 </div>
 
 
