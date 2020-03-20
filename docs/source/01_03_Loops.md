@@ -176,6 +176,12 @@ else:
 ## 3. While-loop
 In a While-loop, a certain script is performed as long as a particular boolean statement evaluates to True.
 
+In the example below, we introduce an indexing variable. Every time the script is executed (the value of ```i``` is printed), the index (```i```) is increased by 1. That is, we are counting how many times the script has been executed. 
+
+(Note that we can use ```i += x``` to specify a step increase of x units. Hence, ```i += x``` is a short way of writing ```i = i + 1```).
+
+The boolean statement ```i < 10``` ensures that when the script has been ran 10 times (so when our index is equal to 10: ```i = 10```), the script will no longer be executed again.
+
 *While this is true, do*
 
 ```python
@@ -184,6 +190,9 @@ while i < 10:
 	print(i)
 	i += 1 #i = i + 1
 ```
+
+<div class="exercise">What happens when you do not increment the index variable? That is, when we leave out the final line of the code (i += 1) in the example.
+</div>
 
 A while-loop can be interrupted or loops in a while-loop can be skipped using the ```break``` and ```continue``` statements.
 

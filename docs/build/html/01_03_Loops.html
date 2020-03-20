@@ -334,6 +334,9 @@
 <div class="section" id="while-loop">
 <h2>3. While-loop<a class="headerlink" href="#while-loop" title="Permalink to this headline">¶</a></h2>
 <p>In a While-loop, a certain script is performed as long as a particular boolean statement evaluates to True.</p>
+<p>In the example below, we introduce an indexing variable. Every time the script is executed (the value of <code class="docutils literal notranslate"><span class="pre">i</span></code> is printed), the index (<code class="docutils literal notranslate"><span class="pre">i</span></code>) is increased by 1. That is, we are counting how many times the script has been executed.</p>
+<p>(Note that we can use <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">+=</span> <span class="pre">x</span></code> to specify a step increase of x units. Hence, <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">+=</span> <span class="pre">x</span></code> is a short way of writing <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">=</span> <span class="pre">i</span> <span class="pre">+</span> <span class="pre">1</span></code>).</p>
+<p>The boolean statement <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">&lt;</span> <span class="pre">10</span></code> ensures that when the script has been ran 10 times (so when our index is equal to 10: <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">=</span> <span class="pre">10</span></code>), the script will no longer be executed again.</p>
 <p><em>While this is true, do</em></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
@@ -341,7 +344,8 @@
 	<span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1">#i = i + 1</span>
 </pre></div>
 </div>
-<p>A while-loop can be interrupted or loops in a while-loop can be skipped using the <code class="docutils literal notranslate"><span class="pre">break</span></code> and <code class="docutils literal notranslate"><span class="pre">continue</span></code> statements.</p>
+<div class="exercise">What happens when you do not increment the index variable? That is, when we leave out the final line of the code (i += 1) in the example.
+</div><p>A while-loop can be interrupted or loops in a while-loop can be skipped using the <code class="docutils literal notranslate"><span class="pre">break</span></code> and <code class="docutils literal notranslate"><span class="pre">continue</span></code> statements.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
 	<span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
