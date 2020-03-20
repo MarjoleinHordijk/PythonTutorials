@@ -160,7 +160,7 @@ else:
 ![](../../images/01_03/3.png)
 
 ****
-### Exercise 2: Writing a an IF Statement with Two Conditions
+### Exercise 3: Writing a an IF Statement with Two Conditions
 <div class="exercise"><strong>Recall the situation described in Exercise 1. Now imagine you also have an airconditioner. If the temperature is below 18, you still want the heater to turn on. Additionally, you want the airconditioner to activaten whenever the temperature is above 25 degrees. If the temperature is between 18 and 25 degrees, you want both systems to be turned off. Again, simulate what happens by printing it.</strong><br/><br/>
     <ol>
         <li>How many conditions will you need to specify?</li>
