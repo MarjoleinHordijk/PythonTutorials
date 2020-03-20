@@ -193,6 +193,7 @@ while i < 10:
 
 <div class="exercise">What happens when you do not increment the index variable? That is, when we leave out the final line of the code (i += 1) in the example.
 </div>
+<br/>
 
 A while-loop can be interrupted or loops in a while-loop can be skipped using the ```break``` and ```continue``` statements.
 
