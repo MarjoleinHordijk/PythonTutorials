@@ -86,31 +86,40 @@
 <li class="toctree-l2"><a class="reference internal" href="01_01_GetReady.html">Getting Ready (Installing Python &amp; Spyder)</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Basic Features of the Language</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#variables-and-datatypes">1. Variables and datatypes</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#numbers-integers-floats">Numbers (Integers &amp; Floats)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#text-strings">Text (Strings)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#boolean">Boolean</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#find-out-the-datatype-of-a-variable">Find out the datatype of a variable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numbers-integers-floats">1.1 Numbers (Integers &amp; Floats)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#text-strings">1.2 Text (Strings)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#boolean">1.3 Boolean</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#find-out-the-datatype-of-a-variable">1.4 Find out the datatype of a variable</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#exercise-1-data-types-and-printing">Exercise 1: Data Types and Printing</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#special-data-structures">2. Special Data Structures</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#lists">Lists</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#tuples">Tuples</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sets">Sets</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#dictionaries">Dictionaries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lists">2.1 Lists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tuples">2.2 Tuples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sets">2.3 Sets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dictionaries">2.4 Dictionaries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exercise-2-special-data-structures">Exercise 2: Special Data Structures</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#literal-constants">3. Literal Constants</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#comments">4. Comments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#operators">5. Operators</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#number-and-boolean-operators">Number and boolean operators</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#indexes">Indexes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#string-operators">String operators</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#list-operators">List operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#comments">4. Comments</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#exercise-3-comments">Exercise 3: Comments</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#functions">6. Functions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#indentation">7. Indentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#operators">5. Operators</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#number-and-boolean-operators">5.1 Number and boolean operators</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#indexes">5.2 Indexes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exercise-4-indexes-in-python">Exercise 4: Indexes in Python</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#string-operators">5.3 String operators</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exercise-5-operating-on-strings">Exercise 5: Operating on Strings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#list-operators">5.4 List operators</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exercise-6-operating-on-lists">Exercise 6: Operating on Lists</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#an-introduction-to-functions">6. An Introduction to Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#exercise-7-introduction-to-functions">Exercise 7: Introduction to Functions</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="01_03_Loops.html">Loops &amp; Conditional Statements</a></li>
@@ -209,7 +218,7 @@
 <div class="section" id="variables-and-datatypes">
 <h2>1. Variables and datatypes<a class="headerlink" href="#variables-and-datatypes" title="Permalink to this headline">¶</a></h2>
 <p>As the name implies, the values of variables can vary. They store a piece of information and allow you to refer to this by its identifier. The identifiers is nothing more than a name that you define to identify the piece of information that is stored by the respective variable. Although you are quite flexible in choosing these names, there are some rules that you should stick to so Python can interpret your code properly.</p>
-<p><strong>Rules for nameing identifiers:</strong></p>
+<p><strong>Rules for naming identifiers:</strong></p>
 <ul class="simple">
 <li><p>The first character of the variable name must always be a letter of the alphabet or an underscore (<code class="docutils literal notranslate"><span class="pre">_</span></code>).</p></li>
 <li><p>Python is case-sensitive. So keep that in mind when you are using lower (a) and upper (A) case letters.</p></li>
@@ -226,7 +235,7 @@
 </ul>
 <p>These datatypes are discussed in more detail below.</p>
 <div class="section" id="numbers-integers-floats">
-<h3>Numbers (Integers &amp; Floats)<a class="headerlink" href="#numbers-integers-floats" title="Permalink to this headline">¶</a></h3>
+<h3>1.1 Numbers (Integers &amp; Floats)<a class="headerlink" href="#numbers-integers-floats" title="Permalink to this headline">¶</a></h3>
 <p>Python makes a distinction between two types of numbers.</p>
 <ul class="simple">
 <li><p><strong>Integers</strong> are whole numbers such as <code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">23</span></code> and <code class="docutils literal notranslate"><span class="pre">2350525</span></code>.</p></li>
@@ -243,7 +252,7 @@
 </div>
 </div>
 <div class="section" id="text-strings">
-<h3>Text (Strings)<a class="headerlink" href="#text-strings" title="Permalink to this headline">¶</a></h3>
+<h3>1.2 Text (Strings)<a class="headerlink" href="#text-strings" title="Permalink to this headline">¶</a></h3>
 <p>A string is a sequence of characters. That is, they capture words, sentences, etc. However, they can also contain numbers. Keep in mind that if you define a number as a string, Pyton will interpret is as a piece of text (not a numerical value)!</p>
 <p>Strings are specified using single, double and triple quotes.</p>
 <ul class="simple">
@@ -280,7 +289,7 @@
 </ul>
 </div>
 <div class="section" id="boolean">
-<h3>Boolean<a class="headerlink" href="#boolean" title="Permalink to this headline">¶</a></h3>
+<h3>1.3 Boolean<a class="headerlink" href="#boolean" title="Permalink to this headline">¶</a></h3>
 <p>Booleans are special in the sense that they only take two values <em>True</em> and <em>False</em>. These are basically evaluations of some related statement. For example, if we provide 10&lt;20 as a statement, the booleans evaluation would be <em>True</em> (indeed, 10 is smaller than 20). We will use this datatype later when we write conditional statements.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># boolean</span>
 <span class="n">myBool</span> <span class="o">=</span> <span class="kc">True</span>
@@ -289,7 +298,7 @@
 </div>
 </div>
 <div class="section" id="find-out-the-datatype-of-a-variable">
-<h3>Find out the datatype of a variable<a class="headerlink" href="#find-out-the-datatype-of-a-variable" title="Permalink to this headline">¶</a></h3>
+<h3>1.4 Find out the datatype of a variable<a class="headerlink" href="#find-out-the-datatype-of-a-variable" title="Permalink to this headline">¶</a></h3>
 <p>To find out the datatype of a variable, use the <code class="docutils literal notranslate"><span class="pre">type()</span></code> function. When you put the variable name between the parentheses, this function will return the datatype of the variable.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">buildingName</span> <span class="o">=</span> <span class="s2">&quot;Vertigo&quot;</span>
 <span class="nb">type</span><span class="p">(</span><span class="n">buildingName</span><span class="p">)</span>
@@ -299,13 +308,12 @@
 <hr class="docutils" />
 <div class="section" id="exercise-1-data-types-and-printing">
 <h3>Exercise 1: Data Types and Printing<a class="headerlink" href="#exercise-1-data-types-and-printing" title="Permalink to this headline">¶</a></h3>
-<div class="exercise"><strong>Try it for yourself! If you add the piece of code below to a .py file in the Spyder editor and run it, you will be able to see the variables, their types and value appear in the Variable Explorer tab. You can now use these variables later in your script. .</strong><br/><br/>
-    <ol>
-        <li>Try running "print(myStr)" from the console to print the value of the "myStr" variable to the console window.</li>
-        <li>Also, run "type(numberStr)" to confirm that the value "4" is indeed a string and not an integer or float.</li>
-		<li>Find out the value of the variable "anotherBool" by printing it to the console using "print()". What does this value tell you?</li>
-        <li>Create a variable called "university" with the value "TU/e" and one called "myName" with your name as its value. Finally, add another variable called "sentence" and use the "format()" function to construct the following sentence: "My name is <here your name> and I study at <here your university>.". Now print this sentence to the console window using "print()".</li>
-	</ol> 
+<div class="exercise"><strong>Try it for yourself! If you add the piece of code below to a .py file in the Spyder editor and run it, you will be able to see the variables, their types and value appear in the Variable Explorer tab. You can now use these variables later in your script.</strong><br/><br/><ol class="simple">
+<li><p>Try running <code class="docutils literal notranslate"><span class="pre">print(myStr)</span></code> from the console to print the value of the <code class="docutils literal notranslate"><span class="pre">myStr</span></code> variable to the console window.</p></li>
+<li><p>Also, run <code class="docutils literal notranslate"><span class="pre">type(numberStr)</span></code> to confirm that the value <code class="docutils literal notranslate"><span class="pre">4</span></code> is indeed a string and not an integer or float.</p></li>
+<li><p>Find out the value of the variable <code class="docutils literal notranslate"><span class="pre">anotherBool</span></code> by printing it to the console using <code class="docutils literal notranslate"><span class="pre">print()</span></code>. What does this value tell you?</p></li>
+<li><p>Create a variable called <code class="docutils literal notranslate"><span class="pre">university</span></code> with the value <code class="docutils literal notranslate"><span class="pre">TU/e</span></code> and one called <code class="docutils literal notranslate"><span class="pre">myName</span></code> with your name as its value. Finally, add another variable called <code class="docutils literal notranslate"><span class="pre">sentence</span></code> and use the <code class="docutils literal notranslate"><span class="pre">format()</span></code> function to construct the following sentence: “My name is <here your name> and I study at <here your university>.”. Now print this sentence to the console window using <code class="docutils literal notranslate"><span class="pre">print()</span></code>.</p></li>
+</ol>
 </div>
 <br/><p>Are you having trouble using Spyder? Please refer back to section 3 of <a class="reference internal" href="01_01_GetReady.html"><span class="doc">this</span></a> tutorial.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Integers</span>
@@ -349,7 +357,7 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">set</span></code> - Set: A collection of items. <em>Not</em> ordered.</p></li>
 </ul>
 <div class="section" id="lists">
-<h3>Lists<a class="headerlink" href="#lists" title="Permalink to this headline">¶</a></h3>
+<h3>2.1 Lists<a class="headerlink" href="#lists" title="Permalink to this headline">¶</a></h3>
 <p>A list refers to a sequence of multiple items, which can be of different datatypes. Important to remember is that the order of these items is fixed and the content of the list is editable. You define a list using square brackets (<code class="docutils literal notranslate"><span class="pre">[]</span></code>) and seperate items using commas (<code class="docutils literal notranslate"><span class="pre">[item1,</span> <span class="pre">item2,</span> <span class="pre">etc]</span></code>)</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lists</span>
 <span class="n">myList</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mf">3.1415</span><span class="p">,</span> <span class="mi">5000</span><span class="p">]</span>
@@ -363,7 +371,7 @@
 </div>
 </div>
 <div class="section" id="tuples">
-<h3>Tuples<a class="headerlink" href="#tuples" title="Permalink to this headline">¶</a></h3>
+<h3>2.2 Tuples<a class="headerlink" href="#tuples" title="Permalink to this headline">¶</a></h3>
 <p>Tuples are very similar to lists. However, they allow for far less operations to be performed on them. They are not editable. Something which may seem impracticle at first, but this can sometimes actually be very useful. You can use them for sequences that should at all times remain intact. You define a tuple using round brackets (<code class="docutils literal notranslate"><span class="pre">()</span></code>).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tuples</span>
 <span class="n">myTuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mf">3.1415</span><span class="p">,</span> <span class="mi">5000</span><span class="p">)</span>
@@ -372,7 +380,7 @@
 </div>
 </div>
 <div class="section" id="sets">
-<h3>Sets<a class="headerlink" href="#sets" title="Permalink to this headline">¶</a></h3>
+<h3>2.3 Sets<a class="headerlink" href="#sets" title="Permalink to this headline">¶</a></h3>
 <p>Sets differ from lists or tuples, because they are not ordered. That is, they do not contain a sequence of items, but simply an unordered collection of them. A set is defined using <code class="docutils literal notranslate"><span class="pre">set([item1,</span> <span class="pre">item2,</span> <span class="pre">etc])</span></code>. As you might notice, this is a function!</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set</span>
 <span class="n">mySet</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="n">item1</span><span class="p">,</span> <span class="n">item2</span><span class="p">,</span> <span class="n">item3</span><span class="p">])</span>
@@ -380,7 +388,7 @@
 </div>
 </div>
 <div class="section" id="dictionaries">
-<h3>Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this headline">¶</a></h3>
+<h3>2.4 Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this headline">¶</a></h3>
 <p>Dictionaries in Python can be compared to physical dictionaries. If you want to know the meaning of a particular word, you start searching for the word (key) and at some point you will be able to find the corresponding meaning (value). The <em>values</em> in a dictionary variable are “bookmarked” using <em>keys</em>. Therefore we talk about key-value pairs. The combination of a word in the physical dictionary and its meaning would be a key-value pair. The values in a dicationary (as opposed to the keys!) can change over time.</p>
 <p>You define a dictionary <code class="docutils literal notranslate"><span class="pre">d</span></code> with two items as <code class="docutils literal notranslate"><span class="pre">d</span> <span class="pre">=</span> <span class="pre">{key1</span> <span class="pre">:</span> <span class="pre">value1,</span> <span class="pre">key2</span> <span class="pre">:</span> <span class="pre">value2</span> <span class="pre">}</span></code>. The key-value pairs are separated by commas, much like the items in a list. The key and values themselves are seperated by a colon. You could now use <code class="docutils literal notranslate"><span class="pre">key1</span></code> to look up <code class="docutils literal notranslate"><span class="pre">value1</span></code>.</p>
 <p>Take as an example this dictionary that stores the ages of a group of people.</p>
@@ -390,7 +398,22 @@
 </div>
 <p>How to work with these special data structures is discussed in a later section. That is, how can we retrieve or edit the data from these structures?</p>
 </div>
+<hr class="docutils" />
+<div class="section" id="exercise-2-special-data-structures">
+<h3>Exercise 2: Special Data Structures<a class="headerlink" href="#exercise-2-special-data-structures" title="Permalink to this headline">¶</a></h3>
+<div class="exercise"><strong>We will discuss how to actually use these special data structures in a later section on operations. However, it is important for now that you understand the differences and know how to define variables of these types.</strong><br/><br/>
+    <ol>
+        <li>Someone is keeping a record of the names of all students that took a Python course. New people get added whenever they complete the course, which can be at different moments in time. Which of the above datatypes are suitable to store this data? Why are the others not suitable?</li>
+		<li>Create a variable that stores a hypothetical list of students that took the python course.</li>
+		<li>You would like to store series of temperature measurements. The measurements are taken every minute. What datatype would you chose? Are there other options? In what situation would you have a specific preference? What are your considerations?</li>
+		<li>Create a variable that stores a series of ten time measurements.</li>
+		<li>Reflect on the variable you just created. Can Python tell which measurement was taken before another? (Is the order specified?)</li>
+		<li>Are you able to tell at what time each measurement was taken, without knowing when you started measuring? If not, can you respecify the variable so that this is actually possible?</li>
+	</ol> 
 </div>
+<br/></div>
+</div>
+<hr class="docutils" />
 <div class="section" id="literal-constants">
 <h2>3. Literal Constants<a class="headerlink" href="#literal-constants" title="Permalink to this headline">¶</a></h2>
 <p>In addition to variables, we can also use so called “Literal Constants”. Examples include numbers or pieces of text (strings). It is called a <strong>literal</strong> because it is literal - you use its value literally. That is, <code class="docutils literal notranslate"><span class="pre">4</span></code> is not a variable storing some value. It is the actual value four itself. Likewise, <code class="docutils literal notranslate"><span class="pre">&quot;This</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">string.&quot;</span></code> is a string, a piece of text, and not a variable that stores it. They are <strong>constant</strong> in the sense that the value does not change. For example, <code class="docutils literal notranslate"><span class="pre">4</span></code> will always have the value of four. It will never change its value to five, or a string for that matter.</p>
@@ -404,49 +427,57 @@ As you might have noticed, we actually already used comments in our previous exa
 <li><p><code class="docutils literal notranslate"><span class="pre">”””</span></code> comments multiple lines until ”””</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">#</span></code> comments out a single line</p></li>
 </ul>
+<hr class="docutils" />
+<div class="section" id="exercise-3-comments">
+<h3>Exercise 3: Comments<a class="headerlink" href="#exercise-3-comments" title="Permalink to this headline">¶</a></h3>
+<div class="exercise"><strong>Comments are very useful to help others understand your code. In Exercise 1, you developed a code for printing a sentence. Add comments to this code to make it as readable as possible to someone who is also a beginner in programmig.</strong>
 </div>
+<br/></div>
+</div>
+<hr class="docutils" />
 <div class="section" id="operators">
 <h2>5. Operators<a class="headerlink" href="#operators" title="Permalink to this headline">¶</a></h2>
-<p>Operators allow to perform operations on variables of particular data types. A number of operators are available. There are plenty of cheat sheets online that list the different available operators. If you don’t know what to use to do something, Google it first; or search for a solution in the cheat sheets.</p>
+<p>Operators allow to perform operations on variables of particular data types. Although this might sound a bit abstract, hopefully the examples below will clear things up for you.</p>
+<p>A number of operators are available. There are plenty of cheat sheets online that provide an overview of commonly used ones. An example of such an sheet is shown below.</p>
 <p><img alt="_images/2.jpg" src="_images/2.jpg" /></p>
 <div class="section" id="number-and-boolean-operators">
-<h3>Number and boolean operators<a class="headerlink" href="#number-and-boolean-operators" title="Permalink to this headline">¶</a></h3>
-<p>(X and y are examples of variables on which the operators are performed.)</p>
+<h3>5.1 Number and boolean operators<a class="headerlink" href="#number-and-boolean-operators" title="Permalink to this headline">¶</a></h3>
+<p>Operators that can be used on numbers and boolean variables are likely familiar to you. They are often used in math.</p>
+<div class="info"><p>X and y are examples of variables on which the operators are performed.</p>
+<p><strong>Arithmetic operators:</strong></p>
 <ul class="simple">
-<li><p>Arithmetic</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+</span> <span class="pre">y</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">-</span> <span class="pre">y</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">*</span> <span class="pre">y</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">/</span> <span class="pre">y</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">**</span> <span class="pre">y</span></code> (notation for x^y)</p></li>
+<li><p>x plus y: <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+</span> <span class="pre">y</span></code></p></li>
+<li><p>x less y: <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">-</span> <span class="pre">y</span></code></p></li>
+<li><p>product of x and y: <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">*</span> <span class="pre">y</span></code></p></li>
+<li><p>x over y: <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">/</span> <span class="pre">y</span></code></p></li>
+<li><p>x to the power of y: <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">**</span> <span class="pre">y</span></code></p></li>
 </ul>
-</li>
-<li><p>Assignment</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">y</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+=</span> <span class="pre">y</span></code> (same as x = x + y)</p></li>
+<p><strong>Assignment operators:</strong></p>
+<ul class="simple">
+<li><p>x equals y: <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">y</span></code> (assigning the value of y to x)</p></li>
+<li><p>x equals x + y: <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+=</span> <span class="pre">y</span></code> (adding y to the current value of x)</p></li>
 </ul>
-</li>
-<li><p>Comparison:</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">==</span> <span class="pre">y</span></code> (equal) =&gt; use <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">is</span> <span class="pre">y</span></code> when x or y is a <code class="docutils literal notranslate"><span class="pre">boolean</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">!=</span> <span class="pre">y</span></code> (not equal) =&gt; use <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">y</span></code> when x or y is a <code class="docutils literal notranslate"><span class="pre">boolean</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&gt;</span> <span class="pre">y</span></code> (greater than)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">y</span></code> (smaller than)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&gt;=</span> <span class="pre">y</span></code> (greater or equal than)</p></li>
+<p><strong>Comparison operators:</strong></p>
+<ul class="simple">
+<li><p>Is x equal to y?: <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">==</span> <span class="pre">y</span></code></p></li>
+<li><p>Is x equal to y? (When x &amp; y are boolean) <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">is</span> <span class="pre">y</span></code></p></li>
+<li><p>Is x not equal to y? (When x &amp; y are boolean) <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">y</span></code></p></li>
+<li><p>Is x greater than y?: <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&gt;</span> <span class="pre">y</span></code></p></li>
+<li><p>Is x smaller than y?: <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">y</span></code></p></li>
+<li><p>Is x greater or equal to y?: <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&gt;=</span> <span class="pre">y</span></code></p></li>
+<li><p>Is x smaller or equal to y?: <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;=</span> <span class="pre">y</span></code></p></li>
 </ul>
-</li>
-<li><p>Logical</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">and</span> <span class="pre">y</span></code> (True if both are True)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">or</span> <span class="pre">y</span></code> (True if one is True)</p></li>
-</ul>
-</li>
+<p><strong>Logical operators:</strong>
+(When x &amp; y are boolean)</p>
+<ul class="simple">
+<li><p>Are both x and y True?: <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">and</span> <span class="pre">y</span></code></p></li>
+<li><p>Is x or y True?: <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">or</span> <span class="pre">y</span></code></p></li>
 </ul>
 </div>
+<br/>
+<br/></div>
 <div class="section" id="indexes">
-<h3>Indexes<a class="headerlink" href="#indexes" title="Permalink to this headline">¶</a></h3>
+<h3>5.2 Indexes<a class="headerlink" href="#indexes" title="Permalink to this headline">¶</a></h3>
 <p>Indexes in Python refer to the order of elements. These elements can for example be characters within a string or items in a list.</p>
 <p>Two things are important to remember:</p>
 <ul class="simple">
@@ -454,15 +485,28 @@ As you might have noticed, we actually already used comments in our previous exa
 <li><p>When you define a range, the first value that you provide is included, but the last one is not.</p></li>
 </ul>
 <p>So if we take for example the variable <code class="docutils literal notranslate"><span class="pre">CityName</span> <span class="pre">=</span> <span class="pre">&quot;Eindhoven&quot;</span></code>, the index of the <code class="docutils literal notranslate"><span class="pre">E</span></code> in Eindhoven is 0 (because it is the first characters). The index of the final character <code class="docutils literal notranslate"><span class="pre">n</span></code> is 8 (not 9!).</p>
+<p><img alt="_images/27.png" src="_images/27.png" /></p>
 <p>We can define a range of indexes using square brackets <code class="docutils literal notranslate"><span class="pre">[FirstIndex:LastIndex]</span></code>. When we put this behind the name of a string variable, Python will return the section of the string defined by this range. Likewise, if we put this behind a list variable, we will get the specific items that the range covers.</p>
 <p>To illustrate, this <code class="docutils literal notranslate"><span class="pre">StringVariable[1:5]</span></code> excludes the first character of <code class="docutils literal notranslate"><span class="pre">StringVariable</span></code> (because 0 is not included in the range), but also the sixth one (which has index value 5!).
 Likewise, <code class="docutils literal notranslate"><span class="pre">ListVariable[0:3]</span></code> returns the first, second and third item from <code class="docutils literal notranslate"><span class="pre">ListVariable</span></code>, but not the fourth (although the index if the fourth item is 3!).</p>
-<p>More examples will folow below.</p>
+<p>More specific examples will folow in the next sections.</p>
 </div>
+<hr class="docutils" />
+<div class="section" id="exercise-4-indexes-in-python">
+<h3>Exercise 4: Indexes in Python<a class="headerlink" href="#exercise-4-indexes-in-python" title="Permalink to this headline">¶</a></h3>
+<div class="exercise"><strong>Indexes in Python can be somewhat counterintuitive at the beginning. Below are some exercises to practice with.</strong><br/><br/><ol class="simple">
+<li><p>Create a string variable that stores your name.</p></li>
+<li><p>What is the second character of your name?</p></li>
+<li><p>Now retrieve the second character based on the index and print it to the console window.</p></li>
+<li><p>Also, print the first two characters of your name to the console windows.</p></li>
+</ol>
+</div>
+<br/></div>
+<hr class="docutils" />
 <div class="section" id="string-operators">
-<h3>String operators<a class="headerlink" href="#string-operators" title="Permalink to this headline">¶</a></h3>
+<h3>5.3 String operators<a class="headerlink" href="#string-operators" title="Permalink to this headline">¶</a></h3>
 <p>A number of operators allow us to operate with strings.</p>
-<p>First of all, we can combine strings into one using <code class="docutils literal notranslate"><span class="pre">+</span></code>. This is also called “string concatenation”.</p>
+<p>First of all, we can combine strings into one using <code class="docutils literal notranslate"><span class="pre">+</span></code>. This is also called <em>string concatenation</em>.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">&quot;CME&quot;</span> <span class="pre">+</span> <span class="pre">&quot;</span> <span class="pre">Master!&quot;</span></code> =&gt; “CME Master!”</p></li>
 </ul>
@@ -479,8 +523,20 @@ Likewise, <code class="docutils literal notranslate"><span class="pre">ListVaria
 <li><p><code class="docutils literal notranslate"><span class="pre">len(CityName)</span></code> =&gt; ‘9’</p></li>
 </ul>
 </div>
+<hr class="docutils" />
+<div class="section" id="exercise-5-operating-on-strings">
+<h3>Exercise 5: Operating on Strings<a class="headerlink" href="#exercise-5-operating-on-strings" title="Permalink to this headline">¶</a></h3>
+<div class="exercise"><strong>The exercises below help you practice with the different string operators.</strong><br/><br/><ol class="simple">
+<li><p>Again, create a string variable that stores your name.</p></li>
+<li><p>Print the final two characters of your name to the console window.</p></li>
+<li><p>Determine the length of your name using <code class="docutils literal notranslate"><span class="pre">len()</span></code>.</p></li>
+<li><p>Create another string variable that stores your lastname. Use string concatenation (<code class="docutils literal notranslate"><span class="pre">+</span></code>) to create a new variable which containts both your first- and lastname. Print this variable to the console.</p></li>
+</ol>
+</div>
+<br/></div>
+<hr class="docutils" />
 <div class="section" id="list-operators">
-<h3>List operators<a class="headerlink" href="#list-operators" title="Permalink to this headline">¶</a></h3>
+<h3>5.4 List operators<a class="headerlink" href="#list-operators" title="Permalink to this headline">¶</a></h3>
 <p>Similar to strings, we can use the indexing to extract particular parts of a list. Note that is this case the indexes do not refer to characters, but to items in the list.</p>
 <p>Take for example these two lists:</p>
 <ul class="simple">
@@ -510,49 +566,45 @@ Likewise, <code class="docutils literal notranslate"><span class="pre">ListVaria
 <li><p><code class="docutils literal notranslate"><span class="pre">myList</span> <span class="pre">[::-1]</span></code> =&gt; [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]</p></li>
 </ul>
 </div>
+<hr class="docutils" />
+<div class="section" id="exercise-6-operating-on-lists">
+<h3>Exercise 6: Operating on Lists<a class="headerlink" href="#exercise-6-operating-on-lists" title="Permalink to this headline">¶</a></h3>
+<div class="exercise"><strong>The exercises below help you practice with the different list operators.</strong><br/><br/><ol class="simple">
+<li><p>Create three lists of the numbers 5, 6, 7, and 8. Do so using the different methods discussed above. Print the lists to the console to confirm that they are indeed the same.</p></li>
+<li><p>What is the quickst way of generating a list ranging from 0 upto and including 100 with steps of 5 in between. (So: 0, 5, 10, 15, … , 95, 100) Specify a the list and print it to the console window to confirm.</p></li>
+<li><p>Use indexing on the variable created in the previous question to print the values between 30 and 80 (excluding 30 and 80) which can be devided by 10. (So: 40, 50, 60, 70)</p></li>
+</ol>
 </div>
-<div class="section" id="functions">
-<h2>6. Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<br/></div>
+</div>
+<hr class="docutils" />
+<div class="section" id="an-introduction-to-functions">
+<h2>6. An Introduction to Functions<a class="headerlink" href="#an-introduction-to-functions" title="Permalink to this headline">¶</a></h2>
 <p>Throughout the previous section, we have already encountered a couple of functions such as <code class="docutils literal notranslate"><span class="pre">print()</span></code> and <code class="docutils literal notranslate"><span class="pre">format()</span></code>. A later section on <a class="reference internal" href="01_04_Functions.html"><span class="doc">functions</span></a> goes into detail about how functions work, how we can find and call them and even how we can develop our own. For now, it is important to be aware of a couple of things.</p>
 <ul class="simple">
 <li><p>You can call a function within a script or from a console (e.g. when we ran <code class="docutils literal notranslate"><span class="pre">print(myStr)</span></code> from the Spyder console).</p></li>
 <li><p>When you call a function, you usually have to provide one or several arguments. Arguments are specified after the function name, inside the parentheses. For example, in <code class="docutils literal notranslate"><span class="pre">print(myStr)</span></code>, <code class="docutils literal notranslate"><span class="pre">myStr</span></code> is the argument that we pass to the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function. You could see it as input that we provide the function with. (We want to <code class="docutils literal notranslate"><span class="pre">print()</span></code> the value of <code class="docutils literal notranslate"><span class="pre">myStr</span></code>.)</p></li>
 <li><p>If a function takes multiple arguments, you can seperate them by a comma. The arguments should be provided in the order in which the function will use them. We will use this later <a class="reference internal" href="01_04_Functions.html"><span class="doc">here</span></a>.</p></li>
 </ul>
-</div>
-<div class="section" id="indentation">
-<h2>7. Indentation<a class="headerlink" href="#indentation" title="Permalink to this headline">¶</a></h2>
-<p>Python uses identation to define blocks of code. An indent is nothing more than a piece of whitespace at the start of your line. This piece of whitespace can be a certain amount of spaces (e.g. 4) or tabs. However, you have to be consitent throughout your piece of code! Otherwise Python will not recognize the structure of your coding. Incorrect indentation will result in an <code class="docutils literal notranslate"><span class="pre">IndentationError</span></code>.</p>
-<p>The enforcement of indentation in Python makes the code look neat and clean.</p>
-<p>Consider the example of a simple if statement below.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="mi">2</span>
-<span class="n">b</span><span class="o">=</span><span class="mi">4</span>
-
-<span class="k">if</span> <span class="n">a</span><span class="o">&lt;</span><span class="n">b</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The value of b is larger than a.&quot;</span><span class="p">)</span>
-    <span class="n">difference</span> <span class="o">=</span> <span class="n">b</span><span class="o">-</span><span class="n">a</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The value of b is &quot;</span> <span class="o">+</span> <span class="n">difference</span> <span class="o">+</span> <span class="s2">&quot; units larger than a.&quot;</span><span class="p">)</span>
+<hr class="docutils" />
+<div class="section" id="exercise-7-introduction-to-functions">
+<h3>Exercise 7: Introduction to Functions<a class="headerlink" href="#exercise-7-introduction-to-functions" title="Permalink to this headline">¶</a></h3>
+<div class="exercise"><strong>To give you a heads start on the tutorial on functions, you can try the exercise below.</strong><br/><br/><ol class="simple">
+<li><p>Copy the following code to a script in Spyder.</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">myFunction</span><span class="p">(</span><span class="n">Name</span><span class="p">,</span> <span class="n">Age</span><span class="p">):</span>
+	<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;My name is &quot;</span> <span class="o">+</span> <span class="n">Name</span> <span class="o">+</span> <span class="s2">&quot; and I am &quot;</span> <span class="o">+</span> <span class="n">Age</span> <span class="o">+</span> <span class="s2">&quot; years old.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>As you can see, we indent by one level after the conditional statement (“if a&lt;b:”). In this example, tabs were used to indent.</p>
-<p>It is possible to write this same piece of code without indentation, however it will be far less readable.
-As you can see below, this is done by seperating the different actions to be executed by a semicolon (;).</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="mi">2</span>
-<span class="n">b</span><span class="o">=</span><span class="mi">4</span>
-
-<span class="k">if</span> <span class="n">a</span><span class="o">&lt;</span><span class="n">b</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The value of b is larger than a.&quot;</span><span class="p">);</span> <span class="n">difference</span> <span class="o">=</span> <span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="p">;</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The value of b is &quot;</span> <span class="o">+</span> <span class="n">difference</span> <span class="o">+</span> <span class="s2">&quot; units larger than a.&quot;</span><span class="p">)</span>
-</pre></div>
+<ol class="simple">
+<li><p>This code specifies a function called <code class="docutils literal notranslate"><span class="pre">myFunction</span></code> which prints a sentence. What are <code class="docutils literal notranslate"><span class="pre">Name</span></code> and <code class="docutils literal notranslate"><span class="pre">Age</span></code> for this function?</p></li>
+<li><p>If you look closely to the function definition, you will see that we add pieces of string and Name and Age together. What is it called when we add strings together?</p></li>
+<li><p>Specify two string variables; one which stores your name and another one storing your age. Please be aware that you cannot combine a string and number. To solve this, make sure that your age is stored as a string.</p></li>
+<li><p>In the console, run <code class="docutils literal notranslate"><span class="pre">myFunction(Name,</span> <span class="pre">Age)</span></code>. What happens? Why does this happen?</p></li>
+<li><p>Run the code. In the console, run <code class="docutils literal notranslate"><span class="pre">myFunction(Name,</span> <span class="pre">Age)</span></code> again. What happens now?</p></li>
+</ol>
 </div>
-<p>Using different indent types in one piece of code, as shown below, will lead to a <code class="docutils literal notranslate"><span class="pre">IndentationError</span></code>. Although the indents may seem to have the same lenght, the line that reads “<code class="docutils literal notranslate"><span class="pre">difference</span> <span class="pre">=</span> <span class="pre">b-a</span></code>” actually has four spaces as indent instead of a tab.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="mi">2</span>
-<span class="n">b</span><span class="o">=</span><span class="mi">4</span>
-
-<span class="k">if</span> <span class="n">a</span><span class="o">&lt;</span><span class="n">b</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The value of b is larger than a.&quot;</span><span class="p">)</span>
-    <span class="n">difference</span> <span class="o">=</span> <span class="n">b</span><span class="o">-</span><span class="n">a</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The value of b is &quot;</span> <span class="o">+</span> <span class="n">difference</span> <span class="o">+</span> <span class="s2">&quot; units larger than a.&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
+<br/></div>
 </div>
 </div>
 

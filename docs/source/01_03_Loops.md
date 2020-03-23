@@ -19,7 +19,7 @@
 
 Loops and conditional statements are very common elements of scripts. These structures allow us to specify what should happen when a particular condition is satisfied or not. 
 
-## 1. Writing conditional statements
+## 1. Formulating Conditional Statements
 
 Python supports many of the usual logical conditions from mathematics:
 
@@ -46,7 +46,7 @@ In these examples, a and b can take different values and they can be of differen
 
 ****
 
-## 2. If statement
+## 2. If-Statements
 If statement allow you to check whether a particular statement is true or not. Depending on the boolean evaluation (true versus false), a particular piece of code (or nothing) is executed. 
 
 The header line of the if statement begins with the keyword ```if``` followed by a boolean expression and ends with a colon (:). The indented statements that follow are called a block. This block contains the code that should be executed when the condition is satisfied. Each statement inside the block must have the same indentation. The first unindented statement marks the end of the block. 
@@ -55,6 +55,13 @@ The header line of the if statement begins with the keyword ```if``` followed by
 if <conditional statement>:
 	<code to be executed when conditional statement is TRUE>
 ```
+<div class="info">
+
+**Are you not sure what indentation is and why it is so important in Python?**
+Please check out the section on "Indentation" on the [help page](06_Help.md). You will find everything you need to know about indentation there!
+
+</div>
+<br/>
 
 If you would like to specify what happens when the conditional statement is not true, you can use a ```if else```. 
 
@@ -173,7 +180,7 @@ else:
 
 ****
 
-## 3. While-loop
+## 3. While-Loops
 In a While-loop, a certain script is performed as long as a particular boolean statement evaluates to True.
 
 In the example below, we introduce an indexing variable. Every time the script is executed (the value of ```i``` is printed), the index (```i```) is increased by 1. That is, we are counting how many times the script has been executed. 
@@ -182,7 +189,7 @@ In the example below, we introduce an indexing variable. Every time the script i
 
 The boolean statement ```i < 10``` ensures that when the script has been ran 10 times (so when our index is equal to 10: ```i = 10```), the script will no longer be executed again.
 
-*While this is true, do*
+*While this is true, do ...*
 
 ```python
 i = 1
@@ -190,10 +197,6 @@ while i < 10:
 	print(i)
 	i += 1 #i = i + 1
 ```
-
-<div class="exercise">What happens when you do not increment the index variable? That is, when we leave out the final line of the code (i += 1) in the example.
-</div>
-<br/>
 
 A while-loop can be interrupted or loops in a while-loop can be skipped using the ```break``` and ```continue``` statements.
 
@@ -213,8 +216,29 @@ while i < 10:
 	i += 1
 ```
 
-## 4. For-loop
-*For every element in this entire sequence, do*
+****
+
+### Exercise 4: Understanding While-Loops
+<div class="exercise">
+
+1. What happens when you do not increment the index variable? That is, when we leave out the final line of the code (i += 1) in the first example.
+2. Try to code a while-loop that prints each letter in your name seperately to the console window.
+3. Draw a diagram like those shown in the earlier section on IF-statements that describes your while-loop. 
+
+</div>
+<br/>
+
+****
+
+## 4. For-Loops
+
+A for loop iterates over a sequence of values and executes a particular piece of code for each of these items. As you might notice, it can actually often replace a while loop.
+
+Recall that lists, tuples, sets and dictionaries contain multiple items. For example ```["Volvo", "Ford", "Mercedes"]``` is a list of three string items, each of which represent the name of a car brand. We can use a for-loop to iterate over these items and print each of them or perform any other kind of operation.
+
+Likewise, we can also iterate over characters in a string. 
+
+*For every element in this entire sequence, do ...*
 
 ```python
 cars = ["Volvo", "Ford", "Mercedes"]
@@ -225,6 +249,17 @@ city = "Eindhoven"
 for letter in city
 	print(letter)
 ```
+
+### Exercise 5: Understanding For-Loops
+<div class="exercise">
+
+1. Reconsider the while-loop you developed in the previous exercise, which printed each character of your name. Would you prefer performing this action with a while-loop or a for-loop? Why? (Are there multiple reasons?)
+2. Develop a for-loop to print each character of your name.
+3. Create a list of the names of three of your friends. Use a for-loop to print a sentence saying "<Friend's name> is my friend." for each of your friends.
+
+</div>
+<br/>
+
 
 
 
