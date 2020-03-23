@@ -90,7 +90,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#text-strings">Text (Strings)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#boolean">Boolean</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#find-out-the-datatype-of-a-variable">Find out the datatype of a variable</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#exercise-1">Exercise 1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exercise-1-data-types-and-printing">Exercise 1: Data Types and Printing</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#special-data-structures">2. Special Data Structures</a><ul>
@@ -188,7 +188,22 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="language-features">
+  <html>
+<head>
+<style>
+.info {
+  background-color: #e6e6e6;
+  border-left: 6px solid #666666;
+  padding: 10px;
+}
+.exercise {
+  background-color: #e7f3fe;
+  border-left: 6px solid #2196F3;
+  padding: 10px;
+}
+</style>
+</head>
+<body><div class="section" id="language-features">
 <h1>Language Features<a class="headerlink" href="#language-features" title="Permalink to this headline">¶</a></h1>
 <p>This section discusses some of the fundamental features of the Python language. Before we continue with actual programming, it is important that you are aware of the different terminology that is used. Therefore, this overview is very useful to review before starting to work with operators and functions.</p>
 <div class="section" id="variables-and-datatypes">
@@ -281,15 +296,18 @@
 </pre></div>
 </div>
 </div>
-<div class="section" id="exercise-1">
-<h3>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this headline">¶</a></h3>
-<p>Try it for yourself! If you add the piece of code below to a .py file in the Spyder editor and run it, you will be able to see the variables, their types and value appear in the Variable Explorer tab.
-You can now use these variables later in your script. Are you having trouble using Spyder, refer back to section 3 of <a class="reference internal" href="01_01_GetReady.html"><span class="doc">this</span></a> tutorial.</p>
-<ul class="simple">
-<li><p>Try running <code class="docutils literal notranslate"><span class="pre">print(myStr)</span></code> from the console to print the value of the <code class="docutils literal notranslate"><span class="pre">myStr</span></code> variable to the console window.</p></li>
-<li><p>Also, run <code class="docutils literal notranslate"><span class="pre">type(numberStr)</span></code> to confirm that the value <code class="docutils literal notranslate"><span class="pre">'4'</span></code> is indeed a string and not an integer or float.</p></li>
-<li><p>Now create a variable called <code class="docutils literal notranslate"><span class="pre">university</span></code> with the value <code class="docutils literal notranslate"><span class="pre">TU/e</span></code> and one called <code class="docutils literal notranslate"><span class="pre">myName</span></code> with your name as its value. Finally, add another variable called <code class="docutils literal notranslate"><span class="pre">sentence</span></code> and use the <code class="docutils literal notranslate"><span class="pre">format()</span></code> function to construct the following sentence: “My name is <here your name> and I study at <here your university>.”. Now print this sentence to the console window using <code class="docutils literal notranslate"><span class="pre">print()</span></code>.</p></li>
-</ul>
+<hr class="docutils" />
+<div class="section" id="exercise-1-data-types-and-printing">
+<h3>Exercise 1: Data Types and Printing<a class="headerlink" href="#exercise-1-data-types-and-printing" title="Permalink to this headline">¶</a></h3>
+<div class="exercise"><strong>Try it for yourself! If you add the piece of code below to a .py file in the Spyder editor and run it, you will be able to see the variables, their types and value appear in the Variable Explorer tab. You can now use these variables later in your script. .</strong><br/><br/>
+    <ol>
+        <li>Try running "print(myStr)" from the console to print the value of the "myStr" variable to the console window.</li>
+        <li>Also, run "type(numberStr)" to confirm that the value "4" is indeed a string and not an integer or float.</li>
+		<li>Find out the value of the variable "anotherBool" by printing it to the console using "print()". What does this value tell you?</li>
+        <li>Create a variable called "university" with the value "TU/e" and one called "myName" with your name as its value. Finally, add another variable called "sentence" and use the "format()" function to construct the following sentence: "My name is <here your name> and I study at <here your university>.". Now print this sentence to the console window using "print()".</li>
+	</ol> 
+</div>
+<br/><p>Are you having trouble using Spyder? Please refer back to section 3 of <a class="reference internal" href="01_01_GetReady.html"><span class="doc">this</span></a> tutorial.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Integers</span>
 <span class="n">myInt</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">anotherInt</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2018</span>
@@ -319,6 +337,7 @@ You can now use these variables later in your script. Are you having trouble usi
 <p><img alt="_images/11.png" src="_images/11.png" /></p>
 </div>
 </div>
+<hr class="docutils" />
 <div class="section" id="special-data-structures">
 <h2>2. Special Data Structures<a class="headerlink" href="#special-data-structures" title="Permalink to this headline">¶</a></h2>
 <p>In addition to the datatypes discussed above, Python uses several special data structures that can hold multiple pieces of information. That is, they store a collection of data.</p>

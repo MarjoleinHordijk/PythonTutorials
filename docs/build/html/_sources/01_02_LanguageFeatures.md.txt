@@ -1,3 +1,20 @@
+<html>
+<head>
+<style>
+.info {
+  background-color: #e6e6e6;
+  border-left: 6px solid #666666;
+  padding: 10px;
+}
+.exercise {
+  background-color: #e7f3fe;
+  border-left: 6px solid #2196F3;
+  padding: 10px;
+}
+</style>
+</head>
+<body>
+
 # Language Features
 
 This section discusses some of the fundamental features of the Python language. Before we continue with actual programming, it is important that you are aware of the different terminology that is used. Therefore, this overview is very useful to review before starting to work with operators and functions. 
@@ -95,14 +112,20 @@ buildingName = "Vertigo"
 type(buildingName)
 ```
 
-### Exercise 1
+****
+### Exercise 1: Data Types and Printing
+<div class="exercise"><strong>Try it for yourself! If you add the piece of code below to a .py file in the Spyder editor and run it, you will be able to see the variables, their types and value appear in the Variable Explorer tab. You can now use these variables later in your script. .</strong><br/><br/>
+    <ol>
+        <li>Try running "print(myStr)" from the console to print the value of the "myStr" variable to the console window.</li>
+        <li>Also, run "type(numberStr)" to confirm that the value "4" is indeed a string and not an integer or float.</li>
+		<li>Find out the value of the variable "anotherBool" by printing it to the console using "print()". What does this value tell you?</li>
+        <li>Create a variable called "university" with the value "TU/e" and one called "myName" with your name as its value. Finally, add another variable called "sentence" and use the "format()" function to construct the following sentence: "My name is <here your name> and I study at <here your university>.". Now print this sentence to the console window using "print()".</li>
+	</ol> 
+</div>
+<br/>
 
-Try it for yourself! If you add the piece of code below to a .py file in the Spyder editor and run it, you will be able to see the variables, their types and value appear in the Variable Explorer tab.
-You can now use these variables later in your script. Are you having trouble using Spyder, refer back to section 3 of [this](01_01_GetReady.md) tutorial.
 
-- Try running ```print(myStr)``` from the console to print the value of the ```myStr``` variable to the console window.
-- Also, run ```type(numberStr)``` to confirm that the value ```'4'``` is indeed a string and not an integer or float.
-- Now create a variable called ```university``` with the value ```TU/e``` and one called ```myName``` with your name as its value. Finally, add another variable called ```sentence``` and use the ```format()``` function to construct the following sentence: "My name is <here your name> and I study at <here your university>.". Now print this sentence to the console window using ```print()```.
+Are you having trouble using Spyder? Please refer back to section 3 of [this](01_01_GetReady.md) tutorial.
 
 ```python
 # Integers
@@ -132,6 +155,8 @@ anotherBool = 10 < 20
 ```
 
 ![](../../images/01_02/1.png)
+
+****
 
 ## 2. Special Data Structures
 
