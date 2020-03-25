@@ -21,10 +21,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -280,7 +280,7 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="mi">25</span>
 <span class="n">name</span> <span class="o">=</span> <span class="n">Marjolein</span>
 
-<span class="n">Str</span> <span class="o">=</span> <span class="s2">&quot;My name is </span><span class="si">{0}</span><span class="s2"> and I am </span><span class="si">{1}</span><span class="s2"> years old.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">age</span><span class="p">)</span>
+<span class="n">Str</span> <span class="o">=</span> <span class="s2">&quot;My name is {0} and I am {1} years old.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">age</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>If you print this string to your console (using <code class="docutils literal notranslate"><span class="pre">print(Str)</span></code>), you will get the following output.</p>
@@ -292,7 +292,7 @@
 <h3>1.3 Boolean<a class="headerlink" href="#boolean" title="Permalink to this headline">¶</a></h3>
 <p>Booleans are special in the sense that they only take two values <em>True</em> and <em>False</em>. These are basically evaluations of some related statement. For example, if we provide 10&lt;20 as a statement, the booleans evaluation would be <em>True</em> (indeed, 10 is smaller than 20). We will use this datatype later when we write conditional statements.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># boolean</span>
-<span class="n">myBool</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">myBool</span> <span class="o">=</span> <span class="bp">True</span>
 <span class="n">anotherBool</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">&lt;</span> <span class="mi">20</span>
 </pre></div>
 </div>
@@ -338,7 +338,7 @@
 <span class="sd">&#39;&#39;&#39;</span>
 
 <span class="c1"># boolean</span>
-<span class="n">myBool</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">myBool</span> <span class="o">=</span> <span class="bp">True</span>
 <span class="n">anotherBool</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">&lt;</span> <span class="mi">20</span>
 </pre></div>
 </div>
@@ -485,7 +485,7 @@ As you might have noticed, we actually already used comments in our previous exa
 <li><p>When you define a range, the first value that you provide is included, but the last one is not.</p></li>
 </ul>
 <p>So if we take for example the variable <code class="docutils literal notranslate"><span class="pre">CityName</span> <span class="pre">=</span> <span class="pre">&quot;Eindhoven&quot;</span></code>, the index of the <code class="docutils literal notranslate"><span class="pre">E</span></code> in Eindhoven is 0 (because it is the first characters). The index of the final character <code class="docutils literal notranslate"><span class="pre">n</span></code> is 8 (not 9!).</p>
-<p><img alt="_images/27.png" src="_images/27.png" /></p>
+<p><img alt="_images/21.png" src="_images/21.png" /></p>
 <p>We can define a range of indexes using square brackets <code class="docutils literal notranslate"><span class="pre">[FirstIndex:LastIndex]</span></code>. When we put this behind the name of a string variable, Python will return the section of the string defined by this range. Likewise, if we put this behind a list variable, we will get the specific items that the range covers.</p>
 <p>To illustrate, this <code class="docutils literal notranslate"><span class="pre">StringVariable[1:5]</span></code> excludes the first character of <code class="docutils literal notranslate"><span class="pre">StringVariable</span></code> (because 0 is not included in the range), but also the sixth one (which has index value 5!).
 Likewise, <code class="docutils literal notranslate"><span class="pre">ListVariable[0:3]</span></code> returns the first, second and third item from <code class="docutils literal notranslate"><span class="pre">ListVariable</span></code>, but not the fourth (although the index if the fourth item is 3!).</p>
@@ -593,7 +593,7 @@ Likewise, <code class="docutils literal notranslate"><span class="pre">ListVaria
 <li><p>Copy the following code to a script in Spyder.</p></li>
 </ol>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">myFunction</span><span class="p">(</span><span class="n">Name</span><span class="p">,</span> <span class="n">Age</span><span class="p">):</span>
-	<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;My name is &quot;</span> <span class="o">+</span> <span class="n">Name</span> <span class="o">+</span> <span class="s2">&quot; and I am &quot;</span> <span class="o">+</span> <span class="n">Age</span> <span class="o">+</span> <span class="s2">&quot; years old.&quot;</span><span class="p">)</span>
+	<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;My name is &quot;</span> <span class="o">+</span> <span class="n">Name</span> <span class="o">+</span> <span class="s2">&quot; and I am &quot;</span> <span class="o">+</span> <span class="n">Age</span> <span class="o">+</span> <span class="s2">&quot; years old.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <ol class="simple">

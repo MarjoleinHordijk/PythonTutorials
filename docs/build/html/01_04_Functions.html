@@ -21,10 +21,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -88,17 +88,17 @@
 <li class="toctree-l2"><a class="reference internal" href="01_03_Loops.html">Loops &amp; Conditional Statements</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#what-is-a-function">1. What is a function?</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#arguments">Arguments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#arguments">1.1 Arguments</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#standard-python-functions">2. Standard Python Functions</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#functions-for-dataype-conversions">Functions for dataype conversions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#functions-for-dataype-conversions">2.1 Functions for dataype conversions</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#writing-your-own-functions">3. Writing your Own Functions</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#a-simple-function">A Simple Function</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#a-function-with-mutiple-arguments">A Function with Mutiple Arguments</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#asking-for-input">Asking for Input</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#functions-with-one-argument">3.1 Functions with One Argument</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#functions-with-mutiple-arguments">3.1 Functions with Mutiple Arguments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asking-for-input">3.3 Asking for Input</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#functions-from-packages-modules">4. Functions from Packages / Modules</a></li>
@@ -177,35 +177,76 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="functions">
+  <html>
+<head>
+<style>
+.info {
+  background-color: #e6e6e6;
+  border-left: 6px solid #666666;
+  padding: 10px;
+}
+.exercise {
+  background-color: #e7f3fe;
+  border-left: 6px solid #2196F3;
+  padding: 10px;
+}
+</style>
+</head>
+<body><div class="section" id="functions">
 <h1>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="what-is-a-function">
 <h2>1. What is a function?<a class="headerlink" href="#what-is-a-function" title="Permalink to this headline">¶</a></h2>
-<p>Function can perform a particular operation, usually on one or several input variables. It is a block of code which is performed when the function is called. A function can return output data as a result, which you will then see appear in the console.</p>
-<p>We can write a function ourselfs or use a standard function from Python. We can also call functions from packages / modules from third parties if we have those installed.</p>
+<p>Function can perform a particular operation, usually on one or several input variables. It is a block of code which is performed when the function is called. A function can return output data as a result, which you will then see appear in the console. When we chain a sequence of functions, the output of one function can become the input for another.</p>
+<p>For now, we will focus on writing our own functions and using those that are shipped with Python. We can also call functions from packages / modules from third parties if we have those installed. In “Beyond the Basics” you will discuss the latter in greater detail.</p>
 <div class="section" id="arguments">
-<h3>Arguments<a class="headerlink" href="#arguments" title="Permalink to this headline">¶</a></h3>
-<p>Information can be passed into functions as arguments. Arguments are specified after the function name, inside the parentheses.</p>
+<h3>1.1 Arguments<a class="headerlink" href="#arguments" title="Permalink to this headline">¶</a></h3>
+<p>Information can be passed to functions through arguments. They can include input data that must be processed or parameters that specify how the function should be applied. To illustrate, a parameter could be used to indicate what the datatype of the output should be or wheter or not to perform a specific operation that is included in the function. You will get more familiar with this when you gain more experience in coding.</p>
+<p>Arguments are specified after the function name, inside the parentheses.</p>
 <p>For example, you can pass a string (a piece of text) as argument to the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function as such: <code class="docutils literal notranslate"><span class="pre">print(&quot;some</span> <span class="pre">text&quot;)</span></code>.</p>
+<hr class="docutils" />
+<div class="section" id="exercise-1-what-are-arguments">
+<h4>Exercise 1: What are arguments?<a class="headerlink" href="#exercise-1-what-are-arguments" title="Permalink to this headline">¶</a></h4>
+<div class="exercise"><strong>We have used arguments before in earlier segments, although you might not have been completely aware of it. Below are some exercises regarding functions that we have already used. These will help you to gain a better understanding of what arguments are.</strong><br/><br/><ol class="simple">
+<li><p>Specify four variables storing:</p>
+<ul class="simple">
+<li><p>A sentence</p></li>
+<li><p>A number</p></li>
+<li><p>A word</p></li>
+<li><p>A boolean</p></li>
+</ul>
+</li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">type()</span></code> to check the datatypes of the variables you just created.</p></li>
+<li><p>What were the arguments that you passed to the <code class="docutils literal notranslate"><span class="pre">type()</span></code>?</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">len()</span></code> to determine the amount of characters in your sentence.</p></li>
+<li><p>Of what datatypes can the arguments that you pass to <code class="docutils literal notranslate"><span class="pre">len()</span></code> be?</p></li>
+<li><p>Create one argument to pass to <code class="docutils literal notranslate"><span class="pre">print()</span></code> that contains both the word and the number seperated by a space character. Test if your solution works. (Hint: use <code class="docutils literal notranslate"><span class="pre">str()</span></code>!)</p></li>
+</ol>
+</div>
+<br/></div>
 </div>
 </div>
+<hr class="docutils" />
 <div class="section" id="standard-python-functions">
 <h2>2. Standard Python Functions<a class="headerlink" href="#standard-python-functions" title="Permalink to this headline">¶</a></h2>
-<p>If you followed the preceding tutorials, you have already encountered several standard functions.</p>
-<p>For example, <code class="docutils literal notranslate"><span class="pre">print()</span></code> can be used to print anything to the console output.</p>
-<p>You can find an overview of other standard functions <a class="reference external" href="https://docs.python.org/3/library/functions.html#open">Here</a>.</p>
+<p>If you followed the preceding tutorials, you have already encountered several standard functions. For example, <code class="docutils literal notranslate"><span class="pre">print()</span></code> can be used to print something to the console output. Also, we used <code class="docutils literal notranslate"><span class="pre">str()</span></code> to convert numbers into strings.</p>
+<p>You can find an overview of other standard functions <a class="reference external" href="https://docs.python.org/3/library/functions.html">Here</a>.</p>
 <p><img alt="_images/13.png" src="_images/13.png" /></p>
 <div class="section" id="functions-for-dataype-conversions">
-<h3>Functions for dataype conversions<a class="headerlink" href="#functions-for-dataype-conversions" title="Permalink to this headline">¶</a></h3>
-<p>Python supports various datatypes, such as text (string) or numbers (integers, floats). However, in some cases you are able to capture a particular piece of information with different datatypes. For example, you can store your age in full years as an integer or float, but also as a small piece of text (string). In some cases, a particular datatype migth be more readily application than another. If the input data is not of this particular type, you can use the functions below to convert the data into the most suitable one.</p>
+<h3>2.1 Functions for dataype conversions<a class="headerlink" href="#functions-for-dataype-conversions" title="Permalink to this headline">¶</a></h3>
+<p>Python supports various datatypes, such as text (string) or numbers (integers, floats). However, in some cases you are able to capture a particular piece of information with multiple datatypes. For example, you can store your age in full years as an integer or float, but also as a small piece of text (string).</p>
+<p>In some cases, a particular datatype might be more applicable or straightforward than another. It could also be that a function requires the input to be of a specific datatype. If the data you have does not correspond to the desired datatype, you can convert it using some build-in functions of Python.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">str()</span></code>: Converts the data provided as argumenten into a string (text).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">int()</span></code>: Converts the data provided as argumenten into an integer (whole number).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">float()</span></code>: Converts the data provided as argumenten into a real number (decimal number).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list()</span></code>: Converts the data provided as argumenten into a list.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dict()</span></code>: Converts the data provided as argumenten into a dictionary.</p></li>
 </ul>
-<p>Try it out for yourself following the steps below!</p>
-<ul class="simple">
-<li><p>Add the following piece of code to a .py file in the editor panel.</p></li>
+<hr class="docutils" />
+<div class="section" id="exercise-2-conversions">
+<h4>Exercise 2: Conversions<a class="headerlink" href="#exercise-2-conversions" title="Permalink to this headline">¶</a></h4>
+<div class="exercise"><strong>Try it out for yourself by following the steps below!</strong><br/><br/><ul class="simple">
+<li><p>Add the following piece of code to a .py file in the editor panel of Spyder.</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">myString</span><span class="o">=</span><span class="s2">&quot;25&quot;</span>
 <span class="n">myInteger</span><span class="o">=</span><span class="mi">25</span>
@@ -213,20 +254,20 @@
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>Run the code by pressing the small play button.</p></li>
+<li><p>Run the code (by pressing the small play button).</p></li>
 <li><p>Try running the following commands. You will see that not all of them work. This happens because the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function can only take strings as an argument when you provide them in this manner.</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;I am &quot;</span> <span class="o">+</span> <span class="n">myString</span> <span class="o">+</span> <span class="s2">&quot; years old.&quot;</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;I am &quot;</span> <span class="o">+</span> <span class="n">myInteger</span> <span class="o">+</span> <span class="s2">&quot; years old.&quot;</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;I am &quot;</span> <span class="o">+</span> <span class="n">myFloat</span> <span class="o">+</span> <span class="s2">&quot; years old.&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span> <span class="p">(</span><span class="s2">&quot;I am &quot;</span> <span class="o">+</span> <span class="n">myString</span> <span class="o">+</span> <span class="s2">&quot; years old.&quot;</span><span class="p">)</span>
+<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;I am &quot;</span> <span class="o">+</span> <span class="n">myInteger</span> <span class="o">+</span> <span class="s2">&quot; years old.&quot;</span><span class="p">)</span>
+<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;I am &quot;</span> <span class="o">+</span> <span class="n">myFloat</span> <span class="o">+</span> <span class="s2">&quot; years old.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><img alt="_images/51.png" src="_images/51.png" /></p>
 <ul class="simple">
-<li><p>To solve this, we can conver the integer and float data to string data as follows.</p></li>
+<li><p>To solve this issue, we can conver the integer and float data to string data as follows. Try if this indeed works.</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;I am &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">myInteger</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; years old.&quot;</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;I am &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">myFloat</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; years old.&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span> <span class="p">(</span><span class="s2">&quot;I am &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">myInteger</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; years old.&quot;</span><span class="p">)</span>
+<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;I am &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">myFloat</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; years old.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><img alt="_images/61.png" src="_images/61.png" /></p>
@@ -238,20 +279,28 @@
 </div>
 <p><img alt="_images/71.png" src="_images/71.png" /></p>
 </div>
+<br/></div>
 </div>
+</div>
+<hr class="docutils" />
 <div class="section" id="writing-your-own-functions">
 <h2>3. Writing your Own Functions<a class="headerlink" href="#writing-your-own-functions" title="Permalink to this headline">¶</a></h2>
 <p>You can define your own function aswell. In this case the function will be a piece of code that you write yourself.</p>
+<div class="section" id="functions-with-one-argument">
+<h3>3.1 Functions with One Argument<a class="headerlink" href="#functions-with-one-argument" title="Permalink to this headline">¶</a></h3>
 <p>To define a function, you will need to use the <code class="docutils literal notranslate"><span class="pre">def</span></code> keyword, followed by the name of the function, parenthesis and a colon.
 Next will need to indent one level to start writing your function. You can indent using several spaces or tab. However, make sure that you always use the same indentation method throughout your script. If you this up, Python will not be able to recognize when you indent.</p>
-<div class="section" id="a-simple-function">
-<h3>A Simple Function<a class="headerlink" href="#a-simple-function" title="Permalink to this headline">¶</a></h3>
-<p>To illustrate, you can define a function that will print a piece of text. In the example below the function will print “My name is “ followed by the name that is provided when the function is called. The provided name is in this case an argument.</p>
-<ul class="simple">
-<li><p>Add the following piece of code to a .py file in the editor panel.</p></li>
+<div class="info"><p>Are you not sure what <strong>indentation</strong> is and why it is so important in Python?
+Please check out the section on “Indentation” on the <a class="reference internal" href="06_Help.html"><span class="doc">help page</span></a>. You will find everything you need to know about indentation there!</p>
+</div>
+<br/><hr class="docutils" />
+<div class="section" id="exercise-3-writing-a-function-with-one-argument">
+<h4>Exercise 3: Writing a Function with One Argument<a class="headerlink" href="#exercise-3-writing-a-function-with-one-argument" title="Permalink to this headline">¶</a></h4>
+<div class="exercise"><strong>To illustrate, we will define a function that will print a piece of text. In the example below the function will print "My name is " followed by the name that is provided when the function is called. The provided name is in this case an argument.</strong><br/><br/><ul class="simple">
+<li><p>Add the following piece of code to a .py file in the editor panel in Spyder.</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">myFunction</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;My name is &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;My name is &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -264,18 +313,22 @@ Next will need to indent one level to start writing your function. You can inden
 <ul class="simple">
 <li><p>You will see the output in the console window.</p></li>
 </ul>
-<p>Output: My name is Marjolein.</p>
-<p><img alt="_images/22.png" src="_images/22.png" /></p>
+<p><img alt="_images/23.png" src="_images/23.png" /></p>
 </div>
-<div class="section" id="a-function-with-mutiple-arguments">
-<h3>A Function with Mutiple Arguments<a class="headerlink" href="#a-function-with-mutiple-arguments" title="Permalink to this headline">¶</a></h3>
+<br/></div>
+</div>
+<hr class="docutils" />
+<div class="section" id="functions-with-mutiple-arguments">
+<h3>3.1 Functions with Mutiple Arguments<a class="headerlink" href="#functions-with-mutiple-arguments" title="Permalink to this headline">¶</a></h3>
 <p>You can also create a function that takes multiple arguments by seperating them with a comma when you define the function.</p>
-<ul class="simple">
-<li><p>Add the following piece of code to a .py file in the editor panel.</p></li>
+<hr class="docutils" />
+<div class="section" id="exercise-4-writing-a-function-with-multiple-arguments">
+<h4>Exercise 4: Writing a Function with Multiple Arguments<a class="headerlink" href="#exercise-4-writing-a-function-with-multiple-arguments" title="Permalink to this headline">¶</a></h4>
+<div class="exercise"><strong>As an illustration, we will extent the function we developed in the previous exercise. We will not only inclde a name in the sentence we want to print, but also the age.</strong><br/><br/><ul class="simple">
+<li><p>Add the following piece of code to a .py file in the editor panel. We use <code class="docutils literal notranslate"><span class="pre">str()</span></code> here to change the integer argument (your age) to a string so it can be printed as text.</p></li>
 </ul>
-<p>We use <code class="docutils literal notranslate"><span class="pre">str()</span></code> here to change the integer argument (your age) to a string so it can be printed as text.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">myFunction</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;My name is &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot; and I am &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">age</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; years old.&quot;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;My name is &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot; and I am &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">age</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; years old.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -289,16 +342,27 @@ Next will need to indent one level to start writing your function. You can inden
 <li><p>You will see the output in the console window.</p></li>
 </ul>
 <p><img alt="_images/32.png" src="_images/32.png" /></p>
-</div>
-<div class="section" id="asking-for-input">
-<h3>Asking for Input<a class="headerlink" href="#asking-for-input" title="Permalink to this headline">¶</a></h3>
-<p>You can use the <code class="docutils literal notranslate"><span class="pre">input()</span></code> function to ask the user of your code for input. For example you can ask for someone’s name and use this input to print a sentence.</p>
 <ul class="simple">
+<li><p>Specify four variables (<code class="docutils literal notranslate"><span class="pre">var1</span></code> - <code class="docutils literal notranslate"><span class="pre">var4</span></code>) of diffferent datatypes at the start of a new script.</p></li>
+<li><p>Define a function that prints four sentences, each of which describes the datatype of each of the four variables.</p></li>
+<li><p>Test if the function works properly.</p></li>
+</ul>
+</div>
+<br/></div>
+</div>
+<hr class="docutils" />
+<div class="section" id="asking-for-input">
+<h3>3.3 Asking for Input<a class="headerlink" href="#asking-for-input" title="Permalink to this headline">¶</a></h3>
+<p>You can use the <code class="docutils literal notranslate"><span class="pre">input()</span></code> function to ask the user of your code for input. For example you can ask for someone’s name and use this input to print a sentence.</p>
+<hr class="docutils" />
+<div class="section" id="exercise-5-writing-a-function-that-asks-for-input">
+<h4>Exercise 5: Writing a Function that Asks for Input<a class="headerlink" href="#exercise-5-writing-a-function-that-asks-for-input" title="Permalink to this headline">¶</a></h4>
+<div class="exercise"><strong>We will again go back to our earlier function, which prints a sentence containing a name and age.</strong><br/><br/><ul class="simple">
 <li><p>Add the following piece of code to a .py file in the editor panel.</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;What is your name?&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;What is your name?&quot;</span><span class="p">)</span>
 <span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Welcome to the course, &quot;</span> <span class="o">+</span> <span class="n">name</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Welcome to the course, &quot;</span> <span class="o">+</span> <span class="n">name</span><span class="p">)</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -307,13 +371,20 @@ Next will need to indent one level to start writing your function. You can inden
 <li><p>You should see the sentence appear with your name filled in.</p></li>
 </ul>
 <p><img alt="_images/41.png" src="_images/41.png" /></p>
+<ul class="simple">
+<li><p>Now, use this code to develop a function and call the function from the console.</p></li>
+<li><p>Does the function you developed in the previous step take any arguments?</p></li>
+<li><p>Extent the function so that it also asked for the person’s age and it prints a sentence which contains the inputted age. That is, formulate a function which asked for two inputs.</p></li>
+</ul>
+</div>
+<br/></div>
 </div>
 </div>
+<hr class="docutils" />
 <div class="section" id="functions-from-packages-modules">
 <h2>4. Functions from Packages / Modules<a class="headerlink" href="#functions-from-packages-modules" title="Permalink to this headline">¶</a></h2>
 <p>As said before, you can also access functions developed by others from packages or modules. These can be downloaded and usually contain a large set of functions related to a particular goal. For example, NumPy is a package that containts function to perform scientific computations. You can install this package to use the functions that it offers.</p>
-<p>Installing and using packages or modules is out of the scope of this introductory tutorial.
-However you will find more information on this in other tutorials available on the repository!</p>
+<p>Installing and using packages or modules is out of the scope of this introduction. Do you want to learn how to install packages or modules? Please refer to <a class="reference internal" href="02_01_Modules&amp;Packages.html"><span class="doc">this</span></a> tutorial.</p>
 </div>
 </div>
 

@@ -57,7 +57,7 @@ if <conditional statement>:
 ```
 <div class="info">
 
-**Are you not sure what indentation is and why it is so important in Python?**
+Are you not sure what **indentation** is and why it is so important in Python?
 Please check out the section on "Indentation" on the [help page](06_Help.md). You will find everything you need to know about indentation there!
 
 </div>

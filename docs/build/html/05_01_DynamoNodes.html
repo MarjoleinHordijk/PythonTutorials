@@ -21,10 +21,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -178,7 +178,7 @@
 <h2>1. Visual Programming in Dynamo<a class="headerlink" href="#visual-programming-in-dynamo" title="Permalink to this headline">¶</a></h2>
 <p>Dynamo is an application that allows you to program in a highly visual and intuitive manner. It can either be used on its own (“Sandbox” mode) or in combination with other software (e.g. Revit). Using Dynamo, you can compose a visual programming process from a sequence of nodes. In this way, you can easily develop custom algorithms to process data.</p>
 <p>Would you like to learn more about working with Dynamo in various contexts, or you need help to get started? Please refer to <a class="reference external" href="https://primer.dynamobim.org/01_Introduction/1_introduction.html">this</a> primer, which provides you with a great overview of how you could use Dynamo.</p>
-<p><img alt="_images/16.png" src="_images/16.png" /></p>
+<p><img alt="_images/17.png" src="_images/17.png" /></p>
 <p><span style="text-decoration:underline;">What we will discuss in this tutorial:</span></p>
 <p>In this tutorial we will focus on developing <strong><em>custom nodes</em></strong> in Dynamo using Python. This increases our flexibility and efficiency to create a custom algorithm that does exactly what we would like it to do.</p>
 <p>The current tutorial is based on section 10 of the aforementioned primer and summarizes other relevant parts where applicable. Hence, it is developed to be a concise stand-alone tutorial that focuses on the usage of Python in Dynamo. However, we will also cover some basic concepts of Dynamo for novices.</p>
@@ -191,7 +191,7 @@
 <p><strong>Anatomy of a Node</strong></p>
 <p>(Summarized from <a class="reference external" href="https://primer.dynamobim.org/03_Anatomy-of-a-Dynamo-Definition/3-1_dynamo_nodes.html">here</a>.)</p>
 <p>Most Nodes in Dynamo are composed of five parts. While there are exceptions, such as Input Nodes, the anatomy of each Node can be described as follows:</p>
-<p><img alt="_images/25.png" src="_images/25.png" /></p>
+<p><img alt="_images/26.png" src="_images/26.png" /></p>
 <table>
   <tr>
    <td><strong><em>1. Name </em></strong>
@@ -238,7 +238,7 @@
 <p><img alt="_images/44.png" src="_images/44.png" /></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">clr</span>
 <span class="n">clr</span><span class="o">.</span><span class="n">AddReference</span><span class="p">(</span><span class="s1">&#39;ProtoGeometry&#39;</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">Autodesk.DesignScript.Geometry</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">Autodesk.DesignScript.Geometry</span> <span class="k">import</span> <span class="o">*</span>
 
 <span class="n">solid</span> <span class="o">=</span> <span class="n">IN</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">seed</span> <span class="o">=</span> <span class="n">IN</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -310,7 +310,7 @@
 <p><img alt="_images/161.png" src="_images/161.png" /></p>
 <p>Next, we will need to connect the surfaces that we created by adding sides. To do so, we will first create a list of the bottom rectangle and the top polygon that we created. This can be done using <strong>List.Create</strong>. We can then use <strong>Surface.ByLoft</strong> to create the sides.</p>
 <p>However, to create one solid object, we will need to connect these four sides to the top and bottom of our geometry. This is done by first creating a list of the top and bottom surface using <strong>List.Create</strong> and then using <strong>Surface.ByLoft</strong>.</p>
-<p><img alt="_images/17.png" src="_images/17.png" /></p>
+<p><img alt="_images/171.png" src="_images/171.png" /></p>
 <p>Next we will create a list of all surfaces (top, sides and bottom) using <strong>List.Create</strong> and create a solid object from them using <strong>Solid.ByJoinedSurfaces</strong>.</p>
 <p><img alt="_images/18.png" src="_images/18.png" /></p>
 <p>We will use this object to create our pattern. In the next steps, we will refer to this object by <strong>“solid”</strong>.</p>
@@ -327,7 +327,7 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Enable Python support and load DesignScript library</span>
 <span class="kn">import</span> <span class="nn">clr</span>
 <span class="n">clr</span><span class="o">.</span><span class="n">AddReference</span><span class="p">(</span><span class="s1">&#39;ProtoGeometry&#39;</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">Autodesk.DesignScript.Geometry</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">Autodesk.DesignScript.Geometry</span> <span class="k">import</span> <span class="o">*</span>
 
 <span class="c1"># The inputs to this node will be stored as a list in the IN variables.</span>
 
@@ -405,7 +405,7 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Enable Python support and load DesignScript library</span>
 <span class="kn">import</span> <span class="nn">clr</span>
 <span class="n">clr</span><span class="o">.</span><span class="n">AddReference</span><span class="p">(</span><span class="s1">&#39;ProtoGeometry&#39;</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">Autodesk.DesignScript.Geometry</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">Autodesk.DesignScript.Geometry</span> <span class="k">import</span> <span class="o">*</span>
 
 <span class="c1"># The inputs to this node will be stored as a list in the IN variables.</span>
 <span class="c1">#The solid module to be arrayed</span>
