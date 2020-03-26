@@ -7,9 +7,9 @@ These tutorials are meant for those that understand the basic language featues o
    :maxdepth: 1
    :caption: Getting Started with Python:
    
-   Modules & Packages <02_01_Modules&Packages.md>
+   Modules and Packages <02_01_Modules&Packages.md>
    Scripting <02_02_Scripting.md>
-   Objects <02_03_Objects.md>
+   Classes, Objects and Instances <02_03_Objects.md>
 
 
 

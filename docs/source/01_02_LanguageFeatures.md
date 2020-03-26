@@ -124,6 +124,7 @@ type(buildingName)
 </div>
 <br/>
 
+****
 
 Are you having trouble using Spyder? Please refer back to section 3 of [this](01_01_GetReady.md) tutorial.
 

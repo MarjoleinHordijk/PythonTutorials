@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Objects &mdash; Python Tutorials  documentation</title>
+  <title>Classes, Objects and Instances &mdash; Python Tutorials  documentation</title>
   
 
   
@@ -21,10 +21,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -84,9 +84,32 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="01_GettingStarted.html">Getting Started</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="02_BeyondBasics.html">Beyond the Basics</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="02_01_Modules&amp;Packages.html">Modules &amp; Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_01_Modules&amp;Packages.html">Modules and Packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02_02_Scripting.html">Scripting</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Objects</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Classes, Objects and Instances</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#object-oriented-programming">1. Object Oriented Programming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#classes">2. Classes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#exercise-1-when-to-use-a-class">Exercise 1: When to use a class?</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#class-objects-instances">3. Class Objects / Instances</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#exercise-2-what-is-an-instance">Exercise 2: What is an instance?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exercise-3-identity-states-and-behaviors">Exercise 3: Identity, States and Behaviors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-a-class-in-python">4. Creating a Class in Python</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#specifying-class-attributes-states">4.1 Specifying Class Attributes (States)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#specifying-instance-attributes-states">4.2 Specifying Instance Attributes (States)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#specifying-methods-for-a-class-behaviors">4.3 Specifying Methods for a Class (Behaviors)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exercise-4-specifying-a-class-in-python">Exercise 4: Specifying a Class in Python</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#create-an-instance-of-a-class">5. Create an Instance of a Class</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#exercise-5-creating-an-instance-of-your-class">Exercise 5: Creating an Instance of your Class</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="03_DataAnalysis.html">Data Analysis Using Python</a></li>
@@ -140,7 +163,7 @@
         
           <li><a href="02_BeyondBasics.html">Beyond the Basics</a> &raquo;</li>
         
-      <li>Objects</li>
+      <li>Classes, Objects and Instances</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -159,8 +182,193 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="objects">
-<h1>Objects<a class="headerlink" href="#objects" title="Permalink to this headline">¶</a></h1>
+  <html>
+<head>
+<style>
+.info {
+  background-color: #e6e6e6;
+  border-left: 6px solid #666666;
+  padding: 10px;
+}
+.exercise {
+  background-color: #e7f3fe;
+  border-left: 6px solid #2196F3;
+  padding: 10px;
+}
+</style>
+</head>
+<body><div class="section" id="classes-objects-and-instances">
+<h1>Classes, Objects and Instances<a class="headerlink" href="#classes-objects-and-instances" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="object-oriented-programming">
+<h2>1. Object Oriented Programming<a class="headerlink" href="#object-oriented-programming" title="Permalink to this headline">¶</a></h2>
+<p>Python is a so called <strong>“object oriented”</strong> programming language. Throughout the previous tutorials in this sequence, you have already encountered numerous objects. Whenever we defined a variable, for example a string variable that stored your name, we were creating objects. These objects contain data, which can concern both properties (like your age, a list of names of people that take a course, etc.) or procedures (like a function).</p>
+</div>
+<div class="section" id="classes">
+<h2>2. Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h2>
+<p>Classes can be understood as blueprints or templates for objects. They define a structure for storing the data related to a particular type of objects.</p>
+<p>Consinder for example a situation where you want to keep a record of the users of a program. For each user, we will need to store a number of properties, such as their username, email adress, password, etc. Since these properties will be the same for every user, we can efficiently use a class to predefine what should and can be stored regarding each user.</p>
+<p><img alt="_images/113.png" src="_images/113.png" /></p>
+<hr class="docutils" />
+<div class="section" id="exercise-1-when-to-use-a-class">
+<h3>Exercise 1: When to use a class?<a class="headerlink" href="#exercise-1-when-to-use-a-class" title="Permalink to this headline">¶</a></h3>
+<div class="exercise"><strong>Consider the above. Could you come up with another situation where using a class could be useful?</strong><br/><br/><ul class="simple">
+<li><p>What does the class apply to? Students, dogs, doors? That is, what are you defining a blueprint for?</p></li>
+<li><p>Write down a couple of properties that relate to the class that you came up with.</p></li>
+<li><p>Also, write down in what datatype each property should or can be stored.</p></li>
+</ul>
+</div>
+<br/></div>
+</div>
+<hr class="docutils" />
+<div class="section" id="class-objects-instances">
+<h2>3. Class Objects / Instances<a class="headerlink" href="#class-objects-instances" title="Permalink to this headline">¶</a></h2>
+<p>When we create an object based on a class, we “copy” the datastructure defined by the class (the blueprint) and fill in the actual values that are applicable. The object that is created is called an <strong>instance</strong> of the class. The class functions as a guide for knowing which information can and should be stored for each instance.</p>
+<p>Going back to our example regarding the users of a program, each user would be an instance of the class. For each user we copy the blueprint of the information we need to store and we fill in the values for each individual.</p>
+<p>Creating an object of an class is called <strong>“initiating the class”</strong>. There is no limit to the amount of instance that can be created. All instances have in common the attributes that are stored and the bahavior related to the class.</p>
+<p><img alt="_images/28.png" src="_images/28.png" /></p>
+<hr class="docutils" />
+<div class="section" id="exercise-2-what-is-an-instance">
+<h3>Exercise 2: What is an instance?<a class="headerlink" href="#exercise-2-what-is-an-instance" title="Permalink to this headline">¶</a></h3>
+<div class="exercise"><strong>Go back to your earlier idea for developing a class.</strong><br/><br/><ul class="simple">
+<li><p>What would be an example of an instance of your class?</p></li>
+<li><p>For two instances, fill in the values of the properties (conceptually).</p></li>
+</ul>
+</div>
+<br/><hr class="docutils" />
+<p><strong>Class objects consist of:</strong></p>
+<ol class="simple">
+<li><p><strong>An identity</strong>, which refers to the unique name of the object. Remember, each instance of a class is a unique, individual object that we can specifically refer to in our code.</p></li>
+<li><p><strong>A states</strong>, which is captured by the defined properties. For example, the username and age of a user describe the state of the instance.</p></li>
+<li><p><strong>The bahaviors</strong>, which are captured in specific functions (methods) that relate to the class. You will find some examples in later sections.</p></li>
+</ol>
+<p><img alt="_images/37.png" src="_images/37.png" /></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="exercise-3-identity-states-and-behaviors">
+<h3>Exercise 3: Identity, States and Behaviors<a class="headerlink" href="#exercise-3-identity-states-and-behaviors" title="Permalink to this headline">¶</a></h3>
+<div class="exercise"><strong>Go back to your earlier idea for developing a class.</strong><br/><br/><ul class="simple">
+<li><p>How are the instances identified?</p></li>
+<li><p>What are states of your instances?</p></li>
+<li><p>Come up with at least two relevant behaviors. (Are you having trouble with this? You can also return to this question when you have read the part on methods.)</p></li>
+</ul>
+</div>
+<br/></div>
+</div>
+<hr class="docutils" />
+<div class="section" id="creating-a-class-in-python">
+<h2>4. Creating a Class in Python<a class="headerlink" href="#creating-a-class-in-python" title="Permalink to this headline">¶</a></h2>
+<p>Declaring an object or initiating a class refers to creating an instance of a class. To do this, we first need to define the class. This is done using the <code class="docutils literal notranslate"><span class="pre">class</span></code> keyword, follow by a colon. We then indent the next line and start defining attributes and methods (functions that capture the behaviors).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">User</span><span class="p">:</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+<div class="section" id="specifying-class-attributes-states">
+<h3>4.1 Specifying Class Attributes (States)<a class="headerlink" href="#specifying-class-attributes-states" title="Permalink to this headline">¶</a></h3>
+<p>Class attributes concern those properties that are shared among all instances. In our example of the <code class="docutils literal notranslate"><span class="pre">User</span></code> class, this could be the case for the property <code class="docutils literal notranslate"><span class="pre">userType</span></code>. Assuming that all instances of the <code class="docutils literal notranslate"><span class="pre">User</span></code> class concern normal users (and not, for example, admins), we can create the <code class="docutils literal notranslate"><span class="pre">userType</span></code> as shown below. This attribute is copied for all instances of this class.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Specify the class &quot;User&quot;</span>
+<span class="k">class</span> <span class="nc">User</span><span class="p">:</span>
+    <span class="c1"># Defining class attributes:</span>
+    <span class="n">Usertype</span> <span class="o">=</span> <span class="s2">&quot;Normal User&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="specifying-instance-attributes-states">
+<h3>4.2 Specifying Instance Attributes (States)<a class="headerlink" href="#specifying-instance-attributes-states" title="Permalink to this headline">¶</a></h3>
+<p>In contrast to class attributes, instance attributes are unique properties of class instances. Their values are not copied from the blueprint, but specified upon the creation of the instance.</p>
+<p>In our example of the <code class="docutils literal notranslate"><span class="pre">User</span></code> class, instance attributes concern the real name of the user, age, email and anything else that is user-specific.</p>
+<p>These inistance specific properties can be specified using the <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> function. This function assigns values to instance properties upon initiation of a class. That is, whenever you create a new instance, this function will run automatically.</p>
+<p>As you can see below, <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> in our example takes as first argument <code class="docutils literal notranslate"><span class="pre">self</span></code>. This refers to the instance at hand. In our case, this is a specific user. As we will see later, we do not have to provide a value for this argument when we create an instance. The reason for this is that Python will provide it for us.</p>
+<p>We can assign values to properties in the <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> function of a class by typing <code class="docutils literal notranslate"><span class="pre">self.</span></code> (referring to the instance that is being created) followed by the name of the property. Then, we assign a value using <code class="docutils literal notranslate"><span class="pre">=</span></code>. In the example below, we did so for the real name, age and email of a user instance.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Specify the class &quot;User&quot;</span>
+<span class="k">class</span> <span class="nc">User</span><span class="p">:</span>
+    <span class="c1"># Defining class attributes:</span>
+    <span class="n">Usertype</span> <span class="o">=</span> <span class="s2">&quot;Normal User&quot;</span>
+
+    <span class="c1"># Using __init__() to assign values to instance attributes:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">email</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">realName</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="n">email</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="specifying-methods-for-a-class-behaviors">
+<h3>4.3 Specifying Methods for a Class (Behaviors)<a class="headerlink" href="#specifying-methods-for-a-class-behaviors" title="Permalink to this headline">¶</a></h3>
+<p>A <strong>method</strong> is very similar to a function, but it is associated with a specific class. Just like functions, we specify methods with the <code class="docutils literal notranslate"><span class="pre">def</span></code> keyword, followed by the name of the function, possible arguments between brackets and a colon. Do not forget to indent the line of code that follows!</p>
+<div class="info"><p><strong>NOTE:</strong>
+Are you not sure what <strong>indentation</strong> is and why it is so important in Python? Please check out the section on “Indentation” on the <a class="reference internal" href="06_Help.html"><span class="doc">help page</span></a>. You will find everything you need to know about indentation there!</p>
+</div>
+<br/><div class="info"><p><strong>NOTE:</strong>
+Do you want to have another look at how you can call and formulate functions? Click <a class="reference internal" href="01_04_Functions.html"><span class="doc">here</span></a> to go back to the tutorial on functions.</p>
+</div>
+<br/><p>To illustrate, lets return to our previous example. We will add a method to the <code class="docutils literal notranslate"><span class="pre">User</span></code> class which simulates a message stating the user has logged on (by printing the message to the console).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Specify the class &quot;User&quot;</span>
+<span class="k">class</span> <span class="nc">User</span><span class="p">:</span>
+    <span class="c1"># Defining class attributes:</span>
+    <span class="n">Usertype</span> <span class="o">=</span> <span class="s2">&quot;Normal User&quot;</span>
+
+    <span class="c1"># Using __init__() to assign values to instance attributes:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">email</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">realName</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="n">email</span>
+
+    <span class="c1"># Defining methods:</span>
+    <span class="k">def</span> <span class="nf">logon</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">RealName</span> <span class="o">+</span> <span class="s2">&quot; has logged on.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="exercise-4-specifying-a-class-in-python">
+<h3>Exercise 4: Specifying a Class in Python<a class="headerlink" href="#exercise-4-specifying-a-class-in-python" title="Permalink to this headline">¶</a></h3>
+<div class="exercise"><strong>Again, continue with your earlier idea for developing a class. You will now try to specify this class in Python.</strong><br/><br/><ul class="simple">
+<li><p>Start by using the <code class="docutils literal notranslate"><span class="pre">class</span></code> keyword and chose a name for the class.</p></li>
+<li><p>Next, formulate several attributes. Include both class and instance attributes.</p></li>
+<li><p>Pick a behavior you could capture in a method. (Similar to the earlier example, this can be a simulation by printing a sentence.)</p></li>
+<li><p>Add this method to the class.</p></li>
+</ul>
+</div>
+<br/></div>
+</div>
+<hr class="docutils" />
+<div class="section" id="create-an-instance-of-a-class">
+<h2>5. Create an Instance of a Class<a class="headerlink" href="#create-an-instance-of-a-class" title="Permalink to this headline">¶</a></h2>
+<p>Now that we have developed a class, it is time to create instances. Recall that a class is basically a blueprint for objects. When we initiate a class, we create an instance which follow this blueprint, but with actual values filled in for the properties.</p>
+<p>We can store an instance of a class to a variable. For example we can run <code class="docutils literal notranslate"><span class="pre">Marjolein</span> <span class="pre">=</span> <span class="pre">User()</span></code> to create the user “Marjolein”, based on the class <code class="docutils literal notranslate"><span class="pre">User</span></code>. The class attributes of the <code class="docutils literal notranslate"><span class="pre">User</span></code> (the user type) are copied for the instance “Marjolein”. However, we also need to specify the user-specific values to create the instance. Those values can be specified as arguments <code class="docutils literal notranslate"><span class="pre">Marjolein</span> <span class="pre">=</span> <span class="pre">User(&quot;Marjolein&quot;,</span> <span class="pre">25,</span> <span class="pre">&quot;marjolein&#64;email.nl&quot;)</span></code>. These arguments will be passed on to the <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> function which we specified, which will ensure that the specific values are assigned to the instance variables. (Be aware to provide the arguments in the same order in which they are used in <code class="docutils literal notranslate"><span class="pre">__init__()</span></code>.)</p>
+<p>Ones the instance has been created, we can retrieve the value for a particular attribute by typing the name of the variable to which the instance was stored, followed by a <code class="docutils literal notranslate"><span class="pre">.</span></code> and the name of the attribute. For example, <code class="docutils literal notranslate"><span class="pre">Marjolein.age</span></code> will return the value for <code class="docutils literal notranslate"><span class="pre">age</span></code> for the instance <code class="docutils literal notranslate"><span class="pre">Marjolein</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Specify the class &quot;User&quot;</span>
+<span class="k">class</span> <span class="nc">User</span><span class="p">:</span>
+    <span class="c1"># Defining class attributes:</span>
+    <span class="n">Usertype</span> <span class="o">=</span> <span class="s2">&quot;Normal User&quot;</span>
+
+    <span class="c1"># Using __init__() to assign values to instance attributes:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">email</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">realName</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="n">email</span>
+
+    <span class="c1"># Defining methods:</span>
+    <span class="k">def</span> <span class="nf">logon</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">RealName</span> <span class="o">+</span> <span class="s2">&quot; has logged on.&quot;</span><span class="p">)</span>
+
+<span class="n">Marjolein</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="s2">&quot;Marjolein&quot;</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="s2">&quot;marjolein@email.nl&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">Marjolein</span><span class="o">.</span><span class="n">age</span><span class="p">)</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<div class="section" id="exercise-5-creating-an-instance-of-your-class">
+<h3>Exercise 5: Creating an Instance of your Class<a class="headerlink" href="#exercise-5-creating-an-instance-of-your-class" title="Permalink to this headline">¶</a></h3>
+<div class="exercise"><strong>Now that you are done developing your class, we can start to create an instance of it.</strong><br/><br/><ul class="simple">
+<li><p>Create an instance of your class. Be aware of the datatypes of the arguments that you provide. If the attribute is stored as a string value, make sure that you actually pass a string as an argument.</p></li>
+<li><p>Print the value of one of the class attributes.</p></li>
+<li><p>Print the value of one of the instance attributes.</p></li>
+<li><p>Print a small piece of text in which you include several of the attributes of the instance you just created.</p></li>
+</ul>
+</div>
+<br/></div>
+</div>
 </div>
 
 

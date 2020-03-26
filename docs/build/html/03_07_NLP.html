@@ -21,10 +21,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -238,11 +238,11 @@ $ python -m textblob.download_corpora
 
 <span class="c1"># Split the text in the blob into seperate words and print the wordlist.</span>
 <span class="n">wordlist</span> <span class="o">=</span> <span class="n">blob</span><span class="o">.</span><span class="n">words</span>
-<span class="k">print</span> <span class="p">(</span><span class="n">wordlist</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">wordlist</span><span class="p">)</span>
 
 <span class="c1"># Split the text in the blob into seperate sentences and print them.</span>
 <span class="n">sentences</span> <span class="o">=</span> <span class="n">blob</span><span class="o">.</span><span class="n">sentences</span>
-<span class="k">print</span> <span class="p">(</span><span class="n">sentences</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">sentences</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><em>Output:</em></p>
@@ -263,7 +263,7 @@ $ python -m textblob.download_corpora
 
 <span class="c1"># Print the POS tags of the words in the text.</span>
 <span class="n">POStags</span> <span class="o">=</span> <span class="n">blob</span><span class="o">.</span><span class="n">tags</span>
-<span class="k">print</span><span class="p">(</span><span class="n">POStags</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">POStags</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><em>Output:</em></p>
@@ -290,7 +290,7 @@ $ python -m textblob.download_corpora
 
 <span class="c1"># Print the noun phrases in the text.</span>
 <span class="n">nounPhrases</span> <span class="o">=</span> <span class="n">blob</span><span class="o">.</span><span class="n">noun_phrases</span>
-<span class="k">print</span><span class="p">(</span><span class="n">nounPhrases</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">nounPhrases</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><em>Output:</em></p>
@@ -316,8 +316,8 @@ $ python -m textblob.download_corpora
 <span class="n">sentiment1</span> <span class="o">=</span> <span class="n">blobNeg</span><span class="o">.</span><span class="n">sentiment</span>
 <span class="n">sentiment2</span> <span class="o">=</span> <span class="n">blobPos</span><span class="o">.</span><span class="n">sentiment</span>
 
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;The scores of the first blob: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">sentiment1</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;The scores of the second blob: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">sentiment2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The scores of the first blob: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">sentiment1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The scores of the second blob: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">sentiment2</span><span class="p">))</span>
 </pre></div>
 </div>
 <p><em>Output:</em></p>
@@ -342,12 +342,12 @@ $ python -m textblob.download_corpora
 
 <span class="c1"># Pluralize word1 and print result.</span>
 <span class="n">plural</span> <span class="o">=</span> <span class="n">word1</span><span class="o">.</span><span class="n">pluralize</span><span class="p">()</span>
-<span class="k">print</span> <span class="p">(</span><span class="n">word1</span> <span class="o">+</span> <span class="s2">&quot; , &quot;</span> <span class="o">+</span> <span class="n">plural</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">word1</span> <span class="o">+</span> <span class="s2">&quot; , &quot;</span> <span class="o">+</span> <span class="n">plural</span><span class="p">)</span>
 
 <span class="c1"># Lemmatize word2 and print results.</span>
 <span class="c1"># Need to pass the POS tag as argument. In this case &quot;went&quot; is a verb, so the tag is &quot;v&quot;.</span>
 <span class="n">lemma</span> <span class="o">=</span> <span class="n">word2</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">(</span><span class="s2">&quot;v&quot;</span><span class="p">)</span>
-<span class="k">print</span> <span class="p">(</span><span class="n">word2</span> <span class="o">+</span> <span class="s2">&quot; , &quot;</span> <span class="o">+</span> <span class="n">lemma</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">word2</span> <span class="o">+</span> <span class="s2">&quot; , &quot;</span> <span class="o">+</span> <span class="n">lemma</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><em>Output:</em></p>
