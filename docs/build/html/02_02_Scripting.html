@@ -87,14 +87,22 @@
 <li class="toctree-l2"><a class="reference internal" href="02_01_Modules&amp;Packages.html">Modules and Packages</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Scripting</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#in-this-tutorial">In this tutorial</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#what-is-a-script">What is a Script?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#defining-functions-in-scripts">Defining functions in scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-a-script">1. What is a Script?</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#scripts-versus-modules">1.1 Scripts versus Modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exercise-1-what-is-a-script">Exercise 1: What is a script?</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#defining-and-calling-functions-in-scripts">2. Defining and Calling Functions in Scripts</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#exercise-2-functions-in-scripts">Exercise 2: Functions in Scripts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#local-variables">2.1 Local Variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#global-variables">2.2 Global Variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exercise-3-local-and-global-variables">Exercise 3: Local and Global Variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exercise-4-defining-a-function-and-writing-a-script">Exercise 4: Defining a Function and Writing a Script</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="02_03_Objects.html">Classes, Objects and Instances</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02_03_Objects.html#object-oriented-programming">1. Object Oriented Programming</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02_03_Objects.html#classes">2. Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02_03_Objects.html#class-objects">3. Class Objects</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="03_DataAnalysis.html">Data Analysis Using Python</a></li>
@@ -167,14 +175,29 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="scripting">
+  <html>
+<head>
+<style>
+.info {
+  background-color: #e6e6e6;
+  border-left: 6px solid #666666;
+  padding: 10px;
+}
+.exercise {
+  background-color: #e7f3fe;
+  border-left: 6px solid #2196F3;
+  padding: 10px;
+}
+</style>
+</head>
+<body><div class="section" id="scripting">
 <h1>Scripting<a class="headerlink" href="#scripting" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="in-this-tutorial">
 <h2>In this tutorial<a class="headerlink" href="#in-this-tutorial" title="Permalink to this headline">¶</a></h2>
 <p>This tutorial introduces you to the concept of scripting. Although scripting can often be done within software packages such as Revit or QGIS, we will focus here on standalone scripts. However, these basic principles apply to scripting in any environment. We will use Spyder to write and run some simple examples.</p>
 </div>
 <div class="section" id="what-is-a-script">
-<h2>What is a Script?<a class="headerlink" href="#what-is-a-script" title="Permalink to this headline">¶</a></h2>
+<h2>1. What is a Script?<a class="headerlink" href="#what-is-a-script" title="Permalink to this headline">¶</a></h2>
 <p>If you quit Spyder (or another editor/IDE) and enter it again, the variables or functions that you defined in the console will be lost. However, you may want to store a particular sequence of commands for several reasons.</p>
 <ul class="simple">
 <li><p>You want to share the sequence with someone.</p></li>
@@ -183,11 +206,139 @@
 </ul>
 <p>Fortunately, we can use scripting to store the sequence of commands for later use. In this way we can easily run the code again in one go.</p>
 <p>To illustrate, imagine you used a set of commands to clean a dataset with sensor data. Now that you finished cleaning the data from one sensor, you need to move on to other sensors. Since the data will likely show similar errors, cleaning both datasets will require similar procedures. Therefore it is usefull to store the steps that you took for the first dataset, so you can apply them again. This can safe you a lot of time! Alternatively, you might want to help a peer student out to clean his dataset. You could simply send the script you developed to this person and he/she will also be able to repeat your procedures.</p>
+<div class="section" id="scripts-versus-modules">
+<h3>1.1 Scripts versus Modules<a class="headerlink" href="#scripts-versus-modules" title="Permalink to this headline">¶</a></h3>
+<p>So, what is the difference between scripts and modules? As we discussed <a class="reference internal" href="02_01_Modules&amp;Packages.html"><span class="doc">here</span></a>, modules provide sets of functions that we can use in our scripts. We do not “run” modules, but we use pieces of them in our scripts.</p>
+<p>A script, on the other hand, consists of lines of code which will run sequentially. It may contain definitions of function, like in modules, but these functions are called within the script.</p>
+<p>Hence, modules are created to be imported, whereas scripts are developed to be executed.</p>
 </div>
-<div class="section" id="defining-functions-in-scripts">
-<h2>Defining functions in scripts<a class="headerlink" href="#defining-functions-in-scripts" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference internal" href="01_04_Functions.html"><span class="doc">This</span></a> tutorial discusses the basics of using and defining functions.</p>
-<p>To be continued….</p>
+<hr class="docutils" />
+<div class="section" id="exercise-1-what-is-a-script">
+<h3>Exercise 1: What is a script?<a class="headerlink" href="#exercise-1-what-is-a-script" title="Permalink to this headline">¶</a></h3>
+<div class="exercise"><strong>In earlier sections, we have already developed small scripts. For example, in the section on "Modules and Packages" we wrote a smalls script to collect a twitter message and print its content. </strong><br/><br/><ul class="simple">
+<li><p>Can you think of a simple script that you could write for a project you have been working on?</p></li>
+<li><p>What are the steps that the script would need to perform?</p></li>
+<li><p>Would the script take any input?</p></li>
+<li><p>What would be the output?</p></li>
+</ul>
+</div>
+<br/></div>
+</div>
+<hr class="docutils" />
+<div class="section" id="defining-and-calling-functions-in-scripts">
+<h2>2. Defining and Calling Functions in Scripts<a class="headerlink" href="#defining-and-calling-functions-in-scripts" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="01_04_Functions.html"><span class="doc">This tutorial</span></a> discussed the basics of using and defining functions. Recall that, to define a function, you will need to use the <code class="docutils literal notranslate"><span class="pre">def</span></code> keyword, followed by the name of the function, parenthesis and a colon. Next, you must indent one level to start writing your function. The example below was used in one of the exercises.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">myFunction</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;My name is &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If you want to call this function from the console, you would have to run <code class="docutils literal notranslate"><span class="pre">myFunction(name)</span></code> and insert a name (string) as argument. Now, if we want to run this function in our script, we can simply add this to our document.</p>
+<p>However, be aware of the following! If you call a function in a script, make sure that the definition of the function is located <em>BEFORE</em> the piece of code which calls it. This is important because otherwise Python will “not know about” the function yet. It will spit you an error saying the function has not yet been defined.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># The function</span>
+<span class="k">def</span> <span class="nf">myFunction</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;My name is &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span>
+
+<span class="c1"># The code calling the function</span>
+<span class="n">myFunction</span><span class="p">(</span><span class="s2">&quot;Marjolein&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="_images/114.png" src="_images/114.png" /></p>
+<hr class="docutils" />
+<div class="section" id="exercise-2-functions-in-scripts">
+<h3>Exercise 2: Functions in Scripts<a class="headerlink" href="#exercise-2-functions-in-scripts" title="Permalink to this headline">¶</a></h3>
+<div class="exercise"><strong>Try out the exercises below to see if you understand how to define and call functions within a script.</strong><br/><br/><ul class="simple">
+<li><p>Write two simple functions <code class="docutils literal notranslate"><span class="pre">function1()</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">function2()</span></code>, each of which take at least one argument. Add both of them to a .py file.</p></li>
+<li><p>Specify variables which store potential values for each argument.</p></li>
+<li><p>Within the script, call both functions using the variables you just specified.</p></li>
+<li><p>Where did you locate 1) the definitions of the functions, 2) the specifications of the variable and 3) the code to call the functions? Why did you use this particular order in your script?</p></li>
+<li><p>Run the script and check if the results are as expected.</p></li>
+</ul>
+</div>
+<br/><hr class="docutils" />
+<p>Ofcourse, the example above is very minimalistic. However, scripts can cover large processes. For example, you could write a script that includes data collection, cleaning and analyses. This is particularly useful if you want to repeat this whole process serveral times.</p>
+<p>Often, these scripts will contain multiple functions which are called in a particular sequence. If multiple functions use to the same variable, it is important to ensure that this variable is defined globally or passed along as argument. To understand why this is necessary, you should be aware of the difference between local and global variables.</p>
+</div>
+<div class="section" id="local-variables">
+<h3>2.1 Local Variables<a class="headerlink" href="#local-variables" title="Permalink to this headline">¶</a></h3>
+<p>Local variables are defined wihtin a function. As such, they can only be accessed within the function itself.</p>
+<p>If you look at the example below, you will see that borth functions that are defined print the variable <code class="docutils literal notranslate"><span class="pre">localvar</span></code>. However, in both cases, this variable has a different value. This is possible because <code class="docutils literal notranslate"><span class="pre">localvar</span></code> is a local variable that is only defined within the boundaries of the function.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># First function</span>
+<span class="k">def</span> <span class="nf">function1</span><span class="p">():</span>
+    <span class="n">localvar</span> <span class="o">=</span> <span class="s2">&quot;local variable 1&quot;</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">localvar</span><span class="p">)</span>
+
+<span class="c1"># Second function</span>
+<span class="k">def</span> <span class="nf">function2</span><span class="p">():</span>
+    <span class="n">localvar</span> <span class="o">=</span> <span class="s2">&quot;local variable 2&quot;</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">localvar</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="global-variables">
+<h3>2.2 Global Variables<a class="headerlink" href="#global-variables" title="Permalink to this headline">¶</a></h3>
+<p>Global variables are defined outside the functions of a script. As such, they are accessible across the script. That is, we can use these variables in any of our functions. However, we should specify when we are using a global variable using the <code class="docutils literal notranslate"><span class="pre">global</span></code> keyword followed by the name of the variable. Otherwise, Python will assume that you are using a local variable.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">globalvar</span> <span class="o">=</span> <span class="s2">&quot;global variable&quot;</span>
+
+<span class="c1"># First function</span>
+<span class="k">def</span> <span class="nf">function1</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">globalvar</span> <span class="c1"># Indicates we want to use the global variable.</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;This is function1, printing: &quot;</span> <span class="o">+</span> <span class="n">globalvar</span><span class="p">)</span>
+
+<span class="c1"># Second function</span>
+<span class="k">def</span> <span class="nf">function2</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">globalvar</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;This is function2, printing: &quot;</span> <span class="o">+</span> <span class="n">globalvar</span><span class="p">)</span>
+
+<span class="c1"># Wrong!</span>
+<span class="k">def</span> <span class="nf">function3</span><span class="p">():</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;This is function3, printing: &quot;</span> <span class="o">+</span> <span class="n">globalvar</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="exercise-3-local-and-global-variables">
+<h3>Exercise 3: Local and Global Variables<a class="headerlink" href="#exercise-3-local-and-global-variables" title="Permalink to this headline">¶</a></h3>
+<div class="exercise"><ul class="simple">
+<li><p>Consider the example code for the local variables. Can you print the value of <code class="docutils literal notranslate"><span class="pre">localvar</span></code> without running one of the functions? Why (not)?</p></li>
+<li><p>Try running <code class="docutils literal notranslate"><span class="pre">function3</span></code> of the example code for global variables. Why do you get an error? Try to fix the problem.</p></li>
+</ul>
+</div>
+<br/></div>
+<hr class="docutils" />
+<div class="section" id="exercise-4-defining-a-function-and-writing-a-script">
+<h3>Exercise 4: Defining a Function and Writing a Script<a class="headerlink" href="#exercise-4-defining-a-function-and-writing-a-script" title="Permalink to this headline">¶</a></h3>
+<div class="exercise"><strong>In "Exercise 2" of the tutorial on "Modules and Packages" we used a small piece of code to collect and print tweets. In this exercise, we will translate this code into a function and call it in a script.</strong><br/><br/><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importing the package.</span>
+<span class="n">Import</span> <span class="n">GetOldTweets3</span> <span class="k">as</span> <span class="n">got</span>
+
+<span class="c1"># Defining the search criteria.</span>
+<span class="n">tweetCriteria</span> <span class="o">=</span> <span class="n">got</span><span class="o">.</span><span class="n">manager</span><span class="o">.</span><span class="n">TweetCriteria</span><span class="p">()</span><span class="o">.</span><span class="n">setQuerySearch</span><span class="p">(</span><span class="s1">&#39;Eindhoven&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">setSince</span><span class="p">(</span><span class="s2">&quot;2019-05-01&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">setUntil</span><span class="p">(</span><span class="s2">&quot;2019-09-30&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">setMaxTweets</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Collecting one tweet based on the search criteria and store it to the variable &quot;tweet&quot;.</span>
+<span class="n">tweet</span> <span class="o">=</span> <span class="n">got</span><span class="o">.</span><span class="n">manager</span><span class="o">.</span><span class="n">TweetManager</span><span class="o">.</span><span class="n">getTweets</span><span class="p">(</span><span class="n">tweetCriteria</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># Print the text of the collected tweet.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tweet</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>In the code above, we use a specific set of search criteria to find one tweet about “Eindhoven” posted between 2019-05-01 and 2019-09-30. Instead, we would now like to develop a function that we can call to do this for any set of search criteria.</strong></p>
+<ul class="simple">
+<li><p>What should be the arguments for this function? What are their datatypes?</p></li>
+<li><p>What will be the output of this function?</p></li>
+<li><p>Try to develop the function.</p></li>
+<li><p>Call the function twice from within the script, using different search criteria. Run the script to check the results. (Note: If you change the maximum amount of tweets, you will have to adapt the way you print their content. Hint: Use a loop.)</p></li>
+<li><p>Store the two sets of search criteria in a list (you can extent this list with more sets if you want). Write a loop to call the function for all sets in the list.</p></li>
+<li><p><strong>Advanced:</strong> Try to extent the script you wrote by following the steps below:</p>
+<ul>
+<li><p>Adapt the function you have created so that each of the tweets that is collected is added to a list. (Note that this list should be globally accessible!)</p></li>
+<li><p>Add another function which iterates over the list and prints the hashtags of all tweets.</p></li>
+<li><p>Next, add another function which prints a sentence stating how many tweets were collected in total.</p></li>
+<li><p>Within the script, call the function for collecting the tweets twice, with different sets of search criteria. Call the other functions afterwards.</p></li>
+<li><p>Run the script.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<br/></div>
 </div>
 </div>
 

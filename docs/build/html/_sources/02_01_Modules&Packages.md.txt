@@ -65,13 +65,10 @@ To illustrate the above, an example is provided below.
 
 ```python
 # Importing the package.
-Import GetOldTweets3
+Import GetOldTweets3 as got
 
 # Defining the search criteria.
-tweetCriteria = got.manager.TweetCriteria().setQuerySearch('Eindhoven')
-                                           .setSince("2019-05-01")
-                                           .setUntil("2019-09-30")
-                                           .setMaxTweets(1)
+tweetCriteria = got.manager.TweetCriteria().setQuerySearch('Eindhoven').setSince("2019-05-01").setUntil("2019-09-30").setMaxTweets(1)
 
 # Collecting one tweet based on the search criteria and store it to the variable "tweet".
 tweet = got.manager.TweetManager.getTweets(tweetCriteria)[0]

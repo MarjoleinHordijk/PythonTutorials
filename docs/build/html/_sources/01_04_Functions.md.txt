@@ -121,7 +121,7 @@ You can define your own function aswell. In this case the function will be a pie
 ### 3.1 Functions with One Argument
 
 To define a function, you will need to use the ```def``` keyword, followed by the name of the function, parenthesis and a colon.
-Next will need to indent one level to start writing your function. You can indent using several spaces or tab. However, make sure that you always use the same indentation method throughout your script. If you this up, Python will not be able to recognize when you indent.
+Next, you must indent one level to start writing your function. You can indent using several spaces or tab. However, make sure that you always use the same indentation method throughout your script. If you this up, Python will not be able to recognize when you indent.
 
 <div class="info">
 

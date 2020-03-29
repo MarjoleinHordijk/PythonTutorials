@@ -99,9 +99,6 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="02_02_Scripting.html">Scripting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02_03_Objects.html">Classes, Objects and Instances</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02_03_Objects.html#object-oriented-programming">1. Object Oriented Programming</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02_03_Objects.html#classes">2. Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02_03_Objects.html#class-objects">3. Class Objects</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="03_DataAnalysis.html">Data Analysis Using Python</a></li>
@@ -230,13 +227,10 @@
 </ul>
 <p>To illustrate the above, an example is provided below.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importing the package.</span>
-<span class="n">Import</span> <span class="n">GetOldTweets3</span>
+<span class="n">Import</span> <span class="n">GetOldTweets3</span> <span class="k">as</span> <span class="n">got</span>
 
 <span class="c1"># Defining the search criteria.</span>
-<span class="n">tweetCriteria</span> <span class="o">=</span> <span class="n">got</span><span class="o">.</span><span class="n">manager</span><span class="o">.</span><span class="n">TweetCriteria</span><span class="p">()</span><span class="o">.</span><span class="n">setQuerySearch</span><span class="p">(</span><span class="s1">&#39;Eindhoven&#39;</span><span class="p">)</span>
-                                           <span class="o">.</span><span class="n">setSince</span><span class="p">(</span><span class="s2">&quot;2019-05-01&quot;</span><span class="p">)</span>
-                                           <span class="o">.</span><span class="n">setUntil</span><span class="p">(</span><span class="s2">&quot;2019-09-30&quot;</span><span class="p">)</span>
-                                           <span class="o">.</span><span class="n">setMaxTweets</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">tweetCriteria</span> <span class="o">=</span> <span class="n">got</span><span class="o">.</span><span class="n">manager</span><span class="o">.</span><span class="n">TweetCriteria</span><span class="p">()</span><span class="o">.</span><span class="n">setQuerySearch</span><span class="p">(</span><span class="s1">&#39;Eindhoven&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">setSince</span><span class="p">(</span><span class="s2">&quot;2019-05-01&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">setUntil</span><span class="p">(</span><span class="s2">&quot;2019-09-30&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">setMaxTweets</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># Collecting one tweet based on the search criteria and store it to the variable &quot;tweet&quot;.</span>
 <span class="n">tweet</span> <span class="o">=</span> <span class="n">got</span><span class="o">.</span><span class="n">manager</span><span class="o">.</span><span class="n">TweetManager</span><span class="o">.</span><span class="n">getTweets</span><span class="p">(</span><span class="n">tweetCriteria</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
