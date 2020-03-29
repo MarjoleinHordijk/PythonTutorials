@@ -77,8 +77,6 @@ def myFunction(name):
 myFunction("Marjolein")
 ```
 
-![](../../images/02_02/1.png)
-
 ****
 ### Exercise 2: Functions in Scripts
 <div class="exercise"><strong>Try out the exercises below to see if you understand how to define and call functions within a script.</strong><br/><br/>
