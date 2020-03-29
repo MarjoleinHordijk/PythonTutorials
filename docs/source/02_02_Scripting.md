@@ -77,7 +77,7 @@ def myFunction(name):
 myFunction("Marjolein")
 ```
 
-![](../../images/02_02/1.png)
+![](../../images/02_02/scripting.png)
 
 ****
 ### Exercise 2: Functions in Scripts
