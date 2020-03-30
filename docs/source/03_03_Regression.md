@@ -31,7 +31,7 @@ Are you not sure how to install Numpy? Please check out the [tutorial on Modules
 <br/>
 
 
-## 1. Simple Linear Regression With scikit-learn
+## 1. Simple Linear Regression with scikit-learn
 
 The sections below will guide you through the process of performing a simple linear regression using ```scikit-learn``` and ```NumPy```. That is, we will only consider one regressor variable (x). The next chapter will discuss Multiple Linear Regression (MLR) with multiple regressor variables.
 
@@ -245,7 +245,7 @@ print('New predicted y values:', y_Predicted_New)
 
 ****
 
-## 2. Multiple Linear Regression With scikit-learn
+## 2. Multiple Linear Regression with scikit-learn
 
 Although the process for Multiple Linear Regression (MLR) is similar to Simple Linear Regression, we will discuss some specific considerations below. Specifically, our regressors array (```x```) will now how two colomns. That is, we will consider two regressors to fit our model.
 
