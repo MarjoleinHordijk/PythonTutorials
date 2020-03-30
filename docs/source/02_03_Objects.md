@@ -134,7 +134,7 @@ A **method** is very similar to a function, but it is associated with a specific
 
 <div class="info">
 
-**NOTE:**
+**NOTE: What is identation?**
 Are you not sure what **indentation** is and why it is so important in Python? Please check out the section on "Indentation" on the [help page](06_Help.md). You will find everything you need to know about indentation there!
 
 </div>
@@ -142,7 +142,7 @@ Are you not sure what **indentation** is and why it is so important in Python? P
 
 <div class="info">
 
-**NOTE:**
+**NOTE: How to formulate functions?**
 Do you want to have another look at how you can call and formulate functions? Click [here](01_04_Functions.md) to go back to the tutorial on functions.
 
 </div>
