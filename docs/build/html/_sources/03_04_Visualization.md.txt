@@ -302,7 +302,7 @@ plt.show()
 ![](../../images/03_04/4.png)
 
 ****
-### Exercise 5: Bar-Chart
+### Exercise 6: Bar-Charts
 <div class="exercise">
 
 * Replicate the bar-chart from the example.
