@@ -21,10 +21,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -229,14 +229,14 @@
 <h2>2. Defining and Calling Functions in Scripts<a class="headerlink" href="#defining-and-calling-functions-in-scripts" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference internal" href="01_04_Functions.html"><span class="doc">This tutorial</span></a> discussed the basics of using and defining functions. Recall that, to define a function, you will need to use the <code class="docutils literal notranslate"><span class="pre">def</span></code> keyword, followed by the name of the function, parenthesis and a colon. Next, you must indent one level to start writing your function. The example below was used in one of the exercises.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">myFunction</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;My name is &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;My name is &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>If you want to call this function from the console, you would have to run <code class="docutils literal notranslate"><span class="pre">myFunction(name)</span></code> and insert a name (string) as argument. Now, if we want to run this function in our script, we can simply add this to our document.</p>
 <p>However, be aware of the following! If you call a function in a script, make sure that the definition of the function is located <em>BEFORE</em> the piece of code which calls it. This is important because otherwise Python will “not know about” the function yet. It will spit you an error saying the function has not yet been defined.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># The function</span>
 <span class="k">def</span> <span class="nf">myFunction</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;My name is &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;My name is &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span>
 
 <span class="c1"># The code calling the function</span>
 <span class="n">myFunction</span><span class="p">(</span><span class="s2">&quot;Marjolein&quot;</span><span class="p">)</span>
@@ -265,12 +265,12 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># First function</span>
 <span class="k">def</span> <span class="nf">function1</span><span class="p">():</span>
     <span class="n">localvar</span> <span class="o">=</span> <span class="s2">&quot;local variable 1&quot;</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="n">localvar</span><span class="p">)</span>
+    <span class="k">print</span> <span class="p">(</span><span class="n">localvar</span><span class="p">)</span>
 
 <span class="c1"># Second function</span>
 <span class="k">def</span> <span class="nf">function2</span><span class="p">():</span>
     <span class="n">localvar</span> <span class="o">=</span> <span class="s2">&quot;local variable 2&quot;</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="n">localvar</span><span class="p">)</span>
+    <span class="k">print</span> <span class="p">(</span><span class="n">localvar</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -282,16 +282,16 @@
 <span class="c1"># First function</span>
 <span class="k">def</span> <span class="nf">function1</span><span class="p">():</span>
     <span class="k">global</span> <span class="n">globalvar</span> <span class="c1"># Indicates we want to use the global variable.</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;This is function1, printing: &quot;</span> <span class="o">+</span> <span class="n">globalvar</span><span class="p">)</span>
+    <span class="k">print</span> <span class="p">(</span><span class="s2">&quot;This is function1, printing: &quot;</span> <span class="o">+</span> <span class="n">globalvar</span><span class="p">)</span>
 
 <span class="c1"># Second function</span>
 <span class="k">def</span> <span class="nf">function2</span><span class="p">():</span>
     <span class="k">global</span> <span class="n">globalvar</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;This is function2, printing: &quot;</span> <span class="o">+</span> <span class="n">globalvar</span><span class="p">)</span>
+    <span class="k">print</span> <span class="p">(</span><span class="s2">&quot;This is function2, printing: &quot;</span> <span class="o">+</span> <span class="n">globalvar</span><span class="p">)</span>
 
 <span class="c1"># Wrong!</span>
 <span class="k">def</span> <span class="nf">function3</span><span class="p">():</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;This is function3, printing: &quot;</span> <span class="o">+</span> <span class="n">globalvar</span><span class="p">)</span>
+    <span class="k">print</span> <span class="p">(</span><span class="s2">&quot;This is function3, printing: &quot;</span> <span class="o">+</span> <span class="n">globalvar</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -317,7 +317,7 @@
 <span class="n">tweet</span> <span class="o">=</span> <span class="n">got</span><span class="o">.</span><span class="n">manager</span><span class="o">.</span><span class="n">TweetManager</span><span class="o">.</span><span class="n">getTweets</span><span class="p">(</span><span class="n">tweetCriteria</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 
 <span class="c1"># Print the text of the collected tweet.</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">tweet</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">tweet</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><strong>In the code above, we use a specific set of search criteria to find one tweet about “Eindhoven” posted between 2019-05-01 and 2019-09-30. Instead, we would now like to develop a function that we can call to do this for any set of search criteria.</strong></p>

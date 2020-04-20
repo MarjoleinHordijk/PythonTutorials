@@ -21,10 +21,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -206,7 +206,7 @@
 <li><p>A <strong><em>multiline</em></strong> object consists of a collection of lines.</p></li>
 <li><p>A **_multipolygon _**object consists of multiple polygons.</p></li>
 </ul>
-<p><img alt="_images/16.png" src="_images/16.png" /></p>
+<p><img alt="_images/17.png" src="_images/17.png" /></p>
 <p>Image source: <a class="reference external" href="https://automating-gis-processes.github.io/2017/lessons/L1/Geometric-Objects.html">https://automating-gis-processes.github.io/2017/lessons/L1/Geometric-Objects.html</a></p>
 <p>This tutorial was developed based on the following sources:</p>
 <p><strong><a class="reference external" href="https://automating-gis-processes.github.io/2017/lessons/L1/Geometric-Objects.html">https://automating-gis-processes.github.io/2017/lessons/L1/Geometric-Objects.html</a></strong></p>
@@ -215,13 +215,13 @@
 <div class="section" id="create-geometric-object-instances-using-shapely">
 <h2>3. Create Geometric Object Instances Using Shapely<a class="headerlink" href="#create-geometric-object-instances-using-shapely" title="Permalink to this headline">¶</a></h2>
 <p>The instances of geometric objects are created based on classes, as is typical for Python. For example a <strong><em>Point</em></strong> object with coordinates (1,1) can be created as follows.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">Point</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="k">import</span> <span class="n">Point</span>
 <span class="n">point</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><img alt="_images/25.png" src="_images/25.png" /></p>
+<p><img alt="_images/26.png" src="_images/26.png" /></p>
 <p>A <strong><em>line</em></strong> (in Shapely called <strong><em>LineString</em></strong>) instance can be created in two ways. We can chose to first define the connected points that make up the line and use these objects to define the line geometry. Alternatively we can define the line in one go by providing the coordinates of each point in a list form.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">Point</span><span class="p">,</span> <span class="n">LineString</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="k">import</span> <span class="n">Point</span><span class="p">,</span> <span class="n">LineString</span>
 
 <span class="c1"># Create three points that will define the line</span>
 <span class="n">point1</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
@@ -235,15 +235,15 @@
 <span class="n">line2</span> <span class="o">=</span> <span class="n">LineString</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)])</span>
 </pre></div>
 </div>
-<p><img alt="_images/34.png" src="_images/34.png" /></p>
+<p><img alt="_images/35.png" src="_images/35.png" /></p>
 <p><strong><em>Polygon</em></strong> instances can only be defined by a list of at least three coordinate sets as shown below.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">Polygon</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="k">import</span> <span class="n">Polygon</span>
 
 <span class="n">polygon1</span> <span class="o">=</span> <span class="n">Polygon</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)])</span>
 </pre></div>
 </div>
 <p>However, we can still use the coordinates of the points we defined earlier using a small for loop.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">Point</span><span class="p">,</span> <span class="n">Polygon</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="k">import</span> <span class="n">Point</span><span class="p">,</span> <span class="n">Polygon</span>
 
 <span class="c1"># Create three points that will define the polygon outlines</span>
 <span class="n">point1</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
@@ -256,7 +256,7 @@
 <p><img alt="_images/43.png" src="_images/43.png" /></p>
 <p>However, it might be that we need a more complex polygon shape with interior holes. We can do so by defining the exterior outlines of the polygon and the interior hole shapes separately.</p>
 <p>Note that since multiple holes are possible, the variable <code class="docutils literal notranslate"><span class="pre">hole</span></code> is set up to contain a list of hole shapes. (Hence the double brackets <code class="docutils literal notranslate"><span class="pre">[[]]</span></code> .)</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">Polygon</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="k">import</span> <span class="n">Polygon</span>
 
 <span class="c1"># First we define our exterior</span>
 <span class="n">exterior</span> <span class="o">=</span> <span class="n">Polygon</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)])</span>
@@ -274,7 +274,7 @@
 <h2>4. Assess Attributes of Geometric Objects<a class="headerlink" href="#assess-attributes-of-geometric-objects" title="Permalink to this headline">¶</a></h2>
 <p>To perform your analysis you may be interested in particular attributes of geometric object instances. For example, you may want to find the xy coodinates of a point or the total surface area of a polygon. Below, several options are discussed to gain access to this information.</p>
 <p>We will use the following instances in our examples. Thus, if you want to run any of the code in the subsequent sections, please make sure that you run this piece of code below first.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">Point</span><span class="p">,</span> <span class="n">LineString</span><span class="p">,</span> <span class="n">Polygon</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="k">import</span> <span class="n">Point</span><span class="p">,</span> <span class="n">LineString</span><span class="p">,</span> <span class="n">Polygon</span>
 
 <span class="c1"># Define some points</span>
 <span class="n">point1</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>

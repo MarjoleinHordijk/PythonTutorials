@@ -21,10 +21,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -207,7 +207,7 @@
 <h2>2. Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h2>
 <p>Classes can be understood as blueprints or templates for objects. They define a structure for storing the data related to a particular type of objects.</p>
 <p>Consinder for example a situation where you want to keep a record of the users of a program. For each user, we will need to store a number of properties, such as their username, email adress, password, etc. Since these properties will be the same for every user, we can efficiently use a class to predefine what should and can be stored regarding each user.</p>
-<p><img alt="_images/113.png" src="_images/113.png" /></p>
+<p><img alt="_images/15.png" src="_images/15.png" /></p>
 <hr class="docutils" />
 <div class="section" id="exercise-1-when-to-use-a-class">
 <h3>Exercise 1: When to use a class?<a class="headerlink" href="#exercise-1-when-to-use-a-class" title="Permalink to this headline">¶</a></h3>
@@ -225,7 +225,7 @@
 <p>When we create an object based on a class, we “copy” the datastructure defined by the class (the blueprint) and fill in the actual values that are applicable. The object that is created is called an <strong>instance</strong> of the class. The class functions as a guide for knowing which information can and should be stored for each instance.</p>
 <p>Going back to our example regarding the users of a program, each user would be an instance of the class. For each user we copy the blueprint of the information we need to store and we fill in the values for each individual.</p>
 <p>Creating an object of an class is called <strong>“initiating the class”</strong>. There is no limit to the amount of instance that can be created. All instances have in common the attributes that are stored and the bahavior related to the class.</p>
-<p><img alt="_images/28.png" src="_images/28.png" /></p>
+<p><img alt="_images/24.png" src="_images/24.png" /></p>
 <hr class="docutils" />
 <div class="section" id="exercise-2-what-is-an-instance">
 <h3>Exercise 2: What is an instance?<a class="headerlink" href="#exercise-2-what-is-an-instance" title="Permalink to this headline">¶</a></h3>
@@ -241,7 +241,7 @@
 <li><p><strong>A states</strong>, which is captured by the defined properties. For example, the username and age of a user describe the state of the instance.</p></li>
 <li><p><strong>The bahaviors</strong>, which are captured in specific functions (methods) that relate to the class. You will find some examples in later sections.</p></li>
 </ol>
-<p><img alt="_images/37.png" src="_images/37.png" /></p>
+<p><img alt="_images/33.png" src="_images/33.png" /></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="exercise-3-identity-states-and-behaviors">
@@ -315,7 +315,7 @@ Do you want to have another look at how you can call and formulate functions? Cl
 
     <span class="c1"># Defining methods:</span>
     <span class="k">def</span> <span class="nf">logon</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">RealName</span> <span class="o">+</span> <span class="s2">&quot; has logged on.&quot;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">RealName</span> <span class="o">+</span> <span class="s2">&quot; has logged on.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -350,11 +350,11 @@ Do you want to have another look at how you can call and formulate functions? Cl
 
     <span class="c1"># Defining methods:</span>
     <span class="k">def</span> <span class="nf">logon</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">RealName</span> <span class="o">+</span> <span class="s2">&quot; has logged on.&quot;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">RealName</span> <span class="o">+</span> <span class="s2">&quot; has logged on.&quot;</span><span class="p">)</span>
 
 <span class="n">Marjolein</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="s2">&quot;Marjolein&quot;</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="s2">&quot;marjolein@email.nl&quot;</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">Marjolein</span><span class="o">.</span><span class="n">age</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">Marjolein</span><span class="o">.</span><span class="n">age</span><span class="p">)</span>
 </pre></div>
 </div>
 <hr class="docutils" />

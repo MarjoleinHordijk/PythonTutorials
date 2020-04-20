@@ -21,10 +21,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -257,17 +257,17 @@
 <li><p>Run the code (by pressing the small play button).</p></li>
 <li><p>Try running the following commands. You will see that not all of them work. This happens because the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function can only take strings as an argument when you provide them in this manner.</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;I am &quot;</span> <span class="o">+</span> <span class="n">myString</span> <span class="o">+</span> <span class="s2">&quot; years old.&quot;</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;I am &quot;</span> <span class="o">+</span> <span class="n">myInteger</span> <span class="o">+</span> <span class="s2">&quot; years old.&quot;</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;I am &quot;</span> <span class="o">+</span> <span class="n">myFloat</span> <span class="o">+</span> <span class="s2">&quot; years old.&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span> <span class="p">(</span><span class="s2">&quot;I am &quot;</span> <span class="o">+</span> <span class="n">myString</span> <span class="o">+</span> <span class="s2">&quot; years old.&quot;</span><span class="p">)</span>
+<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;I am &quot;</span> <span class="o">+</span> <span class="n">myInteger</span> <span class="o">+</span> <span class="s2">&quot; years old.&quot;</span><span class="p">)</span>
+<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;I am &quot;</span> <span class="o">+</span> <span class="n">myFloat</span> <span class="o">+</span> <span class="s2">&quot; years old.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><img alt="_images/51.png" src="_images/51.png" /></p>
 <ul class="simple">
 <li><p>To solve this issue, we can conver the integer and float data to string data as follows. Try if this indeed works.</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;I am &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">myInteger</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; years old.&quot;</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;I am &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">myFloat</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; years old.&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span> <span class="p">(</span><span class="s2">&quot;I am &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">myInteger</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; years old.&quot;</span><span class="p">)</span>
+<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;I am &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">myFloat</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; years old.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><img alt="_images/61.png" src="_images/61.png" /></p>
@@ -300,7 +300,7 @@ Please check out the section on “Indentation” on the <a class="reference int
 <li><p>Add the following piece of code to a .py file in the editor panel in Spyder.</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">myFunction</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;My name is &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;My name is &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -328,7 +328,7 @@ Please check out the section on “Indentation” on the <a class="reference int
 <li><p>Add the following piece of code to a .py file in the editor panel. We use <code class="docutils literal notranslate"><span class="pre">str()</span></code> here to change the integer argument (your age) to a string so it can be printed as text.</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">myFunction</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;My name is &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot; and I am &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">age</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; years old.&quot;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;My name is &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot; and I am &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">age</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; years old.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -360,9 +360,9 @@ Please check out the section on “Indentation” on the <a class="reference int
 <div class="exercise"><strong>We will again go back to our earlier function, which prints a sentence containing a name and age.</strong><br/><br/><ul class="simple">
 <li><p>Add the following piece of code to a .py file in the editor panel.</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;What is your name?&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;What is your name?&quot;</span><span class="p">)</span>
 <span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Welcome to the course, &quot;</span> <span class="o">+</span> <span class="n">name</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Welcome to the course, &quot;</span> <span class="o">+</span> <span class="n">name</span><span class="p">)</span>
 </pre></div>
 </div>
 <ul class="simple">

@@ -21,10 +21,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -273,9 +273,9 @@ Please check out the section on “Indentation” on the <a class="reference int
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">12</span>
 <span class="n">b</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="k">if</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">:</span>
-	<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a is greater than b&quot;</span><span class="p">)</span>
+	<span class="k">print</span><span class="p">(</span><span class="s2">&quot;a is greater than b&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-	<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a is not greater than b&quot;</span><span class="p">)</span>
+	<span class="k">print</span><span class="p">(</span><span class="s2">&quot;a is not greater than b&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><img alt="_images/12.png" src="_images/12.png" /></p>
@@ -287,7 +287,7 @@ Please check out the section on “Indentation” on the <a class="reference int
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">12</span>
 <span class="n">b</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="k">if</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">:</span>
-	<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a is greater than b&quot;</span><span class="p">)</span>
+	<span class="k">print</span><span class="p">(</span><span class="s2">&quot;a is greater than b&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
 	<span class="k">pass</span>
 </pre></div>
@@ -317,11 +317,11 @@ Please check out the section on “Indentation” on the <a class="reference int
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="n">b</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="k">if</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">:</span>
-	<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a is greater than b&quot;</span><span class="p">)</span>
+	<span class="k">print</span><span class="p">(</span><span class="s2">&quot;a is greater than b&quot;</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">:</span>
-	<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a is equal to b&quot;</span><span class="p">)</span>
+	<span class="k">print</span><span class="p">(</span><span class="s2">&quot;a is equal to b&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-	<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;b is greater than a&quot;</span><span class="p">)</span>
+	<span class="k">print</span><span class="p">(</span><span class="s2">&quot;b is greater than a&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><img alt="_images/31.png" src="_images/31.png" /></p>
@@ -349,21 +349,21 @@ Please check out the section on “Indentation” on the <a class="reference int
 <p><em>While this is true, do …</em></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
-	<span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 	<span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1">#i = i + 1</span>
 </pre></div>
 </div>
 <p>A while-loop can be interrupted or loops in a while-loop can be skipped using the <code class="docutils literal notranslate"><span class="pre">break</span></code> and <code class="docutils literal notranslate"><span class="pre">continue</span></code> statements.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
-	<span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 	<span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
 		<span class="k">break</span>
 	<span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
 
 <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
-	<span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 	<span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
 		<span class="k">continue</span>
 	<span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
@@ -389,11 +389,11 @@ Please check out the section on “Indentation” on the <a class="reference int
 <p><em>For every element in this entire sequence, do …</em></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cars</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Volvo&quot;</span><span class="p">,</span> <span class="s2">&quot;Ford&quot;</span><span class="p">,</span> <span class="s2">&quot;Mercedes&quot;</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">carName</span> <span class="ow">in</span> <span class="n">cars</span>
-	<span class="nb">print</span><span class="p">(</span><span class="n">carName</span><span class="p">)</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">carName</span><span class="p">)</span>
 		
 <span class="n">city</span> <span class="o">=</span> <span class="s2">&quot;Eindhoven&quot;</span>
 <span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="n">city</span>
-	<span class="nb">print</span><span class="p">(</span><span class="n">letter</span><span class="p">)</span>
+	<span class="k">print</span><span class="p">(</span><span class="n">letter</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="section" id="exercise-5-understanding-for-loops">

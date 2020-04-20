@@ -21,10 +21,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -185,9 +185,9 @@
 <div class="section" id="id1">
 <h2>2. Using the RevitPythonShell<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>Once you have installed the RevitPythonShell, you will be able to find it under the “Add-ins” tab in Revit.</p>
-<p><img alt="_images/27.png" src="_images/27.png" /></p>
+<p><img alt="_images/28.png" src="_images/28.png" /></p>
 <p>The console that opens consists of two main parts. In the top part, you can type commands (e.g. <code class="docutils literal notranslate"><span class="pre">print(&quot;Hello</span> <span class="pre">world!)</span></code>). When you press enter, you will see the resulting output appear. However, we can also write snippets. That is, code blocks which we can store and share. This is done in the bottom part of the window. To run the code, simply press the play icon or hit F5 on your keyboard.</p>
-<p><img alt="_images/36.png" src="_images/36.png" /></p>
+<p><img alt="_images/37.png" src="_images/37.png" /></p>
 <p>If you are familiar with Python already, you will be able to perform standard operations such as defining variables, writing loops, and using conditional statements. Some examples are provided below to illustrate that the same can be done within RevitPythonShell and to help you get familiar with the console.</p>
 <p><strong>Variables</strong></p>
 <p>We can create variables to store all kinds of data. For example, we can store text, numbers, lists, etc. This is no different from working with Python in any other console.</p>
@@ -250,8 +250,8 @@
 <p>We can use the <code class="docutils literal notranslate"><span class="pre">FilteredElementCollector</span></code> to access model elements based on their category or class. You can find a list of all build in categories <a class="reference external" href="https://www.revitapidocs.com/2019/ba1c5b30-242f-5fdc-8ea9-ec3b61e6e722.htm">here</a>. An example includes the doors (OST_Doors). These categories are also shown in your Project browser panel, as shown below.</p>
 <p><img alt="_images/83.png" src="_images/83.png" /></p>
 <p>We can store all door instances in the model to a variable (<code class="docutils literal notranslate"><span class="pre">doors</span></code>) as shown below.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="kn">import</span> <span class="n">FilteredElementCollector</span> <span class="k">as</span> <span class="n">Fec</span>
-<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="kn">import</span> <span class="n">BuiltInCategory</span> <span class="k">as</span> <span class="n">Bic</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="k">import</span> <span class="n">FilteredElementCollector</span> <span class="k">as</span> <span class="n">Fec</span>
+<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="k">import</span> <span class="n">BuiltInCategory</span> <span class="k">as</span> <span class="n">Bic</span>
 
 <span class="n">doors</span> <span class="o">=</span> <span class="n">Fec</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span><span class="o">.</span>\
         <span class="n">OfCategory</span><span class="p">(</span><span class="n">Bic</span><span class="o">.</span><span class="n">OST_Doors</span><span class="p">)</span><span class="o">.</span>\
@@ -260,8 +260,8 @@
 </div>
 <p>Notice that we imported <code class="docutils literal notranslate"><span class="pre">FilteredElementCollector</span></code> and <code class="docutils literal notranslate"><span class="pre">BuiltInCategory</span></code> under the names Fec and Bic to keep our code more condensed.  This is called aliasing.</p>
 <p>We include <code class="docutils literal notranslate"><span class="pre">WhereElementIsNotElementType()</span></code>, since we are only interested in the door instances. If we would like to access the door types in the model we would use <code class="docutils literal notranslate"><span class="pre">WhereElementIsElementType()</span></code> instead, as shown below.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="kn">import</span> <span class="n">FilteredElementCollector</span> <span class="k">as</span> <span class="n">Fec</span>
-<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="kn">import</span> <span class="n">BuiltInCategory</span> <span class="k">as</span> <span class="n">Bic</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="k">import</span> <span class="n">FilteredElementCollector</span> <span class="k">as</span> <span class="n">Fec</span>
+<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="k">import</span> <span class="n">BuiltInCategory</span> <span class="k">as</span> <span class="n">Bic</span>
 
 <span class="n">doorTypes</span> <span class="o">=</span> <span class="n">Fec</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span><span class="o">.</span>\
         <span class="n">OfCategory</span><span class="p">(</span><span class="n">Bic</span><span class="o">.</span><span class="n">OST_Doors</span><span class="p">)</span><span class="o">.</span>\
@@ -274,8 +274,8 @@
 <h2>4. Reading instance properties<a class="headerlink" href="#reading-instance-properties" title="Permalink to this headline">¶</a></h2>
 <p>Now that we have access to elements in our model, we can start reading the information about them. For example, we can print the object ids of the door instances in our model using a small for loop.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
-<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="kn">import</span> <span class="n">FilteredElementCollector</span> <span class="k">as</span> <span class="n">Fec</span>
-<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="kn">import</span> <span class="n">BuiltInCategory</span> <span class="k">as</span> <span class="n">Bic</span>
+<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="k">import</span> <span class="n">FilteredElementCollector</span> <span class="k">as</span> <span class="n">Fec</span>
+<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="k">import</span> <span class="n">BuiltInCategory</span> <span class="k">as</span> <span class="n">Bic</span>
 
 <span class="c1"># Store door instances to variable</span>
 <span class="n">doors</span> <span class="o">=</span> <span class="n">Fec</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span><span class="o">.</span>\
@@ -294,8 +294,8 @@
 <p><img alt="_images/112.png" src="_images/112.png" /></p>
 <p>We can also access this information for all doors in our model using the following piece of code.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
-<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="kn">import</span> <span class="n">FilteredElementCollector</span> <span class="k">as</span> <span class="n">Fec</span>
-<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="kn">import</span> <span class="n">BuiltInCategory</span> <span class="k">as</span> <span class="n">Bic</span>
+<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="k">import</span> <span class="n">FilteredElementCollector</span> <span class="k">as</span> <span class="n">Fec</span>
+<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="k">import</span> <span class="n">BuiltInCategory</span> <span class="k">as</span> <span class="n">Bic</span>
 
 <span class="c1"># Store door instances to variable</span>
 <span class="n">doors</span> <span class="o">=</span> <span class="n">Fec</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span><span class="o">.</span>\
@@ -310,8 +310,8 @@
 <p><img alt="_images/122.png" src="_images/122.png" /></p>
 <p>We can also print the object IDs of only those doors that are mirrored using a conditional if statement.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
-<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="kn">import</span> <span class="n">FilteredElementCollector</span> <span class="k">as</span> <span class="n">Fec</span>
-<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="kn">import</span> <span class="n">BuiltInCategory</span> <span class="k">as</span> <span class="n">Bic</span>
+<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="k">import</span> <span class="n">FilteredElementCollector</span> <span class="k">as</span> <span class="n">Fec</span>
+<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="k">import</span> <span class="n">BuiltInCategory</span> <span class="k">as</span> <span class="n">Bic</span>
 
 <span class="c1"># Store door instances to variable</span>
 <span class="n">doors</span> <span class="o">=</span> <span class="n">Fec</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span><span class="o">.</span>\
@@ -327,8 +327,8 @@
 <p><img alt="_images/132.png" src="_images/132.png" /></p>
 <p>We can even adapt this loop to determine the total number of doors that are mirrored in our model.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
-<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="kn">import</span> <span class="n">FilteredElementCollector</span> <span class="k">as</span> <span class="n">Fec</span>
-<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="kn">import</span> <span class="n">BuiltInCategory</span> <span class="k">as</span> <span class="n">Bic</span>
+<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="k">import</span> <span class="n">FilteredElementCollector</span> <span class="k">as</span> <span class="n">Fec</span>
+<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="k">import</span> <span class="n">BuiltInCategory</span> <span class="k">as</span> <span class="n">Bic</span>
 
 <span class="c1"># Store door instances to variable</span>
 <span class="n">doors</span> <span class="o">=</span> <span class="n">Fec</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span><span class="o">.</span>\
@@ -350,8 +350,8 @@
 <h2>5. Reading instance parameters<a class="headerlink" href="#reading-instance-parameters" title="Permalink to this headline">¶</a></h2>
 <p>We can use the “LookupParameter(“parameter_name”)” method to look up <strong>parameters</strong> of an <strong>instance</strong>. However, this will only return the parameter itself, but not the value that is stored for it. To retrieve the value, we need to know the datatype of the parameter (e.g. integer or string). Usually, this is quite straightforward. For example, the “Mark” parameter is a string value. We can access and print this value for the first door in the variable <code class="docutils literal notranslate"><span class="pre">doors</span></code> as shown below.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
-<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="kn">import</span> <span class="n">FilteredElementCollector</span> <span class="k">as</span> <span class="n">Fec</span>
-<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="kn">import</span> <span class="n">BuiltInCategory</span> <span class="k">as</span> <span class="n">Bic</span>
+<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="k">import</span> <span class="n">FilteredElementCollector</span> <span class="k">as</span> <span class="n">Fec</span>
+<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="k">import</span> <span class="n">BuiltInCategory</span> <span class="k">as</span> <span class="n">Bic</span>
 
 <span class="c1"># Store door instances to variable</span>
 <span class="n">doors</span> <span class="o">=</span> <span class="n">Fec</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span><span class="o">.</span>\
@@ -369,8 +369,8 @@
 <p>If you are familiar with Revit, you will know that a model instance (e.g door) belongs to a particular type that defines certain attributes of the object. We can also access the information regarding the type a specific instance belongs to.</p>
 <p>However, to retrieve <strong>type parameters</strong>, such as the name of the type, we need to add something extra.  In the RevitAPI the type of a Family is accessed by the property “Symbol”. Hence, we can retrieve this information using <code>door.<span style="text-decoration:underline;">Symbol</span>.LookupParameter()</code>, as shown below.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
-<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="kn">import</span> <span class="n">FilteredElementCollector</span> <span class="k">as</span> <span class="n">Fec</span>
-<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="kn">import</span> <span class="n">BuiltInCategory</span> <span class="k">as</span> <span class="n">Bic</span>
+<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="k">import</span> <span class="n">FilteredElementCollector</span> <span class="k">as</span> <span class="n">Fec</span>
+<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="k">import</span> <span class="n">BuiltInCategory</span> <span class="k">as</span> <span class="n">Bic</span>
 
 <span class="c1"># Store door instances to variable</span>
 <span class="n">doors</span> <span class="o">=</span> <span class="n">Fec</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span><span class="o">.</span>\
@@ -392,9 +392,9 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
 <span class="kn">import</span> <span class="nn">clr</span>
 <span class="n">clr</span><span class="o">.</span><span class="n">AddReference</span><span class="p">(</span><span class="s2">&quot;RevitAPI&quot;</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="kn">import</span> <span class="n">BuiltInCategory</span> <span class="k">as</span> <span class="n">Bic</span>
-<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="kn">import</span> <span class="n">FilteredElementCollector</span> <span class="k">as</span> <span class="n">Fec</span>
-<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="kn">import</span> <span class="n">Transaction</span>
+<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="k">import</span> <span class="n">BuiltInCategory</span> <span class="k">as</span> <span class="n">Bic</span>
+<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="k">import</span> <span class="n">FilteredElementCollector</span> <span class="k">as</span> <span class="n">Fec</span>
+<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="k">import</span> <span class="n">Transaction</span>
 
 <span class="c1"># reference to the current open revit model to work with:</span>
 <span class="n">doc</span> <span class="o">=</span> <span class="n">__revit__</span><span class="o">.</span><span class="n">ActiveUIDocument</span><span class="o">.</span><span class="n">Document</span>
@@ -523,9 +523,9 @@
 <span class="kn">import</span> <span class="nn">clr</span>
 
 <span class="n">clr</span><span class="o">.</span><span class="n">AddReference</span><span class="p">(</span><span class="s2">&quot;RevitAPI&quot;</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="kn">import</span> <span class="n">BuiltInCategory</span> <span class="k">as</span> <span class="n">Bic</span>
-<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="kn">import</span> <span class="n">FilteredElementCollector</span> <span class="k">as</span> <span class="n">Fec</span>
-<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="kn">import</span> <span class="n">Transaction</span>
+<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="k">import</span> <span class="n">BuiltInCategory</span> <span class="k">as</span> <span class="n">Bic</span>
+<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="k">import</span> <span class="n">FilteredElementCollector</span> <span class="k">as</span> <span class="n">Fec</span>
+<span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="k">import</span> <span class="n">Transaction</span>
 
 <span class="c1"># __window__.set_font_sizes(19)  # set bigger font in RPS</span>
 <span class="c1"># reference the current open revit model to work with:</span>

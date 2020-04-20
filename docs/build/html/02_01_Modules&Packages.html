@@ -21,10 +21,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -236,7 +236,7 @@
 <span class="n">tweet</span> <span class="o">=</span> <span class="n">got</span><span class="o">.</span><span class="n">manager</span><span class="o">.</span><span class="n">TweetManager</span><span class="o">.</span><span class="n">getTweets</span><span class="p">(</span><span class="n">tweetCriteria</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 
 <span class="c1"># Print the text of the collected tweet.</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">tweet</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">tweet</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>It might be that you need to access a function from one package mutiple times. If the package name is quite long, this means that you have to repeat that long name several times. This may make your code less readable and could even slow you down in writing your code. To overcome this issue, we can use <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">x</span> <span class="pre">as</span> <span class="pre">y</span></code>, where x is the actual name of the package and y is the abbreviation you would like to use.</p>
