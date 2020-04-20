@@ -89,7 +89,7 @@
 <li class="toctree-l2"><a class="reference internal" href="03_02_mySQL.html">Working with mySQL databases</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_03_Regression.html">Regression Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_04_Visualization.html">Data Visualization</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Logistic Regression Using Python</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Logistic Regression Models</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#loading-the-dataset">1. Loading the Dataset</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#exercise-1-pandas-dataframes">Exercise 1: Pandas Dataframes</a></li>
 </ul>
@@ -99,19 +99,10 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#training-the-model">3. Training the Model</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#evaluating-the-results">4. Evaluating the Results</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#accuracy">4.1 Accuracy</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#exercise-3-evaluating-the-accuracy">Exercise 3: Evaluating the Accuracy</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#confusion-matrix">4.2 Confusion Matrix</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#exercise-4-evaluating-the-confusion-matrix">Exercise 4: Evaluating the Confusion Matrix</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#classification-report-precision-recall-f-measure-and-support">4.3 Classification report: precision, recall, F-measure and support</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#exercise-5-evaluating-the-classification-report">Exercise 5: Evaluating the Classification Report</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#evaluating-the-results">4. Evaluating the Results</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#accuracy">4.1 Accuracy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#confusion-matrix">4.2 Confusion Matrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#classification-report-precision-recall-f-measure-and-support">4.3 Classification report: precision, recall, F-measure and support</a></li>
 </ul>
 </li>
 </ul>
@@ -304,11 +295,10 @@
 </pre></div>
 </div>
 </div>
-</div>
 <div class="section" id="evaluating-the-results">
-<h1>4. Evaluating the Results<a class="headerlink" href="#evaluating-the-results" title="Permalink to this headline">¶</a></h1>
+<h2>4. Evaluating the Results<a class="headerlink" href="#evaluating-the-results" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="accuracy">
-<h2>4.1 Accuracy<a class="headerlink" href="#accuracy" title="Permalink to this headline">¶</a></h2>
+<h3>4.1 Accuracy<a class="headerlink" href="#accuracy" title="Permalink to this headline">¶</a></h3>
 <p>To evaluate the quality of our model, we can use the test dataset and calculate the accuracy metric. This measure indicates how well we are able to predict the travel mode based on the model.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
@@ -333,7 +323,7 @@
 </div>
 <hr class="docutils" />
 <div class="section" id="exercise-3-evaluating-the-accuracy">
-<h3>Exercise 3: Evaluating the Accuracy<a class="headerlink" href="#exercise-3-evaluating-the-accuracy" title="Permalink to this headline">¶</a></h3>
+<h4>Exercise 3: Evaluating the Accuracy<a class="headerlink" href="#exercise-3-evaluating-the-accuracy" title="Permalink to this headline">¶</a></h4>
 <div class="exercise"><ol class="simple">
 <li><p>What is the accuracy metric for the estimated model?</p></li>
 <li><p>Given the number of cases and variables in the dataset, how do you interpret the accuracy of the model? Do you think the estimated model is a good basis for predicting the main travel mode of people? What are your arguments?</p></li>
@@ -344,7 +334,7 @@
 </div>
 <hr class="docutils" />
 <div class="section" id="confusion-matrix">
-<h2>4.2 Confusion Matrix<a class="headerlink" href="#confusion-matrix" title="Permalink to this headline">¶</a></h2>
+<h3>4.2 Confusion Matrix<a class="headerlink" href="#confusion-matrix" title="Permalink to this headline">¶</a></h3>
 <p>A confusion matrix provides an interesting overview of correct and wrong predictions. The colomns represent the predicted classes (= predicted main mode of travel), whereas the rows relate to the actual classes in the dataset (= actual main mode of travel). The cells show the number of cases. Hence, in the diagonal cells, we see the correctly predicted cases. In the non-diagonal cells we can see where mistakes were made. In this was, we can evaluate if our model makes mistakes more often in particular situations.</p>
 <p>We add the function <code class="docutils literal notranslate"><span class="pre">confusionMatrix()</span></code> to create an visualize the matrix.</p>
 <ul class="simple">
@@ -419,7 +409,7 @@
 </div>
 <hr class="docutils" />
 <div class="section" id="exercise-4-evaluating-the-confusion-matrix">
-<h3>Exercise 4: Evaluating the Confusion Matrix<a class="headerlink" href="#exercise-4-evaluating-the-confusion-matrix" title="Permalink to this headline">¶</a></h3>
+<h4>Exercise 4: Evaluating the Confusion Matrix<a class="headerlink" href="#exercise-4-evaluating-the-confusion-matrix" title="Permalink to this headline">¶</a></h4>
 <div class="exercise"><p>Have a look at the confusion matrix and answer the questions below.</p>
 <ol class="simple">
 <li><p>Does the matrix remain the same after you rerun the script several times? Why (not)?</p></li>
@@ -433,7 +423,7 @@
 </div>
 <hr class="docutils" />
 <div class="section" id="classification-report-precision-recall-f-measure-and-support">
-<h2>4.3 Classification report: precision, recall, F-measure and support<a class="headerlink" href="#classification-report-precision-recall-f-measure-and-support" title="Permalink to this headline">¶</a></h2>
+<h3>4.3 Classification report: precision, recall, F-measure and support<a class="headerlink" href="#classification-report-precision-recall-f-measure-and-support" title="Permalink to this headline">¶</a></h3>
 <p>We can also generate a complete report that shows the precision, recall, F-measure and support metrics. If you are familiar with logistic regressions, you will know that precision and recall are based on the true-positive and true-negative rates. These can, in turn, be determined from the confusion matrix. The F-measure combines recall and precision in one score. In the 1f-score found in the report, precision and recall are weighted equally. The support metric represents the number of cases in the dataset belonging to the (actual) class at hand.</p>
 <p>You can generate this report by running:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">test_y</span><span class="p">,</span> <span class="n">predicted_y</span><span class="p">))</span>
@@ -441,7 +431,7 @@
 </div>
 <hr class="docutils" />
 <div class="section" id="exercise-5-evaluating-the-classification-report">
-<h3>Exercise 5: Evaluating the Classification Report<a class="headerlink" href="#exercise-5-evaluating-the-classification-report" title="Permalink to this headline">¶</a></h3>
+<h4>Exercise 5: Evaluating the Classification Report<a class="headerlink" href="#exercise-5-evaluating-the-classification-report" title="Permalink to this headline">¶</a></h4>
 <div class="exercise"><p>Have a look at the classification report and answer the questions below.</p>
 <ol class="simple">
 <li><p>Which category is predicted best by the model?</p></li>
@@ -451,6 +441,7 @@
 </ol>
 </div>
 <br/></div>
+</div>
 </div>
 </div>
 
