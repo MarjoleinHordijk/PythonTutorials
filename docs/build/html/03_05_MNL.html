@@ -110,6 +110,10 @@
 <li class="toctree-l4"><a class="reference internal" href="#exercise-4-evaluating-the-confusion-matrix">Exercise 4: Evaluating the Confusion Matrix</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#classification-report-precision-recall-f-measure-and-support">4.3 Classification report: precision, recall, F-measure and support</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#exercise-5-evaluating-the-classification-report">Exercise 5: Evaluating the Classification Report</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="03_06_NN.html">Neural Networks</a></li>
@@ -281,7 +285,7 @@
 <hr class="docutils" />
 <div class="section" id="training-the-model">
 <h2>3. Training the Model<a class="headerlink" href="#training-the-model" title="Permalink to this headline">¶</a></h2>
-<p>We will now use the <code class="docutils literal notranslate"><span class="pre">LogisticRegression</span></code> function from <code class="docutils literal notranslate"><span class="pre">scikit</span></code> to create a logistic regression model instance. Next, we will train the model using the training data. This is also called ‘fitting the model’.</p>
+<p>We will now use the <code class="docutils literal notranslate"><span class="pre">LogisticRegression</span></code> function from <code class="docutils literal notranslate"><span class="pre">scikit</span></code> to create a logistic regression model instance. Next, we will train the model using the training data. This is also called ‘fitting the model’. We do so using <code class="docutils literal notranslate"><span class="pre">.fit()</span></code> and passing the x and y values of the training set as arguments.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">linear_model</span>
@@ -425,8 +429,28 @@
 <li><p>Have a look at the original dataset. Look closely at the combinations of the predictor variables and the transport modes. Can you find a reason why the predictions for one transport mode are particularly accurate?</p></li>
 </ol>
 </div>
-<br/><hr class="docutils" />
+<br/></div>
 </div>
+<hr class="docutils" />
+<div class="section" id="classification-report-precision-recall-f-measure-and-support">
+<h2>4.3 Classification report: precision, recall, F-measure and support<a class="headerlink" href="#classification-report-precision-recall-f-measure-and-support" title="Permalink to this headline">¶</a></h2>
+<p>We can also generate a complete report that shows the precision, recall, F-measure and support metrics. If you are familiar with logistic regressions, you will know that precision and recall are based on the true-positive and true-negative rates. These can, in turn, be determined from the confusion matrix. The F-measure combines recall and precision in one score. In the 1f-score found in the report, precision and recall are weighted equally. The support metric represents the number of cases in the dataset belonging to the (actual) class at hand.</p>
+<p>You can generate this report by running:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">test_y</span><span class="p">,</span> <span class="n">predicted_y</span><span class="p">))</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<div class="section" id="exercise-5-evaluating-the-classification-report">
+<h3>Exercise 5: Evaluating the Classification Report<a class="headerlink" href="#exercise-5-evaluating-the-classification-report" title="Permalink to this headline">¶</a></h3>
+<div class="exercise"><p>Have a look at the classification report and answer the questions below.</p>
+<ol class="simple">
+<li><p>Which category is predicted best by the model?</p></li>
+<li><p>Do the precision, recall and f-scores correspond to the confusion matrix? Are the well and badly predicted categories the same?</p></li>
+<li><p>Based on the report, could you use this model to determine if someone uses the car as main transport mode?</p></li>
+<li><p>Based on the report, could you use the model to dtermine if one uses the bike as main transport mode?</p></li>
+</ol>
+</div>
+<br/></div>
 </div>
 </div>
 
