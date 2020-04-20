@@ -1,0 +1,540 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Data Visualization &mdash; Python Tutorials  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/my_theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Logistic Regression Using Python" href="03_05_LR.html" />
+    <link rel="prev" title="Linear Regression Analysis Using Python" href="03_03_Regression.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Python Tutorials
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Topics:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01_GettingStarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_BeyondBasics.html">Beyond the Basics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="03_DataAnalysis.html">Data Analysis Using Python</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="03_01_CSV.html">Working with CSV files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_02_mySQL.html">Working with mySQL databases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_03_Regression.html">Regression Analysis</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Data Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#a-simple-line-graph">1. A Simple Line Graph</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#exercise-1-simple-line-graph">Exercise 1: Simple Line Graph</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#two-approaches-for-plotting">2. Two Approaches for Plotting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#object-oriented">2.1 Object-Oriented</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pyplot-approach">2.2 Pyplot-Approach</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#histograms">3. Histograms</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#exercise-4-histograms">Exercise 4: Histograms</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#scatter-plots">4. Scatter Plots</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#exercise-5-scatterplots">Exercise 5: Scatterplots</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#bar-charts">5. Bar-Charts</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#exercise-5-bar-chart">Exercise 5: Bar-Chart</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#other-plots">Other Plots</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="03_05_LR.html">Logistic Regression Using Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_05_LR.html#evaluating-the-results">4. Evaluating the Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_06_NN.html">Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_07_NLP.html">Natural Language Processing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="04_GIS.html">GIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_BIM.html">Building Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_Help.html">Help</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python Tutorials</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="03_DataAnalysis.html">Data Analysis Using Python</a> &raquo;</li>
+        
+      <li>Data Visualization</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/03_04_Visualization.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <html>
+<head>
+<style>
+.info {
+  background-color: #e6e6e6;
+  border-left: 6px solid #666666;
+  padding: 10px;
+}
+.exercise {
+  background-color: #e7f3fe;
+  border-left: 6px solid #2196F3;
+  padding: 10px;
+}
+</style>
+</head>
+<body><div class="section" id="data-visualization">
+<h1>Data Visualization<a class="headerlink" href="#data-visualization" title="Permalink to this headline">¶</a></h1>
+<p>Data visualization is relevant to almost any type of data analyses project. Visual can help you to explore the data of visualize results in an intuitive way. Although each analysis technique calls for its own unique plots and other figures, generating them in Python usually requires a number of similar steps. In this tutorial we wil deal with several plots and discuss how you can customize them to your specific needs.</p>
+<p>In this tutorial we will use the well known <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> library.</p>
+<div class="section" id="a-simple-line-graph">
+<h2>1. A Simple Line Graph<a class="headerlink" href="#a-simple-line-graph" title="Permalink to this headline">¶</a></h2>
+<p>When using <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> to create plots in Python, you will first need to create a figure with axes using <code class="docutils literal notranslate"><span class="pre">pyplot.subplots</span></code>. Then, you can use <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> to plot data in the graph.</p>
+<p>Consider the example below, were we plot a line graph based on four data points. We use <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code> to open the generated plot in a viewer. You can export the graph as .png image from this viewer.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Specify x and y values.</span>
+<span class="n">values_x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+<span class="n">values_y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">15</span><span class="p">]</span>
+
+<span class="c1"># Create the figure with axes.</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="c1"># Plot the data.</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">values_x</span><span class="p">,</span> <span class="n">values_y</span><span class="p">)</span>
+
+<span class="c1"># Show the resulting graph.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<div class="section" id="exercise-1-simple-line-graph">
+<h3>Exercise 1: Simple Line Graph<a class="headerlink" href="#exercise-1-simple-line-graph" title="Permalink to this headline">¶</a></h3>
+<div class="exercise"><p>Plot a line graph shaped like an ‘M’ using matplotlib.</p>
+</div>
+<br/></div>
+</div>
+<hr class="docutils" />
+<div class="section" id="two-approaches-for-plotting">
+<h2>2. Two Approaches for Plotting<a class="headerlink" href="#two-approaches-for-plotting" title="Permalink to this headline">¶</a></h2>
+<p><img alt="_images/113.png" src="_images/113.png" />
+<a class="reference external" href="https://matplotlib.org/tutorials/introductory/usage.html#sphx-glr-tutorials-introductory-usage-py">Source of image</a></p>
+<p>The image above provides a useful overview of common elements among plots. As you can see, the gridlines on the axes are referred to as ‘ticks’ (minor and major). Other than that, these elements should be familiar to you.</p>
+<p>Plotting using <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> can be done in two ways: object-oriented and pyplot-based. We will discuss each of these approaches briefly below.</p>
+<div class="section" id="object-oriented">
+<h3>2.1 Object-Oriented<a class="headerlink" href="#object-oriented" title="Permalink to this headline">¶</a></h3>
+<p>The object-oriented approach concerns explicit creation of figures and axis before plotting the data or performing any other kind of operation. This is the approach that we took in the first example. That is, we first created the figure and axes using <code class="docutils literal notranslate"><span class="pre">fig,</span> <span class="pre">axes</span> <span class="pre">=</span> <span class="pre">plt.subplots()</span></code> and then plotted the data using <code class="docutils literal notranslate"><span class="pre">axes.plot(values_x,</span> <span class="pre">values_y)</span></code>.</p>
+<p>In addition to the x and y coordinates, we can provide a label as argument to <code class="docutils literal notranslate"><span class="pre">axes.plot</span></code>. In this way, we can identify different data series.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Specify x and y values.</span>
+<span class="n">values_x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+<span class="n">values_y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">15</span><span class="p">]</span>
+
+<span class="c1"># Create the figure with axes.</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="c1"># Plot the data.</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">values_x</span><span class="p">,</span> <span class="n">values_y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
+
+<span class="c1"># Show the resulting graph.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Other than the <code class="docutils literal notranslate"><span class="pre">plot()</span></code> function, there are several methods that we can call on the figure we created. For example we can add labels and a title using the methods below. Each of these take <em>strings</em> as arguments! In our example, these methods are called on <code class="docutils literal notranslate"><span class="pre">axes</span></code>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.set_xlabel()</span></code> / <code class="docutils literal notranslate"><span class="pre">.set_ylabel()</span></code> : Add a label to the x or y axis.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.set_title()</span></code> : Add a title to the plot.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.legend()</span></code> : Add a legend to the plot.</p></li>
+</ul>
+<hr class="docutils" />
+<div class="section" id="exercise-2-title-labels-and-legend">
+<h4>Exercise 2: Title, Labels and Legend<a class="headerlink" href="#exercise-2-title-labels-and-legend" title="Permalink to this headline">¶</a></h4>
+<div class="exercise"><ul class="simple">
+<li><p>Add a title to the plot you made in the previous exercise.</p></li>
+<li><p>Label the axes of the plot.</p></li>
+<li><p>Add a label to the M-formed line.</p></li>
+<li><p>Add another line to the graph which resembles a V. Also label this second data-series.</p></li>
+<li><p>Add a legend to the plot which shows the labels and corresponding color.</p></li>
+</ul>
+</div>
+<br/></div>
+</div>
+<hr class="docutils" />
+<div class="section" id="pyplot-approach">
+<h3>2.2 Pyplot-Approach<a class="headerlink" href="#pyplot-approach" title="Permalink to this headline">¶</a></h3>
+<p>The Pyplot approach lets <code class="docutils literal notranslate"><span class="pre">pyplot</span></code> generate and manage the figure and axes automatically. Generally, this approach is considered more suitable for interactive plots. However, it can produce the same results.</p>
+<p>For example, the script below generates the same graph as our earlier example. Furthermore, we can use similar methods to customize the title and labels. In the example below, these methods have to be called on <code class="docutils literal notranslate"><span class="pre">plt</span></code>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.xlabel()</span></code> / <code class="docutils literal notranslate"><span class="pre">ylabel()</span></code> : Add a label to the x or y axis.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.title()</span></code> : Add a title to the plot.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.legend()</span></code> : Add a legend to the plot.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Specify x and y values.</span>
+<span class="n">values_x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+<span class="n">values_y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">15</span><span class="p">]</span>
+
+<span class="c1"># Plot the data.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">values_x</span><span class="p">,</span> <span class="n">values_y</span><span class="p">)</span>
+
+<span class="c1"># Show the resulting graph.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<div class="section" id="exercise-3-pyplot-approach">
+<h4>Exercise 3: Pyplot-Approach<a class="headerlink" href="#exercise-3-pyplot-approach" title="Permalink to this headline">¶</a></h4>
+<div class="exercise"><p>Repeat the steps in Exercise 1 and 2 using the pyplot-approach. (Note that the methods have slightly different names!)</p>
+</div>
+<br/></div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="histograms">
+<h2>3. Histograms<a class="headerlink" href="#histograms" title="Permalink to this headline">¶</a></h2>
+<p>Histograms can be useful to get a feel of your data. They are therefore often using during the data exploration phase of a study.</p>
+<p>Lets create a list of random values which approaches a normal distribution using <code class="docutils literal notranslate"><span class="pre">numpy</span></code> and visualize the distribution in a histogram.</p>
+<ul class="simple">
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">numpy</span></code> to the import section. (If you have not installed <code class="docutils literal notranslate"><span class="pre">numpy</span></code> already, please do so.)</p></li>
+<li><p>Create the set of 10000 random values using <code class="docutils literal notranslate"><span class="pre">np.random.normal(size=10000)</span></code>.</p></li>
+<li><p>Create a histogram using <code class="docutils literal notranslate"><span class="pre">plt.hist()</span></code>. Provide the following arguments:</p>
+<ol class="simple">
+<li><p>The list of values.</p></li>
+<li><p>The ‘density=True’ setting. This normalizes the counts such that the area of the histogram (integral) sums to 1.</p></li>
+<li><p>The number of bins, which we will set to 100. (<code class="docutils literal notranslate"><span class="pre">bins=100</span></code>)</p></li>
+</ol>
+</li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Specify the values.</span>
+<span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+
+<span class="c1"># Create a histogram with 100 bins.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># Show the resulting graph.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>You can add a normal distribution curve to the graph using <code class="docutils literal notranslate"><span class="pre">scipy</span></code>.</p>
+<ul class="simple">
+<li><p>Make sure you have <code class="docutils literal notranslate"><span class="pre">scipy</span></code> installed and add it to the import section (see below).</p></li>
+<li><p>Determine the best normal curve fit for the data using <code class="docutils literal notranslate"><span class="pre">norm.fit()</span></code>.</p></li>
+<li><p>Add the this best fitting curve to the graph.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.mlab</span> <span class="kn">as</span> <span class="nn">mlab</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+
+<span class="c1"># Specify the values.</span>
+<span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+
+<span class="c1"># Create a histogram with 100 bins.</span>
+<span class="n">n</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">patches</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Probability&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Value&#39;</span><span class="p">)</span>
+
+<span class="c1"># Determine the best fitting normal curve.</span>
+<span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">)</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">((</span><span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="o">*</span> <span class="n">sigma</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">sigma</span> <span class="o">*</span> <span class="p">(</span><span class="n">bins</span> <span class="o">-</span> <span class="n">mu</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="c1"># Plot the normal curve with a dashed line.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">bins</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">)</span>
+
+<span class="c1"># Show the resulting graph.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><img alt="_images/29.png" src="_images/29.png" /></p>
+<hr class="docutils" />
+<div class="section" id="exercise-4-histograms">
+<h3>Exercise 4: Histograms<a class="headerlink" href="#exercise-4-histograms" title="Permalink to this headline">¶</a></h3>
+<div class="exercise"><ul class="simple">
+<li><p>Start by plotting a histogram using the example code above.</p></li>
+<li><p>Add labels to the axes and a title.</p></li>
+<li><p>Add a legend.</p></li>
+<li><p>Decrease the number of values to 100 and the number of bins to 10. What do you notice? How closely does the histogram resemble a normal distribution?</p></li>
+<li><p>Generate a new set of values. This time, we will specify the mean (<code class="docutils literal notranslate"><span class="pre">mu</span></code>) and the standard deviation (<code class="docutils literal notranslate"><span class="pre">sigma</span></code>) beforehand. Generate the set of values using <code class="docutils literal notranslate"><span class="pre">mu</span> <span class="pre">+</span> <span class="pre">sigma</span> <span class="pre">*</span> <span class="pre">np.random.randn(1000)</span></code>. Check if the generated histogram indeed shows the specified mean and st. dev parameters.</p></li>
+</ul>
+</div>
+<br/></div>
+</div>
+<hr class="docutils" />
+<div class="section" id="scatter-plots">
+<h2>4. Scatter Plots<a class="headerlink" href="#scatter-plots" title="Permalink to this headline">¶</a></h2>
+<p>Developing scatterplots is another common way to explore patterns in your data. As a hypothetical example, consider two categories of buildings</p>
+<ol class="simple">
+<li><p>Old buildings</p></li>
+<li><p>New buildings</p></li>
+</ol>
+<p>Now imagine that for each of these buildings, we have a score for their insulation quality ranging from 0 (extremely bad) to 1 (perfect). We would like to know if there is a pattern among old and new buildings when it comes to the quality of their insulation. We have a list of insulation scores for both old and new buildings (<code class="docutils literal notranslate"><span class="pre">old_scores</span></code> and <code class="docutils literal notranslate"><span class="pre">new_scores</span></code>). We specify the range of the scores ranging from 0 to 1 with a stepsize of 0.1 (<code class="docutils literal notranslate"><span class="pre">range_scores=[0.1,</span> <span class="pre">0.2,</span> <span class="pre">0.3,</span> <span class="pre">0.4,</span> <span class="pre">0.5,</span> <span class="pre">0.6,</span> <span class="pre">0.7,</span> <span class="pre">0.8,</span> <span class="pre">0.9,</span> <span class="pre">1.0]</span></code>). Then, we use <code class="docutils literal notranslate"><span class="pre">scatter()</span></code> to plot both datasets. We can specify a <code class="docutils literal notranslate"><span class="pre">color</span></code> to distinquish the old from the new buildings. Again, we can use <code class="docutils literal notranslate"><span class="pre">plt.legend()</span></code> to add a legend to our figure.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Specify the data and range.</span>
+<span class="n">old_scores</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.30</span><span class="p">,</span> <span class="mf">0.29</span><span class="p">,</span> <span class="mf">0.49</span><span class="p">,</span> <span class="mf">0.48</span><span class="p">,</span> <span class="mf">0.10</span><span class="p">,</span> <span class="mf">0.48</span><span class="p">,</span> <span class="mf">0.38</span><span class="p">,</span> <span class="mf">0.45</span><span class="p">,</span> <span class="mf">0.20</span><span class="p">,</span> <span class="mf">0.30</span><span class="p">]</span>
+<span class="n">new_scores</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.89</span><span class="p">,</span> <span class="mf">0.90</span><span class="p">,</span> <span class="mf">0.70</span><span class="p">,</span> <span class="mf">0.89</span><span class="p">,</span> <span class="mf">0.10</span><span class="p">,</span> <span class="mf">0.80</span><span class="p">,</span> <span class="mf">0.90</span><span class="p">,</span> <span class="mf">0.100</span><span class="p">,</span> <span class="mf">0.80</span><span class="p">,</span> <span class="mf">0.34</span><span class="p">]</span>
+<span class="n">range_scores</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>
+
+<span class="c1"># Create the figure.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+
+<span class="c1"># Create the scatter plots.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">range_scores</span><span class="p">,</span> <span class="n">old_scores</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Old Buildings&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">range_scores</span><span class="p">,</span> <span class="n">new_scores</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;New Buildings&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add title, labels and legend.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Insulation Score Range&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Insulation Scores&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Scatter Plot&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="c1"># Show the resulting graph.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><img alt="_images/38.png" src="_images/38.png" /></p>
+<hr class="docutils" />
+<div class="section" id="exercise-5-scatterplots">
+<h3>Exercise 5: Scatterplots<a class="headerlink" href="#exercise-5-scatterplots" title="Permalink to this headline">¶</a></h3>
+<div class="exercise"><ul class="simple">
+<li><p>Replicate the scatterplot from the example.</p></li>
+<li><p>What pattern do you notice?</p></li>
+</ul>
+</div>
+<br/></div>
+</div>
+<hr class="docutils" />
+<div class="section" id="bar-charts">
+<h2>5. Bar-Charts<a class="headerlink" href="#bar-charts" title="Permalink to this headline">¶</a></h2>
+<p>Bar charts are a way to present categorical data. They can be usefull to compare the values of a specific variable for several categories in your data. To demonstrate this, we will again use our example of insulation scores of old and new buildings. We use the <code class="docutils literal notranslate"><span class="pre">bar()</span></code> function from <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> to generate a bar chart showing the mean insulation score for both categories. We can specify several parameters for this function. For example:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code> : The x coordinates of the bars.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">height</span></code> : The height of the bars. (In our case, the average insulation score for the two categories.)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">width</span></code> : The width of the bars.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">statistics</span> <span class="kn">import</span> <span class="n">mean</span>
+
+<span class="c1"># Create the figure.</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+
+<span class="c1"># Specify the raw data.</span>
+<span class="n">old_scores</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.30</span><span class="p">,</span> <span class="mf">0.29</span><span class="p">,</span> <span class="mf">0.49</span><span class="p">,</span> <span class="mf">0.48</span><span class="p">,</span> <span class="mf">0.10</span><span class="p">,</span> <span class="mf">0.48</span><span class="p">,</span> <span class="mf">0.38</span><span class="p">,</span> <span class="mf">0.45</span><span class="p">,</span> <span class="mf">0.20</span><span class="p">,</span> <span class="mf">0.30</span><span class="p">]</span>
+<span class="n">new_scores</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.89</span><span class="p">,</span> <span class="mf">0.90</span><span class="p">,</span> <span class="mf">0.70</span><span class="p">,</span> <span class="mf">0.89</span><span class="p">,</span> <span class="mf">0.10</span><span class="p">,</span> <span class="mf">0.80</span><span class="p">,</span> <span class="mf">0.90</span><span class="p">,</span> <span class="mf">0.100</span><span class="p">,</span> <span class="mf">0.80</span><span class="p">,</span> <span class="mf">0.34</span><span class="p">]</span>
+
+<span class="c1"># Calculate the average insulation scores for both categories.</span>
+<span class="n">old_ave</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">old_scores</span><span class="p">)</span>
+<span class="n">new_ave</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">new_scores</span><span class="p">)</span>
+
+<span class="c1"># Specify the data for plotting.</span>
+<span class="n">categories</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Old Buildings&#39;</span><span class="p">,</span> <span class="s1">&#39;New Buildings&#39;</span><span class="p">]</span>
+<span class="n">scores_ave</span> <span class="o">=</span> <span class="p">[</span><span class="n">old_ave</span><span class="p">,</span> <span class="n">new_ave</span><span class="p">]</span>
+
+<span class="c1"># Specify the title and labels.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Insulation Score Comparison&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Category&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Insulation Score&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create the bar chart.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">categories</span><span class="p">,</span> <span class="n">scores_ave</span><span class="p">)</span>
+
+<span class="c1"># Show the resulting graph.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><img alt="_images/46.png" src="_images/46.png" /></p>
+<hr class="docutils" />
+<div class="section" id="exercise-5-bar-chart">
+<h3>Exercise 5: Bar-Chart<a class="headerlink" href="#exercise-5-bar-chart" title="Permalink to this headline">¶</a></h3>
+<div class="exercise"><ul class="simple">
+<li><p>Replicate the bar-chart from the example.</p></li>
+<li><p>Are the results in line with the scatterplot?</p></li>
+</ul>
+</div>
+<br/></div>
+</div>
+<hr class="docutils" />
+<div class="section" id="other-plots">
+<h2>Other Plots<a class="headerlink" href="#other-plots" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://matplotlib.org/3.2.1/tutorials/introductory/sample_plots.html">This</a> page by matplotlib provides a nice overview of other plots that can be created using their package. You can click a plot for more information.</p></li>
+<li><p><a class="reference external" href="https://www.tutorialspoint.com/matplotlib/index.htm">This</a> collection of tutorials provides some simple examples of different plots.</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="03_05_LR.html" class="btn btn-neutral float-right" title="Logistic Regression Using Python" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="03_03_Regression.html" class="btn btn-neutral float-left" title="Linear Regression Analysis Using Python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Marjolein Hordijk
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

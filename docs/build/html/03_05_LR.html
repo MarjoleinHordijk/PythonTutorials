@@ -1,0 +1,506 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Logistic Regression Using Python &mdash; Python Tutorials  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/my_theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Neural Networks Using Python" href="03_06_NN.html" />
+    <link rel="prev" title="Data Visualization" href="03_04_Visualization.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Python Tutorials
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Topics:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01_GettingStarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_BeyondBasics.html">Beyond the Basics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="03_DataAnalysis.html">Data Analysis Using Python</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="03_01_CSV.html">Working with CSV files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_02_mySQL.html">Working with mySQL databases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_03_Regression.html">Regression Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_04_Visualization.html">Data Visualization</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Logistic Regression Using Python</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#loading-the-dataset">1. Loading the Dataset</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#exercise-1-pandas-dataframes">Exercise 1: Pandas Dataframes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#splitting-the-data">2. Splitting the Data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#exercise-2-pandas-dataframes">Exercise 2: Pandas Dataframes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#training-the-model">3. Training the Model</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#evaluating-the-results">4. Evaluating the Results</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#accuracy">4.1 Accuracy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#exercise-3-evaluating-the-accuracy">Exercise 3: Evaluating the Accuracy</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#confusion-matrix">4.2 Confusion Matrix</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#exercise-4-evaluating-the-confusion-matrix">Exercise 4: Evaluating the Confusion Matrix</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#classification-report-precision-recall-f-measure-and-support">4.3 Classification report: precision, recall, F-measure and support</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#exercise-5-evaluating-the-classification-report">Exercise 5: Evaluating the Classification Report</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="03_06_NN.html">Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_07_NLP.html">Natural Language Processing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="04_GIS.html">GIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_BIM.html">Building Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_Help.html">Help</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python Tutorials</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="03_DataAnalysis.html">Data Analysis Using Python</a> &raquo;</li>
+        
+      <li>Logistic Regression Using Python</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/03_05_LR.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <html>
+<head>
+<style>
+.info {
+  background-color: #e6e6e6;
+  border-left: 6px solid #666666;
+  padding: 10px;
+}
+.exercise {
+  background-color: #e7f3fe;
+  border-left: 6px solid #2196F3;
+  padding: 10px;
+}
+</style>
+</head>
+<body><div class="section" id="logistic-regression-using-python">
+<h1>Logistic Regression Using Python<a class="headerlink" href="#logistic-regression-using-python" title="Permalink to this headline">¶</a></h1>
+<p>Logistic regression is a classification algorim which can be used to predict the membership to a particular category based on attributes. For example, we can create a logistic regression model that can estimate the main mode of transport of a person based on characteristics of that individual. First we train (‘fit’) the model with a trainingset. We can then test the performance of our model using a test set. We do so by comparing predicted categories to actual categories. To help us, there are several metric available to assess the performance.</p>
+<p>In this tutorial we will use <code class="docutils literal notranslate"><span class="pre">Pandas</span></code>, <code class="docutils literal notranslate"><span class="pre">Numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> and <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> to estimate a MNL model and present the results. You can download and install these packages manually using pip if you. If you are using the Anaconda distribution of Python, you will find most of them installed already. Alternatively, you can consider using <a class="reference external" href="https://dataaspirant.com/2016/03/22/python-datamining-packages-virtual-environment-setup-in-ubuntu/">this virtual environment setup</a> for data mining.</p>
+<div class="section" id="loading-the-dataset">
+<h2>1. Loading the Dataset<a class="headerlink" href="#loading-the-dataset" title="Permalink to this headline">¶</a></h2>
+<p>We will use a practice dataset which contains the following variables. Please download it <a class="reference external" href="https://raw.githubusercontent.com/MarjoleinHordijk/PythonTutorials/master/files/MNL.csv">here</a>.</p>
+<ul class="simple">
+<li><p>Respondent number (Resp)</p></li>
+<li><p>Age of respondent (Age)</p></li>
+<li><p>Monthly household income (HHIncome)</p></li>
+<li><p>Number of cars in household (HHCars)</p></li>
+<li><p>Most used mode of transport by respondent (Mode)</p>
+<ul>
+<li><p>1 = car</p></li>
+<li><p>2 = bike</p></li>
+<li><p>3 = walking</p></li>
+</ul>
+</li>
+</ul>
+<p>We will use this data to estimate a MNL model. Based on this model we can predict the probability that a person’s main mode of transport is a car.</p>
+<p>Start by importing the required packages. Next, specifying the path to the dataset in your script. Then, use Pandas to load the data into a Pandas dataframe object. We capture this code in a function called <code class="docutils literal notranslate"><span class="pre">loadData()</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">linear_model</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+
+<span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;path = C:/path/to/file/MNL.csv&quot;</span>
+
+<span class="k">def</span> <span class="nf">loadData</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<div class="section" id="exercise-1-pandas-dataframes">
+<h3>Exercise 1: Pandas Dataframes<a class="headerlink" href="#exercise-1-pandas-dataframes" title="Permalink to this headline">¶</a></h3>
+<div class="exercise"><p><strong>We already used Pandas in <a class="reference internal" href="03_01_CSV.html"><span class="doc">this</span></a> tutorial on dealing with CSV data. You can try the exercises below to test your knowledge.</strong></p>
+<ol class="simple">
+<li><p>Determine the number of observations in the dataset. Print this in a sentence.</p></li>
+<li><p>Determine the number of variables (colomns) in the dataset. Print this in a sentence.</p></li>
+<li><p>Print the headers of the dataset.</p></li>
+</ol>
+</div>
+<br/></div>
+</div>
+<hr class="docutils" />
+<div class="section" id="splitting-the-data">
+<h2>2. Splitting the Data<a class="headerlink" href="#splitting-the-data" title="Permalink to this headline">¶</a></h2>
+<p>To train the MNL model, we will need to split the dataset. That is, we will use part of the dataset for training the model and part for testing it. Moreover, we will need to split the training and test data into predictors (x variables: the personal characteristics) and the target categories (y variable: the travel modes). Hence, we will create four datasets:</p>
+<ul class="simple">
+<li><p>train_x</p></li>
+<li><p>train_y</p></li>
+<li><p>test_x</p></li>
+<li><p>test_y</p></li>
+</ul>
+<p>We will use 70% of the data to train our model and the remaining 30% to test is. This is done by extending the code for <code class="docutils literal notranslate"><span class="pre">loadData</span></code> as shown below.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">linear_model</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+
+<span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;path = C:/path/to/file/MNL.csv&quot;</span>
+
+<span class="k">def</span> <span class="nf">loadData</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+    <span class="n">headers</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">train_x</span><span class="p">,</span> <span class="n">test_x</span><span class="p">,</span> <span class="n">train_y</span><span class="p">,</span> <span class="n">test_y</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">headers</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]],</span><span class="n">df</span><span class="p">[</span><span class="n">headers</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]],</span> <span class="n">train_size</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<div class="section" id="exercise-2-pandas-dataframes">
+<h3>Exercise 2: Pandas Dataframes<a class="headerlink" href="#exercise-2-pandas-dataframes" title="Permalink to this headline">¶</a></h3>
+<div class="exercise"><p>Confirm that indeed the number of observations in the test dataset is 30 and in the trainingsset 70.</p>
+</div>
+<br/></div>
+</div>
+<hr class="docutils" />
+<div class="section" id="training-the-model">
+<h2>3. Training the Model<a class="headerlink" href="#training-the-model" title="Permalink to this headline">¶</a></h2>
+<p>We will now use the <code class="docutils literal notranslate"><span class="pre">LogisticRegression</span></code> function from <code class="docutils literal notranslate"><span class="pre">scikit</span></code> to create a logistic regression model instance. Next, we will train the model using the training data. This is also called ‘fitting the model’. We do so using <code class="docutils literal notranslate"><span class="pre">.fit()</span></code> and passing the x and y values of the training set as arguments.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">linear_model</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+
+<span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;path = C:/path/to/file/MNL.csv&quot;</span>
+
+<span class="k">def</span> <span class="nf">loadData</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+    <span class="n">headers</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">train_x</span><span class="p">,</span> <span class="n">test_x</span><span class="p">,</span> <span class="n">train_y</span><span class="p">,</span> <span class="n">test_y</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">headers</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]],</span><span class="n">df</span><span class="p">[</span><span class="n">headers</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]],</span> <span class="n">train_size</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">trainModel</span><span class="p">(</span><span class="n">train_x</span><span class="p">,</span> <span class="n">train_y</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LogisticRegression</span><span class="p">(</span><span class="n">multi_class</span><span class="o">=</span><span class="s1">&#39;multinomial&#39;</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s1">&#39;newton-cg&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_x</span><span class="p">,</span> <span class="n">train_y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="evaluating-the-results">
+<h1>4. Evaluating the Results<a class="headerlink" href="#evaluating-the-results" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="accuracy">
+<h2>4.1 Accuracy<a class="headerlink" href="#accuracy" title="Permalink to this headline">¶</a></h2>
+<p>To evaluate the quality of our model, we can use the test dataset and calculate the accuracy metric. This measure indicates how well we are able to predict the travel mode based on the model.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">linear_model</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+
+<span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;path = C:/path/to/file/MNL.csv&quot;</span>
+
+<span class="k">def</span> <span class="nf">loadData</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+    <span class="n">headers</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">train_x</span><span class="p">,</span> <span class="n">test_x</span><span class="p">,</span> <span class="n">train_y</span><span class="p">,</span> <span class="n">test_y</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">headers</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]],</span><span class="n">df</span><span class="p">[</span><span class="n">headers</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]],</span> <span class="n">train_size</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">trainModel</span><span class="p">(</span><span class="n">train_x</span><span class="p">,</span> <span class="n">train_y</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LogisticRegression</span><span class="p">(</span><span class="n">multi_class</span><span class="o">=</span><span class="s1">&#39;multinomial&#39;</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s1">&#39;newton-cg&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_x</span><span class="p">,</span> <span class="n">train_y</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">evaluateModel</span><span class="p">(</span><span class="n">test_y</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">text_x</span><span class="p">):</span>
+    <span class="n">accuracy</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">test_y</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test_x</span><span class="p">))</span>
+    <span class="k">print</span> <span class="p">(</span><span class="s2">&quot;The accuracy metric: &quot;</span><span class="p">,</span> <span class="n">accuracy</span><span class="p">)</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<div class="section" id="exercise-3-evaluating-the-accuracy">
+<h3>Exercise 3: Evaluating the Accuracy<a class="headerlink" href="#exercise-3-evaluating-the-accuracy" title="Permalink to this headline">¶</a></h3>
+<div class="exercise"><ol class="simple">
+<li><p>What is the accuracy metric for the estimated model?</p></li>
+<li><p>Given the number of cases and variables in the dataset, how do you interpret the accuracy of the model? Do you think the estimated model is a good basis for predicting the main travel mode of people? What are your arguments?</p></li>
+<li><p>Run the script several times. Does the accuracy metric change? If so, what is the reason for this?</p></li>
+</ol>
+</div>
+<br/></div>
+</div>
+<hr class="docutils" />
+<div class="section" id="confusion-matrix">
+<h2>4.2 Confusion Matrix<a class="headerlink" href="#confusion-matrix" title="Permalink to this headline">¶</a></h2>
+<p>A confusion matrix provides an interesting overview of correct and wrong predictions. The colomns represent the predicted classes (= predicted main mode of travel), whereas the rows relate to the actual classes in the dataset (= actual main mode of travel). The cells show the number of cases. Hence, in the diagonal cells, we see the correctly predicted cases. In the non-diagonal cells we can see where mistakes were made. In this was, we can evaluate if our model makes mistakes more often in particular situations.</p>
+<p>We add the function <code class="docutils literal notranslate"><span class="pre">confusionMatrix()</span></code> to create an visualize the matrix.</p>
+<ul class="simple">
+<li><p>First, we store the predicted y values to the variable <code class="docutils literal notranslate"><span class="pre">predicted_y</span></code>. We generate these values using the <code class="docutils literal notranslate"><span class="pre">.predict()</span></code> function on our model and passing the x variable of the trainingsset as argument.</p></li>
+<li><p>Next, we use <code class="docutils literal notranslate"><span class="pre">.confusion_matrix()</span></code> to generate the confusion matrix. We need to pass the actual and predicted y values of the test dataset to this function.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">linear_model</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+
+<span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;path = C:/path/to/file/MNL.csv&quot;</span>
+
+<span class="k">def</span> <span class="nf">loadData</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+    <span class="n">headers</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">train_x</span><span class="p">,</span> <span class="n">test_x</span><span class="p">,</span> <span class="n">train_y</span><span class="p">,</span> <span class="n">test_y</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">headers</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]],</span><span class="n">df</span><span class="p">[</span><span class="n">headers</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]],</span> <span class="n">train_size</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">trainModel</span><span class="p">(</span><span class="n">train_x</span><span class="p">,</span> <span class="n">train_y</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LogisticRegression</span><span class="p">(</span><span class="n">multi_class</span><span class="o">=</span><span class="s1">&#39;multinomial&#39;</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s1">&#39;newton-cg&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_x</span><span class="p">,</span> <span class="n">train_y</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">evaluateModel</span><span class="p">(</span><span class="n">test_y</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">text_x</span><span class="p">):</span>
+    <span class="n">accuracy</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">test_y</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test_x</span><span class="p">))</span>
+    <span class="k">print</span> <span class="p">(</span><span class="s2">&quot;The accuracy metric: &quot;</span><span class="p">,</span> <span class="n">accuracy</span><span class="p">)</span>
+
+    <span class="n">predicted_y</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test_x</span><span class="p">)</span>
+
+    <span class="n">cnf_matrix</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">test_y</span><span class="p">,</span> <span class="n">predicted_y</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">cnf_matrix</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You can simply print the content of the confusion matrix (<code class="docutils literal notranslate"><span class="pre">print(cnf_matrix)</span></code>). However, we can also create a nice heatmap to make it more readable. We will do so using <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>. This is a very useful library for creating all kinds of plots in Python. We use the generated confusion matrix as input.</p>
+<ul class="simple">
+<li><p>First, we specify the class names. In our case these were the main transport modes:</p>
+<ol class="simple">
+<li><p>car</p></li>
+<li><p>bike</p></li>
+<li><p>walk</p></li>
+</ol>
+</li>
+<li><p>Next, we create a matrix with three colomns and three rows, representing the predicted and actual classes. The colors of the cells in our matrix are based on the frequencies.</p></li>
+<li><p>Finally, we can use <code class="docutils literal notranslate"><span class="pre">.show()</span></code> to display the plot in a viewer.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="c1">### Add these to the import section:</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="c1">### Add this to the evaluateModel() function:</span>
+
+<span class="c1">## Specify class names.</span>
+<span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;car&#39;</span><span class="p">,</span><span class="s1">&#39;bike&#39;</span><span class="p">,</span><span class="s1">&#39;walk&#39;</span><span class="p">]</span>
+
+<span class="c1">## Create the plot.</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<span class="n">cax</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">matshow</span><span class="p">(</span><span class="n">cm</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Confusion Matrix&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cax</span><span class="p">)</span>
+
+<span class="c1"># Specify the labels.</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([</span><span class="s1">&#39;&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">labels</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">([</span><span class="s1">&#39;&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">labels</span><span class="p">)</span>
+
+<span class="c1"># Specify the axis titles.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Predicted Mode&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Actual Mode&#39;</span><span class="p">)</span>
+
+<span class="c1">## Open the confusion matrix in viewer.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<div class="section" id="exercise-4-evaluating-the-confusion-matrix">
+<h3>Exercise 4: Evaluating the Confusion Matrix<a class="headerlink" href="#exercise-4-evaluating-the-confusion-matrix" title="Permalink to this headline">¶</a></h3>
+<div class="exercise"><p>Have a look at the confusion matrix and answer the questions below.</p>
+<ol class="simple">
+<li><p>Does the matrix remain the same after you rerun the script several times? Why (not)?</p></li>
+<li><p>Does de model predict equally wel for each transport mode?</p></li>
+<li><p>For which modes does the model have trouble predicting?</p></li>
+<li><p>For which transport mode are the predictions the most accurate?</p></li>
+<li><p>Have a look at the original dataset. Look closely at the combinations of the predictor variables and the transport modes. Can you find a reason why the predictions for one transport mode are particularly accurate?</p></li>
+</ol>
+</div>
+<br/></div>
+</div>
+<hr class="docutils" />
+<div class="section" id="classification-report-precision-recall-f-measure-and-support">
+<h2>4.3 Classification report: precision, recall, F-measure and support<a class="headerlink" href="#classification-report-precision-recall-f-measure-and-support" title="Permalink to this headline">¶</a></h2>
+<p>We can also generate a complete report that shows the precision, recall, F-measure and support metrics. If you are familiar with logistic regressions, you will know that precision and recall are based on the true-positive and true-negative rates. These can, in turn, be determined from the confusion matrix. The F-measure combines recall and precision in one score. In the 1f-score found in the report, precision and recall are weighted equally. The support metric represents the number of cases in the dataset belonging to the (actual) class at hand.</p>
+<p>You can generate this report by running:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">test_y</span><span class="p">,</span> <span class="n">predicted_y</span><span class="p">))</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<div class="section" id="exercise-5-evaluating-the-classification-report">
+<h3>Exercise 5: Evaluating the Classification Report<a class="headerlink" href="#exercise-5-evaluating-the-classification-report" title="Permalink to this headline">¶</a></h3>
+<div class="exercise"><p>Have a look at the classification report and answer the questions below.</p>
+<ol class="simple">
+<li><p>Which category is predicted best by the model?</p></li>
+<li><p>Do the precision, recall and f-scores correspond to the confusion matrix? Are the well and badly predicted categories the same?</p></li>
+<li><p>Based on the report, could you use this model to determine if someone uses the car as main transport mode?</p></li>
+<li><p>Based on the report, could you use the model to dtermine if one uses the bike as main transport mode?</p></li>
+</ol>
+</div>
+<br/></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="03_06_NN.html" class="btn btn-neutral float-right" title="Neural Networks Using Python" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="03_04_Visualization.html" class="btn btn-neutral float-left" title="Data Visualization" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Marjolein Hordijk
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

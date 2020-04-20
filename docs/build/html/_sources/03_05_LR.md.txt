@@ -1,0 +1,279 @@
+<html>
+<head>
+<style>
+.info {
+  background-color: #e6e6e6;
+  border-left: 6px solid #666666;
+  padding: 10px;
+}
+.exercise {
+  background-color: #e7f3fe;
+  border-left: 6px solid #2196F3;
+  padding: 10px;
+}
+</style>
+</head>
+<body>
+
+# Logistic Regression Using Python
+
+Logistic regression is a classification algorim which can be used to predict the membership to a particular category based on attributes. For example, we can create a logistic regression model that can estimate the main mode of transport of a person based on characteristics of that individual. First we train ('fit') the model with a trainingset. We can then test the performance of our model using a test set. We do so by comparing predicted categories to actual categories. To help us, there are several metric available to assess the performance. 
+
+In this tutorial we will use ```Pandas```, ```Numpy```, ```sklearn``` and ```matplotlib``` to estimate a MNL model and present the results. You can download and install these packages manually using pip if you. If you are using the Anaconda distribution of Python, you will find most of them installed already. Alternatively, you can consider using [this virtual environment setup](https://dataaspirant.com/2016/03/22/python-datamining-packages-virtual-environment-setup-in-ubuntu/) for data mining.
+
+
+## 1. Loading the Dataset
+
+We will use a practice dataset which contains the following variables. Please download it [here](https://raw.githubusercontent.com/MarjoleinHordijk/PythonTutorials/master/files/MNL.csv).
+* Respondent number (Resp)
+* Age of respondent (Age)
+* Monthly household income (HHIncome)
+* Number of cars in household (HHCars)
+* Most used mode of transport by respondent (Mode)
+    * 1 = car
+    * 2 = bike
+    * 3 = walking
+
+We will use this data to estimate a MNL model. Based on this model we can predict the probability that a person's main mode of transport is a car.
+
+Start by importing the required packages. Next, specifying the path to the dataset in your script. Then, use Pandas to load the data into a Pandas dataframe object. We capture this code in a function called ```loadData()```.
+
+```python
+import pandas as pd
+import numpy as np
+from sklearn import linear_model
+from sklearn import metrics
+from sklearn.model_selection import train_test_split
+
+path = "path = C:/path/to/file/MNL.csv"
+
+def loadData(path):
+    df = pd.read_csv(path)
+```
+
+****
+#### Exercise 1: Pandas Dataframes
+<div class="exercise">
+
+**We already used Pandas in [this](03_01_CSV.md) tutorial on dealing with CSV data. You can try the exercises below to test your knowledge.**
+
+1. Determine the number of observations in the dataset. Print this in a sentence.
+2. Determine the number of variables (colomns) in the dataset. Print this in a sentence.
+3. Print the headers of the dataset.
+</div>
+<br/>
+
+****
+
+## 2. Splitting the Data
+
+To train the MNL model, we will need to split the dataset. That is, we will use part of the dataset for training the model and part for testing it. Moreover, we will need to split the training and test data into predictors (x variables: the personal characteristics) and the target categories (y variable: the travel modes). Hence, we will create four datasets:
+* train_x
+* train_y
+* test_x
+* test_y
+
+We will use 70% of the data to train our model and the remaining 30% to test is. This is done by extending the code for ```loadData``` as shown below.
+
+```python
+import pandas as pd
+import numpy as np
+from sklearn import linear_model
+from sklearn import metrics
+from sklearn.model_selection import train_test_split
+
+path = "path = C:/path/to/file/MNL.csv"
+
+def loadData(path):
+    df = pd.read_csv(path)
+    headers = df.columns.values
+    train_x, test_x, train_y, test_y = train_test_split(df[headers[:-1]],df[headers[-1]], train_size=0.7)
+```
+
+****
+#### Exercise 2: Pandas Dataframes
+<div class="exercise">
+
+Confirm that indeed the number of observations in the test dataset is 30 and in the trainingsset 70.
+
+</div>
+<br/>
+
+****
+
+## 3. Training the Model
+
+We will now use the ```LogisticRegression``` function from ```scikit``` to create a logistic regression model instance. Next, we will train the model using the training data. This is also called 'fitting the model'. We do so using ```.fit()``` and passing the x and y values of the training set as arguments.
+
+```python
+import pandas as pd
+import numpy as np
+from sklearn import linear_model
+from sklearn import metrics
+from sklearn.model_selection import train_test_split
+
+path = "path = C:/path/to/file/MNL.csv"
+
+def loadData(path):
+    df = pd.read_csv(path)
+    headers = df.columns.values
+    train_x, test_x, train_y, test_y = train_test_split(df[headers[:-1]],df[headers[-1]], train_size=0.7)
+
+def trainModel(train_x, train_y):
+    model = linear_model.LogisticRegression(multi_class='multinomial', solver='newton-cg').fit(train_x, train_y)
+```
+
+# 4. Evaluating the Results
+
+## 4.1 Accuracy
+
+To evaluate the quality of our model, we can use the test dataset and calculate the accuracy metric. This measure indicates how well we are able to predict the travel mode based on the model.
+
+```python
+import pandas as pd
+import numpy as np
+from sklearn import linear_model
+from sklearn import metrics
+from sklearn.model_selection import train_test_split
+
+path = "path = C:/path/to/file/MNL.csv"
+
+def loadData(path):
+    df = pd.read_csv(path)
+    headers = df.columns.values
+    train_x, test_x, train_y, test_y = train_test_split(df[headers[:-1]],df[headers[-1]], train_size=0.7)
+
+def trainModel(train_x, train_y):
+    model = linear_model.LogisticRegression(multi_class='multinomial', solver='newton-cg').fit(train_x, train_y)
+
+def evaluateModel(test_y, model, text_x):
+    accuracy = metrics.accuracy_score(test_y, model.predict(test_x))
+    print ("The accuracy metric: ", accuracy)
+```
+
+****
+#### Exercise 3: Evaluating the Accuracy
+<div class="exercise">
+
+1. What is the accuracy metric for the estimated model?
+2. Given the number of cases and variables in the dataset, how do you interpret the accuracy of the model? Do you think the estimated model is a good basis for predicting the main travel mode of people? What are your arguments?
+3. Run the script several times. Does the accuracy metric change? If so, what is the reason for this?
+
+</div>
+<br/>
+
+****
+
+## 4.2 Confusion Matrix
+
+A confusion matrix provides an interesting overview of correct and wrong predictions. The colomns represent the predicted classes (= predicted main mode of travel), whereas the rows relate to the actual classes in the dataset (= actual main mode of travel). The cells show the number of cases. Hence, in the diagonal cells, we see the correctly predicted cases. In the non-diagonal cells we can see where mistakes were made. In this was, we can evaluate if our model makes mistakes more often in particular situations.
+
+We add the function ```confusionMatrix()``` to create an visualize the matrix.
+* First, we store the predicted y values to the variable ```predicted_y```. We generate these values using the ```.predict()``` function on our model and passing the x variable of the trainingsset as argument.
+* Next, we use ```.confusion_matrix()``` to generate the confusion matrix. We need to pass the actual and predicted y values of the test dataset to this function.
+
+```python
+import pandas as pd
+import numpy as np
+from sklearn import linear_model
+from sklearn import metrics
+from sklearn.model_selection import train_test_split
+
+path = "path = C:/path/to/file/MNL.csv"
+
+def loadData(path):
+    df = pd.read_csv(path)
+    headers = df.columns.values
+    train_x, test_x, train_y, test_y = train_test_split(df[headers[:-1]],df[headers[-1]], train_size=0.7)
+
+def trainModel(train_x, train_y):
+    model = linear_model.LogisticRegression(multi_class='multinomial', solver='newton-cg').fit(train_x, train_y)
+
+def evaluateModel(test_y, model, text_x):
+    accuracy = metrics.accuracy_score(test_y, model.predict(test_x))
+    print ("The accuracy metric: ", accuracy)
+
+    predicted_y=model.predict(test_x)
+
+    cnf_matrix = metrics.confusion_matrix(test_y, predicted_y)
+    print(cnf_matrix)
+```
+
+You can simply print the content of the confusion matrix (```print(cnf_matrix)```). However, we can also create a nice heatmap to make it more readable. We will do so using ```matplotlib```. This is a very useful library for creating all kinds of plots in Python. We use the generated confusion matrix as input.
+* First, we specify the class names. In our case these were the main transport modes:
+    1. car
+    2. bike
+    3. walk
+* Next, we create a matrix with three colomns and three rows, representing the predicted and actual classes. The colors of the cells in our matrix are based on the frequencies. 
+* Finally, we can use ```.show()``` to display the plot in a viewer.
+
+```python
+
+### Add these to the import section:
+import matplotlib.pyplot as plt
+
+### Add this to the evaluateModel() function:
+
+## Specify class names.
+labels=['car','bike','walk']
+
+## Create the plot.
+fig = plt.figure()
+ax = fig.add_subplot(111)
+cax = ax.matshow(cm)
+plt.title('Confusion Matrix')
+fig.colorbar(cax)
+
+# Specify the labels.
+ax.set_xticklabels([''] + labels)
+ax.set_yticklabels([''] + labels)
+
+# Specify the axis titles.
+plt.xlabel('Predicted Mode')
+plt.ylabel('Actual Mode')
+
+## Open the confusion matrix in viewer.
+plt.show()
+```
+
+****
+#### Exercise 4: Evaluating the Confusion Matrix
+<div class="exercise">
+
+Have a look at the confusion matrix and answer the questions below.
+
+1. Does the matrix remain the same after you rerun the script several times? Why (not)?
+2. Does de model predict equally wel for each transport mode?
+3. For which modes does the model have trouble predicting?
+4. For which transport mode are the predictions the most accurate?
+5. Have a look at the original dataset. Look closely at the combinations of the predictor variables and the transport modes. Can you find a reason why the predictions for one transport mode are particularly accurate?
+
+</div>
+<br/>
+
+****
+
+## 4.3 Classification report: precision, recall, F-measure and support
+
+We can also generate a complete report that shows the precision, recall, F-measure and support metrics. If you are familiar with logistic regressions, you will know that precision and recall are based on the true-positive and true-negative rates. These can, in turn, be determined from the confusion matrix. The F-measure combines recall and precision in one score. In the 1f-score found in the report, precision and recall are weighted equally. The support metric represents the number of cases in the dataset belonging to the (actual) class at hand.
+
+You can generate this report by running:
+
+```python
+print(classification_report(test_y, predicted_y))
+```
+****
+
+#### Exercise 5: Evaluating the Classification Report
+<div class="exercise">
+
+Have a look at the classification report and answer the questions below.
+
+1. Which category is predicted best by the model?
+2. Do the precision, recall and f-scores correspond to the confusion matrix? Are the well and badly predicted categories the same?
+3. Based on the report, could you use this model to determine if someone uses the car as main transport mode?
+4. Based on the report, could you use the model to dtermine if one uses the bike as main transport mode?
+
+</div>
+<br/>
+
