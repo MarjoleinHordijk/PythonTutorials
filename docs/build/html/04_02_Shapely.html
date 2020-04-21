@@ -174,7 +174,7 @@
 <h1>The Shapely Module<a class="headerlink" href="#the-shapely-module" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction">
 <h2>1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
-<p>The Shapely Python module allows us to perform geometry operations in Python, without the need for RDBMSs (relational database management systems). That is, we do not need any software package such as QGIS or ArcGIS to perform an analysis. This is particularly useful for automation and processes that run at the server end of an application. The module is based on the well known GEOS (Geometry Engine - Open Source).</p>
+<p>The Shapely Python module allows us to perform geometry operations in Python, without the need for RDBMSs (relational database management systems). That is, we do not need any software packages such as QGIS or ArcGIS to perform an analysis. This is particularly useful for automation and processes that run at the server end of an application. The module is based on the well known GEOS (Geometry Engine - Open Source).</p>
 <p>Operation that we can perform using this module can be classified as:</p>
 <ol class="simple">
 <li><p><strong><em>Constructive operations</em></strong> (e.g. generating buffers or centroids)</p></li>
@@ -196,7 +196,7 @@
 <h2>2. Fundamental geometric objects<a class="headerlink" href="#fundamental-geometric-objects" title="Permalink to this headline">¶</a></h2>
 <p>Points, lines and polygons are the most fundamental geometric objects and can be used to represent the world around us in a GIS.</p>
 <ul class="simple">
-<li><p>A <strong><em>point</em></strong> is commonly defined by x and y coordinates, which describe its location on a two dimensional surface. In a three dimensional system a z coordinate is included to define the height of a point.</p></li>
+<li><p>A <strong><em>point</em></strong> is commonly defined by x and y coordinates, which describe its location on a two-dimensional surface. In a three dimensional system a z coordinate is included to define the height of a point.</p></li>
 <li><p>A <strong><em>line</em></strong> can be defined by a collection of interconnected points. It is bounded by two endpoints.</p></li>
 <li><p>A <strong><em>polygon</em></strong> is defined by a collection of lines that enclose an area. It is bounded by those lines that make up the outline of the geometry. Note that internal holes may exist.</p></li>
 </ul>
@@ -220,7 +220,7 @@
 </pre></div>
 </div>
 <p><img alt="_images/26.png" src="_images/26.png" /></p>
-<p>A <strong><em>line</em></strong> (in Shapely called <strong><em>LineString</em></strong>) instance can be created in two ways. We can chose to first define the connected points that make up the line and use these objects to define the line geometry. Alternatively we can define the line in one go by providing the coordinates of each point in a list form.</p>
+<p>A <strong><em>line</em></strong> (in Shapely called <strong><em>LineString</em></strong>) instance can be created in two ways. We can choose to first define the connection points that make up the line and use these objects to define the line geometry. Alternatively we can define the line in one go by providing the coordinates of each point in a list form.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="k">import</span> <span class="n">Point</span><span class="p">,</span> <span class="n">LineString</span>
 
 <span class="c1"># Create three points that will define the line</span>
@@ -242,7 +242,7 @@
 <span class="n">polygon1</span> <span class="o">=</span> <span class="n">Polygon</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)])</span>
 </pre></div>
 </div>
-<p>However, we can still use the coordinates of the points we defined earlier using a small for loop.</p>
+<p>However, we can still use the coordinates of the points we defined earlier using a small for-loop.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="k">import</span> <span class="n">Point</span><span class="p">,</span> <span class="n">Polygon</span>
 
 <span class="c1"># Create three points that will define the polygon outlines</span>
@@ -272,7 +272,7 @@
 </div>
 <div class="section" id="assess-attributes-of-geometric-objects">
 <h2>4. Assess Attributes of Geometric Objects<a class="headerlink" href="#assess-attributes-of-geometric-objects" title="Permalink to this headline">¶</a></h2>
-<p>To perform your analysis you may be interested in particular attributes of geometric object instances. For example, you may want to find the xy coodinates of a point or the total surface area of a polygon. Below, several options are discussed to gain access to this information.</p>
+<p>To perform your analysis you may be interested in particular attributes of geometric object instances. For example, you may want to find the xy coordinates of a point or the total surface area of a polygon. Below, several options are discussed to gain access to this information.</p>
 <p>We will use the following instances in our examples. Thus, if you want to run any of the code in the subsequent sections, please make sure that you run this piece of code below first.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="k">import</span> <span class="n">Point</span><span class="p">,</span> <span class="n">LineString</span><span class="p">,</span> <span class="n">Polygon</span>
 
@@ -419,7 +419,7 @@
 </div>
 <div class="section" id="polygon-specific-attributes">
 <h3>Polygon Specific Attributes<a class="headerlink" href="#polygon-specific-attributes" title="Permalink to this headline">¶</a></h3>
-<p>You can determine the centroid of a <strong><em>Polygon</em></strong> instance using <code>.centroid</code></strong>. This will generate a <strong><em>Point</em></strong> instance which you can store in a variable (in this case �poly1_centroid�).</p>
+<p>You can determine the centroid of a <strong><em>Polygon</em></strong> instance using <code>.centroid</code></strong>. This will generate a <strong><em>Point</em></strong> instance which you can store in a variable (in this case <code class="docutils literal notranslate"><span class="pre">poly1_centroid</span></code>).</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate the centroid of polygon1</span>
 <span class="n">poly1_centroid</span> <span class="o">=</span> <span class="n">polygon1</span><span class="o">.</span><span class="n">centroid</span>
 

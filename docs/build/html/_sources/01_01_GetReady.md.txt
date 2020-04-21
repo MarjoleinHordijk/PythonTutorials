@@ -26,7 +26,7 @@ If you already have a version 3 installation, this one will be overwritten by th
 
 ### Useful Commands in the Command Prompt
 To install new modules, packages or Python versions, you will need to use the Command Prompt / Terminal / Bash Shell.
-Although the name of this interface differes for each operating system (Windows/Linux/etc.), 
+Although the name of this interface differs for each operating system (Windows/Linux/etc.), 
 the functionality is very similar.
 
 The *regular command prompt window* always lists the current Path in which you are. In the previous image, the path is "C:\Users\pipauwel\Python". All commands are executed at that location.
@@ -47,7 +47,7 @@ On most operating systems, you can use the following commands to change director
 
 You can use the Python Shell to directly execute Python code.
 Although this is not the most convenient way to develop and run scripts,
-it is very accesible to try out your first commands.
+it is very accessible to try out your first commands.
 
 To start the Python shell, you can do the following:
 
@@ -72,7 +72,7 @@ The result of the command is displayed immediately in the shell.
 
 ![](../../images/01_01/4.png)
 
-### Executing python scripts from a command line interface
+### Executing python scripts from a command-line interface
 You can also include the above Python commands in a file to execute them.
 For example, you can use Notepad++ or even a simple text editor, add the command and save the file in a .py format.
 
@@ -92,7 +92,7 @@ To stop using the ```>>>``` Python command prompt, exit python as follows:
 ## 3. Spyder
 
 ### What is Spyder?
-Spyder is a so called Integrated Development Environment (IDE). In contrast to basic code editors, it provides autocompletion, debugging and testing functionality. You can use this environment to develop, improve and run your code.
+Spyder is a so-called Integrated Development Environment (IDE). In contrast to basic code editors, it provides autocompletion, debugging and testing functionality. You can use this environment to develop, improve and run your code.
 
 You can download Spyder using Anaconda [Here](https://www.spyder-ide.org/ "Download page").
 
@@ -103,7 +103,7 @@ After the installation has finished, you can run Spyder. You will see an interfa
 
 ![](../../images/01_01/5.png)
 
-In the console, you will be able to run commands like you would in the Python Shell when we used the command prompt / terminal.
+In the console, you will be able to run commands like you would in the Python Shell when we used the command prompt/terminal.
 For example, we can type ```print("Hello world")``` and hit enter to run this command.
 
 ![](../../images/01_01/6.png)

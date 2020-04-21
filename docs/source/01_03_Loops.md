@@ -30,7 +30,7 @@ Python supports many of the usual logical conditions from mathematics:
 - Greater than: ```a > b```
 - Greater than or equal to: ```a >= b```
 
-In these examples, a and b can take different values and they can be of different datatypes. However, be aware that certain data types are not suitable for praticular logical contitions. For example, if we have a piece of text "Univeristy", which is a string, it will be impossible to evaluate if this is greater than another value. Although this may seem obvious in this example, it could be possible that you stored two numbers (e.g 2 & 4), but you stored one of them as a string instead of an integer. In this case, you will also receive an error. Please see [here](01_02_LanguageFeatures.md) for more on datatypes such as strings and integers.
+In these examples, a and b can take different values and they can be of different data-types. However, be aware that certain data types are not suitable for particular logical conditions. For example, if we have a piece of text "University", which is a string, it will be impossible to evaluate if this is greater than another value. Although this may seem obvious in this example, it could be possible that you stored two numbers (e.g 2 & 4), but you stored one of them as a string instead of an integer. In this case, you will also receive an error. Please see [here](01_02_LanguageFeatures.md) for more on data-types such as strings and integers.
 
 ****
 ### Exercise 1: Understanding Conditional Statements
@@ -40,20 +40,20 @@ In these examples, a and b can take different values and they can be of differen
         <li>What happens if you now run "x == y" in the console?</li>
         <li>What datatype is the output that you get? If you are not sure, store the output to a variable (e.g. var) by running "var= x==y" and run "type(var)".</li>
         <li>Write a conditional statement to confirm that x is not equal to y.</li>
-		<li>What happens if you run "y < z" and "y <= z" ? Explain why the results are different.</li>
+        <li>What happens if you run "y < z" and "y <= z" ? Explain why the results are different.</li>
     </ol> 
 </div>
 
 ****
 
 ## 2. If-Statements
-If statement allow you to check whether a particular statement is true or not. Depending on the boolean evaluation (true versus false), a particular piece of code (or nothing) is executed. 
+An if-statement allows you to check whether a particular statement is true or not. Depending on the boolean evaluation (true versus false), a particular piece of code (or nothing) is executed. 
 
 The header line of the if statement begins with the keyword ```if``` followed by a boolean expression and ends with a colon (:). The indented statements that follow are called a block. This block contains the code that should be executed when the condition is satisfied. Each statement inside the block must have the same indentation. The first unindented statement marks the end of the block. 
 
 ```python
 if <conditional statement>:
-	<code to be executed when conditional statement is TRUE>
+    <code to be executed when conditional statement is TRUE>
 ```
 <div class="info">
 
@@ -67,33 +67,33 @@ If you would like to specify what happens when the conditional statement is not 
 
 ```python
 if <conditional statement>:
-	<code to be executed when conditional statement is TRUE>
+    <code to be executed when conditional statement is TRUE>
 else:
-	<code to be executed when conditional statement is FALSE>
+    <code to be executed when conditional statement is FALSE>
 ```
 
 We can also chain conditional statements to be checked using a ```if elif else``` structure as shown below.
 
 ```python
 if <first conditional statement>:
-	<code to be executed when first conditional statement is TRUE>
+    <code to be executed when first conditional statement is TRUE>
 elif <second conditional statement>:
-	<code to be executed when second conditional statement is TRUE>
+    <code to be executed when second conditional statement is TRUE>
 elif <third conditional statement>:
-	<code to be executed when third conditional statement is TRUE>
+    <code to be executed when third conditional statement is TRUE>
 
 ...
 
 else:
-	<code to be executed when all conditional statements above are FALSE>
+    <code to be executed when all conditional statements above are FALSE>
 ```
 
 In the case that you do not want to execute any code in a particular situation, you can use ```pass```.
 
 **Important things to keep in mind when writing if statements:**
-* Be aware of the indentation. That is, the code that must be executed is indented by one level. Click [here](06_Help.md) to learn more about identation.
-* Do not forget the colon (:), it seperates the header of the statement from its body.
-* Several forms of if statements are possible, as shown below. They differ in the amount of conditions that are checked. 
+* Be aware of the indentation. That is, the code that must be executed is indented by one level. Click [here](06_Help.md) to learn more about indentation.
+* Do not forget the colon (:), it separates the header of the statement from its body.
+* Several forms of if statements are possible, as shown below. They differ in the number of conditions that are checked. 
 
 Below you can find several examples of if statements.
 
@@ -107,16 +107,16 @@ The most basic form of an if statement checks one condition. If this condition i
 a = 12
 b = 5
 if a > b:
-	print("a is greater than b")
+    print("a is greater than b")
 else:
-	print("a is not greater than b")
+    print("a is not greater than b")
 ```
 
 ![](../../images/01_03/1.png)
 
 ### 2.2 One condition, pass
 
-As adressed above, we can use ```pass``` to specify that we do not want any code to be executed in a particular situation. In the example below, this is the case when the if statement (a > b) is not true.
+As addressed above, we can use ```pass``` to specify that we do not want any code to be executed in a particular situation. In the example below, this is the case when the if statement (a > b) is not true.
 
 *If this is true, do that. Otherwise, do nothing.*
 
@@ -124,9 +124,9 @@ As adressed above, we can use ```pass``` to specify that we do not want any code
 a = 12
 b = 5
 if a > b:
-	print("a is greater than b")
+    print("a is greater than b")
 else:
-	pass
+    pass
 ```
 ![](../../images/01_03/2.png)
 
@@ -136,12 +136,12 @@ else:
     <ol>
         <li>How many conditions will you need to specify?</li>
         <li>First, create a variable that stores the temperature threshold value.</li>
-        <li>Next, create a variable that stores the value of the actual room temperature. You can chose any value to represent the hypothetical current temperature.</li>
+        <li>Next, create a variable that stores the value of the actual room temperature. You can choose any value to represent the hypothetical current temperature.</li>
         <li>Formulate a statement that captures the rule (*when the actual temperature is below the threshold*).</li>
         <li>Formulate what should happen if the condition is satisfied. As means of simulation, print "heating" when the heater is turned on.</li>
-		<li>What did you use to specify that nothing should happen if the condition is not satisfied?</li>
-		<li>Test your program for several different actual room temperature values. Does it behave as expected?</li>
-		<li>You would like to tell from the output of your program if the heater is not turned on (instead of simply not getting any output). How can you do this?Try to implement this and test your program again.</li>
+        <li>What did you use to specify that nothing should happen if the condition is not satisfied?</li>
+        <li>Test your program for several different actual room temperature values. Does it behave as expected?</li>
+        <li>You would like to tell from the output of your program if the heater is not turned on (instead of simply not getting any output). How can you do this? Try to implement this and test your program again.</li>
     </ol> 
 </div>
 
@@ -149,7 +149,7 @@ else:
 
 ### 2.3 Multiple conditions
 
-As mentioned before, we can chain multiple statements using a ```if elif else``` structure. In this way we can capture all situations where the program should perform specific behavior.
+As mentioned before, we can chain multiple statements using a ```if elif else``` structure. In this way we can capture all situations where the program should perform a specific behavior.
 
 *If this is true, do that. Else check if this is true, and do that. Else do this.*
 
@@ -157,11 +157,11 @@ As mentioned before, we can chain multiple statements using a ```if elif else```
 a = 3
 b = 5
 if a > b:
-	print("a is greater than b")
+    print("a is greater than b")
 elif a == b:
-	print("a is equal to b")
+    print("a is equal to b")
 else:
-	print("b is greater than a")
+    print("b is greater than a")
 ```
 
 ![](../../images/01_03/3.png)
@@ -174,7 +174,7 @@ else:
         <li>First, create the variables that store the actual temperature value and the threshold values.</li>
         <li>Formulate all conditional statements that are applicable to the situation.</li>
         <li>For each of the conditions, print what should happen in terms of the activation of either the heating or airco systems.</li>
-		<li>Test your program for several different actual room temperature values. Does it behave as expected?</li>
+        <li>Test your program for several different actual room temperature values. Does it behave as expected?</li>
     </ol> 
 </div>
 
@@ -194,8 +194,8 @@ The boolean statement ```i < 10``` ensures that when the script has been ran 10 
 ```python
 i = 1
 while i < 10:
-	print(i)
-	i += 1 #i = i + 1
+    print(i)
+    i += 1 #i = i + 1
 ```
 
 A while-loop can be interrupted or loops in a while-loop can be skipped using the ```break``` and ```continue``` statements.
@@ -203,17 +203,17 @@ A while-loop can be interrupted or loops in a while-loop can be skipped using th
 ```python
 i = 1
 while i < 10:
-	print(i)
-	if i == 5:
-		break
-	i += 1
+    print(i)
+    if i == 5:
+        break
+    i += 1
 
 i = 1
 while i < 10:
-	print(i)
-	if i == 5:
-		continue
-	i += 1
+    print(i)
+    if i == 5:
+        continue
+    i += 1
 ```
 
 ****
@@ -222,7 +222,7 @@ while i < 10:
 <div class="exercise">
 
 1. What happens when you do not increment the index variable? That is, when we leave out the final line of the code (i += 1) in the first example.
-2. Try to code a while-loop that prints each letter in your name seperately to the console window.
+2. Try to code a while-loop that prints each letter in your name separately to the console window.
 3. Draw a diagram like those shown in the earlier section on IF-statements that describes your while-loop. 
 
 </div>
@@ -234,7 +234,7 @@ while i < 10:
 
 A for loop iterates over a sequence of values and executes a particular piece of code for each of these items. As you might notice, it can actually often replace a while loop.
 
-Recall that lists, tuples, sets and dictionaries contain multiple items. For example ```["Volvo", "Ford", "Mercedes"]``` is a list of three string items, each of which represent the name of a car brand. We can use a for-loop to iterate over these items and print each of them or perform any other kind of operation.
+Recall that lists, tuples, sets and dictionaries contain multiple items. For example ```["Volvo", "Ford", "Mercedes"]``` is a list of three string items, each of which represents the name of a car brand. We can use a for-loop to iterate over these items and print each of them or perform any other kind of operation.
 
 Likewise, we can also iterate over characters in a string. 
 
@@ -243,11 +243,11 @@ Likewise, we can also iterate over characters in a string.
 ```python
 cars = ["Volvo", "Ford", "Mercedes"]
 for carName in cars
-	print(carName)
-		
+    print(carName)
+        
 city = "Eindhoven"
 for letter in city
-	print(letter)
+    print(letter)
 ```
 
 ### Exercise 5: Understanding For-Loops

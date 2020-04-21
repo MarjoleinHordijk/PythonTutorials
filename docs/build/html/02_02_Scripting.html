@@ -205,11 +205,11 @@
 <li><p>You want to automate a process.</p></li>
 </ul>
 <p>Fortunately, we can use scripting to store the sequence of commands for later use. In this way we can easily run the code again in one go.</p>
-<p>To illustrate, imagine you used a set of commands to clean a dataset with sensor data. Now that you finished cleaning the data from one sensor, you need to move on to other sensors. Since the data will likely show similar errors, cleaning both datasets will require similar procedures. Therefore it is usefull to store the steps that you took for the first dataset, so you can apply them again. This can safe you a lot of time! Alternatively, you might want to help a peer student out to clean his dataset. You could simply send the script you developed to this person and he/she will also be able to repeat your procedures.</p>
+<p>To illustrate, imagine you used a set of commands to clean a dataset with sensor data. Now that you finished cleaning the data from one sensor, you need to move on to other sensors. Since the data will likely show similar errors, cleaning both datasets will require similar procedures. Therefore it is useful to store the steps that you took for the first dataset, so you can apply them again. This can save you a lot of time! Alternatively, you might want to help a peer student out to clean his dataset. You could simply send the script you developed to this person and he/she will also be able to repeat your procedures.</p>
 <div class="section" id="scripts-versus-modules">
 <h3>1.1 Scripts versus Modules<a class="headerlink" href="#scripts-versus-modules" title="Permalink to this headline">¶</a></h3>
 <p>So, what is the difference between scripts and modules? As we discussed <a class="reference internal" href="02_01_Modules&amp;Packages.html"><span class="doc">here</span></a>, modules provide sets of functions that we can use in our scripts. We do not “run” modules, but we use pieces of them in our scripts.</p>
-<p>A script, on the other hand, consists of lines of code which will run sequentially. It may contain definitions of function, like in modules, but these functions are called within the script.</p>
+<p>A script, on the other hand, consists of lines of code that will run sequentially. It may contain definitions of function, like in modules, but these functions are called within the script.</p>
 <p>Hence, modules are created to be imported, whereas scripts are developed to be executed.</p>
 </div>
 <hr class="docutils" />
@@ -232,7 +232,7 @@
     <span class="k">print</span><span class="p">(</span><span class="s2">&quot;My name is &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>If you want to call this function from the console, you would have to run <code class="docutils literal notranslate"><span class="pre">myFunction(name)</span></code> and insert a name (string) as argument. Now, if we want to run this function in our script, we can simply add this to our document.</p>
+<p>If you want to call this function from the console, you would have to run <code class="docutils literal notranslate"><span class="pre">myFunction(name)</span></code> and insert a name (string) as an argument. Now, if we want to run this function in our script, we can simply add this to our document.</p>
 <p>However, be aware of the following! If you call a function in a script, make sure that the definition of the function is located <em>BEFORE</em> the piece of code which calls it. This is important because otherwise Python will “not know about” the function yet. It will spit you an error saying the function has not yet been defined.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># The function</span>
 <span class="k">def</span> <span class="nf">myFunction</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
@@ -248,20 +248,20 @@
 <h3>Exercise 2: Functions in Scripts<a class="headerlink" href="#exercise-2-functions-in-scripts" title="Permalink to this headline">¶</a></h3>
 <div class="exercise"><strong>Try out the exercises below to see if you understand how to define and call functions within a script.</strong><br/><br/><ul class="simple">
 <li><p>Write two simple functions <code class="docutils literal notranslate"><span class="pre">function1()</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">function2()</span></code>, each of which take at least one argument. Add both of them to a .py file.</p></li>
-<li><p>Specify variables which store potential values for each argument.</p></li>
+<li><p>Specify variables that store potential values for each argument.</p></li>
 <li><p>Within the script, call both functions using the variables you just specified.</p></li>
 <li><p>Where did you locate 1) the definitions of the functions, 2) the specifications of the variable and 3) the code to call the functions? Why did you use this particular order in your script?</p></li>
 <li><p>Run the script and check if the results are as expected.</p></li>
 </ul>
 </div>
 <br/><hr class="docutils" />
-<p>Ofcourse, the example above is very minimalistic. However, scripts can cover large processes. For example, you could write a script that includes data collection, cleaning and analyses. This is particularly useful if you want to repeat this whole process serveral times.</p>
-<p>Often, these scripts will contain multiple functions which are called in a particular sequence. If multiple functions use to the same variable, it is important to ensure that this variable is defined globally or passed along as argument. To understand why this is necessary, you should be aware of the difference between local and global variables.</p>
+<p>Of course, the example above is very minimalistic. However, scripts can cover large processes. For example, you could write a script that includes data collection, cleaning and analyses. This is particularly useful if you want to repeat this whole process several times.</p>
+<p>Often, these scripts will contain multiple functions that are called in a particular sequence. If multiple functions use the same variable, it is important to ensure that this variable is defined globally or passed along as an argument. To understand why this is necessary, you should be aware of the difference between local and global variables.</p>
 </div>
 <div class="section" id="local-variables">
 <h3>2.1 Local Variables<a class="headerlink" href="#local-variables" title="Permalink to this headline">¶</a></h3>
-<p>Local variables are defined wihtin a function. As such, they can only be accessed within the function itself.</p>
-<p>If you look at the example below, you will see that borth functions that are defined print the variable <code class="docutils literal notranslate"><span class="pre">localvar</span></code>. However, in both cases, this variable has a different value. This is possible because <code class="docutils literal notranslate"><span class="pre">localvar</span></code> is a local variable that is only defined within the boundaries of the function.</p>
+<p>Local variables are defined within a function. As such, they can only be accessed within the function itself.</p>
+<p>If you look at the example below, you will see that both functions print the variable <code class="docutils literal notranslate"><span class="pre">localvar</span></code>. However, in both cases, this variable has a different value. This is possible because <code class="docutils literal notranslate"><span class="pre">localvar</span></code> is a local variable that is only defined within the boundaries of the function.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># First function</span>
 <span class="k">def</span> <span class="nf">function1</span><span class="p">():</span>
     <span class="n">localvar</span> <span class="o">=</span> <span class="s2">&quot;local variable 1&quot;</span>
@@ -326,13 +326,13 @@
 <li><p>What will be the output of this function?</p></li>
 <li><p>Try to develop the function.</p></li>
 <li><p>Call the function twice from within the script, using different search criteria. Run the script to check the results. (Note: If you change the maximum amount of tweets, you will have to adapt the way you print their content. Hint: Use a loop.)</p></li>
-<li><p>Store the two sets of search criteria in a list (you can extent this list with more sets if you want). Write a loop to call the function for all sets in the list.</p></li>
+<li><p>Store the two sets of search criteria in a list (you can extend this list with more sets if you want). Write a loop to call the function for all sets in the list.</p></li>
 <li><p><strong>Advanced:</strong> Try to extent the script you wrote by following the steps below:</p>
 <ul>
-<li><p>Adapt the function you have created so that each of the tweets that is collected is added to a list. (Note that this list should be globally accessible!)</p></li>
-<li><p>Add another function which iterates over the list and prints the hashtags of all tweets.</p></li>
-<li><p>Next, add another function which prints a sentence stating how many tweets were collected in total.</p></li>
-<li><p>Within the script, call the function for collecting the tweets twice, with different sets of search criteria. Call the other functions afterwards.</p></li>
+<li><p>Adapt the function you have created so that each of the tweets that are collected is added to a list. (Note that this list should be globally accessible!)</p></li>
+<li><p>Add another function that iterates over the list and prints the hashtags of all tweets.</p></li>
+<li><p>Next, add another function that prints a sentence stating how many tweets were collected in total.</p></li>
+<li><p>Within the script, call the function for collecting the tweets twice, with different sets of search criteria. Call the other functions afterward.</p></li>
 <li><p>Run the script.</p></li>
 </ul>
 </li>

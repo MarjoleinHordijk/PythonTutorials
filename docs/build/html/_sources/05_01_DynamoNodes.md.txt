@@ -16,7 +16,7 @@ The current tutorial is based on section 10 of the aforementioned primer and sum
 
 <span style="text-decoration:underline;">What you will need:</span>
 
-We will use **_Dynamo Studio_** (2017) to develop the custom nodes. This programming environment is released by Autodesk. If you have a student Autodesk account, you can download the software for free [here](http://autodesk.com/education/free-software/dynamo-studio). You can create a student account using your TU/e mailadres to gain access to the software. Once you have downloaded the software from the Autodesk website, you should receive an email with a serial number and product key that are valid for 3 years. Unfortunately the software is only available for Windows.
+We will use **_Dynamo Studio_** (2017) to develop the custom nodes. This programming environment is released by Autodesk. If you have a student Autodesk account, you can download the software for free [here](http://autodesk.com/education/free-software/dynamo-studio). You can create a student account using your TU/e email to gain access to the software. Once you have downloaded the software from the Autodesk website, you should receive an email with a serial number and product key that are valid for 3 years. Unfortunately the software is only available for Windows.
 
 
 
@@ -71,7 +71,7 @@ Most Nodes in Dynamo are composed of five parts. While there are exceptions, suc
 
 ## 3. Custom Nodes (summarized from [here](https://primer.dynamobim.org/10_Custom-Nodes/10-1_Introduction.html))
 
-As said before, custom nodes are a great way to extent the possibilities of Dynamo. They allow us to create the exact nodes that we need to efficiently develop a custom algorithm when these are not available out of the box. Furthermore, by combining multiple actions, custom nodes can help you keep your graph clean and readable. 
+As said before, custom nodes are a great way to extend the possibilities of Dynamo. They allow us to create the exact nodes that we need to efficiently develop a custom algorithm when these are not available out of the box. Furthermore, by combining multiple actions, custom nodes can help you keep your graph clean and readable. 
 
 Important to know is also that you can store the nodes you have created and reuse them in different projects. If you have different versions of the node you created, you can easily update them in one go by editing the base node. Moreover, you can share the nodes that you developed with fellow programmers.
 
@@ -84,7 +84,7 @@ One way to develop custom nodes is through the **_Custom Node Environment_**. Th
 
 Although visual programming can be very intuitive, it also has the downside that a graph can become cluttered and chaotic. Furthermore, the out-of-the-box functionality offered by the nodes available in a graphical interface can limit the functionality and flexibility of you as a programmer. In some cases, it can therefore be useful to implement some textual programming. This can be done using Python.
 
-A good example of where Python can help you to keep your graph readable is in the case of looping. Capturing a loop in Dynamo can lead to a large web of nodes and wires. However, the same can often be achieved by a few lines of code when using Python. Take for example the process shown below ([source](https://primer.dynamobim.org/10_Custom-Nodes/10-4_Python.html)). Modelling this process would require you to specify almost 30 nodes and connect them properly. Alternatively, you can use the relatively concise piece of code below to achieve the same result.
+A good example of where Python can help you to keep your graph readable is in the case of looping. Capturing a loop in Dynamo can lead to a large web of nodes and wires. However, the same can often be achieved by a few lines of code when using Python. Take for example the process shown below ([source](https://primer.dynamobim.org/10_Custom-Nodes/10-4_Python.html)). Modeling this process would require you to specify almost 30 nodes and connect them properly. Alternatively, you can use the relatively concise piece of code below to achieve the same result.
 
 ![](../../images/05_01/4.png)
 
@@ -121,12 +121,12 @@ OUT = solids
 
 ## 5. Creating a New Python Node
 
-You can create a add a Python Node to your graph under Core>Scripting. If you double click a Python node, a **_scripting interface_** will open in which you can edit the code behind it.
+You can create and add a Python Node to your graph under Core>Scripting. If you double click a Python node, a **_scripting interface_** will open in which you can edit the code behind it.
 
 ![](../../images/05_01/5.png)
 
 
-To assess the functionality of Dynamo in your script, you can use the **_Autodesk.DesignScript module_**. This allows you to use some of the **_Dynamo syntax_** (see [here](https://dynamobim.org/wp-content/links/DesignScriptGuide.pdf) for more information). This can be very useful if you are working with geometric objects. For example, if you import this module you can work with Point geometries. The interface also provides you with suggestions for methods that you can apply when you type in one a geometry type. To illustrate, if you type Point. you will be provided with a lists of methods that you can use to query or create points.
+To assess the functionality of Dynamo in your script, you can use the **_Autodesk.DesignScript module_**. This allows you to use some of the **_Dynamo syntax_** (see [here](https://dynamobim.org/wp-content/links/DesignScriptGuide.pdf) for more information). This can be very useful if you are working with geometric objects. For example, if you import this module you can work with Point geometries. The interface also provides you with suggestions for methods that you can apply when you type in one a geometry type. To illustrate, if you type Point, you will be provided with a list of methods that you can use to query or create points.
 
 
 ## 6. Exercise: Custom Python Node in Dynamo Studio
@@ -144,7 +144,7 @@ Start Autodesk Dynamo Studio (2017) and create a new workspace.
 
 ![](../../images/05_01/7.png)
 
-You can find all the regular Dynamo nodes that you will need by searching the library in the left hand panel. 
+You can find all the regular Dynamo nodes that you will need by searching the library in the left-hand panel. 
 
 ![](../../images/05_01/8.png)
 
@@ -158,12 +158,12 @@ We will start by creating the rectangular object, for which we will use three no
 
 A **code block** node is used for the input. The input concerns the length and width (same size) of the rectangular object. To add a code block node, look it up in the library and click it once.
 
-You can now add a value for the width and height of the object to the content of the code block, as show below.
+You can now add a value for the width and height of the object to the content of the code block, as shown below.
 
 ![](../../images/05_01/9.png)
 
 
-Next, look for a **Rectangle.ByWidthLength** node and add it to your graph. Connect the output of the codeblock to the width and length input of the newly added node.
+Next, look for a **Rectangle.ByWidthLength** node and add it to your graph. Connect the output of the code-block to the width and length input of the newly added node.
 
 ![](../../images/05_01/10.png)
 
@@ -186,14 +186,14 @@ Tip: If you want to pan and zoom in the 3D preview (instead of your model), you 
 
 Now that we have created our geometric object, we will start manipulating it to create a curved surface.
 
-First, we start by adding a thickness to our surface. We do this by including another **code block**, which contains the value that captures the thickness of our rectangle. Then we connect this code block node to a **Geometry.Translate** node at the **zTranslation** receptor. This means that we will lift the geometry by the amount of units specified in the code block. Further, we connect the output of the **Rectangle.byWidthLength** node to the geometry input.
+First, we start by adding a thickness to our surface. We do this by including another **code block**, which contains the value that captures the thickness of our rectangle. Then we connect this code block node to a **Geometry.Translate** node at the **zTranslation** receptor. This means that we will lift the geometry by the number of units specified in the code block. Further, we connect the output of the **Rectangle.byWidthLength** node to the geometry input.
 
 ![](../../images/05_01/14.png)
 
 
 Next, we add a **Polygon.Points node**, which will query the translated rectangle to extract the points located at the corners. This will provide us with a set of points that we can use as input for our next step.
 
-We can then add another **Geometry.Translate** node to lift up these points. Again, we use a code block to define how much each of the corners will be lifted. In this case we will need a list of values, since not every point will be lifted to the same height. We do this by adding the four values to the code block between {} brackets.
+We can then add another **Geometry.Translate** node to lift up these points. Again, we use a code block to define how much each of the corners will be lifted. In this case, we will need a list of values, since not every point will be lifted to the same height. We do this by adding the four values to the code block between {} brackets.
 
 In the preview, you should be able to see that one of the points is lifted above the others.
 
@@ -208,7 +208,7 @@ Next we create a new polygon based on the four points using **Polygon.ByPoints**
 
 Next, we will need to connect the surfaces that we created by adding sides. To do so, we will first create a list of the bottom rectangle and the top polygon that we created. This can be done using **List.Create**. We can then use **Surface.ByLoft** to create the sides. 
 
-However, to create one solid object, we will need to connect these four sides to the top and bottom of our geometry. This is done by first creating a list of the top and bottom surface using **List.Create** and then using **Surface.ByLoft**.
+However, to create one solid object, we will need to connect these four sides to the top and bottom of our geometry. This is done by first creating a list of the top and bottom surfaces using **List.Create** and then using **Surface.ByLoft**.
 
 ![](../../images/05_01/17.png)
 
@@ -299,7 +299,7 @@ fromCoord = solid.ContextCoordinateSystem
 
 We will now create a list of solids that will form our grid. Recall that we defined how many solids should be on each side of our grid as two of our inputs (`xCount` and `yCount`). We will use two for-loops to create this list. Our first loop will iterate for each solid on the x-axis of our grid: `for i in range(xCount):`. Another loop, which is nested in the first one, will do the same of each solid on the y axis: `for j in range(yCount):`.
 
-Basically, we create our grid row by row. That is, we create an amount of rows that is equal to `xCount` and the length of each row will correspond to the value of `yCount`.
+Basically, we create our grid row by row. That is, we create a number of rows that is equal to `xCount` and the length of each row will correspond to the value of `yCount`.
 
 ![](../../images/05_01/21.png)
 
@@ -309,7 +309,7 @@ The vector needs to be defined so that it starts at the origin of the original c
 
 `solid.ContextCoordinateSystem.Origin,Vector.ByCoordinates(0,0,1)`.
 
-The degree of rotation is determined based on the amount of iterations that have been made in both loops (`i+j`) and the input value which we assigned to `seed`. These values are brought together in a small formula `i+j%seed`. By multiplying the resulting number with 90, the degree of rotation is always a quarter of a full circle (360 degrees). This is required to avoid the solids from overlapping and let them align neatly.
+The degree of rotation is determined based on the number of iterations that have been made in both loops (`i+j`) and the input value which we assigned to `seed`. These values are brought together in a small formula `i+j%seed`. By multiplying the resulting number with 90, the degree of rotation is always a quarter of a full circle (360 degrees). This is required to avoid the solids from overlapping and let them align neatly.
 
 So, we can add the following code to rotate the coordinate system.
 

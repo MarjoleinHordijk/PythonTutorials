@@ -18,9 +18,9 @@
 # Linear Regression Analysis Using Python
 
 ## In this Tutorial
-In this tutorial, we will discuss how to perform a linear regression analysis using Python. Specifically, we will use the well known package ```NumPy```. This package allows you to work with multi dimensional data arrays and perform particular calculations with them. You can find more information about this package in its [official guide](https://docs.scipy.org/doc/numpy/user/index.html). Additionally, we will use the ```scikit-learn``` library to perform the actual analysis. Please make sure you have both installed!
+In this tutorial, we will discuss how to perform a linear regression analysis using Python. Specifically, we will use the well-known package ```NumPy```. This package allows you to work with multidimensional data arrays and perform particular calculations with them. You can find more information about this package in its [official guide](https://docs.scipy.org/doc/numpy/user/index.html). Additionally, we will use the ```scikit-learn``` library to perform the actual analysis. Please make sure you have both installed!
 
-We will not go into details regarding the theory on regression analysis and the interpretation of outcomes. Rather, we will focus on how to produce results using Python.
+We will not go into detail regarding the theory of regression analysis and the interpretation of outcomes. Rather, we will focus on how to produce results using Python.
 
 <div class="info">
 
@@ -39,7 +39,7 @@ The sections below will guide you through the process of performing a simple lin
 
 First of all, we should start by importing ```NumPy``` and the classes that we need from ```scikit-learn``` at the start of our script.
 
-Note that we can import ```numpy``` as ```np``` to reduce the amount of typing we have to do, and to make the code more readble. Further, to import the ```LinearRegression``` class from ```scikit-learn``` we can use the ```from``` keyword.
+Note that we can import ```numpy``` as ```np``` to reduce the amount of typing we have to do, and to make the code more readable. Further, to import the ```LinearRegression``` class from ```scikit-learn``` we can use the ```from``` keyword.
 
 ```python
 import numpy as np
@@ -52,7 +52,7 @@ Next, we will need to specify the data that we want to work with. If you are fam
 
 We can capture this data in two variables, both of which are ```NumPy``` arrays (class: ```numpy.ndarray```). 
 
-1. The **predictor** (```y```) should be provided as a one-dimensional array with one row listing the predictor values. This can be done using ```np.array()``` and providing a list of the values as argument.
+1. The **predictor** (```y```) should be provided as a one-dimensional array with one row listing the predictor values. This can be done using ```np.array()``` and providing a list of the values as an argument.
 2. The **regressors** (```x```) should be provided in a two-dimensional array with one colomn and one row per regressor value. As with the predictor, we use ```np.array()```. We then transpose the array using ```.reshape((-1,1))```.
 
 ```python
@@ -69,7 +69,7 @@ x = np.array([1, 2, 3, 4, 5, 6]).reshape(-1, 1)
 <div class="exercise"><strong>You might not be familiar with NumPy arrays yet. If so, you can have a look at the exercises below.</strong><br/><br/>
 
 * Print ```x``` and ```y``` and evaluate the shape of the arrays.
-* How many colomns do each of the arrays have?
+* How many columns do each of the arrays have?
 * And how many rows?
 * What are the dimensions of the arrays?
 * Create a one-dimensional NumPy array with the values between 0 and 100 with steps of 5 in between. (Hint: You learned how to do this quickly when you were learning about list operators in [this](01_02_LanguageFeatures.md) tutorial!)
@@ -138,7 +138,7 @@ model.fit(x, y)
 
 ### 1.4 Assessing the Results
 
-We can obtain R<sup>2</sup> using the ```.score()``` method. You will need to provide this methods again with ```x``` and ```y``` as arguments.
+We can obtain R<sup>2</sup> using the ```.score()``` method. You will need to provide these methods again with ```x``` and ```y``` as arguments.
 
 ```python
 import numpy as np
@@ -192,7 +192,7 @@ print('The slope (b1):', model.coef_)
 
 ### 1.5 Predicting
 
-Now that we have fit the model to the data, we can use it to predict  values. We do so using the ```.predict()``` method.
+Now that we have fit the model to the data, we can use it to predict values. We do so using the ```.predict()``` method.
 
 If we pass ```.predict()``` the regressor variable ```x```, we can see what values the model predicts for ```y```. If we compare these values to our actual values, we can get an indication of the quality of our model.
 
@@ -237,7 +237,7 @@ print('New predicted y values:', y_Predicted_New)
 
 **The exercises below focus on prediction new values with a simple linear regression model.**
 
-* Replicate the predicted y values from the first exampel above. Do they respond closely to the values in ```y```? Would you expect this given the R<sup>2</sup> value?
+* Replicate the predicted y values from the first example above. Do they respond closely to the values in ```y```? Would you expect this given the R<sup>2</sup> value?
 * Use the model to predict the value of y when x=100. Try to reason if the outcome is as expected.
 
 </div>
@@ -247,13 +247,13 @@ print('New predicted y values:', y_Predicted_New)
 
 ## 2. Multiple Linear Regression with scikit-learn
 
-Although the process for Multiple Linear Regression (MLR) is similar to Simple Linear Regression, we will discuss some specific considerations below. Specifically, our regressors array (```x```) will now how two colomns. That is, we will consider two regressors to fit our model.
+Although the process for Multiple Linear Regression (MLR) is similar to Simple Linear Regression, we will discuss some specific considerations below. Specifically, our regressors array (```x```) will now how two columns. That is, we will consider two regressors to fit our model.
 
 ### 2.1 Importing and Getting the Data Ready
 
 As we did with the Simple Linear Regression, we will need to import NumPy and the ```LinearRegression``` class from ```scikit-learn```. 
 
-The specification of the **predictor** (```y```) values is analogous.However, we will now need to specify multiple **regressors**. That is, ```x``` will need to have two colomns (one for each regressor). To do this, we simply make a list of value-pairs. Each pair provides the two regressor values (x1 and x2) for one particular predictor value (y).
+The specification of the **predictor** (```y```) values is analogous. However, we will now need to specify multiple **regressors**. That is, ```x``` will need to have two columns (one for each regressor). To do this, we simply make a list of value-pairs. Each pair provides the two regressor values (x1 and x2) for one particular predictor value (y).
 
 ```python
 import numpy as np
@@ -305,7 +305,7 @@ print('New predicted y values:', y_Predicted_New)
 #### Exercise 5: Multiple Linear Regression
 <div class="exercise">
 
-**Run the example code for performing a MLR analysis.**
+**Run the example code for performing an MLR analysis.**
 
 * Is the intercept of the regression line positive or negative?
 * Of what datatype is ```.coef_```? How many elements does it contain? Why is this the case?

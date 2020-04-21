@@ -36,7 +36,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Natural Language Processing Using Python" href="03_07_NLP.html" />
-    <link rel="prev" title="Multi Nominal Logit Models Using Python" href="03_05_MNL.html" /> 
+    <link rel="prev" title="Logistic Regression Using Python" href="03_05_LR.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -88,9 +88,28 @@
 <li class="toctree-l2"><a class="reference internal" href="03_01_CSV.html">Working with CSV files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_02_mySQL.html">Working with mySQL databases</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_03_Regression.html">Regression Analysis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03_04_PathAnalysis.html">Path Analysis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03_05_MNL.html">Multi Nominal Logic Models</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_04_Visualization.html">Data Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_05_LR.html">Logistic Regression Models</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Neural Networks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#preparing-the-data">1. Preparing the Data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#exercise-1-generating-the-data">Exercise 1: Generating the Data</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#the-activation-function">2. The Activation Function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#initializing-the-weights">3. Initializing the Weights</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#exercise-2-initializing-the-weights">Exercise 2: Initializing the weights</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#training-the-network">4. Training the Network</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#exercise-3-training-your-network">Exercise 3: Training Your Network</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#evaluating-the-output">5. Evaluating the Output</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#exercise-4-evaluating-the-output">Exercise 4: Evaluating the Output</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="03_07_NLP.html">Natural Language Processing</a></li>
 </ul>
 </li>
@@ -163,8 +182,222 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="neural-networks-using-python">
+  <html>
+<head>
+<style>
+.info {
+  background-color: #e6e6e6;
+  border-left: 6px solid #666666;
+  padding: 10px;
+}
+.exercise {
+  background-color: #e7f3fe;
+  border-left: 6px solid #2196F3;
+  padding: 10px;
+}
+</style>
+</head>
+<body><div class="section" id="neural-networks-using-python">
 <h1>Neural Networks Using Python<a class="headerlink" href="#neural-networks-using-python" title="Permalink to this headline">¶</a></h1>
+<p>Neural networks are systems that function in a similar manner as a human brain. Information is passed on through a network on neurons. This network connects the input and output layers. Intermediate hidden layers are activated based on an activation function. Furthermore, weights and biases exist between layers. The general structure of a neural network is depicted below.</p>
+<p><img alt="_images/114.png" src="_images/114.png" />
+<a class="reference external" href="https://towardsdatascience.com/how-to-build-your-own-neural-network-from-scratch-in-python-68998a08e4f6">Source</a></p>
+<p>We can build and train neural networks to predict an output value based on particular input values. For example, we can use a neural network to classify an object based on its characteristics.</p>
+<p>In this tutorial, we will build and train a neural network using <code class="docutils literal notranslate"><span class="pre">numpy</span></code>. If you have not installed <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, please do so. If you have an Anaconda distribution of Python, it will be installed already.</p>
+<p>The sections below describe an example where we try to estimate the year of construction of houses based on several characteristics. To keep things simple, we will stick to a small, two-layer network with backpropagation. We will use the sigmoid activation function.</p>
+<div class="section" id="preparing-the-data">
+<h2>1. Preparing the Data<a class="headerlink" href="#preparing-the-data" title="Permalink to this headline">¶</a></h2>
+<p>In this tutorial, we will work with <code class="docutils literal notranslate"><span class="pre">numpy</span></code> arrays. These objects concern grids of values (all of which are of the same datatype). These arrays have two important attributes:</p>
+<ul class="simple">
+<li><p><strong>Rank</strong> = The number of dimensions of the array. To illustrate, a <code class="docutils literal notranslate"><span class="pre">list</span></code> of values has one dimension, whereas a table usually has two (rows and colomns). Note that more dimensions are possible in the case of a <code class="docutils literal notranslate"><span class="pre">numpy</span></code> array.</p></li>
+<li><p><strong>Shape</strong> = The size of the array along each dimension.</p></li>
+</ul>
+<p>We will specify two arrays:</p>
+<ul class="simple">
+<li><p><strong>Input array:</strong> This array contains the input data. In our example, these concern characteristics of homes. We will call these variables x1-x4 and their values will be binary (0=false, 1=true). So for example, a variable could capture the presence of double glazing.</p></li>
+</ul>
+<p>We create this input array using <code class="docutils literal notranslate"><span class="pre">numpy.array()</span></code> and providing a sequence of lists. Each list represents one row in the array.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="c1"># Input Dataset</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Output array:</strong> We will consider two output arrays in this tutorial.</p>
+<ol class="simple">
+<li><p>In the main text, we will discuss a neural network that classifies a house as old (&lt;1990) or new (1990&gt;). In this case, the output is a binary value. If the home is old, the value will be 0. In the case of a new building, the value will be 1.</p></li>
+<li><p>In the exercises, you will develop a neural network which estimates the construction year in absolute numbers.</p></li>
+</ol>
+</li>
+</ul>
+<p>The output dataset concerns only one variable. Hence, if we would represent the data in a table, there would be only one column. Since it is easier to specify a row, we will do this first and then transpose the row to a column. This is done using <code class="docutils literal notranslate"><span class="pre">.T</span></code> on the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> array. (Try it yourself! Can you specify the output data without transposing?)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="c1"># Input Dataset</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
+
+<span class="c1"># Output Dataset</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<div class="section" id="exercise-1-generating-the-data">
+<h3>Exercise 1: Generating the Data<a class="headerlink" href="#exercise-1-generating-the-data" title="Permalink to this headline">¶</a></h3>
+<div class="exercise"><p><strong>The exercises below help you understand how we generated the data.</strong></p>
+<ol class="simple">
+<li><p>Print the <code class="docutils literal notranslate"><span class="pre">Input</span></code> and <code class="docutils literal notranslate"><span class="pre">Output</span></code> arrays.</p></li>
+<li><p>Evaluate their structure. How many rows do they have? What are their dimensions?</p></li>
+<li><p>How many input variables are there?</p></li>
+<li><p>If we consider output=1 as a new building (and output=0 as old). What can you say about the six cases in the output dataset?</p></li>
+<li><p>Can you already distinguish a pattern among the old vs. new buildings?</p></li>
+<li><p>Which variable do you think beforehand will contribute the least to the prediction?</p></li>
+</ol>
+<p><strong>Now, you will need to create your own input and output data.</strong></p>
+<ol class="simple">
+<li><p>Think of three attributes that likely relate to the construction year of buildings. Make sure that these attributes can be captures by either a binary, integer or decimal value.</p></li>
+<li><p>Are you able to store the data on each of the attributes as a single data-type (e.g. float or integer)?</p></li>
+<li><p>Select a total of 10 building years between 1920 and 2020. Make sure the years are somewhat distributed over the defined period.</p></li>
+<li><p>For each building year you selected, determine a value for the attributes you specified earlier. Try to come up with values that seem logical for the particular construction year. That is, the algorithm should be able to identify a pattern in the data.</p></li>
+<li><p>Create an <code class="docutils literal notranslate"><span class="pre">Input</span></code> and <code class="docutils literal notranslate"><span class="pre">Output</span></code> array to store the data you just produced.</p></li>
+<li><p>Print the arrays to check the structure and content.</p></li>
+</ol>
+</div>
+<br/></div>
+</div>
+<hr class="docutils" />
+<div class="section" id="the-activation-function">
+<h2>2. The Activation Function<a class="headerlink" href="#the-activation-function" title="Permalink to this headline">¶</a></h2>
+<p>Assuming you have some theoretical knowledge on neural networks, you should be familiar with activation functions. These functions determine whether a neuron is the network is activated or not. In our example, we will apply the non-linear sigmoid function for this. We add this to our script using the code below.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sigmoid function.</span>
+<span class="k">def</span> <span class="nf">nonlin</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">deriv</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">deriv</span><span class="o">==</span><span class="bp">True</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="exercise">
+Add the sigmoid function to your script.
+</div>
+<br/></div>
+<div class="section" id="initializing-the-weights">
+<h2>3. Initializing the Weights<a class="headerlink" href="#initializing-the-weights" title="Permalink to this headline">¶</a></h2>
+<p>Before we start training a model. We will initialize random weights. (Recent research has shown that non-random initial weights can actually improve predictions and efficiency, but we will not consider that here.) It is common to specify a random seed (<code class="docutils literal notranslate"><span class="pre">np.random.seed()</span></code>). This maintains the same set of random weights across different runs of the script, which can make it easier to compare results while developing the script. If you change the argument that is passed to this function, the initial weights will change.</p>
+<p>Since we are only dealing with two layers (<code class="docutils literal notranslate"><span class="pre">Input</span></code> and <code class="docutils literal notranslate"><span class="pre">Output</span></code>), we only need one set of weights. Our example, these weights are stored in a four by one matrix. These dimensions are suitable because we are using four input variables to predict one output. Hence, we need to connect each of the four input variables to the single output variable, resulting in four weights.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="c1"># Input Dataset</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
+
+<span class="c1"># Output Dataset</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span><span class="o">.</span><span class="n">T</span>
+
+<span class="c1"># Specify random seed.</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Sigmoid function</span>
+<span class="k">def</span> <span class="nf">nonlin</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">deriv</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">deriv</span><span class="o">==</span><span class="bp">True</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">))</span>
+
+
+<span class="c1"># initialize weights randomly with mean 0</span>
+<span class="n">syn0</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="o">-</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<div class="section" id="exercise-2-initializing-the-weights">
+<h3>Exercise 2: Initializing the weights<a class="headerlink" href="#exercise-2-initializing-the-weights" title="Permalink to this headline">¶</a></h3>
+<div class="exercise"><p><strong>Extent your own script for estimating the age of homes to include the random initial weights.</strong></p>
+<ol class="simple">
+<li><p>Try to draw the structure of your to-be-created neural network. (See the image at the start of this tutorial.)</p></li>
+<li><p>What should the dimensions of the matrix with random weights be in the case of your script? Why?</p></li>
+<li><p>Add the code for initializing random weights to your script. (Also, make sure you added the sigmoid function as instructed previously!)</p></li>
+</ol>
+</div>
+<br/></div>
+</div>
+<hr class="docutils" />
+<div class="section" id="training-the-network">
+<h2>4. Training the Network<a class="headerlink" href="#training-the-network" title="Permalink to this headline">¶</a></h2>
+<p>We will train the network by iteratively determining the optimal weights. In this tutorial, we will not go into depth concerning theory. However, we will discuss the code for training a single-layered network using backpropagation step by step.</p>
+<p>The network is trained using a for loop, which iterates a specified number of times. The more iterations, the longer it might take. However, the outcome can also become more accurate (although there is a case of diminishing returns). In our example, we will iterate 100 times.</p>
+<p>We use the following abbreviations in our script:</p>
+<ul class="simple">
+<li><p>l0 = the first layer, hence, the input</p></li>
+<li><p>l1 = the second layer, hence, the predicted output</p></li>
+<li><p>nonlin = the function we wrote that passes its input through the sigmoid function</p></li>
+<li><p>syn0 = the weights</p></li>
+</ul>
+<p>Please have a careful look at the comments in the code. They describe the steps which are taken to train the network. You can find more info on the theoretical background of these steps on <a class="reference external" href="https://iamtrask.github.io/2015/07/12/basic-python-network/">this</a> webpage if you are interested.</p>
+<p>After 100 iterations, we print the values of our output layer to the console.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="nb">iter</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+
+    <span class="c1"># Use sigmoid function to estimate the output based on initial random weights.</span>
+    <span class="n">l0</span> <span class="o">=</span> <span class="n">Input</span>
+    <span class="n">l1</span> <span class="o">=</span> <span class="n">nonlin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">l0</span><span class="p">,</span><span class="n">syn0</span><span class="p">))</span>
+
+    <span class="c1"># Determine the difference between the output and the predicted output.</span>
+    <span class="n">l1_error</span> <span class="o">=</span> <span class="n">Output</span> <span class="o">-</span> <span class="n">l1</span>
+
+    <span class="c1"># Multiply the error by the slope of the sigmoid function at the values in l1 (input layer).</span>
+    <span class="n">l1_delta</span> <span class="o">=</span> <span class="n">l1_error</span> <span class="o">*</span> <span class="n">nonlin</span><span class="p">(</span><span class="n">l1</span><span class="p">,</span><span class="bp">True</span><span class="p">)</span>
+
+    <span class="c1"># Update the weights accordingly to start our next iteration.</span>
+    <span class="n">syn0</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">l0</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">l1_delta</span><span class="p">)</span>
+
+<span class="c1"># Printing the output to the console.</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;OUTPUT:&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">l1</span><span class="p">)</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<div class="section" id="exercise-3-training-your-network">
+<h3>Exercise 3: Training Your Network<a class="headerlink" href="#exercise-3-training-your-network" title="Permalink to this headline">¶</a></h3>
+<div class="exercise"><p><strong>You will now train your own network, based on the input data that you generated.</strong></p>
+<ol class="simple">
+<li><p>Check the example code carefully. Will you have to change anything?</p></li>
+<li><p>If so, implement the changes.</p></li>
+<li><p>Add the code for training your neural network to your script.</p></li>
+<li><p>What does the output look like? What do these values represent?</p></li>
+<li><p>How does the output differ from the example?</p></li>
+</ol>
+<p>We will evaluate the outputs more closely in the next exercise.</p>
+</div>
+<br/></div>
+</div>
+<hr class="docutils" />
+<div class="section" id="evaluating-the-output">
+<h2>5. Evaluating the Output<a class="headerlink" href="#evaluating-the-output" title="Permalink to this headline">¶</a></h2>
+<p>Recall that in our example, we tried to classify homes as old or new buildings. Hence, the output variable concerned a binary value. However, as you will notice, our output values are not binary. Since we have a very small set of cases, deriving the predicted category manually is possible. (Close to 1 = new. Close to 0 = old.) However, this becomes inconvenient if you are dealing with large datasets, as is usually the case. It is therefore sometimes handy to transform the results to integer values.</p>
+<p>Although, there is also value in the decimal numbers. That is, they capture the likelihood that the classification is right. A case with a predicted value of 0.6 is much less likely to be a new home than one with a predicted value of 0.9.</p>
+<p>There are several ways to evaluate the performance of our classification network. For example, we can determine true/false positive and true/false negative rates and use these to…</p>
+<ul class="simple">
+<li><p>develop a confusion matrix.</p></li>
+<li><p>calculate metrics such as precision and accuracy.</p></li>
+</ul>
+<hr class="docutils" />
+<div class="section" id="exercise-4-evaluating-the-output">
+<h3>Exercise 4: Evaluating the Output<a class="headerlink" href="#exercise-4-evaluating-the-output" title="Permalink to this headline">¶</a></h3>
+<div class="exercise"><p><strong>First, consider the output of the example code.</strong></p>
+<ol class="simple">
+<li><p>Do you judge the predictions to be accurate? Why?</p></li>
+<li><p>Rerun the script with 10 and 1000 iterations. To what extent do the conclusions differ?</p></li>
+<li><p>What would you recommend as a suitable number of iterations? Why? (Hint: It is common in studies to plot the ‘loss’ against the number of iterations to optimize. You do not have to do so in the exercise, but it might be interesting during a project.)</p></li>
+<li><p>Try to calculate the true/false positive and true/false negative rates using Python.</p></li>
+<li><p>Try to develop a confusion matrix. (Hint: <a class="reference internal" href="03_05_LR.html"><span class="doc">This</span></a> tutorial discusses an example of a confusion matrix.)</p></li>
+</ol>
+<p><strong>Now, let us review the output of your own script.</strong></p>
+<ol class="simple">
+<li><p>Is your neural network suitable to predict the construction year of buildings? Why?</p></li>
+<li><p>Assess if you might need to increase the number of iterations to improve the predictions. Or can you actually decrease it?</p></li>
+<li><p>Try to use Python to calculate the average size of the error of your prediction.</p></li>
+<li><p>Try adding more cases to your dataset which improves the performance of your network. Add as few new cases as possible to achieve the greatest improvement. Base your choices on the predicted values. (Hint: For which construction years are the predictions far off?)</p></li>
+</ol>
+</div>
+<br/></div>
+</div>
 </div>
 
 
@@ -178,7 +411,7 @@
         <a href="03_07_NLP.html" class="btn btn-neutral float-right" title="Natural Language Processing Using Python" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="03_05_MNL.html" class="btn btn-neutral float-left" title="Multi Nominal Logit Models Using Python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="03_05_LR.html" class="btn btn-neutral float-left" title="Logistic Regression Using Python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

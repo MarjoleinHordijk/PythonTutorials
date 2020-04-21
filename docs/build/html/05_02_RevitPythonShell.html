@@ -175,9 +175,9 @@
 <h1>Using the RevitPythonShell<a class="headerlink" href="#using-the-revitpythonshell" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="what-is-revitpythonshell">
 <h2>1. What is RevitPythonShell?<a class="headerlink" href="#what-is-revitpythonshell" title="Permalink to this headline">¶</a></h2>
-<p>Different from some of the other software packages addressed in this repository, Revit does not come with a Python console by default. However, the RevitPythonShell add-in can easily be installed to add this functionality. This allows you to develop custom Python script to analyse and alter your model. This tutorial is developed based on <a class="reference external" href="https://github.com/hdm-dt-fb/bilt_academy_2019">these</a> instructions.</p>
+<p>Different from some of the other software packages addressed in this repository, Revit does not come with a Python console by default. However, the RevitPythonShell add-in can easily be installed to add this functionality. This allows you to develop a custom Python script to analyze and alter your model. This tutorial is developed based on <a class="reference external" href="https://github.com/hdm-dt-fb/bilt_academy_2019">these</a> instructions.</p>
 <p><span style="text-decoration:underline;">What we will discuss in this tutorial:</span></p>
-<p>In this tutorial we will focus on the very basic applications of the RevitPythonShell. You will learn how to query your model for specific objects and retrieve information about them. At the end, a more advanced example is included to demonstrate how this knowledge could be applied in practice.</p>
+<p>In this tutorial we will focus on the very basic applications of the RevitPythonShell. You will learn how to query your model for specific objects and retrieve information about them. In the end, a more advanced example is included to demonstrate how this knowledge could be applied in practice.</p>
 <p><span style="text-decoration:underline;">What you will need:</span></p>
 <p>You will need a recent version of Revit and the corresponding version of the RevitPythonShell add-in. This tutorial uses Revit 2018. You can download RevitPythonShell from <a class="reference external" href="https://github.com/architecture-building-systems/revitpythonshell">here</a>. You can use the basic architectural sample project in Revit to run the commands.</p>
 <p><img alt="_images/110.png" src="_images/110.png" /></p>
@@ -186,7 +186,7 @@
 <h2>2. Using the RevitPythonShell<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>Once you have installed the RevitPythonShell, you will be able to find it under the “Add-ins” tab in Revit.</p>
 <p><img alt="_images/28.png" src="_images/28.png" /></p>
-<p>The console that opens consists of two main parts. In the top part, you can type commands (e.g. <code class="docutils literal notranslate"><span class="pre">print(&quot;Hello</span> <span class="pre">world!)</span></code>). When you press enter, you will see the resulting output appear. However, we can also write snippets. That is, code blocks which we can store and share. This is done in the bottom part of the window. To run the code, simply press the play icon or hit F5 on your keyboard.</p>
+<p>The console that opens consists of two main parts. In the top part, you can type commands (e.g. <code class="docutils literal notranslate"><span class="pre">print(&quot;Hello</span> <span class="pre">world!)</span></code>). When you press enter, you will see the resulting output appear. However, we can also write snippets. That is, code blocks that we can store and share. This is done in the bottom part of the window. To run the code, simply press the play icon or hit F5 on your keyboard.</p>
 <p><img alt="_images/37.png" src="_images/37.png" /></p>
 <p>If you are familiar with Python already, you will be able to perform standard operations such as defining variables, writing loops, and using conditional statements. Some examples are provided below to illustrate that the same can be done within RevitPythonShell and to help you get familiar with the console.</p>
 <p><strong>Variables</strong></p>
@@ -228,7 +228,7 @@
 </pre></div>
 </div>
 <p><img alt="_images/65.png" src="_images/65.png" /></p>
-<p>The next section will show how we can use these operations to query the objects in a Revit model and analyse their information.</p>
+<p>The next section will show how we can use these operations to query the objects in a Revit model and analyze their information.</p>
 </div>
 <div class="section" id="querying-model-elements">
 <h2>3. Querying Model Elements<a class="headerlink" href="#querying-model-elements" title="Permalink to this headline">¶</a></h2>
@@ -238,7 +238,7 @@
 <p>If you select one or multiple objects in the model view, you will be able to access and use them in your script. The selected objects are available as a list of elements stored in the variable <code class="docutils literal notranslate"><span class="pre">selection</span></code>. The first element of this list can be called by “s0”, the second by “s1” and so on.</p>
 <p>Select several elements in your model. If you now type “s0.” in your console window, you will notice that a substantive list of suggestions appears. These all concern operations that we could perform with the selected elements. However, we can also access specific information about each element. As an example, we will print the element Ids of the objects you selected. You can do so using the piece of code below.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">selection</span><span class="p">:</span>
-	<span class="nb">print</span> <span class="p">(</span><span class="n">element</span><span class="o">.</span><span class="n">Id</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">element</span><span class="o">.</span><span class="n">Id</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><img alt="_images/74.png" src="_images/74.png" /></p>
@@ -247,7 +247,7 @@
 </div>
 <div class="section" id="querying-elements-on-category">
 <h2>3.1 Querying Elements on Category<a class="headerlink" href="#querying-elements-on-category" title="Permalink to this headline">¶</a></h2>
-<p>We can use the <code class="docutils literal notranslate"><span class="pre">FilteredElementCollector</span></code> to access model elements based on their category or class. You can find a list of all build in categories <a class="reference external" href="https://www.revitapidocs.com/2019/ba1c5b30-242f-5fdc-8ea9-ec3b61e6e722.htm">here</a>. An example includes the doors (OST_Doors). These categories are also shown in your Project browser panel, as shown below.</p>
+<p>We can use the <code class="docutils literal notranslate"><span class="pre">FilteredElementCollector</span></code> to access model elements based on their category or class. You can find a list of all build-in categories <a class="reference external" href="https://www.revitapidocs.com/2019/ba1c5b30-242f-5fdc-8ea9-ec3b61e6e722.htm">here</a>. An example includes the doors (OST_Doors). These categories are also shown in your Project browser panel, as shown below.</p>
 <p><img alt="_images/83.png" src="_images/83.png" /></p>
 <p>We can store all door instances in the model to a variable (<code class="docutils literal notranslate"><span class="pre">doors</span></code>) as shown below.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="k">import</span> <span class="n">FilteredElementCollector</span> <span class="k">as</span> <span class="n">Fec</span>
@@ -268,11 +268,11 @@
         <span class="n">WhereElementIsElementType</span><span class="p">()</span><span class="o">.</span><span class="n">ToElements</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>In the next section, we will discuss how you can read parameters and properties from these door instances that we have now identified.</p>
+<p>In the next section, we will discuss how you can read the parameters and properties from these door instances that we have now identified.</p>
 </div>
 <div class="section" id="reading-instance-properties">
 <h2>4. Reading instance properties<a class="headerlink" href="#reading-instance-properties" title="Permalink to this headline">¶</a></h2>
-<p>Now that we have access to elements in our model, we can start reading the information about them. For example, we can print the object ids of the door instances in our model using a small for loop.</p>
+<p>Now that we have access to elements in our model, we can start reading the information about them. For example, we can print the object ids of the door instances in our model using a small for-loop.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
 <span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="k">import</span> <span class="n">FilteredElementCollector</span> <span class="k">as</span> <span class="n">Fec</span>
 <span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="k">import</span> <span class="n">BuiltInCategory</span> <span class="k">as</span> <span class="n">Bic</span>
@@ -288,7 +288,7 @@
 </pre></div>
 </div>
 <p><img alt="_images/93.png" src="_images/93.png" /></p>
-<p>If you are curious which properties and parameters apply to an instance in your model, there are handy tools available to look this up. RevitLookup can help you generate a such a list. A installer for this add-in is available <a class="reference external" href="https://boostyourbim.wordpress.com/2017/04/28/revit-lookup-2018-install/">here</a>.</p>
+<p>If you are curious about which properties and parameters apply to an instance in your model, there are handy tools available to look this up. RevitLookup can help you generate such a list. An installer for this add-in is available <a class="reference external" href="https://boostyourbim.wordpress.com/2017/04/28/revit-lookup-2018-install/">here</a>.</p>
 <p>After installing, you will be able to access all the information you need regarding a selected instance. For example, in the image below a double flush door has been selected. If we “Snoop” the current selection, we will be able to see that this door instance has a property called “mirrored”, which is currently set to “false”.</p>
 <p><img alt="_images/102.png" src="_images/102.png" /></p>
 <p><img alt="_images/112.png" src="_images/112.png" /></p>
@@ -348,7 +348,7 @@
 </div>
 <div class="section" id="reading-instance-parameters">
 <h2>5. Reading instance parameters<a class="headerlink" href="#reading-instance-parameters" title="Permalink to this headline">¶</a></h2>
-<p>We can use the “LookupParameter(“parameter_name”)” method to look up <strong>parameters</strong> of an <strong>instance</strong>. However, this will only return the parameter itself, but not the value that is stored for it. To retrieve the value, we need to know the datatype of the parameter (e.g. integer or string). Usually, this is quite straightforward. For example, the “Mark” parameter is a string value. We can access and print this value for the first door in the variable <code class="docutils literal notranslate"><span class="pre">doors</span></code> as shown below.</p>
+<p>We can use the “LookupParameter(“parameter_name”)” method to look up <strong>parameters</strong> of an <strong>instance</strong>. However, this will only return the parameter itself, but not the value that is stored for it. To retrieve the value, we need to know the data-type of the parameter (e.g. integer or string). Usually, this is quite straightforward. For example, the “Mark” parameter is a string value. We can access and print this value for the first door in the variable <code class="docutils literal notranslate"><span class="pre">doors</span></code> as shown below.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
 <span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="k">import</span> <span class="n">FilteredElementCollector</span> <span class="k">as</span> <span class="n">Fec</span>
 <span class="kn">from</span> <span class="nn">Autodesk.Revit.DB</span> <span class="k">import</span> <span class="n">BuiltInCategory</span> <span class="k">as</span> <span class="n">Bic</span>
@@ -386,9 +386,9 @@
 </div>
 <div class="section" id="exercise-set-parameter-values-using-a-script">
 <h2>7. Exercise: Set Parameter Values Using a Script<a class="headerlink" href="#exercise-set-parameter-values-using-a-script" title="Permalink to this headline">¶</a></h2>
-<p>In this exercise we will develop a small script to write parameter values. We will determine for each door the side of its hinges (left or right) based on the type of the door and whether it is mirrored or not. You can find the complete script at the end of this section. We will go through the build up of this script step by step below.</p>
+<p>In this exercise we will develop a small script to write parameter values. We will determine for each door the side of its hinges (left or right) based on the type of the door and whether it is mirrored or not. You can find the complete script at the end of this section. We will go through the build-up of this script step by step below.</p>
 <p>Note that not all door objects have the right properties for this script to work. Please use <a class="reference external" href="https://github.com/hdm-dt-fb/bilt_academy_2019/blob/master/model/python_beginners_tower.rvt">this</a> model to test the code to make sure it will work properly.</p>
-<p>We will start with some required <strong>imports</strong> and some <strong>references</strong>. These are required to interact with the currently opened model and access or alter the information of its elements. For example, we need to start a so called “transaction” to be able to edit the door hinge side information of the instances in the model.</p>
+<p>We will start with some required <strong>imports</strong> and some <strong>references</strong>. These are required to interact with the currently opened model and access or alter the information of its elements. For example, we need to start a so-called “transaction” to be able to edit the door hinge side information of the instances in the model.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
 <span class="kn">import</span> <span class="nn">clr</span>
 <span class="n">clr</span><span class="o">.</span><span class="n">AddReference</span><span class="p">(</span><span class="s2">&quot;RevitAPI&quot;</span><span class="p">)</span>
@@ -417,7 +417,7 @@
 <span class="n">doors</span> <span class="o">=</span> <span class="n">Fec</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span><span class="o">.</span><span class="n">OfCategory</span><span class="p">(</span><span class="n">Bic</span><span class="o">.</span><span class="n">OST_Doors</span><span class="p">)</span><span class="o">.</span><span class="n">WhereElementIsNotElementType</span><span class="p">()</span><span class="o">.</span><span class="n">ToElements</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>In earlier sections, we looped through all door instances in the current model to retrieve particular information. In a similar manner, we can determine the <strong>default hinge side of the door type</strong> to which a door instance belongs using <code class="docutils literal notranslate"><span class="pre">door.Symbol.LookupParameter(family_hinges_side)</span></code>. Recall that <code class="docutils literal notranslate"><span class="pre">family_hinges_side</span></code> refers to the string <code class="docutils literal notranslate"><span class="pre">&quot;hinges_side_family&quot;</span></code> which is the name of the type parameter that stores the hinge side value which is default for that type of door.</p>
+<p>In earlier sections, we looped through all door instances in the current model to retrieve particular information. In a similar manner, we can determine the <strong>default hinge side of the door type</strong> to which a door instance belongs using <code class="docutils literal notranslate"><span class="pre">door.Symbol.LookupParameter(family_hinges_side)</span></code>. Recall that <code class="docutils literal notranslate"><span class="pre">family_hinges_side</span></code> refers to the string <code class="docutils literal notranslate"><span class="pre">&quot;hinges_side_family&quot;</span></code> which is the name of the type parameter that stores the hinge side value which is the default for that type of door.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">door</span> <span class="ow">in</span> <span class="n">doors</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="mi">35</span> <span class="o">*</span> <span class="s2">&quot;-&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">door</span><span class="o">.</span><span class="n">Id</span><span class="p">)</span>
@@ -438,7 +438,7 @@
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;parameter missing!&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>As you will notice when you run our code so far, one door has a missing value. Since we know the door id from the output we can identify this as the door with id number “347860”. After selecting the door based on its id (Revit &gt; Manage &gt; Inquiry &gt; Select by Id) we can see that the door is a double leaf door. It is therefore not strange that this door does not have a hinge side property. Since we specified an else statement, our code will not crash because of a lack of this parameter.</p>
+<p>As you will notice when you run our code so far, one door has a missing value. Since we know the door id from the output we can identify this as the door with id number “347860”. After selecting the door based on its id (Revit &gt; Manage &gt; Inquiry &gt; Select by Id) we can see that the door is a double-leaf door. It is therefore not strange that this door does not have a hinge side property. Since we specified an else statement, our code will not crash because of a lack of this parameter.</p>
 <p>We now know for each door if its type family has a default hinge side and what this side is (left or right). Next we need to know if the door instances that we have a family hinge side value for are <strong>mirrored or not</strong>. We can find this out from the <code class="docutils literal notranslate"><span class="pre">Mirrored</span></code> property, which either has <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code> as its value. In the code below, we store this value to the variable <code class="docutils literal notranslate"><span class="pre">is_mirrored</span></code>, which we then print for each door that has a family hinge side value.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">door</span> <span class="ow">in</span> <span class="n">doors</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="mi">15</span><span class="o">*</span><span class="s2">&quot;-&quot;</span><span class="p">)</span>
@@ -456,7 +456,7 @@
 </pre></div>
 </div>
 <p>We now have all the information that we need to determine the hinge side of the door instance. That is, the default hinge side of the door type and whether a door is mirrored or not.</p>
-<p>If a door is not mirrored, the hinge side of the instance will simply correspond to that of the family. However, if the door is mirrored, we will need to reverse the side. To print the hinge side of the door instances in our model, we can therefore use the code below.</p>
+<p>If a door is not mirrored, the hinge side of the instance will simply correspond to that of the family. However, if the door is mirrored, we will need to reverse the side. To print the hinge side of the door instances in our model we can, therefore, use the code below.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">door</span> <span class="ow">in</span> <span class="n">doors</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="mi">15</span><span class="o">*</span><span class="s2">&quot;-&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">door</span><span class="o">.</span><span class="n">Id</span><span class="p">)</span>

@@ -214,15 +214,15 @@
 </head>
 <body><div class="section" id="language-features">
 <h1>Language Features<a class="headerlink" href="#language-features" title="Permalink to this headline">¶</a></h1>
-<p>This section discusses some of the fundamental features of the Python language. Before we continue with actual programming, it is important that you are aware of the different terminology that is used. Therefore, this overview is very useful to review before starting to work with operators and functions.</p>
+<p>This section discusses some of the fundamental features of the Python language. Before we continue with actual programming, you must be aware of the different terminology that is used. Therefore, this overview is very useful to review before starting to work with operators and functions.</p>
 <div class="section" id="variables-and-datatypes">
 <h2>1. Variables and datatypes<a class="headerlink" href="#variables-and-datatypes" title="Permalink to this headline">¶</a></h2>
-<p>As the name implies, the values of variables can vary. They store a piece of information and allow you to refer to this by its identifier. The identifiers is nothing more than a name that you define to identify the piece of information that is stored by the respective variable. Although you are quite flexible in choosing these names, there are some rules that you should stick to so Python can interpret your code properly.</p>
+<p>As the name implies, the values of variables can vary. They store a piece of information and allow you to refer to this by its identifier. The identifiers are nothing more than a name that you define to identify the piece of information that is stored by the respective variable. Although you are quite flexible in choosing these names, there are some rules that you should stick to so Python can interpret your code properly.</p>
 <p><strong>Rules for naming identifiers:</strong></p>
 <ul class="simple">
 <li><p>The first character of the variable name must always be a letter of the alphabet or an underscore (<code class="docutils literal notranslate"><span class="pre">_</span></code>).</p></li>
 <li><p>Python is case-sensitive. So keep that in mind when you are using lower (a) and upper (A) case letters.</p></li>
-<li><p>The remainder of the name can constist of letters, underscores (<code class="docutils literal notranslate"><span class="pre">_</span></code>) and digits (0-9).</p></li>
+<li><p>The remainder of the name can consist of letters, underscores (<code class="docutils literal notranslate"><span class="pre">_</span></code>) and digits (0-9).</p></li>
 </ul>
 <p>Other than these rules, variables ideally have well-defined, good, and meaningful names, so that you can understand them as a developer.</p>
 <p>The information that is stored to those variables that you define can be of different data types.</p>
@@ -233,13 +233,13 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">str</span></code> - string: sequence of characters</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">bool</span></code> - boolean: binary value (<code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>)</p></li>
 </ul>
-<p>These datatypes are discussed in more detail below.</p>
+<p>These data-types are discussed in more detail below.</p>
 <div class="section" id="numbers-integers-floats">
 <h3>1.1 Numbers (Integers &amp; Floats)<a class="headerlink" href="#numbers-integers-floats" title="Permalink to this headline">¶</a></h3>
 <p>Python makes a distinction between two types of numbers.</p>
 <ul class="simple">
 <li><p><strong>Integers</strong> are whole numbers such as <code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">23</span></code> and <code class="docutils literal notranslate"><span class="pre">2350525</span></code>.</p></li>
-<li><p><strong>Floats</strong> (floating point numbers) are so called “real” numbers. They are formulated with a decimal point and can capture fractions for integers. Examples include <code class="docutils literal notranslate"><span class="pre">1.25</span></code> and <code class="docutils literal notranslate"><span class="pre">2e3</span></code> (2 times 10 to the power of 3).</p></li>
+<li><p><strong>Floats</strong> (floating point numbers) are so-called “real” numbers. They are formulated with a decimal point and can capture fractions for integers. Examples include <code class="docutils literal notranslate"><span class="pre">1.25</span></code> and <code class="docutils literal notranslate"><span class="pre">2e3</span></code> (2 times 10 to the power of 3).</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Integers</span>
 <span class="n">myInt</span> <span class="o">=</span> <span class="mi">1</span>
@@ -253,16 +253,16 @@
 </div>
 <div class="section" id="text-strings">
 <h3>1.2 Text (Strings)<a class="headerlink" href="#text-strings" title="Permalink to this headline">¶</a></h3>
-<p>A string is a sequence of characters. That is, they capture words, sentences, etc. However, they can also contain numbers. Keep in mind that if you define a number as a string, Pyton will interpret is as a piece of text (not a numerical value)!</p>
+<p>A string is a sequence of characters. That is, they capture words, sentences, etc. However, they can also contain numbers. Keep in mind that if you define a number as a string, Python will interpret is as a piece of text (not a numerical value)!</p>
 <p>Strings are specified using single, double and triple quotes.</p>
 <ul class="simple">
-<li><p>Single and double quotes are interpreted exactly the same in Python. You can use them to specify one-line pieces of texts. Anything that is located between these quotes is treated as part of the string, including spaces, tabs, numbers, etc.</p></li>
+<li><p>Single and double quotes are interpreted exactly the same in Python. You can use them to specify one-line pieces of text. Anything that is located between these quotes is treated as part of the string, including spaces, tabs, numbers, etc.</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Strings</span>
 <span class="n">myStr</span> <span class="o">=</span> <span class="s2">&quot;This is a string...&quot;</span>
 <span class="n">anotherStr</span> <span class="o">=</span> <span class="s1">&#39;This is also a string!&#39;</span>
 
-<span class="c1"># This is also a string. It is intepreted as a piece of text, not as a number!</span>
+<span class="c1"># This is also a string. It is interpreted as a piece of text, not as a number!</span>
 <span class="c1"># Hence, we cannot perform computational operations with this variable.</span>
 <span class="n">numberStr</span> <span class="o">=</span> <span class="s1">&#39;4&#39;</span> 
 </pre></div>
@@ -276,7 +276,7 @@
 <span class="sd">&#39;&#39;&#39;</span>
 </pre></div>
 </div>
-<p>Sometimes you might want to construct a text that containts values of other variables. For example, you might want to print a line of text that describes the output of your script. To do so, you can use the <code class="docutils literal notranslate"><span class="pre">format()</span></code> function. As you can see below, this allows us to insert the value of other variables in our piece of text. In this case, we have a sentence in which we insert a name and age. In later sections, you will learn in more detail how functions such as <code class="docutils literal notranslate"><span class="pre">format()</span></code> can be applied.</p>
+<p>Sometimes you might want to construct a text that contains values of other variables. For example, you might want to print a line of text that describes the output of your script. To do so, you can use the <code class="docutils literal notranslate"><span class="pre">format()</span></code> function. As you can see below, this allows us to insert the value of other variables in our piece of text. In this case, we have a sentence in which we insert a name and age. In later sections, you will learn in more detail how functions such as <code class="docutils literal notranslate"><span class="pre">format()</span></code> can be applied.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="mi">25</span>
 <span class="n">name</span> <span class="o">=</span> <span class="n">Marjolein</span>
 
@@ -290,7 +290,7 @@
 </div>
 <div class="section" id="boolean">
 <h3>1.3 Boolean<a class="headerlink" href="#boolean" title="Permalink to this headline">¶</a></h3>
-<p>Booleans are special in the sense that they only take two values <em>True</em> and <em>False</em>. These are basically evaluations of some related statement. For example, if we provide 10&lt;20 as a statement, the booleans evaluation would be <em>True</em> (indeed, 10 is smaller than 20). We will use this datatype later when we write conditional statements.</p>
+<p>Booleans are special in the sense that they only take two values <em>True</em> and <em>False</em>. These are basically evaluations of some related statements. For example, if we provide 10&lt;20 as a statement, the boolean evaluation would be <em>True</em> (indeed, 10 is smaller than 20). We will use this datatype later when we write conditional statements.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># boolean</span>
 <span class="n">myBool</span> <span class="o">=</span> <span class="bp">True</span>
 <span class="n">anotherBool</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">&lt;</span> <span class="mi">20</span>
@@ -299,7 +299,7 @@
 </div>
 <div class="section" id="find-out-the-datatype-of-a-variable">
 <h3>1.4 Find out the datatype of a variable<a class="headerlink" href="#find-out-the-datatype-of-a-variable" title="Permalink to this headline">¶</a></h3>
-<p>To find out the datatype of a variable, use the <code class="docutils literal notranslate"><span class="pre">type()</span></code> function. When you put the variable name between the parentheses, this function will return the datatype of the variable.</p>
+<p>To find out the datatype of a variable, use the <code class="docutils literal notranslate"><span class="pre">type()</span></code> function. When you put the variable name between the parentheses, this function will return the data-type of the variable.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">buildingName</span> <span class="o">=</span> <span class="s2">&quot;Vertigo&quot;</span>
 <span class="nb">type</span><span class="p">(</span><span class="n">buildingName</span><span class="p">)</span>
 </pre></div>
@@ -329,7 +329,7 @@
 <span class="n">myStr</span> <span class="o">=</span> <span class="s2">&quot;This is a string...&quot;</span>
 <span class="n">anotherStr</span> <span class="o">=</span> <span class="s1">&#39;This is also a string!&#39;</span>
 
-<span class="c1"># This is also a string. It is intepreted as a piece of text, not as a number!</span>
+<span class="c1"># This is also a string. It is interpreted as a piece of text, not as a number!</span>
 <span class="c1"># Hence, we cannot perform computational operations with this variable.</span>
 <span class="n">numberStr</span> <span class="o">=</span> <span class="s1">&#39;4&#39;</span> 
 
@@ -359,7 +359,7 @@
 </ul>
 <div class="section" id="lists">
 <h3>2.1 Lists<a class="headerlink" href="#lists" title="Permalink to this headline">¶</a></h3>
-<p>A list refers to a sequence of multiple items, which can be of different datatypes. Important to remember is that the order of these items is fixed and the content of the list is editable. You define a list using square brackets (<code class="docutils literal notranslate"><span class="pre">[]</span></code>) and seperate items using commas (<code class="docutils literal notranslate"><span class="pre">[item1,</span> <span class="pre">item2,</span> <span class="pre">etc]</span></code>)</p>
+<p>A list refers to a sequence of multiple items, which can be of different data-types. Important to remember is that the order of these items is fixed and the content of the list is editable. You define a list using square brackets (<code class="docutils literal notranslate"><span class="pre">[]</span></code>) and separate items using commas (<code class="docutils literal notranslate"><span class="pre">[item1,</span> <span class="pre">item2,</span> <span class="pre">etc]</span></code>)</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lists</span>
 <span class="n">myList</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mf">3.1415</span><span class="p">,</span> <span class="mi">5000</span><span class="p">]</span>
 <span class="n">anotherList</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Alpha&quot;</span><span class="p">,</span> <span class="s2">&quot;Bravo&quot;</span><span class="p">,</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">]</span>
@@ -373,7 +373,7 @@
 </div>
 <div class="section" id="tuples">
 <h3>2.2 Tuples<a class="headerlink" href="#tuples" title="Permalink to this headline">¶</a></h3>
-<p>Tuples are very similar to lists. However, they allow for far less operations to be performed on them. They are not editable. Something which may seem impracticle at first, but this can sometimes actually be very useful. You can use them for sequences that should at all times remain intact. You define a tuple using round brackets (<code class="docutils literal notranslate"><span class="pre">()</span></code>).</p>
+<p>Tuples are very similar to lists. However, they allow for far fewer operations to be performed on them. They are not editable. Something which may seem impractical at first, but this can sometimes actually be very useful. You can use them for sequences that should at all times remain intact. You define a tuple using round brackets (<code class="docutils literal notranslate"><span class="pre">()</span></code>).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tuples</span>
 <span class="n">myTuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mf">3.1415</span><span class="p">,</span> <span class="mi">5000</span><span class="p">)</span>
 <span class="n">anotherTuple</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Alpha&quot;</span><span class="p">,</span> <span class="s2">&quot;Bravo&quot;</span><span class="p">,</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">)</span>
@@ -390,8 +390,8 @@
 </div>
 <div class="section" id="dictionaries">
 <h3>2.4 Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this headline">¶</a></h3>
-<p>Dictionaries in Python can be compared to physical dictionaries. If you want to know the meaning of a particular word, you start searching for the word (key) and at some point you will be able to find the corresponding meaning (value). The <em>values</em> in a dictionary variable are “bookmarked” using <em>keys</em>. Therefore we talk about key-value pairs. The combination of a word in the physical dictionary and its meaning would be a key-value pair. The values in a dicationary (as opposed to the keys!) can change over time.</p>
-<p>You define a dictionary <code class="docutils literal notranslate"><span class="pre">d</span></code> with two items as <code class="docutils literal notranslate"><span class="pre">d</span> <span class="pre">=</span> <span class="pre">{key1</span> <span class="pre">:</span> <span class="pre">value1,</span> <span class="pre">key2</span> <span class="pre">:</span> <span class="pre">value2</span> <span class="pre">}</span></code>. The key-value pairs are separated by commas, much like the items in a list. The key and values themselves are seperated by a colon. You could now use <code class="docutils literal notranslate"><span class="pre">key1</span></code> to look up <code class="docutils literal notranslate"><span class="pre">value1</span></code>.</p>
+<p>Dictionaries in Python can be compared to physical dictionaries. If you want to know the meaning of a particular word, you start searching for the word (key) and at some point you will be able to find the corresponding meaning (value). The <em>values</em> in a dictionary variable are “bookmarked” using <em>keys</em>. Therefore we talk about key-value pairs. The combination of a word in the physical dictionary and its meaning would be a key-value pair. The values in a dictionary (as opposed to the keys!) can change over time.</p>
+<p>You define a dictionary <code class="docutils literal notranslate"><span class="pre">d</span></code> with two items as <code class="docutils literal notranslate"><span class="pre">d</span> <span class="pre">=</span> <span class="pre">{key1</span> <span class="pre">:</span> <span class="pre">value1,</span> <span class="pre">key2</span> <span class="pre">:</span> <span class="pre">value2</span> <span class="pre">}</span></code>. The key-value pairs are separated by commas, much like the items in a list. The key and values themselves are separated by a colon. You could now use <code class="docutils literal notranslate"><span class="pre">key1</span></code> to look up <code class="docutils literal notranslate"><span class="pre">value1</span></code>.</p>
 <p>Take as an example this dictionary that stores the ages of a group of people.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dictionary</span>
 <span class="n">myDic</span> <span class="o">=</span> <span class="p">{</span><span class="n">Marjolein</span> <span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="n">Anne</span> <span class="p">:</span> <span class="mi">36</span><span class="p">,</span> <span class="n">Caroline</span><span class="p">:</span> <span class="mi">50</span><span class="p">}</span>
@@ -405,25 +405,25 @@
 <div class="exercise"><strong>We will discuss how to actually use these special data structures in a later section on operations. However, it is important for now that you understand the differences and know how to define variables of these types.</strong><br/><br/>
     <ol>
         <li>Someone is keeping a record of the names of all students that took a Python course. New people get added whenever they complete the course, which can be at different moments in time. Which of the above datatypes are suitable to store this data? Why are the others not suitable?</li>
-		<li>Create a variable that stores a hypothetical list of students that took the python course.</li>
-		<li>You would like to store series of temperature measurements. The measurements are taken every minute. What datatype would you chose? Are there other options? In what situation would you have a specific preference? What are your considerations?</li>
-		<li>Create a variable that stores a series of ten time measurements.</li>
-		<li>Reflect on the variable you just created. Can Python tell which measurement was taken before another? (Is the order specified?)</li>
-		<li>Are you able to tell at what time each measurement was taken, without knowing when you started measuring? If not, can you respecify the variable so that this is actually possible?</li>
-	</ol> 
+    <li>Create a variable that stores a hypothetical list of students that took the python course.</li>
+    <li>You would like to store a series of temperature measurements. The measurements are taken every minute. What data-type would you chose? Are there other options? In what situation would you have a specific preference? What are your considerations?</li>
+    <li>Create a variable that stores a series of ten time measurements.</li>
+    <li>Reflect on the variable you just created. Can Python tell which measurement was taken before another? (Is the order specified?)</li>
+    <li>Are you able to tell at what time each measurement was taken, without knowing when you started measuring? If not, can you respecify the variable so that this is possible?</li>
+  </ol> 
 </div>
 <br/></div>
 </div>
 <hr class="docutils" />
 <div class="section" id="literal-constants">
 <h2>3. Literal Constants<a class="headerlink" href="#literal-constants" title="Permalink to this headline">¶</a></h2>
-<p>In addition to variables, we can also use so called “Literal Constants”. Examples include numbers or pieces of text (strings). It is called a <strong>literal</strong> because it is literal - you use its value literally. That is, <code class="docutils literal notranslate"><span class="pre">4</span></code> is not a variable storing some value. It is the actual value four itself. Likewise, <code class="docutils literal notranslate"><span class="pre">&quot;This</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">string.&quot;</span></code> is a string, a piece of text, and not a variable that stores it. They are <strong>constant</strong> in the sense that the value does not change. For example, <code class="docutils literal notranslate"><span class="pre">4</span></code> will always have the value of four. It will never change its value to five, or a string for that matter.</p>
+<p>In addition to variables, we can also use so-called “Literal Constants”. Examples include numbers or pieces of text (strings). It is called a <strong>literal</strong> because it is literal - you use its value literally. That is, <code class="docutils literal notranslate"><span class="pre">4</span></code> is not a variable storing some value. It is the actual value four itself. Likewise, <code class="docutils literal notranslate"><span class="pre">&quot;This</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">string.&quot;</span></code> is a string, a piece of text, and not a variable that stores it. They are <strong>constant</strong> in the sense that the value does not change. For example, <code class="docutils literal notranslate"><span class="pre">4</span></code> will always have a value of four. It will never change its value to five, or a string for that matter.</p>
 </div>
 <div class="section" id="comments">
 <h2>4. Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h2>
 <p>Comments are used to document your code inline.
-This can be very helpful for others (or yourself) to understand your script and keep overview.
-As you might have noticed, we actually already used comments in our previous example codes.</p>
+This can be very helpful for others (or yourself) to understand your script and keep an overview.
+As you might have noticed, we already used comments in our previous example codes.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">”””</span></code> comments multiple lines until ”””</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">#</span></code> comments out a single line</p></li>
@@ -439,7 +439,7 @@ As you might have noticed, we actually already used comments in our previous exa
 <div class="section" id="operators">
 <h2>5. Operators<a class="headerlink" href="#operators" title="Permalink to this headline">¶</a></h2>
 <p>Operators allow to perform operations on variables of particular data types. Although this might sound a bit abstract, hopefully the examples below will clear things up for you.</p>
-<p>A number of operators are available. There are plenty of cheat sheets online that provide an overview of commonly used ones. An example of such an sheet is shown below.</p>
+<p>Several operators are available. There are plenty of cheat sheets online that provide an overview of commonly used ones. An example of such a sheet is shown below.</p>
 <p><img alt="_images/2.jpg" src="_images/2.jpg" /></p>
 <div class="section" id="number-and-boolean-operators">
 <h3>5.1 Number and boolean operators<a class="headerlink" href="#number-and-boolean-operators" title="Permalink to this headline">¶</a></h3>
@@ -489,8 +489,8 @@ As you might have noticed, we actually already used comments in our previous exa
 <p><img alt="_images/21.png" src="_images/21.png" /></p>
 <p>We can define a range of indexes using square brackets <code class="docutils literal notranslate"><span class="pre">[FirstIndex:LastIndex]</span></code>. When we put this behind the name of a string variable, Python will return the section of the string defined by this range. Likewise, if we put this behind a list variable, we will get the specific items that the range covers.</p>
 <p>To illustrate, this <code class="docutils literal notranslate"><span class="pre">StringVariable[1:5]</span></code> excludes the first character of <code class="docutils literal notranslate"><span class="pre">StringVariable</span></code> (because 0 is not included in the range), but also the sixth one (which has index value 5!).
-Likewise, <code class="docutils literal notranslate"><span class="pre">ListVariable[0:3]</span></code> returns the first, second and third item from <code class="docutils literal notranslate"><span class="pre">ListVariable</span></code>, but not the fourth (although the index if the fourth item is 3!).</p>
-<p>More specific examples will folow in the next sections.</p>
+Likewise, <code class="docutils literal notranslate"><span class="pre">ListVariable[0:3]</span></code> returns the first, second and third items from <code class="docutils literal notranslate"><span class="pre">ListVariable</span></code>, but not the fourth (although the index if the fourth item is 3!).</p>
+<p>More specific examples will follow in the next sections.</p>
 </div>
 <hr class="docutils" />
 <div class="section" id="exercise-4-indexes-in-python">
@@ -512,7 +512,7 @@ Likewise, <code class="docutils literal notranslate"><span class="pre">ListVaria
 <li><p><code class="docutils literal notranslate"><span class="pre">&quot;CME&quot;</span> <span class="pre">+</span> <span class="pre">&quot;</span> <span class="pre">Master!&quot;</span></code> =&gt; “CME Master!”</p></li>
 </ul>
 <p>Moreover, we can take out certain parts of a string. To do so, we have to provide a range of index values. These index values refer to the characters in the string. We can extract a part of a string by typing the string name, followed by the range of index values between square brackets.</p>
-<p>Some examples for the variable	<code class="docutils literal notranslate"><span class="pre">CityName</span> <span class="pre">=</span> <span class="pre">&quot;Eindhoven&quot;</span></code>:</p>
+<p>Some examples for the variable  <code class="docutils literal notranslate"><span class="pre">CityName</span> <span class="pre">=</span> <span class="pre">&quot;Eindhoven&quot;</span></code>:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">CityName[0]</span></code> =&gt; ‘E’</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">CityName[1:5]</span></code> =&gt; ‘indh’</p></li>
@@ -531,7 +531,7 @@ Likewise, <code class="docutils literal notranslate"><span class="pre">ListVaria
 <li><p>Again, create a string variable that stores your name.</p></li>
 <li><p>Print the final two characters of your name to the console window.</p></li>
 <li><p>Determine the length of your name using <code class="docutils literal notranslate"><span class="pre">len()</span></code>.</p></li>
-<li><p>Create another string variable that stores your lastname. Use string concatenation (<code class="docutils literal notranslate"><span class="pre">+</span></code>) to create a new variable which containts both your first- and lastname. Print this variable to the console.</p></li>
+<li><p>Create another string variable that stores your lastname. Use string concatenation (<code class="docutils literal notranslate"><span class="pre">+</span></code>) to create a new variable which contains both your first- and last name. Print this variable to the console.</p></li>
 </ol>
 </div>
 <br/></div>
@@ -552,7 +552,7 @@ Likewise, <code class="docutils literal notranslate"><span class="pre">ListVaria
 <li><p><code class="docutils literal notranslate"><span class="pre">list_of_strings[1:]</span></code> =&gt; [“xyz”, “12345”]</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">list_of_strings[2][3:]</span></code> =&gt; “45”</p></li>
 </ul>
-<p>We can also use operators to generate lists. We saw before that we can define a list by putting the values between square brackets and seperating them by commas. However we acn also use <code class="docutils literal notranslate"><span class="pre">list()</span></code> and <code class="docutils literal notranslate"><span class="pre">range()</span></code> to construct lists automatically. The function <code class="docutils literal notranslate"><span class="pre">range()</span></code> generates a range of values between a starting point and an end point. For example, if we type <code class="docutils literal notranslate"><span class="pre">list(range(3,10,2))</span></code>, we create a list of the values 3 till 9 with a step of 2. That is, 3, 3+2=5, 5+2=7, 7+2=9. In this case, the endpoint 10 is not included, because the next value after 9 would be 11, given the time step of 2 (and 11 being out of range).</p>
+<p>We can also use operators to generate lists. We saw before that we can define a list by putting the values between square brackets and separating them by commas. However we can also use <code class="docutils literal notranslate"><span class="pre">list()</span></code> and <code class="docutils literal notranslate"><span class="pre">range()</span></code> to construct lists automatically. The function <code class="docutils literal notranslate"><span class="pre">range()</span></code> generates a range of values between a starting point and an endpoint. For example, if we type <code class="docutils literal notranslate"><span class="pre">list(range(3,10,2))</span></code>, we create a list of the values 3 till 9 with a step of 2. That is, 3, 3+2=5, 5+2=7, 7+2=9. In this case, the endpoint 10 is not included, because the next value after 9 would be 11, given the time step of 2 (and 11 being out of range).</p>
 <p>List of numbers can be generated in multiple ways:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">numList</span> <span class="pre">=</span> <span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3]</span></code> =&gt; [0, 1, 2, 3]</p></li>
@@ -572,8 +572,8 @@ Likewise, <code class="docutils literal notranslate"><span class="pre">ListVaria
 <h3>Exercise 6: Operating on Lists<a class="headerlink" href="#exercise-6-operating-on-lists" title="Permalink to this headline">¶</a></h3>
 <div class="exercise"><strong>The exercises below help you practice with the different list operators.</strong><br/><br/><ol class="simple">
 <li><p>Create three lists of the numbers 5, 6, 7, and 8. Do so using the different methods discussed above. Print the lists to the console to confirm that they are indeed the same.</p></li>
-<li><p>What is the quickst way of generating a list ranging from 0 upto and including 100 with steps of 5 in between. (So: 0, 5, 10, 15, … , 95, 100) Specify a the list and print it to the console window to confirm.</p></li>
-<li><p>Use indexing on the variable created in the previous question to print the values between 30 and 80 (excluding 30 and 80) which can be devided by 10. (So: 40, 50, 60, 70)</p></li>
+<li><p>What is the quickest way of generating a list ranging from 0 up to and including 100 with steps of 5 in between? (So: 0, 5, 10, 15, … , 95, 100) Specify a list and print it to the console window to confirm.</p></li>
+<li><p>Use indexing on the variable created in the previous question to print the values between 30 and 80 (excluding 30 and 80) which can be divided by 10. (So: 40, 50, 60, 70)</p></li>
 </ol>
 </div>
 <br/></div>
@@ -585,7 +585,7 @@ Likewise, <code class="docutils literal notranslate"><span class="pre">ListVaria
 <ul class="simple">
 <li><p>You can call a function within a script or from a console (e.g. when we ran <code class="docutils literal notranslate"><span class="pre">print(myStr)</span></code> from the Spyder console).</p></li>
 <li><p>When you call a function, you usually have to provide one or several arguments. Arguments are specified after the function name, inside the parentheses. For example, in <code class="docutils literal notranslate"><span class="pre">print(myStr)</span></code>, <code class="docutils literal notranslate"><span class="pre">myStr</span></code> is the argument that we pass to the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function. You could see it as input that we provide the function with. (We want to <code class="docutils literal notranslate"><span class="pre">print()</span></code> the value of <code class="docutils literal notranslate"><span class="pre">myStr</span></code>.)</p></li>
-<li><p>If a function takes multiple arguments, you can seperate them by a comma. The arguments should be provided in the order in which the function will use them. We will use this later <a class="reference internal" href="01_04_Functions.html"><span class="doc">here</span></a>.</p></li>
+<li><p>If a function takes multiple arguments, you can separate them by a comma. The arguments should be provided in the order in which the function will use them. We will use this later <a class="reference internal" href="01_04_Functions.html"><span class="doc">here</span></a>.</p></li>
 </ul>
 <hr class="docutils" />
 <div class="section" id="exercise-7-introduction-to-functions">
@@ -594,12 +594,12 @@ Likewise, <code class="docutils literal notranslate"><span class="pre">ListVaria
 <li><p>Copy the following code to a script in Spyder.</p></li>
 </ol>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">myFunction</span><span class="p">(</span><span class="n">Name</span><span class="p">,</span> <span class="n">Age</span><span class="p">):</span>
-	<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;My name is &quot;</span> <span class="o">+</span> <span class="n">Name</span> <span class="o">+</span> <span class="s2">&quot; and I am &quot;</span> <span class="o">+</span> <span class="n">Age</span> <span class="o">+</span> <span class="s2">&quot; years old.&quot;</span><span class="p">)</span>
+  <span class="k">print</span> <span class="p">(</span><span class="s2">&quot;My name is &quot;</span> <span class="o">+</span> <span class="n">Name</span> <span class="o">+</span> <span class="s2">&quot; and I am &quot;</span> <span class="o">+</span> <span class="n">Age</span> <span class="o">+</span> <span class="s2">&quot; years old.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <ol class="simple">
 <li><p>This code specifies a function called <code class="docutils literal notranslate"><span class="pre">myFunction</span></code> which prints a sentence. What are <code class="docutils literal notranslate"><span class="pre">Name</span></code> and <code class="docutils literal notranslate"><span class="pre">Age</span></code> for this function?</p></li>
-<li><p>If you look closely to the function definition, you will see that we add pieces of string and Name and Age together. What is it called when we add strings together?</p></li>
+<li><p>If you look closely at the function definition, you will see that we add pieces of string and Name and Age together. What is it called when we add strings together?</p></li>
 <li><p>Specify two string variables; one which stores your name and another one storing your age. Please be aware that you cannot combine a string and number. To solve this, make sure that your age is stored as a string.</p></li>
 <li><p>In the console, run <code class="docutils literal notranslate"><span class="pre">myFunction(Name,</span> <span class="pre">Age)</span></code>. What happens? Why does this happen?</p></li>
 <li><p>Run the code. In the console, run <code class="docutils literal notranslate"><span class="pre">myFunction(Name,</span> <span class="pre">Age)</span></code> again. What happens now?</p></li>

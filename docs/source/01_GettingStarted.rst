@@ -1,9 +1,9 @@
 Getting Started with Python
 ============================================
 
-These tutorial will provide you with the basic knowledge you will need to get started with Python. They cover the installation of Python and Spyder (IDE) and the basic features of the language. They have been specially developed to help you start writing your very first code.
+These tutorials will provide you with the basic knowledge you will need to get started with Python. They cover the installation of Python and Spyder (IDE) and the basic features of the language. They have been specially developed to help you start writing your very first code.
 
-If you are already familiar with other program lanaguages, these tutorials seem to basic for you. However, keep in mind that languages can differ, and it is important to understand these differences properly before you start.
+If you are already familiar with other program languages, these tutorials seem somewhat basic for you. However, keep in mind that languages can differ, and it is important to understand these differences properly before you start.
 
 .. toctree::
    :maxdepth: 1

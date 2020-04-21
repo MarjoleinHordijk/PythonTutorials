@@ -19,21 +19,21 @@
 
 ## 1. What is a function?
 
-Function can perform a particular operation, usually on one or several input variables. It is a block of code which is performed when the function is called. A function can return output data as a result, which you will then see appear in the console. When we chain a sequence of functions, the output of one function can become the input for another.
+Function can perform a particular operation, usually on one or several input variables. It is a block of code that is performed when the function is called. A function can return output data as a result, which you will then see appear in the console. When we chain a sequence of functions, the output of one function can become the input for another.
 
-For now, we will focus on writing our own functions and using those that are shipped with Python. We can also call functions from packages / modules from third parties if we have those installed. In "Beyond the Basics" you will discuss the latter in greater detail.
+For now, we will focus on writing our own functions and using those that are shipped with Python. We can also call functions from packages/modules from third parties if we have those installed. In "Beyond the Basics" you will discuss the latter in greater detail.
 
 ### 1.1 Arguments
 
-Information can be passed to functions through arguments. They can include input data that must be processed or parameters that specify how the function should be applied. To illustrate, a parameter could be used to indicate what the datatype of the output should be or wheter or not to perform a specific operation that is included in the function. You will get more familiar with this when you gain more experience in coding.
+Information can be passed to functions through arguments. They can include input data that must be processed or parameters that specify how the function should be applied. To illustrate, a parameter could be used to indicate what the datatype of the output should be or whether or not to perform a specific operation that is included in the function. You will get more familiar with this when you gain more experience in coding.
 
 Arguments are specified after the function name, inside the parentheses.
 
-For example, you can pass a string (a piece of text) as argument to the ```print()``` function as such: ```print("some text")```.
+For example, you can pass a string (a piece of text) as an argument to the ```print()``` function as such: ```print("some text")```.
 
 ****
 #### Exercise 1: What are arguments?
-<div class="exercise"><strong>We have used arguments before in earlier segments, although you might not have been completely aware of it. Below are some exercises regarding functions that we have already used. These will help you to gain a better understanding of what arguments are.</strong><br/><br/>
+<div class="exercise"><strong>We have used arguments before in earlier segments, although you might not have been completely aware of it. Below are some exercises regarding the functions that we have already used. These will help you to gain a better understanding of what arguments are.</strong><br/><br/>
 
 1. Specify four variables storing:
     * A sentence
@@ -44,7 +44,7 @@ For example, you can pass a string (a piece of text) as argument to the ```print
 3. What were the arguments that you passed to the ```type()```?
 4. Use ```len()``` to determine the amount of characters in your sentence.
 5. Of what datatypes can the arguments that you pass to ```len()``` be?
-6. Create one argument to pass to ```print()``` that contains both the word and the number seperated by a space character. Test if your solution works. (Hint: use ```str()```!)
+6. Create one argument to pass to ```print()``` that contains both the word and the number separated by a space character. Test if your solution works. (Hint: use ```str()```!)
 </div>
 <br/>
 
@@ -60,15 +60,15 @@ You can find an overview of other standard functions [Here](https://docs.python.
 
 ### 2.1 Functions for dataype conversions
 
-Python supports various datatypes, such as text (string) or numbers (integers, floats). However, in some cases you are able to capture a particular piece of information with multiple datatypes. For example, you can store your age in full years as an integer or float, but also as a small piece of text (string). 
+Python supports various data-types, such as text (string) or numbers (integers, floats). However, in some cases you are able to capture a particular piece of information with multiple data-types. For example, you can store your age in full years as an integer or float, but also as a small piece of text (string). 
 
-In some cases, a particular datatype might be more applicable or straightforward than another. It could also be that a function requires the input to be of a specific datatype. If the data you have does not correspond to the desired datatype, you can convert it using some build-in functions of Python.
+In some cases, a particular data-type might be more applicable or straightforward than another. It could also be that a function requires the input to be of a specific datatype. If the data you have does not correspond to the desired data-type, you can convert it using some build-in functions of Python.
 
-- ```str()```: Converts the data provided as argumenten into a string (text).
-- ```int()```: Converts the data provided as argumenten into an integer (whole number).
-- ```float()```: Converts the data provided as argumenten into a real number (decimal number).
-- ```list()```: Converts the data provided as argumenten into a list.
-- ```dict()```: Converts the data provided as argumenten into a dictionary.
+- ```str()```: Converts the data provided as argument into a string (text).
+- ```int()```: Converts the data provided as argument into an integer (whole number).
+- ```float()```: Converts the data provided as argument into a real number (decimal number).
+- ```list()```: Converts the data provided as argument into a list.
+- ```dict()```: Converts the data provided as argument into a dictionary.
 
 ****
 #### Exercise 2: Conversions
@@ -92,7 +92,7 @@ print ("I am " + myFloat + " years old.")
 ```
 ![](../../images/01_04/5.png)
 
-* To solve this issue, we can conver the integer and float data to string data as follows. Try if this indeed works.
+* To solve this issue, we can convert the integer and float data to string data as follows. Try if this indeed works.
 
 ```python
 print ("I am " + str(myInteger) + " years old.")
@@ -101,7 +101,7 @@ print ("I am " + str(myFloat) + " years old.")
 
 ![](../../images/01_04/6.png)
 
-* Alternatively, you might want to convert the decimal numbers in your dataset to whole numbers (integers). You can do this by converting the float data to integer data as shown below. When you run this, you will see that the variable "converted" of datatype "int" is added to your Variable Explorer panel in Spyder.
+* Alternatively, you might want to convert the decimal numbers in your dataset to whole numbers (integers). You can do this by converting the float data to integer data as shown below. When you run this, you will see that the variable "converted" of data-type "int" is added to your Variable Explorer panel in Spyder.
 
 ```python
 converted = int(myFloat)
@@ -116,7 +116,7 @@ converted = int(myFloat)
 
 ## 3. Writing your Own Functions
 
-You can define your own function aswell. In this case the function will be a piece of code that you write yourself. 
+You can define your own function as well. In this case the function will be a piece of code that you write yourself. 
 
 ### 3.1 Functions with One Argument
 
@@ -144,7 +144,7 @@ def myFunction(name):
 
 - Run the code by pressing the small play button.
 
-- Call the function from the console panel and provide your name as argument to the function.
+- Call the function from the console panel and provide your name as an argument to the function.
 
 ```python
 myFunction("Marjolein")
@@ -160,7 +160,7 @@ myFunction("Marjolein")
 
 ### 3.1 Functions with Mutiple Arguments
 
-You can also create a function that takes multiple arguments by seperating them with a comma when you define the function.
+You can also create a function that takes multiple arguments by separating them with a comma when you define the function.
 
 ****
 #### Exercise 4: Writing a Function with Multiple Arguments
@@ -184,9 +184,9 @@ myFunction("Marjolein", 25)
 
 ![](../../images/01_04/3.png)
 
-- Specify four variables (```var1``` - ```var4```) of diffferent datatypes at the start of a new script.
+- Specify four variables (```var1``` - ```var4```) of different data-types at the start of a new script.
 
-- Define a function that prints four sentences, each of which describes the datatype of each of the four variables.
+- Define a function that prints four sentences, each of which describes the data-type of each of the four variables.
 
 - Test if the function works properly.
 
@@ -212,7 +212,7 @@ print("Welcome to the course, " + name)
 ```
 - Run the code by pressing the small play button.
 
-- You will see the question for you name appear. Provide your name as input.
+- You will see the question for your name appear. Provide your name as input.
 
 - You should see the sentence appear with your name filled in.
 
@@ -231,7 +231,7 @@ print("Welcome to the course, " + name)
 
 ## 4. Functions from Packages / Modules
 
-As said before, you can also access functions developed by others from packages or modules. These can be downloaded and usually contain a large set of functions related to a particular goal. For example, NumPy is a package that containts function to perform scientific computations. You can install this package to use the functions that it offers. 
+As said before, you can also access functions developed by others from packages or modules. These can be downloaded and usually contain a large set of functions related to a particular goal. For example, NumPy is a package that contains function to perform scientific computations. You can install this package to use the functions that it offers. 
 
 Installing and using packages or modules is out of the scope of this introduction. Do you want to learn how to install packages or modules? Please refer to [this](02_01_Modules&Packages.md) tutorial.
 

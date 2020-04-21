@@ -2,7 +2,7 @@
 
 ## 1. Introduction
 
-The Shapely Python module allows us to perform geometry operations in Python, without the need for RDBMSs (relational database management systems). That is, we do not need any software package such as QGIS or ArcGIS to perform an analysis. This is particularly useful for automation and processes that run at the server end of an application. The module is based on the well known GEOS (Geometry Engine - Open Source). 
+The Shapely Python module allows us to perform geometry operations in Python, without the need for RDBMSs (relational database management systems). That is, we do not need any software packages such as QGIS or ArcGIS to perform an analysis. This is particularly useful for automation and processes that run at the server end of an application. The module is based on the well known GEOS (Geometry Engine - Open Source). 
 
 Operation that we can perform using this module can be classified as:
 
@@ -28,7 +28,7 @@ Points, lines and polygons are the most fundamental geometric objects and can be
 
 
 
-*   A **_point_** is commonly defined by x and y coordinates, which describe its location on a two dimensional surface. In a three dimensional system a z coordinate is included to define the height of a point.
+*   A **_point_** is commonly defined by x and y coordinates, which describe its location on a two-dimensional surface. In a three dimensional system a z coordinate is included to define the height of a point.
 *   A **_line_** can be defined by a collection of interconnected points. It is bounded by two endpoints. 
 *   A **_polygon_** is defined by a collection of lines that enclose an area. It is bounded by those lines that make up the outline of the geometry. Note that internal holes may exist.
 
@@ -64,7 +64,7 @@ point = Point(1, 1)
 ![](../../images/04_02/2.png)
 
 
-A **_line_** (in Shapely called **_LineString_**) instance can be created in two ways. We can chose to first define the connected points that make up the line and use these objects to define the line geometry. Alternatively we can define the line in one go by providing the coordinates of each point in a list form.
+A **_line_** (in Shapely called **_LineString_**) instance can be created in two ways. We can choose to first define the connection points that make up the line and use these objects to define the line geometry. Alternatively we can define the line in one go by providing the coordinates of each point in a list form.
 
 
 ```
@@ -95,7 +95,7 @@ polygon1 = Polygon([(0, 0), (3, 1), (0, 3)])
 ```
 
 
-However, we can still use the coordinates of the points we defined earlier using a small for loop.
+However, we can still use the coordinates of the points we defined earlier using a small for-loop.
 
 
 ```
@@ -134,7 +134,7 @@ polygon3 = Polygon(shell=exterior, holes=hole)
 
 ## 4. Assess Attributes of Geometric Objects
 
-To perform your analysis you may be interested in particular attributes of geometric object instances. For example, you may want to find the xy coodinates of a point or the total surface area of a polygon. Below, several options are discussed to gain access to this information.
+To perform your analysis you may be interested in particular attributes of geometric object instances. For example, you may want to find the xy coordinates of a point or the total surface area of a polygon. Below, several options are discussed to gain access to this information.
 
 We will use the following instances in our examples. Thus, if you want to run any of the code in the subsequent sections, please make sure that you run this piece of code below first.
 
@@ -320,7 +320,7 @@ print(line1_length)
 
 ### Polygon Specific Attributes
 
-You can determine the centroid of a **_Polygon_** instance using <code>.centroid</code></strong>. This will generate a <strong><em>Point</em></strong> instance which you can store in a variable (in this case �poly1_centroid�).
+You can determine the centroid of a **_Polygon_** instance using <code>.centroid</code></strong>. This will generate a <strong><em>Point</em></strong> instance which you can store in a variable (in this case ```poly1_centroid```).
 
 
 ```

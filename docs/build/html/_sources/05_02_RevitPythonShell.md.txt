@@ -2,11 +2,11 @@
 
 ## 1. What is RevitPythonShell?
 
-Different from some of the other software packages addressed in this repository, Revit does not come with a Python console by default. However, the RevitPythonShell add-in can easily be installed to add this functionality. This allows you to develop custom Python script to analyse and alter your model. This tutorial is developed based on [these](https://github.com/hdm-dt-fb/bilt_academy_2019) instructions.
+Different from some of the other software packages addressed in this repository, Revit does not come with a Python console by default. However, the RevitPythonShell add-in can easily be installed to add this functionality. This allows you to develop a custom Python script to analyze and alter your model. This tutorial is developed based on [these](https://github.com/hdm-dt-fb/bilt_academy_2019) instructions.
 
 <span style="text-decoration:underline;">What we will discuss in this tutorial:</span>
 
-In this tutorial we will focus on the very basic applications of the RevitPythonShell. You will learn how to query your model for specific objects and retrieve information about them. At the end, a more advanced example is included to demonstrate how this knowledge could be applied in practice. 
+In this tutorial we will focus on the very basic applications of the RevitPythonShell. You will learn how to query your model for specific objects and retrieve information about them. In the end, a more advanced example is included to demonstrate how this knowledge could be applied in practice. 
 
 <span style="text-decoration:underline;">What you will need:</span>
 
@@ -20,7 +20,7 @@ Once you have installed the RevitPythonShell, you will be able to find it under 
 
 ![](../../images/05_02/2.png)
 
-The console that opens consists of two main parts. In the top part, you can type commands (e.g. `print("Hello world!)`). When you press enter, you will see the resulting output appear. However, we can also write snippets. That is, code blocks which we can store and share. This is done in the bottom part of the window. To run the code, simply press the play icon or hit F5 on your keyboard.
+The console that opens consists of two main parts. In the top part, you can type commands (e.g. `print("Hello world!)`). When you press enter, you will see the resulting output appear. However, we can also write snippets. That is, code blocks that we can store and share. This is done in the bottom part of the window. To run the code, simply press the play icon or hit F5 on your keyboard.
 
 ![](../../images/05_02/3.png)
 
@@ -84,7 +84,7 @@ for number in list_of_numbers:
 
 ![](../../images/05_02/6.png)
 
-The next section will show how we can use these operations to query the objects in a Revit model and analyse their information.
+The next section will show how we can use these operations to query the objects in a Revit model and analyze their information.
 
 
 ## 3. Querying Model Elements
@@ -100,7 +100,7 @@ Select several elements in your model. If you now type “s0.” in your console
 
 ```
 for element in selection:
-	print (element.Id)
+    print (element.Id)
 ```
 
 ![](../../images/05_02/7.png)
@@ -109,7 +109,7 @@ You can check the Ids using the interface under Manage > Inquiry > IDs of Select
 
 ## 3.1 Querying Elements on Category
 
-We can use the `FilteredElementCollector` to access model elements based on their category or class. You can find a list of all build in categories [here](https://www.revitapidocs.com/2019/ba1c5b30-242f-5fdc-8ea9-ec3b61e6e722.htm). An example includes the doors (OST_Doors). These categories are also shown in your Project browser panel, as shown below.
+We can use the `FilteredElementCollector` to access model elements based on their category or class. You can find a list of all build-in categories [here](https://www.revitapidocs.com/2019/ba1c5b30-242f-5fdc-8ea9-ec3b61e6e722.htm). An example includes the doors (OST_Doors). These categories are also shown in your Project browser panel, as shown below.
 
 ![](../../images/05_02/8.png)
 
@@ -141,11 +141,11 @@ doorTypes = Fec(doc).\
 ```
 
 
-In the next section, we will discuss how you can read parameters and properties from these door instances that we have now identified.
+In the next section, we will discuss how you can read the parameters and properties from these door instances that we have now identified.
 
 ## 4. Reading instance properties
 
-Now that we have access to elements in our model, we can start reading the information about them. For example, we can print the object ids of the door instances in our model using a small for loop.
+Now that we have access to elements in our model, we can start reading the information about them. For example, we can print the object ids of the door instances in our model using a small for-loop.
 
 
 ```
@@ -166,7 +166,7 @@ for door in doors:
 ![](../../images/05_02/9.png)
 
 
-If you are curious which properties and parameters apply to an instance in your model, there are handy tools available to look this up. RevitLookup can help you generate a such a list. A installer for this add-in is available [here](https://boostyourbim.wordpress.com/2017/04/28/revit-lookup-2018-install/). 
+If you are curious about which properties and parameters apply to an instance in your model, there are handy tools available to look this up. RevitLookup can help you generate such a list. An installer for this add-in is available [here](https://boostyourbim.wordpress.com/2017/04/28/revit-lookup-2018-install/). 
 
 After installing, you will be able to access all the information you need regarding a selected instance. For example, in the image below a double flush door has been selected. If we “Snoop” the current selection, we will be able to see that this door instance has a property called “mirrored”, which is currently set to “false”.
 
@@ -243,7 +243,7 @@ print(count)
 
 ## 5. Reading instance parameters
 
-We can use the “LookupParameter(“parameter_name”)” method to look up **parameters** of an **instance**. However, this will only return the parameter itself, but not the value that is stored for it. To retrieve the value, we need to know the datatype of the parameter (e.g. integer or string). Usually, this is quite straightforward. For example, the “Mark” parameter is a string value. We can access and print this value for the first door in the variable `doors` as shown below.
+We can use the “LookupParameter(“parameter_name”)” method to look up **parameters** of an **instance**. However, this will only return the parameter itself, but not the value that is stored for it. To retrieve the value, we need to know the data-type of the parameter (e.g. integer or string). Usually, this is quite straightforward. For example, the “Mark” parameter is a string value. We can access and print this value for the first door in the variable `doors` as shown below.
 
 
 ```
@@ -288,11 +288,11 @@ for door in doors:
 
 ## 7. Exercise: Set Parameter Values Using a Script
 
-In this exercise we will develop a small script to write parameter values. We will determine for each door the side of its hinges (left or right) based on the type of the door and whether it is mirrored or not. You can find the complete script at the end of this section. We will go through the build up of this script step by step below.
+In this exercise we will develop a small script to write parameter values. We will determine for each door the side of its hinges (left or right) based on the type of the door and whether it is mirrored or not. You can find the complete script at the end of this section. We will go through the build-up of this script step by step below.
 
 Note that not all door objects have the right properties for this script to work. Please use [this](https://github.com/hdm-dt-fb/bilt_academy_2019/blob/master/model/python_beginners_tower.rvt) model to test the code to make sure it will work properly.
 
-We will start with some required **imports** and some **references**. These are required to interact with the currently opened model and access or alter the information of its elements. For example, we need to start a so called “transaction” to be able to edit the door hinge side information of the instances in the model.
+We will start with some required **imports** and some **references**. These are required to interact with the currently opened model and access or alter the information of its elements. For example, we need to start a so-called “transaction” to be able to edit the door hinge side information of the instances in the model.
 
 
 ```
@@ -329,7 +329,7 @@ doors = Fec(doc).OfCategory(Bic.OST_Doors).WhereElementIsNotElementType().ToElem
 ```
 
 
-In earlier sections, we looped through all door instances in the current model to retrieve particular information. In a similar manner, we can determine the **default hinge side of the door type** to which a door instance belongs using `door.Symbol.LookupParameter(family_hinges_side)`. Recall that `family_hinges_side` refers to the string `"hinges_side_family"` which is the name of the type parameter that stores the hinge side value which is default for that type of door.
+In earlier sections, we looped through all door instances in the current model to retrieve particular information. In a similar manner, we can determine the **default hinge side of the door type** to which a door instance belongs using `door.Symbol.LookupParameter(family_hinges_side)`. Recall that `family_hinges_side` refers to the string `"hinges_side_family"` which is the name of the type parameter that stores the hinge side value which is the default for that type of door.
 
 
 ```
@@ -357,7 +357,7 @@ for door in doors:
         print("parameter missing!")
 ```
 
-As you will notice when you run our code so far, one door has a missing value. Since we know the door id from the output we can identify this as the door with id number “347860”. After selecting the door based on its id (Revit > Manage > Inquiry > Select by Id) we can see that the door is a double leaf door. It is therefore not strange that this door does not have a hinge side property. Since we specified an else statement, our code will not crash because of a lack of this parameter.
+As you will notice when you run our code so far, one door has a missing value. Since we know the door id from the output we can identify this as the door with id number “347860”. After selecting the door based on its id (Revit > Manage > Inquiry > Select by Id) we can see that the door is a double-leaf door. It is therefore not strange that this door does not have a hinge side property. Since we specified an else statement, our code will not crash because of a lack of this parameter.
 
 We now know for each door if its type family has a default hinge side and what this side is (left or right). Next we need to know if the door instances that we have a family hinge side value for are **mirrored or not**. We can find this out from the `Mirrored` property, which either has `True` or `False` as its value. In the code below, we store this value to the variable `is_mirrored`, which we then print for each door that has a family hinge side value.
 
@@ -381,7 +381,7 @@ for door in doors:
 
 We now have all the information that we need to determine the hinge side of the door instance. That is, the default hinge side of the door type and whether a door is mirrored or not. 
 
-If a door is not mirrored, the hinge side of the instance will simply correspond to that of the family. However, if the door is mirrored, we will need to reverse the side. To print the hinge side of the door instances in our model, we can therefore use the code below. 
+If a door is not mirrored, the hinge side of the instance will simply correspond to that of the family. However, if the door is mirrored, we will need to reverse the side. To print the hinge side of the door instances in our model we can, therefore, use the code below. 
 
 
 ```

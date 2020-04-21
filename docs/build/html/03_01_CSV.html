@@ -86,31 +86,30 @@
 <li class="toctree-l1"><a class="reference internal" href="02_BeyondBasics.html">Beyond the Basics</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="03_DataAnalysis.html">Data Analysis Using Python</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Working with CSV files</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#in-this-tutorial">In this tutorial</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#what-is-a-csv-file">What is a CSV file</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#reading-a-csv-file">Reading a CSV file</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#find-the-path">1. Find the path</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#import-the-csv-file">2. Import the csv file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-a-csv-file">What is a CSV File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reading-a-csv-file">Reading a CSV File</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#find-the-path">1. Find the Path</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#import-the-csv-file">2. Import the CSV File</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#reading-data-from-dataframes">Reading data from dataframes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#reading-dataframes">Reading Dataframes</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#dataframes">Dataframes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#select-a-colomn">Select a colomn</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#select-rows-partitioning">Select rows (partitioning)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#select-a-colomn">Select a Colomn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#select-rows-partitioning">Select Rows (Partitioning)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#getting-a-value">Getting a value</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#search-colomn-values-filtering">Search colomn values / Filtering</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#identifying-missing-data">Identifying missing data</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#determine-the-percentage-of-missing-data-in-a-colomn">Determine the percentage of missing data in a colomn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#determine-the-percentage-of-missing-data-in-a-column">Determine the Percentage of Missing Data in a Column</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="03_02_mySQL.html">Working with mySQL databases</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_03_Regression.html">Regression Analysis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03_04_PathAnalysis.html">Path Analysis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03_05_MNL.html">Multi Nominal Logic Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_04_Visualization.html">Data Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_05_LR.html">Logistic Regression Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_06_NN.html">Neural Networks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_07_NLP.html">Natural Language Processing</a></li>
 </ul>
@@ -186,33 +185,30 @@
             
   <div class="section" id="working-with-csv-files">
 <h1>Working with CSV files<a class="headerlink" href="#working-with-csv-files" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="in-this-tutorial">
-<h2>In this tutorial<a class="headerlink" href="#in-this-tutorial" title="Permalink to this headline">¶</a></h2>
-<p>In this tutorial we will discuss how you can use Python to work with CSV files. We we show how to read the data from these files, perform edits or store our results to them. To do so, we will use <a class="reference external" href="https://pandas.pydata.org/pandas-docs/version/0.15/tutorials.html">Pandas</a>.</p>
-</div>
+<p>In this tutorial we will discuss how you can use Python to work with CSV files. We demonstrate how to read the data from these files, perform edits or store our results to them. To do so, we will use <a class="reference external" href="https://pandas.pydata.org/pandas-docs/version/0.15/tutorials.html">Pandas</a>.</p>
 <div class="section" id="what-is-a-csv-file">
-<h2>What is a CSV file<a class="headerlink" href="#what-is-a-csv-file" title="Permalink to this headline">¶</a></h2>
-<p>You might have worked with CSV files before, but it is important to realize how these files are build up. If you open a CSV file in Excel, you might not really notice a difference to .xls files. However, CSV files are unique in the sense that they are accesibile to almost any software package out there. The reason for this is that the file structure is very simple. If you open a CSV file in a simple text editor (e.g. notepad), you will notice that they consists of lines of information which is seperated by comma’s, hence the name “Comma Seperated Values”. Each line represents a data point and the values on that line is the information that we have on each case.
+<h2>What is a CSV File<a class="headerlink" href="#what-is-a-csv-file" title="Permalink to this headline">¶</a></h2>
+<p>You might have worked with CSV files before, but it is important to realize how these files are build up. If you open a CSV file in Excel, you might not notice a difference to .xls files. However, CSV files are unique in the sense that they are accessible to almost any software package out there. The reason for this is that the file structure is very simple. If you open a CSV file in a simple text editor (e.g. notepad), you will notice that they consist of lines of information that are separated by comma’s, hence the name “Comma Separated Values”. Each line represents a data point and the values on that line are the information that we have on each case.
 <img alt="_images/16.png" src="_images/16.png" /></p>
 </div>
 <div class="section" id="reading-a-csv-file">
-<h2>Reading a CSV file<a class="headerlink" href="#reading-a-csv-file" title="Permalink to this headline">¶</a></h2>
-<p>First things first, you will need a csv file to read. You can download a practice file <a class="reference external" href="https://raw.githubusercontent.com/MarjoleinHordijk/PythonTutorials/master/files/TempSensor_1.csv">here</a>. This file contains some hypothetical data from a temperature sensor.</p>
+<h2>Reading a CSV File<a class="headerlink" href="#reading-a-csv-file" title="Permalink to this headline">¶</a></h2>
+<p>First things first, you will need a CSV file to read. You can download a practice file <a class="reference external" href="https://raw.githubusercontent.com/MarjoleinHordijk/PythonTutorials/master/files/TempSensor_1.csv">here</a>. This file contains some hypothetical data from a temperature sensor.</p>
 <div class="section" id="find-the-path">
-<h3>1. Find the path<a class="headerlink" href="#find-the-path" title="Permalink to this headline">¶</a></h3>
+<h3>1. Find the Path<a class="headerlink" href="#find-the-path" title="Permalink to this headline">¶</a></h3>
 <p>Next, you will need to find out the path to the location where you stored the file.</p>
 <ul class="simple">
-<li><p>Right click the .csv file while holding the shift key on your keyboard down.</p></li>
+<li><p>Right-click the .csv file while holding the shift key on your keyboard down.</p></li>
 <li><p>Chose “Copy as path” from the menu that appears.</p></li>
 </ul>
 <p><img alt="_images/25.png" src="_images/25.png" /></p>
 <ul class="simple">
-<li><p>If you now paste the path you just copied into a text editor, you should see something as is shown below. This is the location that the .csv file is stored at on your harddrive.</p></li>
+<li><p>If you now paste the path you just copied into a text editor, you should see something as is shown below. This is the location that the .csv file is stored on your hard drive.</p></li>
 </ul>
 <p><img alt="_images/34.png" src="_images/34.png" /></p>
 </div>
 <div class="section" id="import-the-csv-file">
-<h3>2. Import the csv file<a class="headerlink" href="#import-the-csv-file" title="Permalink to this headline">¶</a></h3>
+<h3>2. Import the CSV File<a class="headerlink" href="#import-the-csv-file" title="Permalink to this headline">¶</a></h3>
 <p>Now that we know where the .csv file is stored we can read it using pandas. Since pandas is a <a class="reference internal" href="02_01_Modules&amp;Packages.html"><span class="doc">module</span></a>, we will first need to import it at the beginning of our script.</p>
 <ul class="simple">
 <li><p>Import the pandas module at the start of your script.</p></li>
@@ -221,13 +217,13 @@
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>Now we will create a variable called df to store the information we get from the csv file.</p></li>
+<li><p>Now we will create a variable called df to store the information we get from the CSV file.</p></li>
 </ul>
 <p>Make sure you replace the path\to\file with your own file location.
 Be aware of two things:</p>
 <ol class="simple">
-<li><p>You will need to use backward instead of forward slashes. Depending on your operating system, the path that you found may use forward slashes. In that case, you will need to adapt this.</p></li>
-<li><p>You need to put the path between single quotes. Again, you might need to adap this if your operating system uses double quotes instead.</p></li>
+<li><p>You will need to use backward instead of forward slashes. Depending on your operating system, the path that you found may use forward slashes. In that case, you will need to adapt to this.</p></li>
+<li><p>You need to put the path between single quotes. Again, you might need to adapt this if your operating system uses double-quotes instead.</p></li>
 </ol>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 
@@ -242,21 +238,21 @@ Be aware of two things:</p>
 <p><img alt="_images/42.png" src="_images/42.png" /></p>
 </div>
 </div>
-<div class="section" id="reading-data-from-dataframes">
-<h2>Reading data from dataframes<a class="headerlink" href="#reading-data-from-dataframes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="reading-dataframes">
+<h2>Reading Dataframes<a class="headerlink" href="#reading-dataframes" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="dataframes">
 <h3>Dataframes<a class="headerlink" href="#dataframes" title="Permalink to this headline">¶</a></h3>
-<p>We are using df as a name for our variable, since the resulting datatype will be a “DataFrame”. This datatype is specific to pandas. It is basically a two dimensional table as we are used to seeing in Excel. The first row of the .csv file is interpreted as titles of the colomns. Therefore, we call this datastructure “labeled”.</p>
+<p>We are using df as a name for our variable, since the resulting data-type will be a “DataFrame”. This data-type is specific to pandas. It is basically a two-dimensional table as we are used to seeing in Excel. The first row of the .csv file is interpreted as the titles of the columns. Therefore, we call this data structure “labeled”.</p>
 </div>
 <p>We now have a variable that stores the data of our .csv file. However, we still need to access this data to use it in our script. Below several ways of accessing particular sections of this data are discussed.</p>
 <div class="section" id="select-a-colomn">
-<h3>Select a colomn<a class="headerlink" href="#select-a-colomn" title="Permalink to this headline">¶</a></h3>
-<p>You can select a specific colomn using <code class="docutils literal notranslate"><span class="pre">df['colomnlabel']</span></code> or <code class="docutils literal notranslate"><span class="pre">df.colomnlabel</span></code> where “colomnlabel” refers to the title of the colomn. These titles are stored in the first row of the .csv file. Please note that “df” refers to the name that we gave to our DataFrame variable. If you used a different name to store the data, you will need to replace this.</p>
+<h3>Select a Colomn<a class="headerlink" href="#select-a-colomn" title="Permalink to this headline">¶</a></h3>
+<p>You can select a specific column using <code class="docutils literal notranslate"><span class="pre">df['colomnlabel']</span></code> or <code class="docutils literal notranslate"><span class="pre">df.colomnlabel</span></code> where “colomnlabel” refers to the title of the column. These titles are stored in the first row of the .csv file. Please note that “df” refers to the name that we gave to our DataFrame variable. If you used a different name to store the data, you will need to replace this.</p>
 <p><img alt="_images/52.png" src="_images/52.png" /></p>
 </div>
 <div class="section" id="select-rows-partitioning">
-<h3>Select rows (partitioning)<a class="headerlink" href="#select-rows-partitioning" title="Permalink to this headline">¶</a></h3>
-<p>You can also slide your data. That is, select only particular rows. Partitioning your data like this is sometimes required when using particular algorithms. For example, if you want to build a neural network you will need a training and validation dataset. Furthermore, when you are dealing with a very large dataset, it might be usefull to quickly view a section of it to get an idea of its content. (Instead you can also use <code class="docutils literal notranslate"><span class="pre">df.head()</span></code> or <code class="docutils literal notranslate"><span class="pre">df.tail()</span></code> to get the top or bottom five rows of the dataset.)</p>
+<h3>Select Rows (Partitioning)<a class="headerlink" href="#select-rows-partitioning" title="Permalink to this headline">¶</a></h3>
+<p>You can also slide your data. That is, select only particular rows. Partitioning your data like this is sometimes required when using particular algorithms. For example, if you want to build a neural network you will need a training and validation dataset. Furthermore, when you are dealing with a very large dataset, it might be useful to quickly view a section of it to get an idea of its content. (Instead you can also use <code class="docutils literal notranslate"><span class="pre">df.head()</span></code> or <code class="docutils literal notranslate"><span class="pre">df.tail()</span></code> to get the top or bottom five rows of the dataset.)</p>
 <p>The code below partitions the dataset (which contains 28 cases) into two partitions. The first partition contains rows 1-20, the second one rows 21-28. Recall that Python indices start at 0!</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 
@@ -269,7 +265,7 @@ Be aware of two things:</p>
 </div>
 <div class="section" id="getting-a-value">
 <h3>Getting a value<a class="headerlink" href="#getting-a-value" title="Permalink to this headline">¶</a></h3>
-<p>If you want to get a particlar value for a specific case you can do so in different ways. Depending on the structure of your script, one method might me more handy than the other.</p>
+<p>If you want to get a particular value for a specific case you can do so in different ways. Depending on the structure of your script, one method might be handier than the other.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;path\to\file&#39;</span><span class="p">)</span>
@@ -280,8 +276,8 @@ Be aware of two things:</p>
 
 <span class="n">val1</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
 
-<span class="c1"># Get value by position of row and name of colomn.</span>
-<span class="c1"># From the fifth record, store the value in the colomn with label &quot;Temp&quot; in val2.</span>
+<span class="c1"># Get value by position of row and name of the column.</span>
+<span class="c1"># From the fifth record, store the value in the column with label &quot;Temp&quot; in val2.</span>
 
 <span class="n">val2</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;Temp&#39;</span><span class="p">]</span>
 
@@ -293,13 +289,13 @@ Be aware of two things:</p>
 </div>
 <div class="section" id="search-colomn-values-filtering">
 <h3>Search colomn values / Filtering<a class="headerlink" href="#search-colomn-values-filtering" title="Permalink to this headline">¶</a></h3>
-<p>It might be that you are interested in the values of specific cases. For example, you want to search your dataset for all records of a particular time. You will need to search the colomn containing the times of the records, identify the matching cases and report them.</p>
+<p>It might be that you are interested in the values of specific cases. For example, you want to search your dataset for all records of a particular time. You will need to search the column containing the times of the records, identify the matching cases and report them.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;path\to\file&#39;</span><span class="p">)</span>
 
-<span class="c1"># Get value of one colomn by searching another.</span>
-<span class="c1"># Of record(s) from 10:34 (time) store the value in the colomn with label &quot;Temp&quot; in val3.</span>
+<span class="c1"># Get the value of one column by searching another.</span>
+<span class="c1"># Of record(s) from 10:34 (time) store the value in the column with label &quot;Temp&quot; in val3.</span>
 
 <span class="n">records</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s1">&#39;10:56&#39;</span><span class="p">]),</span> <span class="s1">&#39;Temp&#39;</span><span class="p">]</span>
 
@@ -308,13 +304,13 @@ Be aware of two things:</p>
 </pre></div>
 </div>
 <p>As you will see when you run the code, only one record was taken at 10:34. The index of this record is 26 and the temperature at this time was 19.0 degrees.</p>
-<p>If multiple records would have the value value in the “Time” colomn, a list of these records would have been reported. This is the case in the example below.</p>
+<p>If multiple records would have the value in the “Time” column, a list of these records would have been reported. This is the case in the example below.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span> <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;path\to\file&#39;</span><span class="p">)</span>
 
-<span class="c1"># Get value of one colomn by searching another.</span>
-<span class="c1"># Of record(s) from 10:34 (time) store the value in the colomn with label &quot;Temp&quot; in val3.</span>
+<span class="c1"># Get the value of one column by searching another.</span>
+<span class="c1"># Of record(s) from 10:34 (time) store the value in the column with label &quot;Temp&quot; in val3.</span>
 
 <span class="n">records</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s1">&#39;10:35&#39;</span><span class="p">]),</span> <span class="s1">&#39;Temp&#39;</span><span class="p">]</span>
 
@@ -331,7 +327,7 @@ Be aware of two things:</p>
 </div>
 <div class="section" id="identifying-missing-data">
 <h2>Identifying missing data<a class="headerlink" href="#identifying-missing-data" title="Permalink to this headline">¶</a></h2>
-<p>It is not uncommon for datasets to have missing data. In some cases, this is not an issue. However, some algorithms may have trouble dealing with this. In that case you will need to identify missing values and deal with the appropriately.</p>
+<p>It is not uncommon for datasets to have missing data. In some cases, this is not an issue. However, some algorithms may have trouble dealing with this. In that case you will need to identify missing values and deal with them appropriately.</p>
 <p>Missing data is usually indicated by <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p>
 <p>You can get an overview of missing data using pandas’ <code class="docutils literal notranslate"><span class="pre">isna()</span></code> function, which returns a table-like output showing true if the value at that position is missing and false if it is not.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
@@ -344,9 +340,9 @@ Be aware of two things:</p>
 </div>
 <p>As you will see, for one record the temperature is missing. The index of this case is 29.</p>
 <p><img alt="_images/62.png" src="_images/62.png" /></p>
-<div class="section" id="determine-the-percentage-of-missing-data-in-a-colomn">
-<h3>Determine the percentage of missing data in a colomn<a class="headerlink" href="#determine-the-percentage-of-missing-data-in-a-colomn" title="Permalink to this headline">¶</a></h3>
-<p>Let’s say we would want to know now what percentage of data in the temperature colomn is missing. To do so, we can use the information that we stored in the “missing” variable. Why? Because the true/false values in this dataframe are boolean. This means that False evaluates to 0 and True evaluates as 1. Hence, we can simply <code class="docutils literal notranslate"><span class="pre">sum</span></code> all values in the “Temp” colomn of “missing” and find the total number of missing values.</p>
+<div class="section" id="determine-the-percentage-of-missing-data-in-a-column">
+<h3>Determine the Percentage of Missing Data in a Column<a class="headerlink" href="#determine-the-percentage-of-missing-data-in-a-column" title="Permalink to this headline">¶</a></h3>
+<p>Let’s say we would want to know now what percentage of data in the temperature column is missing. To do so, we can use the information that we stored in the “missing” variable. Why? Because the true/false values in this data frame are boolean. This means that False evaluates to 0 and True evaluates as 1. Hence, we can simply <code class="docutils literal notranslate"><span class="pre">sum</span></code> all values in the “Temp” column of “missing” and find the total number of missing values.</p>
 <p>To calculate the percentage, we will also need to know the total number of records. This can be done using <code class="docutils literal notranslate"><span class="pre">len</span></code>, which determines the length of a dateframe (= the number of rows).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 

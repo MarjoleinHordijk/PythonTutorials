@@ -17,7 +17,7 @@
 
 # Data Visualization
 
-Data visualization is relevant to almost any type of data analyses project. Visual can help you to explore the data of visualize results in an intuitive way. Although each analysis technique calls for its own unique plots and other figures, generating them in Python usually requires a number of similar steps. In this tutorial we wil deal with several plots and discuss how you can customize them to your specific needs.
+Data visualization is relevant to almost any type of data analysis project. Visuals can help you to explore the data and present results intuitively. Although each analysis technique calls for its own unique plots and other figures, generating them in Python usually requires several similar steps. In this tutorial we will deal with several plots and discuss how you can customize them to your specific needs.
 
 In this tutorial we will use the well known ```matplotlib``` library.
 
@@ -25,7 +25,7 @@ In this tutorial we will use the well known ```matplotlib``` library.
 
 When using ```matplotlib``` to create plots in Python, you will first need to create a figure with axes using ```pyplot.subplots```. Then, you can use ```.plot()``` to plot data in the graph.
 
-Consider the example below, were we plot a line graph based on four data points. We use ```plt.show()``` to open the generated plot in a viewer. You can export the graph as .png image from this viewer.
+Consider the example below, were we plot a line graph based on four data points. We use ```plt.show()``` to open the generated plot in a viewer. You can export the graph as a .png image from this viewer.
 
 ```python
 import matplotlib.pyplot as plt
@@ -66,9 +66,9 @@ Plotting using ```matplotlib``` can be done in two ways: object-oriented and pyp
 
 ### 2.1 Object-Oriented
 
-The object-oriented approach concerns explicit creation of figures and axis before plotting the data or performing any other kind of operation. This is the approach that we took in the first example. That is, we first created the figure and axes using ```fig, axes = plt.subplots()``` and then plotted the data using ```axes.plot(values_x, values_y)```.
+The object-oriented approach concerns the explicit creation of figures and axis before plotting the data or performing any other kind of operation. This is the approach that we took in the first example. That is, we first created the figure and axes using ```fig, axes = plt.subplots()``` and then plotted the data using ```axes.plot(values_x, values_y)```.
 
-In addition to the x and y coordinates, we can provide a label as argument to ```axes.plot```. In this way, we can identify different data series.
+In addition to the x and y coordinates, we can provide a label as an argument to ```axes.plot```. In this way, we can identify different data series.
 
 ```python
 import matplotlib.pyplot as plt
@@ -145,7 +145,7 @@ Repeat the steps in Exercise 1 and 2 using the pyplot-approach. (Note that the m
 
 Histograms can be useful to get a feel of your data. They are therefore often using during the data exploration phase of a study.
 
-Lets create a list of random values which approaches a normal distribution using ```numpy``` and visualize the distribution in a histogram.
+Let us create a list of random values that approaches a normal distribution using ```numpy``` and visualize the distribution in a histogram.
 * Add ```numpy``` to the import section. (If you have not installed ```numpy``` already, please do so.)
 * Create the set of 10000 random values using ```np.random.normal(size=10000)```. 
 * Create a histogram using ```plt.hist()```. Provide the following arguments:
@@ -220,7 +220,7 @@ Developing scatterplots is another common way to explore patterns in your data. 
 1. Old buildings
 2. New buildings
 
-Now imagine that for each of these buildings, we have a score for their insulation quality ranging from 0 (extremely bad) to 1 (perfect). We would like to know if there is a pattern among old and new buildings when it comes to the quality of their insulation. We have a list of insulation scores for both old and new buildings (```old_scores``` and ```new_scores```). We specify the range of the scores ranging from 0 to 1 with a stepsize of 0.1 (```range_scores=[0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]```). Then, we use ```scatter()``` to plot both datasets. We can specify a ```color``` to distinquish the old from the new buildings. Again, we can use ```plt.legend()``` to add a legend to our figure.
+Now imagine that for each of these buildings, we have a score for their insulation quality ranging from 0 (extremely bad) to 1 (perfect). We would like to know if there is a pattern among old and new buildings when it comes to the quality of their insulation. We have a list of insulation scores for both old and new buildings (```old_scores``` and ```new_scores```). We specify the range of the scores ranging from 0 to 1 with a step size of 0.1 (```range_scores=[0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]```). Then, we use ```scatter()``` to plot both datasets. We can specify a ```color``` to distinguish the old from the new buildings. Again, we can use ```plt.legend()``` to add a legend to our figure.
 
 ```python
 import matplotlib.pyplot as plt
@@ -263,7 +263,7 @@ plt.show()
 
 ## 5. Bar-Charts
 
-Bar charts are a way to present categorical data. They can be usefull to compare the values of a specific variable for several categories in your data. To demonstrate this, we will again use our example of insulation scores of old and new buildings. We use the ```bar()``` function from ```matplotlib``` to generate a bar chart showing the mean insulation score for both categories. We can specify several parameters for this function. For example:
+Bar charts are a way to present categorical data. They can be useful to compare the values of a specific variable for several categories in your data. To demonstrate this, we will again use our example of insulation scores of old and new buildings. We use the ```bar()``` function from ```matplotlib``` to generate a bar chart showing the mean insulation score for both categories. We can specify several parameters for this function. For example:
 * ```x``` : The x coordinates of the bars.
 * ```height``` : The height of the bars. (In our case, the average insulation score for the two categories.)
 * ```width``` : The width of the bars.

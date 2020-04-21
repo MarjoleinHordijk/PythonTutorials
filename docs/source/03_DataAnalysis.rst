@@ -1,7 +1,7 @@
 Data Analysis Using Python
 ============================================
 
-The tutorials below provide your with an overview of how to apply various data analysis methods using Python.
+The tutorials below provide you with an overview of how to apply various data analysis methods using Python.
 
 .. toctree::
    :maxdepth: 1

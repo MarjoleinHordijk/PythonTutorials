@@ -211,7 +211,7 @@
 <li><p>Greater than: <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&gt;</span> <span class="pre">b</span></code></p></li>
 <li><p>Greater than or equal to: <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&gt;=</span> <span class="pre">b</span></code></p></li>
 </ul>
-<p>In these examples, a and b can take different values and they can be of different datatypes. However, be aware that certain data types are not suitable for praticular logical contitions. For example, if we have a piece of text “Univeristy”, which is a string, it will be impossible to evaluate if this is greater than another value. Although this may seem obvious in this example, it could be possible that you stored two numbers (e.g 2 &amp; 4), but you stored one of them as a string instead of an integer. In this case, you will also receive an error. Please see <a class="reference internal" href="01_02_LanguageFeatures.html"><span class="doc">here</span></a> for more on datatypes such as strings and integers.</p>
+<p>In these examples, a and b can take different values and they can be of different data-types. However, be aware that certain data types are not suitable for particular logical conditions. For example, if we have a piece of text “University”, which is a string, it will be impossible to evaluate if this is greater than another value. Although this may seem obvious in this example, it could be possible that you stored two numbers (e.g 2 &amp; 4), but you stored one of them as a string instead of an integer. In this case, you will also receive an error. Please see <a class="reference internal" href="01_02_LanguageFeatures.html"><span class="doc">here</span></a> for more on data-types such as strings and integers.</p>
 <hr class="docutils" />
 <div class="section" id="exercise-1-understanding-conditional-statements">
 <h3>Exercise 1: Understanding Conditional Statements<a class="headerlink" href="#exercise-1-understanding-conditional-statements" title="Permalink to this headline">¶</a></h3>
@@ -221,17 +221,17 @@
         <li>What happens if you now run "x == y" in the console?</li>
         <li>What datatype is the output that you get? If you are not sure, store the output to a variable (e.g. var) by running "var= x==y" and run "type(var)".</li>
         <li>Write a conditional statement to confirm that x is not equal to y.</li>
-		<li>What happens if you run "y < z" and "y <= z" ? Explain why the results are different.</li>
+        <li>What happens if you run "y < z" and "y <= z" ? Explain why the results are different.</li>
     </ol> 
 </div></div>
 </div>
 <hr class="docutils" />
 <div class="section" id="if-statements">
 <h2>2. If-Statements<a class="headerlink" href="#if-statements" title="Permalink to this headline">¶</a></h2>
-<p>If statement allow you to check whether a particular statement is true or not. Depending on the boolean evaluation (true versus false), a particular piece of code (or nothing) is executed.</p>
+<p>An if-statement allows you to check whether a particular statement is true or not. Depending on the boolean evaluation (true versus false), a particular piece of code (or nothing) is executed.</p>
 <p>The header line of the if statement begins with the keyword <code class="docutils literal notranslate"><span class="pre">if</span></code> followed by a boolean expression and ends with a colon (:). The indented statements that follow are called a block. This block contains the code that should be executed when the condition is satisfied. Each statement inside the block must have the same indentation. The first unindented statement marks the end of the block.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="o">&lt;</span><span class="n">conditional</span> <span class="n">statement</span><span class="o">&gt;</span><span class="p">:</span>
-	<span class="o">&lt;</span><span class="n">code</span> <span class="n">to</span> <span class="n">be</span> <span class="n">executed</span> <span class="n">when</span> <span class="n">conditional</span> <span class="n">statement</span> <span class="ow">is</span> <span class="n">TRUE</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">code</span> <span class="n">to</span> <span class="n">be</span> <span class="n">executed</span> <span class="n">when</span> <span class="n">conditional</span> <span class="n">statement</span> <span class="ow">is</span> <span class="n">TRUE</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <div class="info"><p>Are you not sure what <strong>indentation</strong> is and why it is so important in Python?
@@ -239,31 +239,31 @@ Please check out the section on “Indentation” on the <a class="reference int
 </div>
 <br/><p>If you would like to specify what happens when the conditional statement is not true, you can use a <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">else</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="o">&lt;</span><span class="n">conditional</span> <span class="n">statement</span><span class="o">&gt;</span><span class="p">:</span>
-	<span class="o">&lt;</span><span class="n">code</span> <span class="n">to</span> <span class="n">be</span> <span class="n">executed</span> <span class="n">when</span> <span class="n">conditional</span> <span class="n">statement</span> <span class="ow">is</span> <span class="n">TRUE</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">code</span> <span class="n">to</span> <span class="n">be</span> <span class="n">executed</span> <span class="n">when</span> <span class="n">conditional</span> <span class="n">statement</span> <span class="ow">is</span> <span class="n">TRUE</span><span class="o">&gt;</span>
 <span class="k">else</span><span class="p">:</span>
-	<span class="o">&lt;</span><span class="n">code</span> <span class="n">to</span> <span class="n">be</span> <span class="n">executed</span> <span class="n">when</span> <span class="n">conditional</span> <span class="n">statement</span> <span class="ow">is</span> <span class="n">FALSE</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">code</span> <span class="n">to</span> <span class="n">be</span> <span class="n">executed</span> <span class="n">when</span> <span class="n">conditional</span> <span class="n">statement</span> <span class="ow">is</span> <span class="n">FALSE</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <p>We can also chain conditional statements to be checked using a <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">elif</span> <span class="pre">else</span></code> structure as shown below.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="o">&lt;</span><span class="n">first</span> <span class="n">conditional</span> <span class="n">statement</span><span class="o">&gt;</span><span class="p">:</span>
-	<span class="o">&lt;</span><span class="n">code</span> <span class="n">to</span> <span class="n">be</span> <span class="n">executed</span> <span class="n">when</span> <span class="n">first</span> <span class="n">conditional</span> <span class="n">statement</span> <span class="ow">is</span> <span class="n">TRUE</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">code</span> <span class="n">to</span> <span class="n">be</span> <span class="n">executed</span> <span class="n">when</span> <span class="n">first</span> <span class="n">conditional</span> <span class="n">statement</span> <span class="ow">is</span> <span class="n">TRUE</span><span class="o">&gt;</span>
 <span class="k">elif</span> <span class="o">&lt;</span><span class="n">second</span> <span class="n">conditional</span> <span class="n">statement</span><span class="o">&gt;</span><span class="p">:</span>
-	<span class="o">&lt;</span><span class="n">code</span> <span class="n">to</span> <span class="n">be</span> <span class="n">executed</span> <span class="n">when</span> <span class="n">second</span> <span class="n">conditional</span> <span class="n">statement</span> <span class="ow">is</span> <span class="n">TRUE</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">code</span> <span class="n">to</span> <span class="n">be</span> <span class="n">executed</span> <span class="n">when</span> <span class="n">second</span> <span class="n">conditional</span> <span class="n">statement</span> <span class="ow">is</span> <span class="n">TRUE</span><span class="o">&gt;</span>
 <span class="k">elif</span> <span class="o">&lt;</span><span class="n">third</span> <span class="n">conditional</span> <span class="n">statement</span><span class="o">&gt;</span><span class="p">:</span>
-	<span class="o">&lt;</span><span class="n">code</span> <span class="n">to</span> <span class="n">be</span> <span class="n">executed</span> <span class="n">when</span> <span class="n">third</span> <span class="n">conditional</span> <span class="n">statement</span> <span class="ow">is</span> <span class="n">TRUE</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">code</span> <span class="n">to</span> <span class="n">be</span> <span class="n">executed</span> <span class="n">when</span> <span class="n">third</span> <span class="n">conditional</span> <span class="n">statement</span> <span class="ow">is</span> <span class="n">TRUE</span><span class="o">&gt;</span>
 
 <span class="o">...</span>
 
 <span class="k">else</span><span class="p">:</span>
-	<span class="o">&lt;</span><span class="n">code</span> <span class="n">to</span> <span class="n">be</span> <span class="n">executed</span> <span class="n">when</span> <span class="nb">all</span> <span class="n">conditional</span> <span class="n">statements</span> <span class="n">above</span> <span class="n">are</span> <span class="n">FALSE</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">code</span> <span class="n">to</span> <span class="n">be</span> <span class="n">executed</span> <span class="n">when</span> <span class="nb">all</span> <span class="n">conditional</span> <span class="n">statements</span> <span class="n">above</span> <span class="n">are</span> <span class="n">FALSE</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <p>In the case that you do not want to execute any code in a particular situation, you can use <code class="docutils literal notranslate"><span class="pre">pass</span></code>.</p>
 <p><strong>Important things to keep in mind when writing if statements:</strong></p>
 <ul class="simple">
-<li><p>Be aware of the indentation. That is, the code that must be executed is indented by one level. Click <a class="reference internal" href="06_Help.html"><span class="doc">here</span></a> to learn more about identation.</p></li>
-<li><p>Do not forget the colon (:), it seperates the header of the statement from its body.</p></li>
-<li><p>Several forms of if statements are possible, as shown below. They differ in the amount of conditions that are checked.</p></li>
+<li><p>Be aware of the indentation. That is, the code that must be executed is indented by one level. Click <a class="reference internal" href="06_Help.html"><span class="doc">here</span></a> to learn more about indentation.</p></li>
+<li><p>Do not forget the colon (:), it separates the header of the statement from its body.</p></li>
+<li><p>Several forms of if statements are possible, as shown below. They differ in the number of conditions that are checked.</p></li>
 </ul>
 <p>Below you can find several examples of if statements.</p>
 <div class="section" id="one-condition">
@@ -273,23 +273,23 @@ Please check out the section on “Indentation” on the <a class="reference int
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">12</span>
 <span class="n">b</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="k">if</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">:</span>
-	<span class="k">print</span><span class="p">(</span><span class="s2">&quot;a is greater than b&quot;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;a is greater than b&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-	<span class="k">print</span><span class="p">(</span><span class="s2">&quot;a is not greater than b&quot;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;a is not greater than b&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><img alt="_images/12.png" src="_images/12.png" /></p>
 </div>
 <div class="section" id="one-condition-pass">
 <h3>2.2 One condition, pass<a class="headerlink" href="#one-condition-pass" title="Permalink to this headline">¶</a></h3>
-<p>As adressed above, we can use <code class="docutils literal notranslate"><span class="pre">pass</span></code> to specify that we do not want any code to be executed in a particular situation. In the example below, this is the case when the if statement (a &gt; b) is not true.</p>
+<p>As addressed above, we can use <code class="docutils literal notranslate"><span class="pre">pass</span></code> to specify that we do not want any code to be executed in a particular situation. In the example below, this is the case when the if statement (a &gt; b) is not true.</p>
 <p><em>If this is true, do that. Otherwise, do nothing.</em></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">12</span>
 <span class="n">b</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="k">if</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">:</span>
-	<span class="k">print</span><span class="p">(</span><span class="s2">&quot;a is greater than b&quot;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;a is greater than b&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-	<span class="k">pass</span>
+    <span class="k">pass</span>
 </pre></div>
 </div>
 <p><img alt="_images/22.png" src="_images/22.png" /></p>
@@ -301,27 +301,27 @@ Please check out the section on “Indentation” on the <a class="reference int
     <ol>
         <li>How many conditions will you need to specify?</li>
         <li>First, create a variable that stores the temperature threshold value.</li>
-        <li>Next, create a variable that stores the value of the actual room temperature. You can chose any value to represent the hypothetical current temperature.</li>
+        <li>Next, create a variable that stores the value of the actual room temperature. You can choose any value to represent the hypothetical current temperature.</li>
         <li>Formulate a statement that captures the rule (*when the actual temperature is below the threshold*).</li>
         <li>Formulate what should happen if the condition is satisfied. As means of simulation, print "heating" when the heater is turned on.</li>
-		<li>What did you use to specify that nothing should happen if the condition is not satisfied?</li>
-		<li>Test your program for several different actual room temperature values. Does it behave as expected?</li>
-		<li>You would like to tell from the output of your program if the heater is not turned on (instead of simply not getting any output). How can you do this?Try to implement this and test your program again.</li>
+        <li>What did you use to specify that nothing should happen if the condition is not satisfied?</li>
+        <li>Test your program for several different actual room temperature values. Does it behave as expected?</li>
+        <li>You would like to tell from the output of your program if the heater is not turned on (instead of simply not getting any output). How can you do this? Try to implement this and test your program again.</li>
     </ol> 
 </div></div>
 <hr class="docutils" />
 <div class="section" id="multiple-conditions">
 <h3>2.3 Multiple conditions<a class="headerlink" href="#multiple-conditions" title="Permalink to this headline">¶</a></h3>
-<p>As mentioned before, we can chain multiple statements using a <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">elif</span> <span class="pre">else</span></code> structure. In this way we can capture all situations where the program should perform specific behavior.</p>
+<p>As mentioned before, we can chain multiple statements using a <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">elif</span> <span class="pre">else</span></code> structure. In this way we can capture all situations where the program should perform a specific behavior.</p>
 <p><em>If this is true, do that. Else check if this is true, and do that. Else do this.</em></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="n">b</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="k">if</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">:</span>
-	<span class="k">print</span><span class="p">(</span><span class="s2">&quot;a is greater than b&quot;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;a is greater than b&quot;</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">:</span>
-	<span class="k">print</span><span class="p">(</span><span class="s2">&quot;a is equal to b&quot;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;a is equal to b&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-	<span class="k">print</span><span class="p">(</span><span class="s2">&quot;b is greater than a&quot;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;b is greater than a&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><img alt="_images/31.png" src="_images/31.png" /></p>
@@ -335,7 +335,7 @@ Please check out the section on “Indentation” on the <a class="reference int
         <li>First, create the variables that store the actual temperature value and the threshold values.</li>
         <li>Formulate all conditional statements that are applicable to the situation.</li>
         <li>For each of the conditions, print what should happen in terms of the activation of either the heating or airco systems.</li>
-		<li>Test your program for several different actual room temperature values. Does it behave as expected?</li>
+        <li>Test your program for several different actual room temperature values. Does it behave as expected?</li>
     </ol> 
 </div></div>
 </div>
@@ -349,24 +349,24 @@ Please check out the section on “Indentation” on the <a class="reference int
 <p><em>While this is true, do …</em></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
-	<span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-	<span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1">#i = i + 1</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1">#i = i + 1</span>
 </pre></div>
 </div>
 <p>A while-loop can be interrupted or loops in a while-loop can be skipped using the <code class="docutils literal notranslate"><span class="pre">break</span></code> and <code class="docutils literal notranslate"><span class="pre">continue</span></code> statements.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
-	<span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-	<span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
-		<span class="k">break</span>
-	<span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="k">break</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
 
 <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
-	<span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-	<span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
-		<span class="k">continue</span>
-	<span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="k">continue</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
 </pre></div>
 </div>
 <hr class="docutils" />
@@ -374,7 +374,7 @@ Please check out the section on “Indentation” on the <a class="reference int
 <h3>Exercise 4: Understanding While-Loops<a class="headerlink" href="#exercise-4-understanding-while-loops" title="Permalink to this headline">¶</a></h3>
 <div class="exercise"><ol class="simple">
 <li><p>What happens when you do not increment the index variable? That is, when we leave out the final line of the code (i += 1) in the first example.</p></li>
-<li><p>Try to code a while-loop that prints each letter in your name seperately to the console window.</p></li>
+<li><p>Try to code a while-loop that prints each letter in your name separately to the console window.</p></li>
 <li><p>Draw a diagram like those shown in the earlier section on IF-statements that describes your while-loop.</p></li>
 </ol>
 </div>
@@ -384,16 +384,16 @@ Please check out the section on “Indentation” on the <a class="reference int
 <div class="section" id="for-loops">
 <h2>4. For-Loops<a class="headerlink" href="#for-loops" title="Permalink to this headline">¶</a></h2>
 <p>A for loop iterates over a sequence of values and executes a particular piece of code for each of these items. As you might notice, it can actually often replace a while loop.</p>
-<p>Recall that lists, tuples, sets and dictionaries contain multiple items. For example <code class="docutils literal notranslate"><span class="pre">[&quot;Volvo&quot;,</span> <span class="pre">&quot;Ford&quot;,</span> <span class="pre">&quot;Mercedes&quot;]</span></code> is a list of three string items, each of which represent the name of a car brand. We can use a for-loop to iterate over these items and print each of them or perform any other kind of operation.</p>
+<p>Recall that lists, tuples, sets and dictionaries contain multiple items. For example <code class="docutils literal notranslate"><span class="pre">[&quot;Volvo&quot;,</span> <span class="pre">&quot;Ford&quot;,</span> <span class="pre">&quot;Mercedes&quot;]</span></code> is a list of three string items, each of which represents the name of a car brand. We can use a for-loop to iterate over these items and print each of them or perform any other kind of operation.</p>
 <p>Likewise, we can also iterate over characters in a string.</p>
 <p><em>For every element in this entire sequence, do …</em></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cars</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Volvo&quot;</span><span class="p">,</span> <span class="s2">&quot;Ford&quot;</span><span class="p">,</span> <span class="s2">&quot;Mercedes&quot;</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">carName</span> <span class="ow">in</span> <span class="n">cars</span>
-	<span class="k">print</span><span class="p">(</span><span class="n">carName</span><span class="p">)</span>
-		
+    <span class="k">print</span><span class="p">(</span><span class="n">carName</span><span class="p">)</span>
+        
 <span class="n">city</span> <span class="o">=</span> <span class="s2">&quot;Eindhoven&quot;</span>
 <span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="n">city</span>
-	<span class="k">print</span><span class="p">(</span><span class="n">letter</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">letter</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="section" id="exercise-5-understanding-for-loops">

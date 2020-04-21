@@ -11,7 +11,7 @@ You can open up the Python Console from the top menu of QGIS (Plugins > Python C
 .. image:: https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/02_01/1.png?raw=true
 
 
-This console is a so called “interactive command line interface”, which means we can use it to access the toolbox of QGIS through lines of codes. 
+This console is a so-called “interactive command-line interface”, which means we can use it to access the toolbox of QGIS through lines of codes. 
 
 When you type a line of code and press Enter, the code will be immediately executed. 
 
@@ -22,7 +22,7 @@ Try the code below to print “hello world” in the console.
 
    print("Hello world!")
 
-You just called the print function, and provided “Hello world!” (a string of text) as a parameter, providing you with an output that should like like the image below.
+You just called the print function, and provided “Hello world!” (a string of text) as a parameter, providing you with an output that should like the image below.
 
 .. image:: https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/02_01/2.png?raw=true
 
@@ -44,7 +44,7 @@ You will need four layers for this exercise:
 - A polygon layer with containing buildings.
 - A polygon layer with the outline of Eindhoven.
 
-Please locate the geopackage (.gpkg) files on your hard drive. You can view the location by right clicking the file as shown below.
+Please locate the geopackage (.gpkg) files on your hard drive. You can view the location by right-clicking the file as shown below.
 
 .. image:: https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/02_01/4.png?raw=true
 
@@ -91,7 +91,7 @@ To do so, we need to create a reference to the layer, as is done below.
 
 (As you may recognize, this piece of coding is very similar to when we were loading the layers.)
 
-We can now open the attribute table of the Roads layer using the ``iface.showAttributeTable()`` function using the following code. Note that we provide “Roads” (the name of the variable we created) as parameter to this function.
+We can now open the attribute table of the Roads layer using the ``iface.showAttributeTable()`` function using the following code. Note that we provide “Roads” (the name of the variable we created) as a parameter to this function.
 
 .. code-block:: Python
 
@@ -113,7 +113,7 @@ The output in your console should look something like this.
 4. Filtering features
 ^^^^^^^^^^^^^^^^^^^^^^
 
-We can use ``.setSubsetString()`` to filter the features in one of our layers. For example, we can use this function to find all road that are reported to be of the “primary” type in the dataset.
+We can use ``.setSubsetString()`` to filter the features in one of our layers. For example, we can use this function to find all roads that are reported to be of the “primary” type in the dataset.
 
 To filter, we first need to define an expression to provide as a parameter to ``.setSubsetString()`` . In the case of identifying the primary roads, we simply use the expression: "RoadType IS 'primary'". If we want to print the IDs of all roads that satisfy this expression, we can use the following code.
 
@@ -142,7 +142,7 @@ Alternatively, you can use the “native:extractbyexpression” algorithm. How t
 5. Finding and Using Processing Tools
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-We can use processing tools to analyse and manipulate our data, much like we would do if we were using the QGIS graphical interface. You can run a tool (or algorithm) using the following piece of code.
+We can use processing tools to analyze and manipulate our data, much like we would do if we were using the QGIS graphical interface. You can run a tool (or algorithm) using the following piece of code.
 
 .. code-block:: Python
 
@@ -176,14 +176,14 @@ In this exercise, we will use the **Buffer** tool as an example. We can use the 
 
 We will use the **Buffer** tool to identify the area within which the train station of Eindhoven is always at a maximum of one kilometer. That is, we will create a buffer around the point that represents the station and the buffer will have a fixed distance of 1000 meters.
 
-As you may know from creating buffers in QGIS, you are able to specify a variety of things when using this tool. That is, in addition to the distance of the buffer, we can specify things like the amount of segments it will consists of or whether the result will be dissolved into a single feature. (If you do not know exactly what this means, do not worry, it is not important to this exercise!) 
+As you may know from creating buffers in QGIS, you are able to specify a variety of things when using this tool. That is, in addition to the distance of the buffer, we can specify things like the number of segments it will consist of or whether the result will be dissolved into a single feature. (If you do not know exactly what this means, do not worry, it is not important to this exercise!) 
 
 When we use the buffer tool in our console, we have to provide two parameters. The first one specifies which processing tool we want to use (the buffer tool). The second parameter actually takes a dictionary as input. 
 
 As described `here <https://anitagraser.com/pyqgis-101-introduction-to-qgis-python-programming-for-non-programmers/pyqgis-101-running-processing-tools/>`__
 : “The dictionary has multiple items and each item consists of a key (e.g. ‘INPUT’) and a value (e.g. the uri variable). Therefore, items are often referred to as key-value pairs.”
 
-Basically, the dictionary contains all setting that we would want to specify for the execution of the tool. We will not go into detail about every setting, but only focus on the “INPUT” and “DISTANCE” keys. The value of the “INPUT” key should be the layer that the buffers should be based on. In our case, this concerns the Trainstation layer. Recall that we stored this layer in the variable “Trainstation”. Further, the “DISTANCE” key should have be paired to the value representing the fixed distance, 1000 meters.
+Basically, the dictionary contains all settings that we would want to specify for the execution of the tool. We will not go into detail about every setting, but only focus on the “INPUT” and “DISTANCE” keys. The value of the “INPUT” key should be the layer that the buffers should be based on. In our case, this concerns the Trainstation layer. Recall that we stored this layer in the variable “Trainstation”. Further, the “DISTANCE” key should have been paired to the value representing the fixed distance, 1000 meters.
 
 The dictionary that we can use to specify these settings could look like this.
 
@@ -247,12 +247,12 @@ We can chain processing tools so that the output of one becomes the input for th
     
 We can then use the variable “BufferLayer” as a reference to the output layer of the buffer algorithm in a subsequent function.
 
-Please check out the coding answer for the advanced exercise to see how this can be implemented in practise.
+Please check out the coding answer for the advanced exercise to see how this can be implemented in practice.
 
 9. Advanced Exercise
 ^^^^^^^^^^^^^^^^^^^^^
 
-Now that you have had some practice with the Python console commands, you can try the exercise below which combines the functions that we have dealt with so far. The correct results for each step are provided and the used code is listed in the next section.
+Now that you have had some practice with the Python console commands, you can try the exercise below which combines the functions that we have dealt with so far. The correct results for each step are provided and the utilized code is listed in the next section.
 
 Please use a WGS 84 / Pseudo-Mercator projection (EPSG: 3857). You can set this at the bottom right of your QGIS window. For more information see `here <https://docs.qgis.org/3.4/en/docs/user_manual/working_with_projections/working_with_projections.html>`__ and `here <https://docs.qgis.org/3.4/en/docs/gentle_gis_introduction/coordinate_reference_systems.html>`__
 .
@@ -280,7 +280,7 @@ The remaining buildings are shown here in blue. Those are the two buildings that
 
 Hint: Use the Extract by Attribute algorithm to find the building that satisfies the minimum size demand. 
 
-The remaining buildings looks like this. If you open the attribute table, you will be able to find the ID number of this building to be “3”.
+The remaining buildings look like this. If you open the attribute table, you will be able to find the ID number of this building to be “3”.
 
 .. image:: https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/images/02_01/10.png?raw=true
 

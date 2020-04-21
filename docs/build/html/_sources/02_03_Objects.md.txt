@@ -18,12 +18,12 @@
 # Classes, Objects and Instances
 
 ## 1. Object Oriented Programming
-Python is a so called **"object oriented"** programming language. Throughout the previous tutorials in this sequence, you have already encountered numerous objects. Whenever we defined a variable, for example a string variable that stored your name, we were creating objects. These objects contain data, which can concern both properties (like your age, a list of names of people that take a course, etc.) or procedures (like a function). 
+Python is a so-called **"object oriented"** programming language. Throughout the previous tutorials in this sequence, you have already encountered numerous objects. Whenever we defined a variable, for example a string variable that stored your name, we were creating objects. These objects contain data, which can concern both properties (like your age, a list of names of people that take a course, etc.) or procedures (like a function). 
 
 ## 2. Classes
 Classes can be understood as blueprints or templates for objects. They define a structure for storing the data related to a particular type of objects. 
 
-Consinder for example a situation where you want to keep a record of the users of a program. For each user, we will need to store a number of properties, such as their username, email adress, password, etc. Since these properties will be the same for every user, we can efficiently use a class to predefine what should and can be stored regarding each user. 
+Consider for example a situation where you want to keep a record of the users of a program. For each user, we will need to store several properties, such as their username, email address, password, etc. Since these properties will be the same for every user, we can efficiently use a class to predefine what should and can be stored regarding each user. 
 
 ![](../../images/02_03/1.png)
 
@@ -42,11 +42,11 @@ Consinder for example a situation where you want to keep a record of the users o
 ****
 
 ## 3. Class Objects / Instances
-When we create an object based on a class, we "copy" the datastructure defined by the class (the blueprint) and fill in the actual values that are applicable. The object that is created is called an **instance** of the class. The class functions as a guide for knowing which information can and should be stored for each instance.
+When we create an object based on a class, we "copy" the data structure defined by the class (the blueprint) and fill in the actual values that are applicable. The object that is created is called an **instance** of the class. The class functions as a guide for knowing which information can and should be stored for each instance.
 
 Going back to our example regarding the users of a program, each user would be an instance of the class. For each user we copy the blueprint of the information we need to store and we fill in the values for each individual.
 
-Creating an object of an class is called **"initiating the class"**. There is no limit to the amount of instance that can be created. All instances have in common the attributes that are stored and the bahavior related to the class. 
+Creating an object of a class is called **"initiating the class"**. There is no limit to the number of instances that can be created. All instances have in common the attributes that are stored and the behavior related to the class. 
 
 ![](../../images/02_03/2.png)
 
@@ -65,7 +65,7 @@ Creating an object of an class is called **"initiating the class"**. There is no
 **Class objects consist of:**
 1. **An identity**, which refers to the unique name of the object. Remember, each instance of a class is a unique, individual object that we can specifically refer to in our code.
 2. **A states**, which is captured by the defined properties. For example, the username and age of a user describe the state of the instance.
-3. **The bahaviors**, which are captured in specific functions (methods) that relate to the class. You will find some examples in later sections.
+3. **The behaviors**, which are captured in specific functions (methods) that relate to the class. You will find some examples in later sections.
 
 
 ![](../../images/02_03/3.png)
@@ -85,7 +85,7 @@ Creating an object of an class is called **"initiating the class"**. There is no
 
 ## 4. Creating a Class in Python
 
-Declaring an object or initiating a class refers to creating an instance of a class. To do this, we first need to define the class. This is done using the ```class``` keyword, follow by a colon. We then indent the next line and start defining attributes and methods (functions that capture the behaviors).
+Declaring an object or initiating a class refers to creating an instance of a class. To do this, we first need to define the class. This is done using the ```class``` keyword, followed by a colon. We then indent the next line and start defining attributes and methods (functions that capture the behaviors).
 
 ```python
 class User:
@@ -109,7 +109,7 @@ In contrast to class attributes, instance attributes are unique properties of cl
 
 In our example of the ```User``` class, instance attributes concern the real name of the user, age, email and anything else that is user-specific. 
 
-These inistance specific properties can be specified using the ```__init__()``` function. This function assigns values to instance properties upon initiation of a class. That is, whenever you create a new instance, this function will run automatically.
+These instance-specific properties can be specified using the ```__init__()``` function. This function assigns values to instance properties upon initiation of a class. That is, whenever you create a new instance, this function will run automatically.
 
 As you can see below, ```__init__()``` in our example takes as first argument ```self```. This refers to the instance at hand. In our case, this is a specific user. As we will see later, we do not have to provide a value for this argument when we create an instance. The reason for this is that Python will provide it for us. 
 
@@ -134,7 +134,7 @@ A **method** is very similar to a function, but it is associated with a specific
 
 <div class="info">
 
-**NOTE: What is identation?**
+**NOTE: What is indentation?**
 Are you not sure what **indentation** is and why it is so important in Python? Please check out the section on "Indentation" on the [help page](06_Help.md). You will find everything you need to know about indentation there!
 
 </div>
@@ -148,7 +148,7 @@ Do you want to have another look at how you can call and formulate functions? Cl
 </div>
 <br/>
 
-To illustrate, lets return to our previous example. We will add a method to the ```User``` class which simulates a message stating the user has logged on (by printing the message to the console).
+To illustrate, let us return to our previous example. We will add a method to the ```User``` class which simulates a message stating the user has logged on (by printing the message to the console).
 
 
 ```python
@@ -184,7 +184,7 @@ class User:
 
 ## 5. Create an Instance of a Class
 
-Now that we have developed a class, it is time to create instances. Recall that a class is basically a blueprint for objects. When we initiate a class, we create an instance which follow this blueprint, but with actual values filled in for the properties.
+Now that we have developed a class, it is time to create instances. Recall that a class is a blueprint for objects. When we initiate a class, we create an instance that follows this blueprint, but with actual values filled in for the properties.
 
 We can store an instance of a class to a variable. For example we can run ```Marjolein = User()``` to create the user "Marjolein", based on the class ```User```. The class attributes of the ```User``` (the user type) are copied for the instance "Marjolein". However, we also need to specify the user-specific values to create the instance. Those values can be specified as arguments ```Marjolein = User("Marjolein", 25, "marjolein@email.nl")```. These arguments will be passed on to the ```__init__()``` function which we specified, which will ensure that the specific values are assigned to the instance variables. (Be aware to provide the arguments in the same order in which they are used in ```__init__()```.)
 
@@ -216,7 +216,7 @@ print(Marjolein.age)
 ### Exercise 5: Creating an Instance of your Class
 <div class="exercise"><strong>Now that you are done developing your class, we can start to create an instance of it.</strong><br/><br/>
 
-* Create an instance of your class. Be aware of the datatypes of the arguments that you provide. If the attribute is stored as a string value, make sure that you actually pass a string as an argument.
+* Create an instance of your class. Be aware of the datatypes of the arguments that you provide. If the attribute is stored as a string value, make sure that you pass a string as an argument.
 * Print the value of one of the class attributes.
 * Print the value of one of the instance attributes.
 * Print a small piece of text in which you include several of the attributes of the instance you just created.

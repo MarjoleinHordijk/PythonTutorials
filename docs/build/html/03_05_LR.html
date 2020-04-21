@@ -197,7 +197,7 @@
 </head>
 <body><div class="section" id="logistic-regression-using-python">
 <h1>Logistic Regression Using Python<a class="headerlink" href="#logistic-regression-using-python" title="Permalink to this headline">¶</a></h1>
-<p>Logistic regression is a classification algorim which can be used to predict the membership to a particular category based on attributes. For example, we can create a logistic regression model that can estimate the main mode of transport of a person based on characteristics of that individual. First we train (‘fit’) the model with a trainingset. We can then test the performance of our model using a test set. We do so by comparing predicted categories to actual categories. To help us, there are several metric available to assess the performance.</p>
+<p>Logistic regression is a classification algorithm that can be used to predict the membership to a particular category based on attributes. For example, we can create a logistic regression model that can estimate the main mode of transport of a person based on the characteristics of that individual. First we train (‘fit’) the model with a training set. We can then test the performance of our model using a test set. We do so by comparing predicted categories to actual categories. To help us, there are several metrics available to assess the performance.</p>
 <p>In this tutorial we will use <code class="docutils literal notranslate"><span class="pre">Pandas</span></code>, <code class="docutils literal notranslate"><span class="pre">Numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> and <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> to estimate a MNL model and present the results. You can download and install these packages manually using pip if you. If you are using the Anaconda distribution of Python, you will find most of them installed already. Alternatively, you can consider using <a class="reference external" href="https://dataaspirant.com/2016/03/22/python-datamining-packages-virtual-environment-setup-in-ubuntu/">this virtual environment setup</a> for data mining.</p>
 <div class="section" id="loading-the-dataset">
 <h2>1. Loading the Dataset<a class="headerlink" href="#loading-the-dataset" title="Permalink to this headline">¶</a></h2>
@@ -215,8 +215,8 @@
 </ul>
 </li>
 </ul>
-<p>We will use this data to estimate a MNL model. Based on this model we can predict the probability that a person’s main mode of transport is a car.</p>
-<p>Start by importing the required packages. Next, specifying the path to the dataset in your script. Then, use Pandas to load the data into a Pandas dataframe object. We capture this code in a function called <code class="docutils literal notranslate"><span class="pre">loadData()</span></code>.</p>
+<p>We will use this data to estimate a logistic regression model. Based on this model we can predict the probability that a person’s main mode of transport is a car.</p>
+<p>Start by importing the required packages. Next, specifying the path to the dataset in your script. Then, use Pandas to load the data into a Pandas data frame object. We capture this code in a function called <code class="docutils literal notranslate"><span class="pre">loadData()</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">linear_model</span>
@@ -235,7 +235,7 @@
 <div class="exercise"><p><strong>We already used Pandas in <a class="reference internal" href="03_01_CSV.html"><span class="doc">this</span></a> tutorial on dealing with CSV data. You can try the exercises below to test your knowledge.</strong></p>
 <ol class="simple">
 <li><p>Determine the number of observations in the dataset. Print this in a sentence.</p></li>
-<li><p>Determine the number of variables (colomns) in the dataset. Print this in a sentence.</p></li>
+<li><p>Determine the number of variables (columns) in the dataset. Print this in a sentence.</p></li>
 <li><p>Print the headers of the dataset.</p></li>
 </ol>
 </div>
@@ -269,7 +269,7 @@
 <hr class="docutils" />
 <div class="section" id="exercise-2-pandas-dataframes">
 <h3>Exercise 2: Pandas Dataframes<a class="headerlink" href="#exercise-2-pandas-dataframes" title="Permalink to this headline">¶</a></h3>
-<div class="exercise"><p>Confirm that indeed the number of observations in the test dataset is 30 and in the trainingsset 70.</p>
+<div class="exercise"><p>Confirm that indeed the number of observations in the test dataset is 30 and in the training set 70.</p>
 </div>
 <br/></div>
 </div>
@@ -299,7 +299,7 @@
 <h2>4. Evaluating the Results<a class="headerlink" href="#evaluating-the-results" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="accuracy">
 <h3>4.1 Accuracy<a class="headerlink" href="#accuracy" title="Permalink to this headline">¶</a></h3>
-<p>To evaluate the quality of our model, we can use the test dataset and calculate the accuracy metric. This measure indicates how well we are able to predict the travel mode based on the model.</p>
+<p>To evaluate the quality of our model, we can use the test dataset and calculate the accuracy metric. This measure indicates how well we can predict the travel mode based on the model.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">linear_model</span>
@@ -335,10 +335,10 @@
 <hr class="docutils" />
 <div class="section" id="confusion-matrix">
 <h3>4.2 Confusion Matrix<a class="headerlink" href="#confusion-matrix" title="Permalink to this headline">¶</a></h3>
-<p>A confusion matrix provides an interesting overview of correct and wrong predictions. The colomns represent the predicted classes (= predicted main mode of travel), whereas the rows relate to the actual classes in the dataset (= actual main mode of travel). The cells show the number of cases. Hence, in the diagonal cells, we see the correctly predicted cases. In the non-diagonal cells we can see where mistakes were made. In this was, we can evaluate if our model makes mistakes more often in particular situations.</p>
-<p>We add the function <code class="docutils literal notranslate"><span class="pre">confusionMatrix()</span></code> to create an visualize the matrix.</p>
+<p>A confusion matrix provides an interesting overview of correct and wrong predictions. The columns represent the predicted classes (= predicted main mode of travel), whereas the rows relate to the actual classes in the dataset (= actual main mode of travel). The cells show the number of cases. Hence, in the diagonal cells, we see the correctly predicted cases. In the non-diagonal cells we can see where mistakes were made. In this way, we can evaluate if our model makes mistakes more often in particular situations.</p>
+<p>We add the function <code class="docutils literal notranslate"><span class="pre">confusionMatrix()</span></code> to create and visualize the matrix.</p>
 <ul class="simple">
-<li><p>First, we store the predicted y values to the variable <code class="docutils literal notranslate"><span class="pre">predicted_y</span></code>. We generate these values using the <code class="docutils literal notranslate"><span class="pre">.predict()</span></code> function on our model and passing the x variable of the trainingsset as argument.</p></li>
+<li><p>First, we store the predicted y values to the variable <code class="docutils literal notranslate"><span class="pre">predicted_y</span></code>. We generate these values using the <code class="docutils literal notranslate"><span class="pre">.predict()</span></code> function on our model and passing the x variable of the training set as argument.</p></li>
 <li><p>Next, we use <code class="docutils literal notranslate"><span class="pre">.confusion_matrix()</span></code> to generate the confusion matrix. We need to pass the actual and predicted y values of the test dataset to this function.</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
@@ -376,7 +376,7 @@
 <li><p>walk</p></li>
 </ol>
 </li>
-<li><p>Next, we create a matrix with three colomns and three rows, representing the predicted and actual classes. The colors of the cells in our matrix are based on the frequencies.</p></li>
+<li><p>Next, we create a matrix with three columns and three rows, representing the predicted and actual classes. The colors of the cells in our matrix are based on the frequencies.</p></li>
 <li><p>Finally, we can use <code class="docutils literal notranslate"><span class="pre">.show()</span></code> to display the plot in a viewer.</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
@@ -413,7 +413,7 @@
 <div class="exercise"><p>Have a look at the confusion matrix and answer the questions below.</p>
 <ol class="simple">
 <li><p>Does the matrix remain the same after you rerun the script several times? Why (not)?</p></li>
-<li><p>Does de model predict equally wel for each transport mode?</p></li>
+<li><p>Does de model predict equally well for each transport mode?</p></li>
 <li><p>For which modes does the model have trouble predicting?</p></li>
 <li><p>For which transport mode are the predictions the most accurate?</p></li>
 <li><p>Have a look at the original dataset. Look closely at the combinations of the predictor variables and the transport modes. Can you find a reason why the predictions for one transport mode are particularly accurate?</p></li>
@@ -436,8 +436,8 @@
 <ol class="simple">
 <li><p>Which category is predicted best by the model?</p></li>
 <li><p>Do the precision, recall and f-scores correspond to the confusion matrix? Are the well and badly predicted categories the same?</p></li>
-<li><p>Based on the report, could you use this model to determine if someone uses the car as main transport mode?</p></li>
-<li><p>Based on the report, could you use the model to dtermine if one uses the bike as main transport mode?</p></li>
+<li><p>Based on the report, could you use this model to determine if someone uses the car as their main transport mode?</p></li>
+<li><p>Based on the report, could you use the model to determine if one uses the bike as their main transport mode?</p></li>
 </ol>
 </div>
 <br/></div>

@@ -31,13 +31,13 @@ If you quit Spyder (or another editor/IDE) and enter it again, the variables or 
 
 Fortunately, we can use scripting to store the sequence of commands for later use. In this way we can easily run the code again in one go. 
 
-To illustrate, imagine you used a set of commands to clean a dataset with sensor data. Now that you finished cleaning the data from one sensor, you need to move on to other sensors. Since the data will likely show similar errors, cleaning both datasets will require similar procedures. Therefore it is usefull to store the steps that you took for the first dataset, so you can apply them again. This can safe you a lot of time! Alternatively, you might want to help a peer student out to clean his dataset. You could simply send the script you developed to this person and he/she will also be able to repeat your procedures.
+To illustrate, imagine you used a set of commands to clean a dataset with sensor data. Now that you finished cleaning the data from one sensor, you need to move on to other sensors. Since the data will likely show similar errors, cleaning both datasets will require similar procedures. Therefore it is useful to store the steps that you took for the first dataset, so you can apply them again. This can save you a lot of time! Alternatively, you might want to help a peer student out to clean his dataset. You could simply send the script you developed to this person and he/she will also be able to repeat your procedures.
 
 ### 1.1 Scripts versus Modules
 
 So, what is the difference between scripts and modules? As we discussed [here](02_01_Modules&Packages.md), modules provide sets of functions that we can use in our scripts. We do not "run" modules, but we use pieces of them in our scripts. 
 
-A script, on the other hand, consists of lines of code which will run sequentially. It may contain definitions of function, like in modules, but these functions are called within the script.
+A script, on the other hand, consists of lines of code that will run sequentially. It may contain definitions of function, like in modules, but these functions are called within the script.
 
 Hence, modules are created to be imported, whereas scripts are developed to be executed.
 
@@ -64,7 +64,7 @@ def myFunction(name):
     print("My name is " + name + ".")
 ```
 
-If you want to call this function from the console, you would have to run ```myFunction(name)``` and insert a name (string) as argument. Now, if we want to run this function in our script, we can simply add this to our document. 
+If you want to call this function from the console, you would have to run ```myFunction(name)``` and insert a name (string) as an argument. Now, if we want to run this function in our script, we can simply add this to our document. 
 
 However, be aware of the following! If you call a function in a script, make sure that the definition of the function is located *BEFORE* the piece of code which calls it. This is important because otherwise Python will "not know about" the function yet. It will spit you an error saying the function has not yet been defined.
 
@@ -84,7 +84,7 @@ myFunction("Marjolein")
 <div class="exercise"><strong>Try out the exercises below to see if you understand how to define and call functions within a script.</strong><br/><br/>
 
 * Write two simple functions ```function1()``` & ```function2()```, each of which take at least one argument. Add both of them to a .py file.
-* Specify variables which store potential values for each argument.
+* Specify variables that store potential values for each argument.
 * Within the script, call both functions using the variables you just specified.
 * Where did you locate 1) the definitions of the functions, 2) the specifications of the variable and 3) the code to call the functions? Why did you use this particular order in your script?
 * Run the script and check if the results are as expected.
@@ -94,14 +94,14 @@ myFunction("Marjolein")
 
 ****
 
-Ofcourse, the example above is very minimalistic. However, scripts can cover large processes. For example, you could write a script that includes data collection, cleaning and analyses. This is particularly useful if you want to repeat this whole process serveral times. 
+Of course, the example above is very minimalistic. However, scripts can cover large processes. For example, you could write a script that includes data collection, cleaning and analyses. This is particularly useful if you want to repeat this whole process several times. 
 
-Often, these scripts will contain multiple functions which are called in a particular sequence. If multiple functions use to the same variable, it is important to ensure that this variable is defined globally or passed along as argument. To understand why this is necessary, you should be aware of the difference between local and global variables.
+Often, these scripts will contain multiple functions that are called in a particular sequence. If multiple functions use the same variable, it is important to ensure that this variable is defined globally or passed along as an argument. To understand why this is necessary, you should be aware of the difference between local and global variables.
 
 ### 2.1 Local Variables
-Local variables are defined wihtin a function. As such, they can only be accessed within the function itself.
+Local variables are defined within a function. As such, they can only be accessed within the function itself.
 
-If you look at the example below, you will see that borth functions that are defined print the variable ```localvar```. However, in both cases, this variable has a different value. This is possible because ```localvar``` is a local variable that is only defined within the boundaries of the function.
+If you look at the example below, you will see that both functions print the variable ```localvar```. However, in both cases, this variable has a different value. This is possible because ```localvar``` is a local variable that is only defined within the boundaries of the function.
 
 ```python
 # First function
@@ -171,13 +171,13 @@ print(tweet.text)
 * What will be the output of this function?
 * Try to develop the function.
 * Call the function twice from within the script, using different search criteria. Run the script to check the results. (Note: If you change the maximum amount of tweets, you will have to adapt the way you print their content. Hint: Use a loop.)
-* Store the two sets of search criteria in a list (you can extent this list with more sets if you want). Write a loop to call the function for all sets in the list.
+* Store the two sets of search criteria in a list (you can extend this list with more sets if you want). Write a loop to call the function for all sets in the list.
 * **Advanced:** Try to extent the script you wrote by following the steps below:
 
-    * Adapt the function you have created so that each of the tweets that is collected is added to a list. (Note that this list should be globally accessible!)
-    * Add another function which iterates over the list and prints the hashtags of all tweets. 
-    * Next, add another function which prints a sentence stating how many tweets were collected in total. 
-    * Within the script, call the function for collecting the tweets twice, with different sets of search criteria. Call the other functions afterwards.
+    * Adapt the function you have created so that each of the tweets that are collected is added to a list. (Note that this list should be globally accessible!)
+    * Add another function that iterates over the list and prints the hashtags of all tweets. 
+    * Next, add another function that prints a sentence stating how many tweets were collected in total. 
+    * Within the script, call the function for collecting the tweets twice, with different sets of search criteria. Call the other functions afterward.
     * Run the script.
 
 </div>

@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Path Analysis Using Python" href="03_04_PathAnalysis.html" />
+    <link rel="next" title="Data Visualization" href="03_04_Visualization.html" />
     <link rel="prev" title="Working with mySQL Databases" href="03_02_mySQL.html" /> 
 </head>
 
@@ -105,8 +105,8 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="03_04_PathAnalysis.html">Path Analysis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03_05_MNL.html">Multi Nominal Logic Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_04_Visualization.html">Data Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_05_LR.html">Logistic Regression Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_06_NN.html">Neural Networks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_07_NLP.html">Natural Language Processing</a></li>
 </ul>
@@ -199,8 +199,8 @@
 <h1>Linear Regression Analysis Using Python<a class="headerlink" href="#linear-regression-analysis-using-python" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="in-this-tutorial">
 <h2>In this Tutorial<a class="headerlink" href="#in-this-tutorial" title="Permalink to this headline">¶</a></h2>
-<p>In this tutorial, we will discuss how to perform a linear regression analysis using Python. Specifically, we will use the well known package <code class="docutils literal notranslate"><span class="pre">NumPy</span></code>. This package allows you to work with multi dimensional data arrays and perform particular calculations with them. You can find more information about this package in its <a class="reference external" href="https://docs.scipy.org/doc/numpy/user/index.html">official guide</a>. Additionally, we will use the <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> library to perform the actual analysis. Please make sure you have both installed!</p>
-<p>We will not go into details regarding the theory on regression analysis and the interpretation of outcomes. Rather, we will focus on how to produce results using Python.</p>
+<p>In this tutorial, we will discuss how to perform a linear regression analysis using Python. Specifically, we will use the well-known package <code class="docutils literal notranslate"><span class="pre">NumPy</span></code>. This package allows you to work with multidimensional data arrays and perform particular calculations with them. You can find more information about this package in its <a class="reference external" href="https://docs.scipy.org/doc/numpy/user/index.html">official guide</a>. Additionally, we will use the <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> library to perform the actual analysis. Please make sure you have both installed!</p>
+<p>We will not go into detail regarding the theory of regression analysis and the interpretation of outcomes. Rather, we will focus on how to produce results using Python.</p>
 <div class="info"><p><strong>NOTE: How to install Numpy and scikit-learn?</strong>
 Are you not sure how to install Numpy? Please check out the <a class="reference internal" href="02_01_Modules&amp;Packages.html"><span class="doc">tutorial on Modules and Packages</span></a>. If you are working with an Anaconda distribution of Python, NumPy should already be installed.</p>
 </div>
@@ -211,7 +211,7 @@ Are you not sure how to install Numpy? Please check out the <a class="reference 
 <div class="section" id="import-packages-and-classes">
 <h3>1.1 Import Packages and Classes<a class="headerlink" href="#import-packages-and-classes" title="Permalink to this headline">¶</a></h3>
 <p>First of all, we should start by importing <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> and the classes that we need from <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> at the start of our script.</p>
-<p>Note that we can import <code class="docutils literal notranslate"><span class="pre">numpy</span></code> as <code class="docutils literal notranslate"><span class="pre">np</span></code> to reduce the amount of typing we have to do, and to make the code more readble. Further, to import the <code class="docutils literal notranslate"><span class="pre">LinearRegression</span></code> class from <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> we can use the <code class="docutils literal notranslate"><span class="pre">from</span></code> keyword.</p>
+<p>Note that we can import <code class="docutils literal notranslate"><span class="pre">numpy</span></code> as <code class="docutils literal notranslate"><span class="pre">np</span></code> to reduce the amount of typing we have to do, and to make the code more readable. Further, to import the <code class="docutils literal notranslate"><span class="pre">LinearRegression</span></code> class from <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> we can use the <code class="docutils literal notranslate"><span class="pre">from</span></code> keyword.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
 </pre></div>
@@ -222,7 +222,7 @@ Are you not sure how to install Numpy? Please check out the <a class="reference 
 <p>Next, we will need to specify the data that we want to work with. If you are familiar with regression analysis, you will know that two inputs are applicable: 1) the <strong>regressors</strong> (<code class="docutils literal notranslate"><span class="pre">x</span></code>) and 2) the <strong>predictor</strong> (<code class="docutils literal notranslate"><span class="pre">y</span></code>).</p>
 <p>We can capture this data in two variables, both of which are <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> arrays (class: <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>).</p>
 <ol class="simple">
-<li><p>The <strong>predictor</strong> (<code class="docutils literal notranslate"><span class="pre">y</span></code>) should be provided as a one-dimensional array with one row listing the predictor values. This can be done using <code class="docutils literal notranslate"><span class="pre">np.array()</span></code> and providing a list of the values as argument.</p></li>
+<li><p>The <strong>predictor</strong> (<code class="docutils literal notranslate"><span class="pre">y</span></code>) should be provided as a one-dimensional array with one row listing the predictor values. This can be done using <code class="docutils literal notranslate"><span class="pre">np.array()</span></code> and providing a list of the values as an argument.</p></li>
 <li><p>The <strong>regressors</strong> (<code class="docutils literal notranslate"><span class="pre">x</span></code>) should be provided in a two-dimensional array with one colomn and one row per regressor value. As with the predictor, we use <code class="docutils literal notranslate"><span class="pre">np.array()</span></code>. We then transpose the array using <code class="docutils literal notranslate"><span class="pre">.reshape((-1,1))</span></code>.</p></li>
 </ol>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
@@ -238,7 +238,7 @@ Are you not sure how to install Numpy? Please check out the <a class="reference 
 <h3>Exercise 1: NumPy Arrays (Optional)<a class="headerlink" href="#exercise-1-numpy-arrays-optional" title="Permalink to this headline">¶</a></h3>
 <div class="exercise"><strong>You might not be familiar with NumPy arrays yet. If so, you can have a look at the exercises below.</strong><br/><br/><ul class="simple">
 <li><p>Print <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> and evaluate the shape of the arrays.</p></li>
-<li><p>How many colomns do each of the arrays have?</p></li>
+<li><p>How many columns do each of the arrays have?</p></li>
 <li><p>And how many rows?</p></li>
 <li><p>What are the dimensions of the arrays?</p></li>
 <li><p>Create a one-dimensional NumPy array with the values between 0 and 100 with steps of 5 in between. (Hint: You learned how to do this quickly when you were learning about list operators in <a class="reference internal" href="01_02_LanguageFeatures.html"><span class="doc">this</span></a> tutorial!)</p></li>
@@ -291,7 +291,7 @@ Are you a bit shaky when it comes to classes and instances? Please check out the
 </div>
 <div class="section" id="assessing-the-results">
 <h3>1.4 Assessing the Results<a class="headerlink" href="#assessing-the-results" title="Permalink to this headline">¶</a></h3>
-<p>We can obtain R<sup>2</sup> using the <code class="docutils literal notranslate"><span class="pre">.score()</span></code> method. You will need to provide this methods again with <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> as arguments.</p>
+<p>We can obtain R<sup>2</sup> using the <code class="docutils literal notranslate"><span class="pre">.score()</span></code> method. You will need to provide these methods again with <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> as arguments.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
 
@@ -337,7 +337,7 @@ Are you a bit shaky when it comes to classes and instances? Please check out the
 <hr class="docutils" />
 <div class="section" id="predicting">
 <h3>1.5 Predicting<a class="headerlink" href="#predicting" title="Permalink to this headline">¶</a></h3>
-<p>Now that we have fit the model to the data, we can use it to predict  values. We do so using the <code class="docutils literal notranslate"><span class="pre">.predict()</span></code> method.</p>
+<p>Now that we have fit the model to the data, we can use it to predict values. We do so using the <code class="docutils literal notranslate"><span class="pre">.predict()</span></code> method.</p>
 <p>If we pass <code class="docutils literal notranslate"><span class="pre">.predict()</span></code> the regressor variable <code class="docutils literal notranslate"><span class="pre">x</span></code>, we can see what values the model predicts for <code class="docutils literal notranslate"><span class="pre">y</span></code>. If we compare these values to our actual values, we can get an indication of the quality of our model.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
@@ -374,7 +374,7 @@ Are you a bit shaky when it comes to classes and instances? Please check out the
 <h4>Exercise 4: Forecasting<a class="headerlink" href="#exercise-4-forecasting" title="Permalink to this headline">¶</a></h4>
 <div class="exercise"><p><strong>The exercises below focus on prediction new values with a simple linear regression model.</strong></p>
 <ul class="simple">
-<li><p>Replicate the predicted y values from the first exampel above. Do they respond closely to the values in <code class="docutils literal notranslate"><span class="pre">y</span></code>? Would you expect this given the R<sup>2</sup> value?</p></li>
+<li><p>Replicate the predicted y values from the first example above. Do they respond closely to the values in <code class="docutils literal notranslate"><span class="pre">y</span></code>? Would you expect this given the R<sup>2</sup> value?</p></li>
 <li><p>Use the model to predict the value of y when x=100. Try to reason if the outcome is as expected.</p></li>
 </ul>
 </div>
@@ -384,11 +384,11 @@ Are you a bit shaky when it comes to classes and instances? Please check out the
 <hr class="docutils" />
 <div class="section" id="multiple-linear-regression-with-scikit-learn">
 <h2>2. Multiple Linear Regression with scikit-learn<a class="headerlink" href="#multiple-linear-regression-with-scikit-learn" title="Permalink to this headline">¶</a></h2>
-<p>Although the process for Multiple Linear Regression (MLR) is similar to Simple Linear Regression, we will discuss some specific considerations below. Specifically, our regressors array (<code class="docutils literal notranslate"><span class="pre">x</span></code>) will now how two colomns. That is, we will consider two regressors to fit our model.</p>
+<p>Although the process for Multiple Linear Regression (MLR) is similar to Simple Linear Regression, we will discuss some specific considerations below. Specifically, our regressors array (<code class="docutils literal notranslate"><span class="pre">x</span></code>) will now how two columns. That is, we will consider two regressors to fit our model.</p>
 <div class="section" id="importing-and-getting-the-data-ready">
 <h3>2.1 Importing and Getting the Data Ready<a class="headerlink" href="#importing-and-getting-the-data-ready" title="Permalink to this headline">¶</a></h3>
 <p>As we did with the Simple Linear Regression, we will need to import NumPy and the <code class="docutils literal notranslate"><span class="pre">LinearRegression</span></code> class from <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code>.</p>
-<p>The specification of the <strong>predictor</strong> (<code class="docutils literal notranslate"><span class="pre">y</span></code>) values is analogous.However, we will now need to specify multiple <strong>regressors</strong>. That is, <code class="docutils literal notranslate"><span class="pre">x</span></code> will need to have two colomns (one for each regressor). To do this, we simply make a list of value-pairs. Each pair provides the two regressor values (x1 and x2) for one particular predictor value (y).</p>
+<p>The specification of the <strong>predictor</strong> (<code class="docutils literal notranslate"><span class="pre">y</span></code>) values is analogous. However, we will now need to specify multiple <strong>regressors</strong>. That is, <code class="docutils literal notranslate"><span class="pre">x</span></code> will need to have two columns (one for each regressor). To do this, we simply make a list of value-pairs. Each pair provides the two regressor values (x1 and x2) for one particular predictor value (y).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
 <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">PolynomialFeatures</span>
@@ -434,7 +434,7 @@ Are you a bit shaky when it comes to classes and instances? Please check out the
 <hr class="docutils" />
 <div class="section" id="exercise-5-multiple-linear-regression">
 <h4>Exercise 5: Multiple Linear Regression<a class="headerlink" href="#exercise-5-multiple-linear-regression" title="Permalink to this headline">¶</a></h4>
-<div class="exercise"><p><strong>Run the example code for performing a MLR analysis.</strong></p>
+<div class="exercise"><p><strong>Run the example code for performing an MLR analysis.</strong></p>
 <ul class="simple">
 <li><p>Is the intercept of the regression line positive or negative?</p></li>
 <li><p>Of what datatype is <code class="docutils literal notranslate"><span class="pre">.coef_</span></code>? How many elements does it contain? Why is this the case?</p></li>
@@ -460,7 +460,7 @@ Are you a bit shaky when it comes to classes and instances? Please check out the
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="03_04_PathAnalysis.html" class="btn btn-neutral float-right" title="Path Analysis Using Python" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="03_04_Visualization.html" class="btn btn-neutral float-right" title="Data Visualization" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="03_02_mySQL.html" class="btn btn-neutral float-left" title="Working with mySQL Databases" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
