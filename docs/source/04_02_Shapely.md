@@ -1,3 +1,20 @@
+<html>
+<head>
+<style>
+.info {
+  background-color: #e6e6e6;
+  border-left: 6px solid #666666;
+  padding: 10px;
+}
+.exercise {
+  background-color: #e7f3fe;
+  border-left: 6px solid #2196F3;
+  padding: 10px;
+}
+</style>
+</head>
+<body>
+
 # The Shapely Module
 
 ## 1. Introduction
@@ -6,39 +23,34 @@ The Shapely Python module allows us to perform geometry operations in Python, wi
 
 Operation that we can perform using this module can be classified as:
 
-1. **_Constructive operations_** (e.g. generating buffers or centroids)
-2. **_Set-theoretic operations_** (e.g. intersection, union, etc.)
+1. **Constructive operations** (e.g. generating buffers or centroids)
+2. **Set-theoretic operations** (e.g. intersection, union, etc.)
 
 Note: If you use **Spyder** to run the code discussed in this tutorial, you will be able to see the resulting geometries by calling the instance. For example, if you created an instance called "Point1", you can type "Point1" in the console and hit enter to get a visual of the point.
 
-<span style="text-decoration:underline;">What we will discuss in this tutorial:</span>
-
+**What we will discuss in this tutorial:**
 *   How to create basic geometric object instances (Point/Line/Polygon class) using Shapely.
 *   How to create Polygon instances with holes.
 *   How to assess attributes of these instances such as coordinates, area or the distance between two points.
 
-<span style="text-decoration:underline;">What you will need:</span>
-
-
-*   You will need to have the **_Geos_**, **_Shapely_** and **_Numpy_** modules installed. You can use <code>conda install -c anaconda geos</code></strong>, <strong><code>conda install numpy</code></strong> and <strong><code>conda install -c conda-forge geopandas</code></strong> (which includes Shapely) in your command prompt (Windows) to achieve this (assuming you have [Anaconda](https://www.anaconda.com/distribution/) installed). Do not forget to run the command prompt as administrator.
+**What you will need:**
+*   You will need to have the ```Geos```, ```Shapely``` and ```Numpy``` modules installed. You can use ```conda install -c anaconda geos```, ```conda install numpy``` and ```conda install -c conda-forge geopandas``` (which includes Shapely) in your command prompt (Windows) to achieve this (assuming you have [Anaconda](https://www.anaconda.com/distribution/) installed). Do not forget to run the command prompt as administrator.
 
 ## 2. Fundamental geometric objects
 
 Points, lines and polygons are the most fundamental geometric objects and can be used to represent the world around us in a GIS. 
 
-
-
-*   A **_point_** is commonly defined by x and y coordinates, which describe its location on a two-dimensional surface. In a three dimensional system a z coordinate is included to define the height of a point.
-*   A **_line_** can be defined by a collection of interconnected points. It is bounded by two endpoints. 
-*   A **_polygon_** is defined by a collection of lines that enclose an area. It is bounded by those lines that make up the outline of the geometry. Note that internal holes may exist.
+*   A **point** is commonly defined by x and y coordinates, which describe its location on a two-dimensional surface. In a three dimensional system a z coordinate is included to define the height of a point.
+*   A **line** can be defined by a collection of interconnected points. It is bounded by two endpoints. 
+*   A **polygon** is defined by a collection of lines that enclose an area. It is bounded by those lines that make up the outline of the geometry. Note that internal holes may exist.
 
 Geometric objects can also be captured in a collection of multiple objects of the types listed above. 
 
 
 
-*   A **_multipoint_** object consists of two or more points. Its geometry is captured by a list of coordinate sets that define the included points.
-*   A **_multiline_** object consists of a collection of lines.
-*   A **_multipolygon _**object consists of multiple polygons.
+*   A **multipoint** object consists of two or more points. Its geometry is captured by a list of coordinate sets that define the included points.
+*   A **multiline** object consists of a collection of lines.
+*   A **multipolygon **object consists of multiple polygons.
 
 ![](../../images/04_02/1.png)
 
@@ -47,16 +59,16 @@ Image source: [https://automating-gis-processes.github.io/2017/lessons/L1/Geomet
 
 This tutorial was developed based on the following sources:
 
-**[https://automating-gis-processes.github.io/2017/lessons/L1/Geometric-Objects.html](https://automating-gis-processes.github.io/2017/lessons/L1/Geometric-Objects.html)**
+[https://automating-gis-processes.github.io/2017/lessons/L1/Geometric-Objects.html](https://automating-gis-processes.github.io/2017/lessons/L1/Geometric-Objects.html)
 
-**[https://shapely.readthedocs.io/en/stable/manual.html](https://shapely.readthedocs.io/en/stable/manual.html)**
+[https://shapely.readthedocs.io/en/stable/manual.html](https://shapely.readthedocs.io/en/stable/manual.html)
 
 ## 3. Create Geometric Object Instances Using Shapely
 
 The instances of geometric objects are created based on classes, as is typical for Python. For example a **_Point_** object with coordinates (1,1) can be created as follows.
 
 
-```
+```python
 from shapely.geometry import Point
 point = Point(1, 1)
 ```
@@ -67,7 +79,7 @@ point = Point(1, 1)
 A **_line_** (in Shapely called **_LineString_**) instance can be created in two ways. We can choose to first define the connection points that make up the line and use these objects to define the line geometry. Alternatively we can define the line in one go by providing the coordinates of each point in a list form.
 
 
-```
+```python
 from shapely.geometry import Point, LineString
 
 # Create three points that will define the line
@@ -88,7 +100,7 @@ line2 = LineString([(0, 0), (3, 1), (0, 3)])
 **_Polygon_** instances can only be defined by a list of at least three coordinate sets as shown below.
 
 
-```
+```python
 from shapely.geometry import Polygon
 
 polygon1 = Polygon([(0, 0), (3, 1), (0, 3)])
@@ -98,7 +110,7 @@ polygon1 = Polygon([(0, 0), (3, 1), (0, 3)])
 However, we can still use the coordinates of the points we defined earlier using a small for-loop.
 
 
-```
+```python
 from shapely.geometry import Point, Polygon
 
 # Create three points that will define the polygon outlines
@@ -117,7 +129,7 @@ However, it might be that we need a more complex polygon shape with interior hol
 Note that since multiple holes are possible, the variable `hole` is set up to contain a list of hole shapes. (Hence the double brackets `[[]]` .)
 
 
-```
+```python
 from shapely.geometry import Polygon
 
 # First we define our exterior
@@ -139,7 +151,7 @@ To perform your analysis you may be interested in particular attributes of geome
 We will use the following instances in our examples. Thus, if you want to run any of the code in the subsequent sections, please make sure that you run this piece of code below first.
 
 
-```
+```python
 from shapely.geometry import Point, LineString, Polygon
 
 # Define some points
@@ -161,10 +173,10 @@ polygon3 = Polygon(shell=exterior, holes=hole)
 
 ### General Attributes
 
-You can find out of what class an instance is using <code>type()</code></strong>.
+You can find out of what class an instance is using <code>type()```.
 
 
-```
+```python
 # Print the class of instance point 1
 print(type(point1))
 
@@ -184,10 +196,10 @@ print(type(polygon1))
 
 * The > sign indicates output.
 
-You can access the content of a variable that stores a Point, LineString or Polygon instance by simply printing it using <code>print()</code></strong>. In the case of a <strong><em>Point</em></strong> instance, this will provide you with the set of coordinates that defines the point. In the case of <strong><em>LineString</em></strong> or <strong><em>Polygon</em></strong> instances, the output will show the list of coordinate sets of the points that make up the line or polygon.
+You can access the content of a variable that stores a Point, LineString or Polygon instance by simply printing it using <code>print()```. In the case of a <strong><em>Point</em></strong> instance, this will provide you with the set of coordinates that defines the point. In the case of <strong><em>LineString</em></strong> or <strong><em>Polygon</em></strong> instances, the output will show the list of coordinate sets of the points that make up the line or polygon.
 
 
-```
+```python
 # Print the content of point1
 print(point1)
 
@@ -208,7 +220,7 @@ print(polygon1)
 Notice that the coordinates of the polygon are shown between double brackets. The reason for this is that polygons may contain holes, as we discussed before. In that case, the coordinates of the points that capture the geometry of these holes are added to the list.
 
 
-```
+```python
 # Print the content of polygon3 (which contains a hole)
 print(polygon3)
 
@@ -222,7 +234,7 @@ print(polygon3)
 You can access the x and y coordinates of a point.
 
 
-```
+```python
 # Get x coordinate of point2
 x = point2.x
 
@@ -241,7 +253,7 @@ print(y)
 We can also extract the coordinates of a point in one go. This will provide you with two numpy arrays each containing the x and y coordinate respectively.
 
 
-```
+```python
 # Get x and y coordinates of point2
 xy = point2.coords.xy
 
@@ -252,10 +264,10 @@ print(xy)
 ```
 
 
-Also, you can determine the distance between two points using <code>.distance()</code></strong>. Please note that the unit for this distance depends on the coordinate system that u have used to define your points. If you used a UTM zone projection or for example Amersfoort / RD New, the units will be in meters. However, if you used a WGS84 projection, the distance will be in decimal degrees.
+Also, you can determine the distance between two points using <code>.distance()```. Please note that the unit for this distance depends on the coordinate system that u have used to define your points. If you used a UTM zone projection or for example Amersfoort / RD New, the units will be in meters. However, if you used a WGS84 projection, the distance will be in decimal degrees.
 
 
-```
+```python
 # Determine the distance
 distance = point1.distance(point3)
 
@@ -273,7 +285,7 @@ print(distance)
 You can access the coordinates of a **_LineString_** instance similarly as with **_Point_**. Again, the output is presented as two numpy arrays. The first array contains all x coordinates, whereas the second contains all y coordinates.
 
 
-```
+```python
 # Get x and y coordinates of the points that make up line1
 line1_xy = line1.xy
 
@@ -287,7 +299,7 @@ print(line1_xy)
 You can extract the x or y coordinates using the indices. Since Python always starts counting at 0, the first array containing the x coordinates has index 0 and the second array containing the y coordinates has index 1.
 
 
-```
+```python
 # Get only the x coordinates of the points that make up line1
 line1_x = line1.xy[0]
 
@@ -303,10 +315,10 @@ print(line1_y)
 ```
 
 
-We can also determine the length of a **_LineString_** instance using <code>.length</code></strong>. 
+We can also determine the length of a **_LineString_** instance using <code>.length```. 
 
 
-```
+```python
 # Get the lenght of line1
 line1_length = line1.length
 
@@ -320,10 +332,10 @@ print(line1_length)
 
 ### Polygon Specific Attributes
 
-You can determine the centroid of a **_Polygon_** instance using <code>.centroid</code></strong>. This will generate a <strong><em>Point</em></strong> instance which you can store in a variable (in this case ```poly1_centroid```).
+You can determine the centroid of a **_Polygon_** instance using <code>.centroid```. This will generate a <strong><em>Point</em></strong> instance which you can store in a variable (in this case ```poly1_centroid```).
 
 
-```
+```python
 # Generate the centroid of polygon1
 poly1_centroid = polygon1.centroid
 
@@ -336,10 +348,10 @@ print(poly1_centroid)
 ![](../../images/04_02/7.png)
 
 
-Further, you can determine the area of a **_Polygon_** instance using <code>.area</code></strong>. Notice that, as with determining the length of a line, the unit of the area depends on the coordinate system that you used when creating the line.
+Further, you can determine the area of a **_Polygon_** instance using <code>.area```. Notice that, as with determining the length of a line, the unit of the area depends on the coordinate system that you used when creating the line.
 
 
-```
+```python
 # Determine the area of the polygon
 poly1_area = polygon1.area
 
@@ -352,10 +364,10 @@ print(poly1_area)
 ![](../../images/04_02/8.png)
 
 
-We can also determine the smallest rectangular area that a **_Polygon_** instance fits in using <code>.bounds</code></strong>. This generates a �bounding box� around the polygon.
+We can also determine the smallest rectangular area that a **_Polygon_** instance fits in using <code>.bounds```. This generates a *bounding box* around the polygon.
 
 
-```
+```python
 # Generate the bounding box for polygon1
 poly1_bounds = polygon1.bounds
 
@@ -368,10 +380,10 @@ print(poly1_bounds)
 ![](../../images/04_02/9.png)
 
 
-Furthermore, we can determine the total length of the outline by using <code>.exterior</code></strong> to extract the exterior and <strong><code>.length</code></strong> to determine its length. 
+Furthermore, we can determine the total length of the outline by using <code>.exterior``` to extract the exterior and <strong><code>.length``` to determine its length. 
 
 
-```
+```python
 # Extract the exterior of polygon1
 poly1_exterior = polygon1.exterior
 
