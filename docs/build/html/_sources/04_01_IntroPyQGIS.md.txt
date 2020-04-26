@@ -53,10 +53,10 @@ Now that we know where to find the Python Console, we can start using it to load
 
 You will need four layers for this exercise:
 
-- A point layer containing the location of the train station of Eindhoven.
-- A polyline layer with all roads in Eindhoven.
-- A polygon layer with containing buildings.
-- A polygon layer with the outline of Eindhoven.
+- [A point layer containing the location of the train station of Eindhoven.](https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/files/04_01/Trainstation.gpkg?raw=true)
+- [A polyline layer with all roads in Eindhoven.](https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/files/04_01/Roads.gpkg?raw=true)
+- [A polygon layer with containing buildings.](https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/files/04_01/Buildings.gpkg?raw=true)
+- [A polygon layer with the outline of Eindhoven.](https://github.com/MarjoleinHordijk/PythonTutorials/blob/master/files/04_01/Eindhoven.gpkg?raw=true)
 
 Please locate the geopackage (.gpkg) files on your hard drive. You can view the location by right-clicking the file as shown below.
 
